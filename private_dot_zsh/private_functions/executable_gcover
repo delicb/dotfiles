@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+gcover() {
+	t="/tmp/go-cover.$$.tmp"
+	go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
+}
+
+gcover "$@"

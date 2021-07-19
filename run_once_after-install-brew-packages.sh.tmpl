@@ -1,0 +1,39 @@
+#!/bin/sh
+{{- if ( eq .chezmoi.os "darwin" ) }}
+
+if ! command -v brew &> /dev/null
+then
+    echo "brew not found"
+    exit 1
+fi
+
+brew tap homebrew/cask
+brew tap homebrew/core
+brew tap homebrew/cask-fonts
+
+brew install bat
+brew install coreutils
+brew install curl
+brew install direnv
+brew install exa
+brew install git
+brew install git-delta
+brew install git-extras
+brew install pure
+brew install ripgrep
+brew install vim
+brew install watch
+brew install wget
+brew install zplug
+grew install jq
+
+brew install --cask 1Password
+brew install --cask 1password-cli
+brew install --cask alfred
+brew install --cask bettertouchtool
+brew install --cask font-inconsolata
+brew install --cask font-hasklig
+brew install --cask font-input
+
+{{ end }}
+

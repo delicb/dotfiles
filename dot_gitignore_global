@@ -1,0 +1,10 @@
+*~
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+
+# Direnv stuff
+.direnv
+.envrc

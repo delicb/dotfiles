@@ -1,0 +1,15 @@
+Host delic.rs
+  Port 22202
+Host home.delic.rs
+  User del-boy
+  Port 22
+Host *
+  ServerAliveInterval 240
+  ServerAliveCountMax 30
+{{- if (eq .chezmoi.os "darwin" ) }}
+  UseKeychain yes
+  ControlPath ~/.ssh/%C.sock
+  ControlMaster auto
+  ControlPersist 10m
+{{- end }}
+

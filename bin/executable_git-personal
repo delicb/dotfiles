@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git config user.email 'bojan@delic.rs'
+git config user.name 'Bojan Delić'

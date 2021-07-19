@@ -1,0 +1,24 @@
+export EDITOR='vim'
+export PAGER='less'
+
+# set GOPATH
+export GOPATH=$HOME/go
+
+export PATH="$HOME/.asdf/shims:/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$GOPATH/bin:$PATH:$HOME/.cargo/bin"
+
+if [[ "$OSTYPE" == darwin* ]]; then
+    export BROWSER='open'
+fi
+
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+
+# disable Homebrew analytics
+export HOMEBREW_NO_ANALYTICS=1
+
+# disable AWS SAM telemetry
+export SAM_CLI_TELEMETRY=0
+
+# load any private environment variables that should not be committed
+[[ -f ~/.zshenvprivate ]] && source ~/.zshenvprivate

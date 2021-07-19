@@ -1,0 +1,79 @@
+bindkey -e
+
+# antigen setup
+source ~/.zsh/antigen.zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
+
+# set up homebrew environment
+# this path is only for Apple Silicon, so check if it exists
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# initialize asdf
+source $HOME/.asdf/asdf.sh
+
+# add brew completion functions to path
+if type brew &>/dev/null; then
+    fpath=( "$(brew --prefix)/share/zsh/site-functions" $fpath )
+fi
+# add own functions dir to fpath
+fpath=( "$HOME/.zsh/functions" "$ASDF_DIR/completions" $fpath )
+
+# enable tab completion
+autoload -Uz compinit && compinit
+
+# load own functions
+autoload -Uz extract using_port gfmt gcover venv pip_login ecr_login
+
+# load all aliases
+source ~/.aliases
+
+# load setup for prompt
+export PURE_GIT_PULL=0
+autoload -Uz promptinit && promptinit
+prompt pure
+
+# bind fn+left-arrow to go to benening of the line
+bindkey "^[[H" beginning-of-line
+# bind fn+right-arrow to go to end of the line
+bindkey "^[[F" end-of-line
+# bind fn+backspace to delete char to the right
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
+
+
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path .zcache
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+zstyle ':completion::complete:cd::' tag-order local-directories
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+
+# configure command history
+setopt appendhistory
+export HISTFILE=$HOME/.zhistory
+export SAVEHIST=1000
+export HISTSIZE=10000
+
+setopt COMPLETE_IN_WORD
+
+setopt NO_BEEP
+
+export GPG_TTY="$(tty)"
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+if [ -f ~/.private.zshrc ]; then
+    source ~/.private.zshrc
+fi
+
+eval "$(direnv hook zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# kubectl autocomplete
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)

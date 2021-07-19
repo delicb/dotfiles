@@ -1,0 +1,57 @@
+[user]
+    useConfigOnly = true
+[core]
+    editor = vim
+    excludesfile = /Users/del-boy/.gitignore_global
+    pager = "delta --dark"
+    ignorecase = true
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
+[diff]
+    colorMoved = default
+
+[push]
+    default = simple
+	followTags = true
+
+[pull]
+	rebase = false
+
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit
+    s= status --short --branch --ignore-submodules=untracked
+    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim yellow)- [%an]%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+    latest = !"git lg -3"
+    last = !"git lg -1"
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    st = status -s
+    ci = commit
+    co = checkout
+    br = branch
+    dc = diff --cached
+    unstage = reset HEAD --
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+
+[init]
+	defaultBranch = main
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/

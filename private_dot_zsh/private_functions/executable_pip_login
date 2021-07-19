@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+pip_login() {
+	aws_account_id=${AWS_ACCOUNT_ID?:"AWS_ACCOUNT_ID must be set"}
+	aws_code_artifact_repository=${AWS_CODEARTIFACT_REPOSITORY?:"AWS_CODE_ARTIFACT_REPOSITORY must be set"}
+	aws_code_artifact_domain=${AWS_CODE_ARTIFACT_DOMAIN?:"AWS_CODE_ARTIFACT_DOMAIN must be set"}
+    aws_region=${AWS_REGION:-"us-east-1"}
+	aws_profile=${AWS_PROFILE:-"default"}
+	aws --profile ${aws_profile} codeartifact login --tool pip --repository ${aws_code_artifact_repository} --domain ${aws_code_artifact_domain} --domain-owner ${aws_account_id}
+}
+
+pip_login "$@"
