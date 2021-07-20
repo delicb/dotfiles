@@ -11,32 +11,48 @@ brew tap homebrew/cask
 brew tap homebrew/core
 brew tap homebrew/cask-fonts
 
-brew install bat
-brew install coreutils
-brew install curl
-brew install direnv
-brew install exa
-brew install git
-brew install git-delta
-brew install git-extras
-brew install jq
-brew install pure
-brew install ripgrep
-brew install vim
-brew install watch
-brew install wget
-brew install zplug
+# list of tools to install
+read -r -d '' tool_installs <<- "EOP"
+bat
+coreutils
+curl
+direnv
+exa
+git
+git-delta
+git-extras
+jq
+pure
+ripgrep
+vim
+watch
+wget
+zplug
+EOP
 
-brew install --cask 1Password
-brew install --cask 1password-cli
-brew install --cask alfred
-brew install --cask bettertouchtool
-brew install --cask firefox
-brew install --cask font-hasklig
-brew install --cask font-inconsolata
-brew install --cask font-input
-brew install --cask font-jetbrains-mono
-brew install --cask google-chrome
+# list of casks to install
+read -r -d '' cask_installs <<- "EOP"
+1Password
+1password-cli
+alfred
+bettertouchtool
+firefox
+font-hasklig
+font-inconsolata
+font-input
+font-jetbrains-mono
+karabiner-elements
+obsidian
+EOP
+
+# install tools, use -q to prevent warning of already installed tools
+for pkg in $tool_installs; do
+    brew install -q "$pkg"
+done
+
+# install casks, use -q to prevent warning of already installed casks
+for pkg in $cask_installs; do
+    brew install -q --cask "$pkg"
+done
 
 {{ end }}
-
