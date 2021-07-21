@@ -1,6 +1,9 @@
 #!/bin/sh
 {{- if ( eq .chezmoi.os "linux" ) }}
 
+# prevent installation of tzdata to prompt for timezone
+DEBIAN_FRONTEND=noninteractive
+
 detect_distribution() {
 	if [ -f /etc/os-release ]; then
 		. /etc/os-release
