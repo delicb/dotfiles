@@ -1,4 +1,6 @@
 {{- writeToStdout "\nConfigure dot files\n\n" -}}
 {{- $secure_env := promptBool "secure_env" -}}
+pager = "delta --dark"
 [data]
 secure_env = {{ $secure_env }}
+
