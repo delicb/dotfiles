@@ -34,13 +34,14 @@ install_packages() {
 	# packages to install
 	packages="
 	bat
-	ripgrep
 	direnv
+	exa
 	git
 	jq
-	zsh
+	ripgrep
 	vim
 	wget
+	zsh
 	"
 	for pkg in $packages; do
 		$INSTALL_COMMAND "$pkg"
