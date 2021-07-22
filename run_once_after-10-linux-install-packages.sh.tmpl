@@ -19,8 +19,8 @@ detect_distribution() {
 		INSTALL_COMMAND="apk add"
 		;;
 	"ubuntu")
-		UPDATE_CACHE_COMMAND="apt update"
-		INSTALL_COMMAND="apt install -y"
+		UPDATE_CACHE_COMMAND="apt-get update"
+		INSTALL_COMMAND="apt-get install -y"
 		;;
 	*)
 		echo "unsupported linux distribution $OS"
