@@ -10,6 +10,8 @@ alias ls exa
 alias l "exa -lb --git --color-scale"
 alias ll l
 alias la "l -a"
+alias ldir "l -D"
+
 
 # suffixes for common commands
 alias cp "cp -i"
@@ -18,6 +20,7 @@ alias du "du -sh"
 
 # git aliases
 alias g git
+alias gc "git commit"
 alias ga "git add"
 alias gd "git diff"
 alias gf "git fetch"
