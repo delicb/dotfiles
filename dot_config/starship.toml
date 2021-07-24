@@ -49,6 +49,7 @@ zig.disabled = true
 [cmd_duration]
 min_time = 1000
 show_milliseconds = true
+format = " took [$duration]($style)"
 
 [directory]
 # if in git repo, treat is as root (which is normally home folder)
@@ -57,7 +58,7 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [git_metrics]
-disabled = false
+disabled = true  # disable for now, not essential and slows down prompt a bit
 format = '\[[+$added]($added_style) [-$deleted]($deleted_style)\]'
 
 [git_branch]
