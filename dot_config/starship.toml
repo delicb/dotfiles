@@ -1,0 +1,82 @@
+# global config
+scan_timeout = 10
+command_timeout = 500
+add_newline = true
+
+# disable everything I do not need
+aws.disabled = true
+battery.disabled = true
+cmake.disabled = true
+conda.disabled = true
+crystal.disabled = true
+dart.disabled = true
+deno.disabled = true
+docker_context.disabled = true
+dotnet.disabled = true
+elixir.disabled = true
+elm.disabled = true
+erlang.disabled = true
+gcloud.disabled = true
+helm.disabled = true
+java.disabled = true
+julia.disabled = true
+kotlin.disabled = true
+lua.disabled = true
+hg_branch.disabled = true
+nim.disabled = true
+nix_shell.disabled = true
+nodejs.disabled = true
+ocaml.disabled = true
+openstack.disabled = true
+package.disabled = true
+perl.disabled = true
+php.disabled = true
+purescript.disabled = true
+rlang.disabled = true
+red.disabled = true
+rust.disabled = true
+scala.disabled = true
+singularity.disabled = true
+swift.disabled = true
+terraform.disabled = true
+vagrant.disabled = true
+vlang.disabled = true
+vcsh.disabled = true
+zig.disabled = true
+
+# configure modules I do want
+
+[cmd_duration]
+min_time = 1000
+show_milliseconds = true
+
+[directory]
+# if in git repo, treat is as root (which is normally home folder)
+truncate_to_repo = true
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_metrics]
+disabled = false
+format = '\[[+$added]($added_style) [-$deleted]($deleted_style)\]'
+
+[git_branch]
+format = '\[[$symbol$branch]($style)(:[$remote]($style))\]'
+style = "bold purple"
+
+[golang]
+symbol = "ﳑ "  # gopher icon, to be visible, Nerd fonts are needed
+format = '\[[$symbol($version )]($style)\]'
+
+[hostname]
+ssh_only = true
+trim_at = "."
+
+[jobs]
+symbol = "+ "
+threshold = 1
+
+[python]
+pyenv_version_name = false
+symbol = " "  # python symbol, to be visible, Nerd fonts are needed
+format = '\[[${symbol}${pyenv_prefix}(${version} )(\(venv $virtualenv\))]($style)\]'
