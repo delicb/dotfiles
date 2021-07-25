@@ -28,4 +28,4 @@ alias gp "git pull"
 alias gss "git s"
 
 # reload config
-alias reload "exec $SHELL -l"
+alias reload "exec fish"
