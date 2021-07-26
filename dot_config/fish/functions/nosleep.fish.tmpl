@@ -1,0 +1,6 @@
+{{- if ( eq .chezmoi.os "darwin" ) -}}
+function nosleep --description "prevents MacOS from sleeping"
+	echo "Starting caffeinate to prevent sleep... Ctrl+C to abort..."
+	caffeinate -dimsu
+end
+{{ end }}
