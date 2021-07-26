@@ -1,0 +1,13 @@
+{{- if ( eq .chezmoi.os "darwin" ) -}}
+function using_port --argument-names 'port' --description "prints process ID that is using specified port"
+	if not test -n "$port"
+		echo "port not provided"; and return 1
+	end
+
+	lsof -n -i:$port | grep LISTEN
+	# grep return non-zero exit code if it does not find anything
+	# but not finding anything is ok for this function, so adding
+	# explicit return
+	return 0
+end
+{{ end }}
