@@ -18,6 +18,9 @@ alias cp "cp -i"
 alias df "df -h"
 alias du "du -sh"
 
+# replace cat with bat
+alias bat "cat"
+
 # git aliases
 alias g git
 alias gc "git commit"
