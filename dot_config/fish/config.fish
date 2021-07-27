@@ -9,12 +9,12 @@ if status is-interactive
     # end
 
     # initialize brew environment variables
-    if command -q brew
-        brew shellenv | source
+    if test -e /opt/homebrew/bin/brew
+        /opt/homebrew/bin/brew shellenv | source
     end
 
-    # add asdf executable and shims to path
-    set PATH $HOME/.asdf/bin $HOME/.asdf/shims $PATH
+    # add some more stuff to path
+    fish_add_path -P $HOME/.asdf/bin $HOME/.asdf/shims $HOME/go/bin
 
     # initialize prompt
     starship init fish | source
