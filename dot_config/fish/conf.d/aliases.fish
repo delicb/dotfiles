@@ -19,7 +19,7 @@ alias df "df -h"
 alias du "du -sh"
 
 # replace cat with bat
-alias bat "cat"
+alias cat "bat"
 
 # git aliases
 alias g git
