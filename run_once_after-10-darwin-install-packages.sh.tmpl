@@ -63,4 +63,8 @@ done
 # setup fish
 # fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
 
+# install asdf, if not already installed
+[ ! -d $HOME/.asdf ] && git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+[ ! -f $HOME/.config/fish/completions/asdf.fish ] && mkdir -p $HOME/.config/fish/completions && ln -s $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
+
 {{ end }}

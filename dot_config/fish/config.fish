@@ -8,13 +8,48 @@ if status is-interactive
     #     source $file
     # end
 
-    # initialize brew environment variables
+    # instead of running `brew shellenv`, which sometimes addes duplicate entries, set values manually
     if test -e /opt/homebrew/bin/brew
-        /opt/homebrew/bin/brew shellenv | source
+        fish_add_path -P /opt/homebrew/bin /opt/homebrew/sbin
+        # brew specific variables
+        set -gx HOMEBREW_PREFIX /opt/homebrew
+        set -gx HOMEBREW_CELLAR /opt/homebrew/HOMEBREW_CELLAR
+        set -gx HOMEBREW_REPOSITORY /opt/homebrew
+        set -q MANPATH; or set MANPATH ''
+        set -q INFOPATH; or set INFOPATH ''
+        if not contains "/opt/homebrew/share/man" $MANPATH
+            set -gx MANPATH "/opt/homebrew/share/man"
+        end
+        if not contains "/opt/homebrew/share/info" $INFOPATH
+            set -gx INFOPATH "/opt/homebrew/share/info"
+        end
     end
 
-    # add some more stuff to path
-    fish_add_path -P -p $HOME/.asdf/bin $HOME/.asdf/shims $HOME/go/bin $HOME/bin
+    # initialize asdf, if installed
+    if test -e $HOME/.asdf/asdf.fish
+        source $HOME/.asdf/asdf.fish
+    end
+
+    # add some personal paths, ensure they are among the first in $PATH
+    fish_add_path --path --prepend --move $HOME/go/bin $HOME/bin
+
+    # TODO: consider using fish_user_path for more permanent paths
+    # ensure system paths are there and that they are at the end
+    if test -e /etc/paths
+        fish_add_path -P -m -a (cat /etc/paths)  # this basically simulates /usr/libexec/path_helper
+    else
+        fish_add_path -P -m -a /usr/local/bin /usr/bin /bin /usr/sbin /sbin
+    end
+
+    # set common variables
+    set -gx EDITOR "vim"
+    set -gx PAGER "less"
+    set -gx GOPATH $HOME/go
+    set -gx LANG "en_US.UTF-8"
+    # disable homebrew analytics
+    set -gx HOMEBREW_NO_ANALYTICS 1
+    # disable AWS SAM telemetry
+    set -gx SAM_CLI_TELEMETRY 0
 
     # initialize prompt
     starship init fish | source
