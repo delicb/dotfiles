@@ -53,7 +53,7 @@
 [init]
     defaultBranch = main
 
-{{ if .secure_env }}
+{{ if .secure_env -}}
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
-{{- end -}}
+{{ end }}
