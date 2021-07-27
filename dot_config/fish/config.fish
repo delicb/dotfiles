@@ -14,7 +14,7 @@ if status is-interactive
     end
 
     # add some more stuff to path
-    fish_add_path -P $HOME/.asdf/bin $HOME/.asdf/shims $HOME/go/bin
+    fish_add_path -P -p $HOME/.asdf/bin $HOME/.asdf/shims $HOME/go/bin $HOME/bin
 
     # initialize prompt
     starship init fish | source
