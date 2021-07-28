@@ -11,6 +11,14 @@ alias l "exa -lb --git --color-scale"
 alias ll l
 alias la "l -a"
 alias ldir "l -D"
+function tree --wraps exa --description "alias tree exa"
+	if count $argv > /dev/null
+		set level $argv[1]
+	else
+		set level 2
+	end
+	exa --tree --level $level
+end
 
 
 # suffixes for common commands
