@@ -14,7 +14,7 @@ brew tap homebrew/core
 brew tap homebrew/cask-fonts
 
 # list of tools to install
-read -r -d '' tool_installs <<- "EOP"
+read -r -d tool_installs <<- "EOP"
 bat
 coreutils
 curl
@@ -34,7 +34,7 @@ zplug
 EOP
 
 # list of casks to install
-read -r -d '' cask_installs <<- "EOP"
+read -r -d cask_installs <<- "EOP"
 1Password
 1password-cli
 alfred
@@ -64,7 +64,13 @@ done
 # fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
 
 # install asdf, if not already installed
-[ ! -d $HOME/.asdf ] && git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-[ ! -f $HOME/.config/fish/completions/asdf.fish ] && mkdir -p $HOME/.config/fish/completions && ln -s $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
+if [ ! -d $HOME/.asdf ]; then
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+fi
+
+if [ ! -f $HOME/.config/fish/completions/asdf.fish ]; then
+    mkdir -p $HOME/.config/fish/completions
+    ln -s $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
+fi
 
 {{ end }}
