@@ -17,6 +17,7 @@ alias ldir "l -D"
 alias cp "cp -i"
 alias df "df -h"
 alias du "du -sh"
+alias cz "chezmoi"
 
 # replace cat with bat
 alias cat "bat"
