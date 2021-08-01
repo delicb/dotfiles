@@ -27,7 +27,7 @@ alias df "df -h"
 alias du "du -sh"
 alias cp "cp -i"
 alias rm "rm -i"
-alias cz "chezmoi"
+alias cm "chezmoi"
 
 # replace cat with bat
 alias cat "bat"
