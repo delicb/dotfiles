@@ -43,3 +43,8 @@ alias gss "git s"
 
 # reload config
 alias reload "exec fish"
+
+# tailscale cli
+if test -x /Applications/Tailscale.app/Contents/MacOS/Tailscale
+	alias tailscale /Applications/Tailscale.app/Contents/MacOS/Tailscale
+end
