@@ -51,6 +51,10 @@ if status is-interactive
     # disable AWS SAM telemetry
     set -gx SAM_CLI_TELEMETRY 0
 
+    # for installing python via pyenv or asdf, lzma is (optionally) needed
+    # so add path to CPPFLAGS
+    set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/xz/include"
+
     # initialize prompt
     starship init fish | source
 end
