@@ -55,6 +55,11 @@ if status is-interactive
     # so add path to CPPFLAGS
     set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/xz/include"
 
+    # set language variables
+    set -gx LANG "en_US.UTF-8"
+    set -gx LANGUAGE "en_US.UTF-8"
+    set -gx LC_ALL "en_US.UTF-8"
+
     # initialize prompt
     starship init fish | source
 end
