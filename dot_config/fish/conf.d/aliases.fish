@@ -41,6 +41,9 @@ alias gf "git fetch"
 alias gp "git pull"
 alias gss "git s"
 
+# k8s aliases
+alias k "kubectl"
+
 # reload config
 alias reload "exec fish"
 
