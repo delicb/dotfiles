@@ -1,4 +1,4 @@
-# Downloaded from https://github.com/evanlucas/fish-kubectl-completions
+#
 set -q FISH_KUBECTL_COMPLETION_TIMEOUT; or set FISH_KUBECTL_COMPLETION_TIMEOUT 5s
 set -q FISH_KUBECTL_COMPLETION_COMPLETE_CRDS; or set FISH_KUBECTL_COMPLETION_COMPLETE_CRDS 1
 set __fish_kubectl_timeout "--request-timeout=$FISH_KUBECTL_COMPLETION_TIMEOUT"
