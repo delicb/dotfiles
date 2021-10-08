@@ -51,6 +51,8 @@ if status is-interactive
     set -gx HOMEBREW_NO_ANALYTICS 1
     # disable AWS SAM telemetry
     set -gx SAM_CLI_TELEMETRY 0
+    # delta pager, for page-up-down to work in VSCode (since delta is not respecting $LESS variable)
+    set -gx DELTA_PAGER "less --RAW-CONTROL-CHARS --quit-if-one-screen"
 
     # for installing python via pyenv or asdf, lzma is (optionally) needed
     # so add path to CPPFLAGS
