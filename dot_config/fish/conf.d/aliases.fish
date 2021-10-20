@@ -43,6 +43,8 @@ alias gss "git s"
 
 # k8s aliases
 alias k "kubectl"
+alias kc "kubectx"
+alias kn "kubens"
 
 # reload config
 alias reload "exec fish"

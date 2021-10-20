@@ -9,7 +9,7 @@
 	<key>AutoCommandHistory</key>
 	<false/>
 	<key>Command</key>
-	<string></string>
+	<string>/opt/homebrew/bin/fish</string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Smyck</key>
