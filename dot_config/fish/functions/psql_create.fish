@@ -18,7 +18,7 @@ function psql_create --description "create and start new PSQL DB using docker co
 	set --query _flag_bind; or set --local _flag_bind 5432
 	set --query _flag_username; or set --local _flag_username 'postgres'
 	set --query _flag_password; or set --local _flag_password 'password'
-	set --query _flag_image; or set --local _flag_image 'postgres:12.5-alpine'
+	set --query _flag_image; or set --local _flag_image 'postgres:12.7-alpine'
 	if set --query _flag_name
 		set _name_param "--name=$_flag_name"
 	end
