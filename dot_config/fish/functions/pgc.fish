@@ -44,7 +44,7 @@ function pgc --description "connect to psql database via pgcli and autopopulate 
 
 	# check we have all set
 	set_color red;
-	if test -z "$_name"; echo "namenot found"; and return 1; end
+	if test -z "$_name"; echo "name not found, either provide it as parameter or set $PROJECT_NAME env variable"; and return 1; end
 	if test -z "$_env"; echo "environment not found"; and return 1; end
 	set_color normal;
 
@@ -83,7 +83,7 @@ function pgc --description "connect to psql database via pgcli and autopopulate 
 	set_color normal
 
 	set_color green
-	echo "connecting, using $_cmd"
+	echo "connecting to $_host, using $_cmd"
 	set_color normal
 
 	PGPASSWORD=$_password $_cmd -h $_host -p 5432 -U $_username -d $_database
