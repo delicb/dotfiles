@@ -1,0 +1,22 @@
+# setup aws for work
+export AWS_PROFILE=work
+export AWS_REGION=us-east-1
+export AWS_ACCOUNT_ID={{ .work_aws_account_id }}
+export AWS_CODEARTIFACT_REPOSITORY=pypi-{{ .work_organization_name }}
+export AWS_CODEARTIFACT_DOMAIN={{ .work_organization_name }}
+
+# set path and LDFLAGS for building some python dependencies (e.g. psycopg2)
+# in order to install psycopg2, LDFLAGS must be set and PATH updated
+# (of course, relevant packages should be installed via brew first)
+# brew install libpq
+# brew install openssl
+{{- /* figure out how to automatically get current version of libpq */}}
+PATH_add /opt/homebrew/Cellar/libpq/14.1/bin/
+
+{{/* figure out how to automatically get current version of openssl */ -}}
+export LDFLAGS="-L/opt/homebrew/Cellar/openssl@1.1/1.1.1l_1/lib"
+
+export GIT_AUTHOR_NAME="{{ .work_git_author_name }}"
+export GIT_AUTHOR_EMAIL="{{ .work_git_author_email }}"
+export GIT_COMMITTER_NAME="{{ .work_git_author_name }}"
+export GIT_COMMITTER_EMAIL="{{ .work_git_author_email }}"
