@@ -1,5 +1,5 @@
 function psql_add_db --description "creates new DB on existing instance with new user"
-	argparse --name='psql_add_db' 'help' "h/host=" "p/port=" "U/username=" "W/password=" "u/existing-user=" "P/existing-password" -- $argv
+	argparse --name='psql_add_db' 'help' "h/host=" "p/port=" "U/username=" "W/password=" "u/existing-user=" "P/existing-password=" -- $argv
 	or return
 
 	if set --query _flag_help
@@ -13,7 +13,7 @@ function psql_add_db --description "creates new DB on existing instance with new
 		printf "  -U/--username          username to create, default the same as database name\n"
 		printf "  -W/--password          password to set for user, default 'secret'\n"
 		printf "  -u/--existing-user     userame for user that already exists and has permissions to create DB, default 'postgres'"
-		printf "  -P/--existing-password passwor for user that already exists and has permissions to create DB, default 'password'"
+		printf "  -P/--existing-password password for user that already exists and has permissions to create DB, default 'password'"
 		return 0
 	end
 
