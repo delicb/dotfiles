@@ -28,6 +28,7 @@ jq
 kubectl
 kubectx
 less
+pgcli
 pure
 ripgrep
 vim
@@ -67,16 +68,6 @@ done
 
 # setup fish
 # fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
-
-# install asdf, if not already installed
-if [ ! -d $HOME/.asdf ]; then
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-fi
-
-if [ ! -f $HOME/.config/fish/completions/asdf.fish ]; then
-    mkdir -p $HOME/.config/fish/completions
-    ln -s $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
-fi
 
 echo '\033[0;32m'  # set text color to green
 echo 'Finished installing software.'
