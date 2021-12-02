@@ -76,4 +76,10 @@ if [ ! -f $HOME/.config/fish/completions/asdf.fish ]; then
     ln -s $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
 fi
 
+echo '\033[0;32m'  # set text color to green
+echo 'Finished installing software.'
+echo 'If running for the first time, run chezmoi apply again'
+echo 'since some templates depend on existance of 1Password CLI'
+echo '(and make sure to run eval $(op signin my) before that)'
+echo '\033[0m'  # restore color to normal
 {{ end }}
