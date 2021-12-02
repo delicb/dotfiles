@@ -1,5 +1,5 @@
 {{- if ( eq .chezmoi.os "darwin" ) -}}
-#!/bin/sh
+#!/bin/bash
 
 if ! command -v brew &> /dev/null
 then
@@ -9,70 +9,71 @@ then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-brew tap homebrew/cask
-brew tap homebrew/core
-brew tap homebrew/cask-fonts
+{{ $taps := list
+    "homebrew/cask"
+    "homebrew/core"
+    "homebrew/cask-fonts" -}}
 
-# list of tools to install
-read -r -d tool_installs <<- "EOP"
-bat
-coreutils
-curl
-direnv
-exa
-fish
-git
-git-delta
-git-extras
-jq
-kubectl
-kubectx
-less
-pgcli
-pure
-ripgrep
-vim
-watch
-wget
-xz
-zplug
-EOP
+{{ $brews := list
+    "bat"
+    "coreutils"
+    "curl"
+    "direnv"
+    "exa"
+    "fish"
+    "git"
+    "git-delta"
+    "git-extras"
+    "jq"
+    "kubectl"
+    "kubectx"
+    "less"
+    "pgcli"
+    "pure"
+    "ripgrep"
+    "vim"
+    "watch"
+    "wget"
+    "xz"
+    "zplug" -}}
 
-# list of casks to install
-read -r -d cask_installs <<- "EOP"
-1Password
-1password-cli
-alfred
-bettertouchtool
-firefox
-font-hack-nerd-font
-font-hasklig
-font-inconsolata
-font-input
-font-jetbrains-mono
-google-chrome
-iterm2
-karabiner-elements
-obsidian
-EOP
+{{ $casks := list
+    "1Password"
+    "1password-cli"
+    "alfred"
+    "bettertouchtool"
+    "firefox"
+    "font-hack-nerd-font"
+    "font-hasklig"
+    "font-inconsolata"
+    "font-input"
+    "font-jetbrains-mono"
+    "google-chrome"
+    "iterm2"
+    "karabiner-elements"
+    "obsidian"
+-}}
 
-# install tools, use -q to prevent warning of already installed tools
-for pkg in $tool_installs; do
-    brew install -q "$pkg"
-done
-
-# install casks, use -q to prevent warning of already installed casks
-for pkg in $cask_installs; do
-    brew install -q --cask "$pkg"
-done
+# use brew bundle to install all - generate brewfile on stdin directly in a script
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($taps | sortAlpha | uniq) -}}
+tap "{{ . }}"
+{{ end -}}
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
 
 # setup fish
 # fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
 
-echo '\033[0;32m'  # set text color to green
+echo -en "\033[0;32m"  # set text color to green
 echo 'Finished installing software.'
 echo 'If running for the first time, run chezmoi apply again'
 echo 'since some templates depend on existance of 1Password CLI'
 echo '(and make sure to run eval $(op signin my) before that)'
-echo '\033[0m'  # restore color to normal
-{{ end }}
+echo -en "\033[0m"  # restore color to normal
+{{ end -}}
