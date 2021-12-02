@@ -46,7 +46,6 @@ if status is-interactive
     set -gx PAGER "less"
     set -gx LESS "--RAW-CONTROL-CHARS --quit-if-one-screen"
     set -gx GOPATH $HOME/go
-    set -gx LANG "en_US.UTF-8"
     # disable homebrew analytics
     set -gx HOMEBREW_NO_ANALYTICS 1
     # disable AWS SAM telemetry
