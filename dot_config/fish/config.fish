@@ -52,6 +52,8 @@ if status is-interactive
     set -gx SAM_CLI_TELEMETRY 0
     # delta pager, for page-up-down to work in VSCode (since delta is not respecting $LESS variable)
     set -gx DELTA_PAGER "less --RAW-CONTROL-CHARS --quit-if-one-screen"
+    # set ripgrep config file
+    set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
     # for installing python via pyenv or asdf, lzma is (optionally) needed
     # so add path to CPPFLAGS
