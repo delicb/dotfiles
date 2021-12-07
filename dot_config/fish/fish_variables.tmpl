@@ -1,5 +1,10 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR ZO_CMD:zo
+SETUVAR Z_CMD:z
+SETUVAR Z_DATA:{{ .chezmoi.homeDir }}/.local/share/z/data
+SETUVAR Z_DATA_DIR:{{ .chezmoi.homeDir }}/.local/share/z
+SETUVAR Z_EXCLUDE:{{ .chezmoi.homeDir }}/
 SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:707A8C
 SETUVAR fish_color_cancel:\x2dr
@@ -24,7 +29,7 @@ SETUVAR fish_color_selection:\x2d\x2dbackground\x3dFFCC66
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_greeting:\x1d
+SETUVAR fish_greeting:
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
