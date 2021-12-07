@@ -1,12 +1,6 @@
 if status is-interactive
-    # set fisher_path $HOME/.config/fish/plugins
-
-    # set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
-    # set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
-
-    # for file in $fisher_path/conf.d/*.fish
-    #     source $file
-    # end
+    # set what is needed so that plugins work as expected
+    # source $__fish_config_dir/conf.d/fisher_path.fish
 
     # instead of running `brew shellenv`, which sometimes addes duplicate entries, set values manually
     if test -e /opt/homebrew/bin/brew
@@ -66,4 +60,26 @@ if status is-interactive
 
     # initialize prompt
     starship init fish | source
+end
+
+# not only interactive
+# set fisher_path to plugins folder, to sparate personal namespace from plugins
+set -gx fisher_path $__fish_config_dir/plugins
+
+# from https://github.com/kidonng/fisher_path.fish
+set -q _fisher_path_initialized && exit
+set -g _fisher_path_initialized
+
+if test -z "$fisher_path" || test "$fisher_path" = "$__fish_config_dir"
+    exit
+end
+
+set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..]
+set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]
+
+for file in $fisher_path/conf.d/*.fish
+    if ! test -f (string replace -r "^.*/" $__fish_config_dir/conf.d/ -- $file)
+        and test -f $file && test -r $file
+        source $file
+    end
 end

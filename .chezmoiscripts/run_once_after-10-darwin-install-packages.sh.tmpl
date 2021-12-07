@@ -69,8 +69,8 @@ cask "{{ . }}"
 {{ end -}}
 EOF
 
-# setup fish
-# fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
+# setup fisher for plugins
+fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
 
 echo -en "\033[0;32m"  # set text color to green
 echo 'Finished installing software.'
