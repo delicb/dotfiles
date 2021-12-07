@@ -7,8 +7,8 @@ function op_signin --description "wrapper for 1password CLI login"
 	
 	# signin only if current session does not exist or is expired
 
-	# check if session file exists
-	if not test -f $HOME/.op_session
+	# check if session file exists or is empty
+	if not test -f $HOME/.op_session || test -z (cat $HOME/.op_session)
 		__op_signin $account
 		return
 	end
