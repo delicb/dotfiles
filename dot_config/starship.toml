@@ -80,5 +80,5 @@ threshold = 1
 [python]
 pyenv_version_name = false
 symbol = " "  # python symbol, to be visible, Nerd fonts are needed
-format = '\[[${symbol}${pyenv_prefix}(${version} )(\(venv $virtualenv\))]($style)\]'
+format = '\[[${symbol}(${version} )($virtualenv)]($style)\]'
 
