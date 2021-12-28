@@ -75,7 +75,7 @@ fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher |
 # change shell to fish
 if ! grep -q "$(brew --prefix)/bin/fish" /etc/shells; then
     echo "Configuring fish as default shell..."
-    echo "$(brew --prfix)/bin/fish" | sudo tee -a /etc/shells
+    echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
     chsh -s "$(brew --prefix)/bin/fish"
     echo "fish shell set as default..."
 fi
