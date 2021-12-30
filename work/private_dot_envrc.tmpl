@@ -5,8 +5,6 @@ export AWS_ACCOUNT_ID={{ .work_aws_account_id }}
 export AWS_CODEARTIFACT_REPOSITORY=pypi-{{ .work_organization_name }}
 export AWS_CODEARTIFACT_DOMAIN={{ .work_organization_name }}
 
-source_up
-
 # set path and LDFLAGS for building some python dependencies (e.g. psycopg2)
 # in order to install psycopg2, LDFLAGS must be set and PATH updated
 # (of course, relevant packages should be installed via brew first)
