@@ -14,7 +14,7 @@ function op_signin --description "wrapper for 1password CLI login"
 	end
 
 	# session expires in 30 minutes, so we check for a minute less
-	set -l _expiration_duration (math "29 * 30")
+	set -l _expiration_duration (math "29 * 60")
 	set -l _expires_at (math (stat -f %m $HOME/.op_session) + $_expiration_duration)
 	if test $_expires_at -lt (date +%s)
 		__op_signin $account
