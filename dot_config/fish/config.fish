@@ -1,7 +1,4 @@
 if status is-interactive
-    # set what is needed so that plugins work as expected
-    # source $__fish_config_dir/conf.d/fisher_path.fish
-
     # instead of running `brew shellenv`, which sometimes addes duplicate entries, set values manually
     if test -e /opt/homebrew/bin/brew
         fish_add_path -P /opt/homebrew/bin /opt/homebrew/sbin
@@ -60,6 +57,9 @@ if status is-interactive
 
     # initialize prompt
     starship init fish | source
+
+    # initialize jump
+    jump shell fish | source
 end
 
 # not only interactive
