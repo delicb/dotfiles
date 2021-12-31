@@ -18,9 +18,6 @@ function pip_login --description "performs AWS pip login with currently set AWS 
 	set -l _expiration_duration (math "11.5 * 60 * 60")
 	set -l _expires_at (math (stat -f %m $HOME/.config/pip/pip.conf) + $_expiration_duration)
 	if test $_expires_at -lt (date +%s)
-		echo "Pip credentials potentially expired, refreshing..."
 		aws --profile $AWS_PROFILE codeartifact login --tool pip --repository $AWS_CODEARTIFACT_REPOSITORY --domain $AWS_CODEARTIFACT_DOMAIN
-	else
-		echo "PIP credentials should be up to date, skipping refresh..."
 	end
 end
