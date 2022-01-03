@@ -7,7 +7,7 @@ if [ ! -d $HOME/.asdf ]; then
 fi
 
 if [ ! -f $HOME/.config/fish/completions/asdf.fish ]; then
-	mkdir -p $HOME/.config/fish/completion
+	mkdir -p $HOME/.config/fish/completions
 	ln -s $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
 fi
 
@@ -20,13 +20,13 @@ asdf plugin-add httpie-go
 asdf plugin-add awscli
 
 asdf install python latest
-asdf install golang 1.17.3
+asdf install golang latest
 asdf install sqlite latest
 asdf install httpie-go latest
 asdf install awscli latest
 
 asdf global python latest
-asdf global golang 1.17.3
+asdf global golang latest
 asdf global sqlite latest
 asdf global httpie-go latest
 asdf global awscli latest
