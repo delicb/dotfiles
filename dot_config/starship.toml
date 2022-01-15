@@ -3,6 +3,24 @@ scan_timeout = 30
 command_timeout = 500
 add_newline = true
 
+format = """
+$sudo\
+$hostname\
+$directory\
+$cmd_duration\
+$fill\
+$git_branch\
+$git_state\
+$git_metrics\
+$git_status\
+$golang\
+$python\
+$ruby\
+$line_break\
+$status\
+$shell\
+$character"""
+
 # disable everything I do not need
 aws.disabled = true
 battery.disabled = true
@@ -58,7 +76,7 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [git_metrics]
-disabled = true  # disable for now, not essential and slows down prompt a bit
+disabled = false
 format = '\[[+$added]($added_style) [-$deleted]($deleted_style)\]'
 
 [git_branch]
@@ -82,3 +100,5 @@ pyenv_version_name = false
 symbol = " "  # python symbol, to be visible, Nerd fonts are needed
 format = '\[[${symbol}(${version} )($virtualenv)]($style)\]'
 
+[fill]
+symbol = " "
