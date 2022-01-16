@@ -31,7 +31,10 @@ fi
     "kubectl"
     "kubectx"
     "less"
-    "pgcli"
+    "libpq"
+    "openssl"
+    "pipenv"
+    "pipx"
     "pure"
     "ripgrep"
     "starship"
@@ -73,7 +76,7 @@ cask "{{ . }}"
 EOF
 
 # setup fisher for plugins
-fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
+#fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
 
 # change shell to fish
 if ! grep -q "$(brew --prefix)/bin/fish" /etc/shells; then

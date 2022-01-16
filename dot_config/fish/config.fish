@@ -1,85 +1,34 @@
-if status is-interactive
-    # instead of running `brew shellenv`, which sometimes addes duplicate entries, set values manually
-    if test -e /opt/homebrew/bin/brew
-        fish_add_path -P /opt/homebrew/bin /opt/homebrew/sbin
-        # brew specific variables
-        set -gx HOMEBREW_PREFIX /opt/homebrew
-        set -gx HOMEBREW_CELLAR /opt/homebrew/HOMEBREW_CELLAR
-        set -gx HOMEBREW_REPOSITORY /opt/homebrew
-        set -q MANPATH; or set MANPATH ''
-        set -q INFOPATH; or set INFOPATH ''
-        if not contains "/opt/homebrew/share/man" $MANPATH
-            set -gx MANPATH "/opt/homebrew/share/man"
-        end
-        if not contains "/opt/homebrew/share/info" $INFOPATH
-            set -gx INFOPATH "/opt/homebrew/share/info"
-        end
-    end
+#####################################################################
+# Relevant only for interactive use
+#####################################################################
 
+if status is-interactive
     # initialize asdf, if installed
     if test -e $HOME/.asdf/asdf.fish
         source $HOME/.asdf/asdf.fish
     end
 
-    # add some personal paths, ensure they are among the first in $PATH
-    fish_add_path --path --prepend --move $HOME/go/bin $HOME/bin
+	# initialize prompt
+	starship init fish | source
 
-    # TODO: consider using fish_user_path for more permanent paths
-    # ensure system paths are there and that they are at the end
-    if test -e /etc/paths
-        fish_add_path -P -m -a (cat /etc/paths)  # this basically simulates /usr/libexec/path_helper
-    else
-        fish_add_path -P -m -a /usr/local/bin /usr/bin /bin /usr/sbin /sbin
-    end
-
-    # set common variables
-    set -gx EDITOR "vim"
-    set -gx PAGER "less"
-    set -gx LESS "--RAW-CONTROL-CHARS --quit-if-one-screen"
-    set -gx GOPATH $HOME/go
-    # disable homebrew analytics
-    set -gx HOMEBREW_NO_ANALYTICS 1
-    # disable AWS SAM telemetry
-    set -gx SAM_CLI_TELEMETRY 0
-    # delta pager, for page-up-down to work in VSCode (since delta is not respecting $LESS variable)
-    set -gx DELTA_PAGER "less --RAW-CONTROL-CHARS --quit-if-one-screen"
-    # set ripgrep config file
-    set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
-
-    # for installing python via pyenv or asdf, lzma is (optionally) needed
-    # so add path to CPPFLAGS
-    set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/xz/include"
-
-    # set language variables
-    set -gx LANG "en_US.UTF-8"
-    set -gx LANGUAGE "en_US.UTF-8"
-    set -gx LC_ALL "en_US.UTF-8"
-
-    # initialize prompt
-    starship init fish | source
-
-    # initialize jump
-    jump shell fish | source
+	# initialize jump
+	jump shell fish | source
 end
 
-# not only interactive
-# set fisher_path to plugins folder, to sparate personal namespace from plugins
-set -gx fisher_path $__fish_config_dir/plugins
+##########################################################################
+# Development configuration variables
+# This config assumest that the followind packages are installed via brew
+# - xz
+# - openssl
+# - libpq
+##########################################################################
+# for installing python via pyenv or asdf, lzma is (optionally) needed
+# so add path to CPPFLAGS
+set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/xz/include"
 
-# from https://github.com/kidonng/fisher_path.fish
-set -q _fisher_path_initialized && exit
-set -g _fisher_path_initialized
+# for building various tools, ssl is needed
+set -gx LDFLAGS "$HOMEBREW_PREFIX/opt/openssl@1.1/"
 
-if test -z "$fisher_path" || test "$fisher_path" = "$__fish_config_dir"
-    exit
-end
-
-set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..]
-set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]
-
-for file in $fisher_path/conf.d/*.fish
-    if ! test -f (string replace -r "^.*/" $__fish_config_dir/conf.d/ -- $file)
-        and test -f $file && test -r $file
-        source $file
-    end
-end
+# for installing python libs like psycopg2, update path to point to bin
+# folder of libpq brew package (needed for pg_conf)
+fish_add_path --path --move --append $HOMEBREW_PREFIX/opt/libpq/bin
