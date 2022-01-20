@@ -19,3 +19,7 @@ set -gx DELTA_PAGER "less --RAW-CONTROL-CHARS --quit-if-one-screen"
 
 # set ripgrep config file
 set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
+
+# pipx config
+set -gx PIPX_DEFAULT_PYTHON "$HOME/.asdf/shims/python"
+set -gx USE_EMOJI true
