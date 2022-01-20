@@ -29,6 +29,8 @@ function extract --description "Extract various archive files"
 				unzip $file
 			case "*.ZIP"
 				unzip $file
+			case "*.whl"
+				unzip $file
 			case "*.pax"
 				cat $file | pax -r
 			case "*.pax.Z"
