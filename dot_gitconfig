@@ -51,3 +51,5 @@
 [init]
     defaultBranch = main
 
+[remote "origin"]
+	prune = true
