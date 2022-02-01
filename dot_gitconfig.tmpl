@@ -1,6 +1,6 @@
 [core]
     editor = vim
-    excludesfile = /Users/del-boy/.gitignore_global
+    excludesfile = {{.chezmoi.homeDir}}/.gitignore_global
     pager = "delta --dark"
     ignorecase = true
 [pager]
@@ -26,10 +26,10 @@
 
 [push]
     default = simple
-	followTags = true
+    followTags = true
 
 [pull]
-	rebase = false
+    rebase = false
 
 [alias]
     tree = log --graph --decorate --pretty=oneline --abbrev-commit
@@ -52,4 +52,7 @@
     defaultBranch = main
 
 [remote "origin"]
-	prune = true
+    prune = true
+
+[merge]
+    conflictStyle = zdiff3
