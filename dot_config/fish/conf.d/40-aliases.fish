@@ -33,13 +33,15 @@ alias cm "chezmoi"
 alias cat "bat"
 
 # git aliases
-alias g git
-alias gc "git commit"
-alias ga "git add"
-alias gd "git diff"
-alias gf "git fetch"
-alias gp "git pull"
-alias gss "git s"
+abbr -a -g g git
+abbr -a -g gc "git commit"
+abbr -a -g ga "git add"
+abbr -a -g gd "git diff"
+abbr -a -g gf "git fetch"
+abbr -a -g gp "git pull"
+abbr -a -g gss "git s"
+abbr -a -g gbd "git branch -d"
+abbr -a -g gfpm "git switch (basename (git symbolic-ref --short refs/remotes/origin/HEAD)) && git fetch && git pull"
 
 # k8s aliases
 alias k "kubectl"
