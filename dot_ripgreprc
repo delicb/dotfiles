@@ -1,3 +1,8 @@
 # similar to --ignore-case but disables itself if pattern contains uppercase letters
 --smart-case
+# disable grouping per file, print file:line as prefix instead
+--no-heading
+--line-number
+# search hidden files
+--hidden
 
