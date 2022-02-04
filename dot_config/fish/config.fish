@@ -32,7 +32,7 @@ end
 set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/xz/include"
 
 # for building various tools, ssl is needed
-set -gx LDFLAGS "$HOMEBREW_PREFIX/opt/openssl@1.1/"
+set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/openssl@1.1/ -L$HOMEBREW_PREFIX/opt/libffi"
 
 # for installing python libs like psycopg2, update path to point to bin
 # folder of libpq brew package (needed for pg_conf)
