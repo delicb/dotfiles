@@ -1,0 +1,19 @@
+## https://github.com/PaulJuliusMartinez/jless
+# install jless, it does not provide brew package
+{{ $jless_version := "v0.7.1" }}
+{{ $jless_package := "" }}
+{{- if (eq .chezmoi.os "darwin") }}
+{{   $jless_package = (printf "jless-%s-x86_64-apple-darwin.zip" $jless_version) }}
+{{- end }}
+{{- if (eq .chezmoi.os "linux") }}
+{{   $jless_package = (printf "jless-%s-x86_64-unknown-linux-gnu.zip" $jless_version) }}
+{{- end }}
+{{ $jless_url := (printf "https://github.com/PaulJuliusMartinez/jless/releases/download/%s/%s" $jless_version $jless_package ) }}
+{{ with $jless_package }}
+["jless"]
+type = "archive"
+url = "{{ $jless_url }}"
+exact = true
+# stripComponents = 1
+refreshPeriod = "168h"
+{{ end }}
