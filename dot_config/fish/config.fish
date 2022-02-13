@@ -32,7 +32,6 @@ end
 set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/xz/include"
 
 # for building various tools, ssl is needed
-
 set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@1.1/include -L$HOMEBREW_PREFIX/opt/openssl@1.1/lib -I$HOMEBREW_PREFIX/opt/libffi/include -L$HOMEBREW_PREFIX/opt/libffi/lib"
 
 # for installing python libs like psycopg2, update path to point to bin
