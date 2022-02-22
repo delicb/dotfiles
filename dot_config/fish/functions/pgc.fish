@@ -57,17 +57,17 @@ function pgc --description "connect to psql database via pgcli and autopopulate 
 	else
 		# otherwise fetch all information from 1password
 		set --local _op_item_name "psql-$_name-$_env"
-		set --local _db_secrets (op get item $_op_item_name --fields host,username,password,database) 
+		set --local _db_secrets (op item get $_op_item_name --format json --fields host,username,password,database) 
 		if test $status != 0
 			printf "lookup for item $_op_item_name op failed\n\n"
 			printf "Make sure item $_op_item_name exists.\n"
 			printf "Make sure you are logged in this shell 'eval (op signin my)'"
 			return 1
 		end
-		set _host (echo $_db_secrets | jq -j '.host')
-		set _username (echo $_db_secrets | jq -j '.username')
-		set _password (echo $_db_secrets | jq -j '.password')
-		set _database (echo $_db_secrets | jq -j '.database')
+		set _host (echo $_db_secrets | jq -j '.[] | select(.label=="host") | .value')
+		set _username (echo $_db_secrets | jq -j '.[] | select(.label=="username") | .value')
+		set _password (echo $_db_secrets | jq -j '.[] | select(.label=="password") | .value')
+		set _database (echo $_db_secrets | jq -j '.[] | select(.label=="database") | .value')
 		
 		set_color red;
 		if test -z "$_host"; echo "host not found"; and return 1; end
