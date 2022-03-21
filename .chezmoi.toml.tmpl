@@ -1,10 +1,16 @@
 {{- writeToStdout "\nConfigure dot files\n\n" -}}
-{{- $secure_env := promptBool "secure_env" -}}
+{{- $secure_env := promptBool "secure_env" -}}  {{/* should contain personal secrets? */}}
 {{- $name := promptString "Name" "Bojan Delić" -}}
 {{- $work_organization_name := promptString "Work organization name" -}}
 {{- $work_email := promptString "Work email (for git)" -}}
 {{- $work_aws_account_id := promptString "Work AWS account ID" -}}
 {{- $personal_email := promptString "Personal email (for git)" -}}
+{{- $ephemeral := false -}}  {{/* cloud instances, containers, etc */}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "vscode" "vagrant") -}}
+{{-   $ephemeral = true -}}
+{{- end -}}
 
 
 pager = "delta --dark"
@@ -17,3 +23,4 @@ work_git_author_email = {{ $work_email | quote }}
 work_aws_account_id = {{ $work_aws_account_id }}
 personal_git_author_name = {{ $name | quote }}
 personal_git_author_email = {{ $personal_email | quote }}
+ephemeral = {{ $ephemeral }}
