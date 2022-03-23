@@ -44,12 +44,12 @@ abbr -a -g gbd "git branch -d"
 abbr -a -g gfpm "git switch (basename (git symbolic-ref --short refs/remotes/origin/HEAD)) && git fetch && git pull"
 
 # k8s aliases
-alias k "kubectl"
-alias kc "kubectx"
-alias kn "kubens"
+abbr -a -g k "kubectl"
+abbr -a -g kc "kubectx"
+abbr -a -g kn "kubens"
 
 # reload config
-alias reload "exec fish"
+abbr -a -g reload "exec fish"
 
 # tailscale cli
 if test -x /Applications/Tailscale.app/Contents/MacOS/Tailscale
