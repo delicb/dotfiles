@@ -23,7 +23,6 @@ $character"""
 
 # disable everything I do not need
 aws.disabled = true
-battery.disabled = true
 cmake.disabled = true
 conda.disabled = true
 crystal.disabled = true

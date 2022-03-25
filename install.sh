@@ -1,7 +1,7 @@
 #!/bin/sh
 # Goal of this is to allow simple script that will bootstrap the environment. 
 # While having dotfiles in combination with chezmoi is nice, one still needs
-# to install chezmoi and apply the chenges and commands for doing so are
+# to install chezmoi and apply the changes and commands for doing so are
 # different for different operating systems and linux environments. So, with 
 # this script, it should be a single command to quickly bootstrap environment, 
 # which is mostly useful in ephemeral environments, like inside docker 
