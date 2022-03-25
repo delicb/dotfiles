@@ -4,32 +4,20 @@
 # prevent installation of tzdata to prompt for timezone
 DEBIAN_FRONTEND=noninteractive
 
-detect_distribution() {
-	if [ -f /etc/os-release ]; then
-		. /etc/os-release
-		OS=$ID
-	else
-		echo "unknown linux distribution"
-		exit 1
-	fi
+{{- if (eq .chezmoi.osRelease.id "alpine") }}
+UPDATE_CACHE_COMMAND="apk update"
+INSTALL_COMMAND="apk add"
+{{- else if (eq .chezmoi.osRelease.id "ubuntu") }}
+UPDATE_CACHE_COMMAND="apt-get update"
+INSTALL_COMMAND="apt-get install -y"
+{{- else }}
+echo "unsupported linux distrubution {{ .chezmoi.osRelease.id }}"
+exit 1
+{{- end }}
 
-	case $OS in
-	"alpine")
-		UPDATE_CACHE_COMMAND="apk update"
-		INSTALL_COMMAND="apk add"
-		;;
-	"ubuntu")
-		UPDATE_CACHE_COMMAND="apt-get update"
-		INSTALL_COMMAND="apt-get install -y"
-		;;
-	*)
-		echo "unsupported linux distribution $OS"
-		exit 1
-	esac
-}
 
 install_packages() {
-	detect_distribution
+	#detect_distribution
 
 	# update cache
 	$UPDATE_CACHE_COMMAND
@@ -44,7 +32,8 @@ install_packages() {
 	ripgrep
 	vim
 	wget
-	zsh
+	fish
+	starship
 	"
 	for pkg in $packages; do
 		$INSTALL_COMMAND "$pkg"

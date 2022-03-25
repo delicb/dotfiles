@@ -1,17 +1,6 @@
 # setup aws for personal projects
 export AWS_PROFILE=default
 
-# set path and LDFLAGS for building some python dependencies (e.g. psycopg2)
-# in order to install psycopg2, LDFLAGS must be set and PATH updated
-# (of course, relevant packages should be installed via brew first)
-# brew install libpq
-# brew install openssl
-{{- /* figure out how to automatically get current version of libpq */}}
-PATH_add /opt/homebrew/Cellar/libpq/14.1/bin/
-
-{{/* figure out how to automatically get current version of openssl */ -}}
-export LDFLAGS="-L/opt/homebrew/Cellar/openssl@1.1/1.1.1m/lib/"
-
 export GIT_AUTHOR_NAME="{{ .personal_git_author_name }}"
 export GIT_AUTHOR_EMAIL="{{ .personal_git_author_email }}"
 export GIT_COMMITTER_NAME="{{ .personal_git_author_name }}"

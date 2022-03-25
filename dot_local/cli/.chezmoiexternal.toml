@@ -17,3 +17,40 @@ exact = true
 # stripComponents = 1
 refreshPeriod = "168h"
 {{ end }}
+
+
+{{- if ( eq .chezmoi.os "linux" ) }}
+# these do not have package for all distributions, so it is easier to just install them on linux like this
+
+## https://github.com/gsamokovarov/jump
+{{ $jump_version := "v0.41.0" }}
+{{ $jump_package := "jump_linux_amd64_binary" }}
+{{ $jump_url := (printf "https://github.com/gsamokovarov/jump/releases/download/%s/%s" $jump_version $jump_package ) }}
+{{ with $jump_package }}
+["jump"]
+type = "file"
+url = "{{ $jump_url }}"
+executable = true
+# stripComponents = 1
+refreshPeriod = "168h"
+{{ end }}
+
+
+# https://github.com/dandavison/delta
+{{ $delta_version := "0.12.1"}}
+{{ $build := "gnu" }}
+{{ if (eq .chezmoi.osRelease.id "alpine") }}
+{{   $build = "musl" }}
+{{ end}}
+{{ $delta_package := (printf "delta-%s-x86_64-unknown-linux-%s.tar.gz" $delta_version $build) }}
+{{ $delta_url := (printf "https://github.com/dandavison/delta/releases/download/%s/%s" $delta_version $delta_package) }}
+{{ with $jump_package }}
+["delta"]
+type = "archive"
+url = "{{ $delta_url }}"
+extract = true
+stripComponents = 1
+refresh_period = "1m"
+{{ end }}
+
+{{ end }}
