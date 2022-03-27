@@ -2,7 +2,7 @@
 {{- if ( eq .chezmoi.os "linux" ) }}
 
 # prevent installation of tzdata to prompt for timezone
-DEBIAN_FRONTEND=noninteractive
+
 
 {{- if (eq .chezmoi.osRelease.id "alpine") }}
 UPDATE_CACHE_COMMAND="apk update"
@@ -15,15 +15,22 @@ echo "unsupported linux distrubution {{ .chezmoi.osRelease.id }}"
 exit 1
 {{- end }}
 
+ubuntu_prepare() {
+	# prepares environment for package installations to prevent
+	# interactive questions, since this should be installed without
+	# interactivity (beside from initial chezmoi setup, if needed)
+	DEBIAN_FRONTEND=noninteractive
+	TZ=UTC
+	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+	$INSTALL_COMMAND software-properties-common
+
+	# add custom repositories
+	apt-add-repository ppa:fish-shell/release-3 -y
+}
 
 install_packages() {
 	{{ if (eq .chezmoi.osRelease.id "ubuntu") }}
-	TZ=UTC
-	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-	apt install -y software-properties-common
-	ln -fs /usr/share/zoneinfo/UTC /etc/localtime
-	# ubuntu has outdated fish version, this will make most recent fish available
-	apt-add-repository ppa:fish-shell/release-3 -y
+	ubuntu_prepare
 	{{ end }}
 
 	# update cache

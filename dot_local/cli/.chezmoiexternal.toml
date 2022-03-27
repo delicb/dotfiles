@@ -2,12 +2,12 @@
 # install jless, it does not provide brew package
 {{ $jless_version := "v0.7.1" }}
 {{ $jless_package := "" }}
-{{- if (eq .chezmoi.os "darwin") }}
+{{ if (eq .chezmoi.os "darwin") }}
 {{   $jless_package = (printf "jless-%s-x86_64-apple-darwin.zip" $jless_version) }}
-{{- end }}
-{{- if (eq .chezmoi.os "linux") }}
+{{ end }}
+{{ if (eq .chezmoi.os "linux") }}
 {{   $jless_package = (printf "jless-%s-x86_64-unknown-linux-gnu.zip" $jless_version) }}
-{{- end }}
+{{ end }}
 {{ $jless_url := (printf "https://github.com/PaulJuliusMartinez/jless/releases/download/%s/%s" $jless_version $jless_package ) }}
 {{ with $jless_package }}
 ["jless"]
@@ -29,7 +29,7 @@ refreshPeriod = "168h"
 {{ with $jump_package }}
 ["jump"]
 type = "file"
-url = "{{ $jump_url }}"
+url = {{ $jump_url | quote }}
 executable = true
 # stripComponents = 1
 refreshPeriod = "168h"
@@ -47,7 +47,7 @@ refreshPeriod = "168h"
 {{ with $jump_package }}
 ["delta"]
 type = "archive"
-url = "{{ $delta_url }}"
+url = {{ $delta_url | quote }}
 extract = true
 stripComponents = 1
 refresh_period = "168h"
@@ -68,7 +68,7 @@ refresh_period = "168h"
 {{ $starship_url := (printf "https://github.com/starship/starship/releases/download/%s/%s" $starship_version $starship_package) -}}
 ["starship"]
 type = "archive"
-url = "{{ $starship_url }}"
+url = {{ $starship_url | quote }}
 extract = true
 refresh_period = "168h"
 
@@ -79,7 +79,7 @@ refresh_period = "168h"
 {{ $exa_url := (printf "https://github.com/ogham/exa/releases/download/%s/%s" $exa_version $exa_package) }}
 ["exa"]
 type = "archive"
-url = "{{ $exa_url }}"
+url = {{ $exa_url | quote }}
 extract = true
 stripComponents = 1
 refresh_period = "168h"
@@ -93,6 +93,18 @@ refresh_period = "168h"
 ["rg"]
 type = "archive"
 url = {{ $rg_url | quote }}
+extract = true
+stripComponents = 1
+refresh_period = "168h"
+
+## https://github.com/sharkdp/bat
+##
+{{ $bat_version := "v0.20.0" }}
+{{ $bat_package := (printf "bat-%s-x86_64-unknown-linux-musl.tar.gz" $bat_version) }}
+{{ $bat_url := (printf "https://github.com/sharkdp/bat/releases/download/%s/%s" $bat_version $bat_package) }}
+["bat"]
+type = "archive"
+url = {{ $bat_url | quote }}
 extract = true
 stripComponents = 1
 refresh_period = "168h"
