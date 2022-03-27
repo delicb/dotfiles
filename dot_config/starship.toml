@@ -6,6 +6,7 @@ add_newline = true
 format = """
 $sudo\
 $hostname\
+$username\
 $directory\
 $cmd_duration\
 $fill\
@@ -101,3 +102,6 @@ format = '\[[${symbol}(${version} )($virtualenv)]($style)\]'
 
 [fill]
 symbol = " "
+
+[username]
+style_root = "white bold"

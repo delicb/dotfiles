@@ -41,7 +41,7 @@ refreshPeriod = "168h"
 {{ $build := "gnu" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
 {{   $build = "musl" }}
-{{ end}}
+{{ end }}
 {{ $delta_package := (printf "delta-%s-x86_64-unknown-linux-%s.tar.gz" $delta_version $build) }}
 {{ $delta_url := (printf "https://github.com/dandavison/delta/releases/download/%s/%s" $delta_version $delta_package) }}
 {{ with $jump_package }}
@@ -50,7 +50,51 @@ type = "archive"
 url = "{{ $delta_url }}"
 extract = true
 stripComponents = 1
-refresh_period = "1m"
+refresh_period = "168h"
 {{ end }}
+
+## https://github.com/starship/starship
+##
+{{ $starship_version := "v1.5.4" }}
+{{ $build := "musl" }}
+{{ $arch := "x86_64" }}
+{{ if (eq .chezmoi.osRelease.id "alpine") }}
+{{    $build = "musl" }}
+{{ end }}
+{{ if (eq .chezmoi.arch "arm64") }}
+{{    $arch = "aarch64" }}
+{{ end }}
+{{ $starship_package := (printf "starship-%s-unknown-linux-%s.tar.gz" $arch $build) -}}
+{{ $starship_url := (printf "https://github.com/starship/starship/releases/download/%s/%s" $starship_version $starship_package) -}}
+["starship"]
+type = "archive"
+url = "{{ $starship_url }}"
+extract = true
+refresh_period = "168h"
+
+## https://github.com/ogham/exa
+##
+{{ $exa_version := "v0.10.1"}}
+{{ $exa_package := (printf "exa-linux-x86_64-musl-%s.zip" $exa_version) }}
+{{ $exa_url := (printf "https://github.com/ogham/exa/releases/download/%s/%s" $exa_version $exa_package) }}
+["exa"]
+type = "archive"
+url = "{{ $exa_url }}"
+extract = true
+stripComponents = 1
+refresh_period = "168h"
+
+
+## https://github.com/BurntSushi/ripgrep
+##
+{{ $rg_version := "13.0.0"}}
+{{ $rg_package := (printf "ripgrep-%s-x86_64-unknown-linux-musl.tar.gz" $rg_version) }}
+{{ $rg_url := (printf "https://github.com/BurntSushi/ripgrep/releases/download/%s/%s" $rg_version $rg_package) }}
+["rg"]
+type = "archive"
+url = {{ $rg_url | quote }}
+extract = true
+stripComponents = 1
+refresh_period = "168h"
 
 {{ end }}

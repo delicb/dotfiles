@@ -8,8 +8,8 @@ DEBIAN_FRONTEND=noninteractive
 UPDATE_CACHE_COMMAND="apk update"
 INSTALL_COMMAND="apk add"
 {{- else if (eq .chezmoi.osRelease.id "ubuntu") }}
-UPDATE_CACHE_COMMAND="apt-get update"
-INSTALL_COMMAND="apt-get install -y"
+UPDATE_CACHE_COMMAND="apt update"
+INSTALL_COMMAND="apt install -y"
 {{- else }}
 echo "unsupported linux distrubution {{ .chezmoi.osRelease.id }}"
 exit 1
@@ -17,23 +17,32 @@ exit 1
 
 
 install_packages() {
-	#detect_distribution
+	{{ if (eq .chezmoi.osRelease.id "ubuntu") }}
+	TZ=UTC
+	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+	apt install -y software-properties-common
+	ln -fs /usr/share/zoneinfo/UTC /etc/localtime
+	# ubuntu has outdated fish version, this will make most recent fish available
+	apt-add-repository ppa:fish-shell/release-3 -y
+	{{ end }}
 
 	# update cache
 	$UPDATE_CACHE_COMMAND
 
 	# packages to install
 	packages="
-	bat
 	direnv
-	exa
+	fish
 	git
 	jq
-	ripgrep
 	vim
 	wget
-	fish
+	{{ if (ne .chezmoi.osRelease.id "ubuntu") }}
+	bat
+	exa
+	ripgrep
 	starship
+	{{ end }}
 	"
 	for pkg in $packages; do
 		$INSTALL_COMMAND "$pkg"
