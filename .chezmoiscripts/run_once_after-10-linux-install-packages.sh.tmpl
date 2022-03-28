@@ -15,7 +15,22 @@ echo "unsupported linux distrubution {{ .chezmoi.osRelease.id }}"
 exit 1
 {{- end }}
 
-ubuntu_prepare() {
+prepare() {
+	# set timezone, needed for various tools
+	# (e.g. on ubuntu, installing some packages goes to interactive
+	# timezone selection)
+	TZ=UTC
+	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+	{{ if (eq .chezmoi.osRelease.id "ubuntu") }}
+		prepare_ubuntu
+	{{ end }}
+	{{ if (eq .chezmoi.osRelease.id "alpine") }}
+		prepare_alpine
+	{{ end }}
+}
+
+prepare_ubuntu() {
 	# prepares environment for package installations to prevent
 	# interactive questions, since this should be installed without
 	# interactivity (beside from initial chezmoi setup, if needed)
@@ -28,13 +43,15 @@ ubuntu_prepare() {
 	apt-add-repository ppa:fish-shell/release-3 -y
 }
 
-install_packages() {
-	{{ if (eq .chezmoi.osRelease.id "ubuntu") }}
-	ubuntu_prepare
-	{{ end }}
+prepare_alpine() {
+	$INSTALL_COMMAND tzdata
+}
 
+install_packages() {
 	# update cache
 	$UPDATE_CACHE_COMMAND
+
+	prepare
 
 	# packages to install
 	packages="
