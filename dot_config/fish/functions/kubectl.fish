@@ -1,0 +1,9 @@
+function kubectl --wraps=kubectl --description "Wrapper for kubectl that does automatic signin if needed"
+	# if "org" command exists, use it to login in to pip
+	# org command is smart enough not to login if credentials are
+	# still valid, so it is not that expensive to call it every time
+	if command -q org
+		command org aws login --quiet
+	end
+	command kubectl $argv
+end
