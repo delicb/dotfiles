@@ -1,11 +1,4 @@
 {{- if not .ephemeral -}}
-# setup aws for work
-export AWS_PROFILE=work
-export AWS_REGION=us-east-1
-export AWS_ACCOUNT_ID={{ .work_aws_account_id }}
-export AWS_CODEARTIFACT_REPOSITORY=pypi-{{ .work_organization_name }}
-export AWS_CODEARTIFACT_DOMAIN={{ .work_organization_name }}
-
 export GIT_AUTHOR_NAME="{{ .work_git_author_name }}"
 export GIT_AUTHOR_EMAIL="{{ .work_git_author_email }}"
 export GIT_COMMITTER_NAME="{{ .work_git_author_name }}"
