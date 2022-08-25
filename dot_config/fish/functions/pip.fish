@@ -1,11 +1,9 @@
 function pip --wraps=pip --description "Wrapper for pip that does automatic signin if needed"
-	# using existance of AWS_ACCOUNT_ID variable to determine if 
-	# default public PyPI should be used or CodeArtifact one
-	if not set -q AWS_ACCOUNT_ID
-		PIP_INDEX_URL="https://pypi.python.org/simple" command pip $argv
-		return
+	# if "org" command exists, use it to login in to pip
+	# org command is smart enough not to login if pip credentials are
+	# still valid, so it is not that expensive to call it every time
+	if command -q org
+		command org aws login --tool pip --quiet
 	end
-
-	pip_login
 	command pip $argv
 end
