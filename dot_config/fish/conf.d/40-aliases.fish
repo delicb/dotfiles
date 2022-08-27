@@ -29,9 +29,6 @@ alias cp "cp -i"
 alias rm "rm -i"
 alias cm "chezmoi"
 
-# replace cat with bat
-alias cat "bat"
-
 # git aliases
 abbr -a -g g git
 abbr -a -g gc "git commit"
