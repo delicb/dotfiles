@@ -247,10 +247,6 @@
 	<false/>
 	<key>HideActivityIndicator</key>
 	<false/>
-	<key>HideFromDockAndAppSwitcher</key>
-	<true/>
-	<key>HideMenuBarInFullscreen</key>
-	<false/>
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
@@ -1044,7 +1040,7 @@
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>8.8587553465672269</real>
+			<real>9.1614730992268036</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1135,7 +1131,7 @@
 			<key>HotKey Key Code</key>
 			<integer>50</integer>
 			<key>HotKey Modifier Activation</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>HotKey Modifier Flags</key>
 			<integer>524288</integer>
 			<key>HotKey Window Animates</key>
@@ -1413,7 +1409,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.014370570231958762</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -2126,8 +2122,6 @@
 		<string>Command History</string>
 		<string>Snippets</string>
 	</array>
-	<key>UIElementRequiresHotkeys</key>
-	<true/>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
