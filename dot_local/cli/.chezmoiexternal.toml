@@ -1,6 +1,6 @@
 ## https://github.com/PaulJuliusMartinez/jless
 # install jless, it does not provide brew package
-{{ $jless_version := "v0.7.1" }}
+{{ $jless_version := "v0.8.0" }}
 {{ $jless_package := "" }}
 {{ if (eq .chezmoi.os "darwin") }}
 {{   $jless_package = (printf "jless-%s-x86_64-apple-darwin.zip" $jless_version) }}
