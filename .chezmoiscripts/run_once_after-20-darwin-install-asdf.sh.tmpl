@@ -6,11 +6,6 @@ if [ ! -d $HOME/.asdf ]; then
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
 
-if [ ! -f $HOME/.config/fish/completions/asdf.fish ]; then
-	mkdir -p $HOME/.config/fish/completions
-	ln -s $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
-fi
-
 source $HOME/.asdf/asdf.sh
 
 {{ $asdf_packages := list
