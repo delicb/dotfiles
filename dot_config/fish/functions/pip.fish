@@ -1,4 +1,8 @@
 function pip --wraps=pip --description "Wrapper for pip that does automatic signin if needed"
+	if set -q PIP_AUTO_COMPLETE
+		command pip $argv
+		return
+	end
 	# if "org" command exists, use it to login in to pip
 	# org command is smart enough not to login if pip credentials are
 	# still valid, so it is not that expensive to call it every time
