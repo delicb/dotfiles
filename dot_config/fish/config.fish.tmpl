@@ -9,10 +9,14 @@ if status is-interactive
     end
 
 	# initialize prompt
-	starship init fish | source
+	if type -q starship
+		starship init fish | source
+	end
 
 	# initialize jump
-	jump shell fish | source
+	if type -q jump
+		jump shell fish | source
+	end
 
 	# run script with porentially private config
 	if test -e $HOME/.private.config.fish
