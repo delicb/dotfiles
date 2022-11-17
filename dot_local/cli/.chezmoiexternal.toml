@@ -23,7 +23,7 @@ refreshPeriod = "168h"
 # these do not have package for all distributions, so it is easier to just install them on linux like this
 
 ## https://github.com/gsamokovarov/jump
-{{ $jump_version := "v0.41.0" }}
+{{ $jump_version := "v0.51.0" }}
 {{ $jump_package := "jump_linux_amd64_binary" }}
 {{ $jump_url := (printf "https://github.com/gsamokovarov/jump/releases/download/%s/%s" $jump_version $jump_package ) }}
 {{ with $jump_package }}
@@ -37,7 +37,7 @@ refreshPeriod = "168h"
 
 
 # https://github.com/dandavison/delta
-{{ $delta_version := "0.12.1"}}
+{{ $delta_version := "0.14.0"}}
 {{ $build := "gnu" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
 {{   $build = "musl" }}
@@ -55,7 +55,7 @@ refresh_period = "168h"
 
 ## https://github.com/starship/starship
 ##
-{{ $starship_version := "v1.5.4" }}
+{{ $starship_version := "v1.11.0" }}
 {{ $build := "musl" }}
 {{ $arch := "x86_64" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
@@ -99,7 +99,7 @@ refresh_period = "168h"
 
 ## https://github.com/sharkdp/bat
 ##
-{{ $bat_version := "v0.20.0" }}
+{{ $bat_version := "v0.22.1" }}
 {{ $bat_package := (printf "bat-%s-x86_64-unknown-linux-musl.tar.gz" $bat_version) }}
 {{ $bat_url := (printf "https://github.com/sharkdp/bat/releases/download/%s/%s" $bat_version $bat_package) }}
 ["bat"]
