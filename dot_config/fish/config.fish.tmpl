@@ -18,29 +18,9 @@ if status is-interactive
 	if test -e $HOME/.private.config.fish
 		source $HOME/.private.config.fish
 	end
+
+	# configure shell integration for vscode, if available
+	string match -q "$TERM_PROGRAM" "vscode"
+	and command --query code
+	and . (code --locate-shell-integration-path fish)
 end
-
-{{ if ( eq .chezmoi.os "darwin" ) -}}
-##########################################################################
-# Development configuration variables
-# This config assumest that the followind packages are installed via brew
-# - xz
-# - openssl
-# - libpq
-##########################################################################
-# for installing python via pyenv or asdf, lzma is (optionally) needed
-# so add path to CPPFLAGS
-set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/xz/include"
-
-# for building various tools, ssl is needed
-set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@1.1/include -L$HOMEBREW_PREFIX/opt/openssl@1.1/lib -I$HOMEBREW_PREFIX/opt/libffi/include -L$HOMEBREW_PREFIX/opt/libffi/lib"
-
-# for installing python libs like psycopg2, update path to point to bin
-# folder of libpq brew package (needed for pg_conf)
-fish_add_path --path --move --append $HOMEBREW_PREFIX/opt/libpq/bin
-
-# configure shell integration for vscode, if available
-string match -q "$TERM_PROGRAM" "vscode"
-and command --query code
-and . (code --locate-shell-integration-path fish)
-{{ end -}}

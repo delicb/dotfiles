@@ -1,0 +1,23 @@
+{{ if ( eq .chezmoi.os "darwin" ) -}}
+# initialize development related config
+
+#########################################################################
+# this config assumes that following packages are installed via homebrew
+# - xz
+# - openssl
+# - libpq
+# - libffi
+#########################################################################
+
+# for installing python via pyenv or asdf, lzma is (optinally) needed
+# so add path to CPPFLAGS
+set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/xz/include"
+
+# for building various tools, ssl and libffi is needed
+set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@1.1/include -L$HOMEBREW_PREFIX/opt/openssl@1.1/lib"
+set -gx LDFLAGS "$LDFLAGS -I$HOMEBREW_PREFIX/opt/libffi/include -L$HOMEBREW_PREFIX/opt/libffi/lib"
+
+# for installing python libs like psycopg2, libpq is needed, so adding
+# its bin folder to path (pg_config is needed)
+fish_add_path --path --move --append $HOMEBREW_PREFIX/opt/libpq/bin
+{{ end -}}
