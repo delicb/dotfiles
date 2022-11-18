@@ -1,3 +1,6 @@
+[user]
+    signingkey = {{ onepasswordRead "op://Personal/MainSSHKey/public key" }}
+
 [core]
     editor = vim
     excludesfile = {{.chezmoi.homeDir}}/.gitignore_global
@@ -56,3 +59,12 @@
 
 [merge]
     conflictStyle = zdiff3
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
