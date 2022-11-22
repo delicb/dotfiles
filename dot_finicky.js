@@ -1,0 +1,122 @@
+// Profile 1 and 2 are personal and work respectively. 
+// Names can be found in chrome://version under "Profile path"
+// as last segment of the path when specific profile is active
+const PERSONAL_BRAVE = {name: "com.brave.Browser", profile: "Profile 1"};
+const WORK_BRAVE = {name: "com.brave.Browser", profile: "Profile 2"};
+
+const WORK_DOMAINS = [
+    "orgnostic",  // anything that has "orgnostic" in hostname or path is work related
+    "device.sso.us-east-1.amazonaws.com",  // AWS SSO links
+    "datadoghq"
+];
+
+const WORK_CONTEXTUAL_DOMAINS = [
+    "docs.google.com",
+    "meet.google.com"
+];
+
+const SOCIAL_NETWORK_DOMAINS = [
+    "facebook.com",
+    "twitter.com",
+    "instagram.com",
+    "youtube.com",
+    "linkedin.com",
+    "hachyderm.io",
+    "reddit.com"
+];
+
+SLACK_BUNDLE_ID = "com.tinyspeck.slackmacgap";
+NOTION_BUNDLE_ID = "notion.id";
+
+// matches URL with list of provided domains. 
+// name parameter is only for logging (for debugging purposes)
+function matchDomains(matches, sourceAppBundleIds = []) {
+    return ({ url, opener }) => {
+        for (let match of matches) {
+            if (url.host.indexOf(match) > -1 || url.pathname.indexOf(match) > -1) {
+                if (opener && sourceAppBundleIds.length > 0) {
+                    return sourceAppBundleIds.indexOf(opener.bundleId) > -1
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+// removes marketing and tracking query parameters from URL, 
+// otherwise leaves it unchanged
+function stripTrackingParams({ url }) {
+    const removeKeysStartingWith = ["utm_", "uta_"]; // Remove all query parameters beginning with these strings
+    const removeKeys = ["fbclid", "gclid"]; // Remove all query parameters matching these keys
+
+    const search = url.search
+        .split("&")
+        .map((parameter) => parameter.split("="))
+        .filter(([key]) => !removeKeysStartingWith.some((startingWith) => key.startsWith(startingWith)))
+        .filter(([key]) => !removeKeys.some((removeKey) => key === removeKey));
+
+    return {
+        ...url,
+        search: search.map((parameter) => parameter.join("=")).join("&"),
+    };
+}
+
+// finicky rules
+module.exports = {
+    defaultBrowser: PERSONAL_BRAVE,
+    rewrite: [
+        // enforce https on all urls
+        {
+            match: ({ url }) => url.protocol === "http",
+            url: { protocol: "https" }
+        },
+        // remove marketing/tracking information from URL
+        {
+            match: () => true, // Execute rewrite on all incoming urls
+            url: stripTrackingParams,
+        },
+    ],
+    handlers: [
+        // open notion links in desktop app
+        {
+            match: ({ url }) => url.host.indexOf("notion.so") > -1,
+            url: ({ url }) => ({...url, protocol: "notion"}),
+            browser: "Notion",
+        },
+
+        // override all other matches for manual control
+        // * cmd + click always opens in personal browser
+        // * option + click always opens in work browser
+        {
+            match: ({ keys }) => keys.command,
+            browser: PERSONAL_BRAVE,
+        },
+        {
+            match: ({ keys }) => keys.option,
+            browser: WORK_BRAVE,
+        },
+
+        // match work related stuff, use list of domains that should always be
+        // opened in work browser.
+        {
+            match: matchDomains(WORK_DOMAINS),
+            browser: WORK_BRAVE
+        },
+
+        // slightly different from previous handler - set of domains that should
+        // be opened in work browser only if link is clicked in Slack.
+        {
+            match: matchDomains(WORK_CONTEXTUAL_DOMAINS, [SLACK_BUNDLE_ID, NOTION_BUNDLE_ID]),
+            browser: WORK_BRAVE,
+
+        },
+        // match social networks
+        {
+            match: matchDomains(SOCIAL_NETWORK_DOMAINS),
+            // this is essentially the same as default, but keeping it explicit
+            // for now, I have some ideas. 
+            browser: PERSONAL_BRAVE,
+        }
+    ]
+}
