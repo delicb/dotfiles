@@ -89,11 +89,11 @@ module.exports = {
         // * cmd + click always opens in personal browser
         // * option + click always opens in work browser
         {
-            match: ({ keys }) => keys.command,
+            match: () => finicky.getKeys().command,
             browser: PERSONAL_BRAVE,
         },
         {
-            match: ({ keys }) => keys.option,
+            match: () => finicky.getKeys().option,
             browser: WORK_BRAVE,
         },
 
