@@ -7,7 +7,7 @@ const WORK_BRAVE = {name: "com.brave.Browser", profile: "Profile 2"};
 const WORK_DOMAINS = [
     "orgnostic",  // anything that has "orgnostic" in hostname or path is work related
     "device.sso.us-east-1.amazonaws.com",  // AWS SSO links
-    "datadoghq"
+    "datadoghq",
 ];
 
 const WORK_CONTEXTUAL_DOMAINS = [
