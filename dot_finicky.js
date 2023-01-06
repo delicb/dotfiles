@@ -68,7 +68,7 @@ module.exports = {
     rewrite: [
         // enforce https on all urls
         {
-            match: ({ url }) => url.protocol === "http",
+            match: ({ url }) => url.protocol === "http" && url.host !== "localhost",
             url: { protocol: "https" }
         },
         // remove marketing/tracking information from URL
