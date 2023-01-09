@@ -1,15 +1,14 @@
-{{- if not .ephemeral -}}
+{{- if and (not .ephemeral) (lookPath "op") -}}
+# use 1password ssh agent
 Host *
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 Host delic.rs
   Port 22202
-Host home.delic.rs
-  User del-boy
-  Port 22
 Host *
   ServerAliveInterval 240
   ServerAliveCountMax 30
 {{- if (eq .chezmoi.os "darwin" ) }}
+  # reuse sock files for 10 minutes for same ssh connections
   UseKeychain yes
   ControlPath ~/.ssh/%C.sock
   ControlMaster auto
