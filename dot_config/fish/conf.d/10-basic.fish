@@ -21,5 +21,9 @@ set -gx DELTA_PAGER "less --RAW-CONTROL-CHARS --quit-if-one-screen"
 set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
 # pipx config
-set -gx PIPX_DEFAULT_PYTHON "$HOME/.asdf/shims/python"
+set -gx PIPX_DEFAULT_PYTHON (rtx where python)/bin/python
 set -gx USE_EMOJI true
+
+# require virtualenv for pip
+# to install to non-venv, use 'PIP_REQUIRE_VIRTUALENV="" pip install ...'
+set -gx PIP_REQUIRE_VIRTUALENV true 

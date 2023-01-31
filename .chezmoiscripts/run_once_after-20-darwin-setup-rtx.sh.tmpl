@@ -1,0 +1,21 @@
+{{- if ( eq .chezmoi.os "darwin" ) -}}
+#!/bin/sh
+
+# check if rtx is isntalled first
+if ! command -v rtx &> /dev/null; then
+	echo "ERROR: rtx is not installed, skipping rest of the setup"
+	exit 0
+fi
+
+{{ $rtx_packages := list
+	"python"
+	"golang"
+	"awscli"
+-}}
+
+{{ range ($rtx_packages | sortAlpha | uniq) -}}
+	rtx install {{ . }}@latest
+	rtx global {{ . }}@latest
+{{ end -}}
+
+{{ end -}}
