@@ -18,6 +18,19 @@ exact = true
 refreshPeriod = "168h"
 {{ end }}
 
+## https://github.com/direnv/direnv
+# install direnv, controll manually instead of with brew package
+{{ $direnv_version := "v2.32.2" }}
+{{ $direnv_package := (printf "direnv.%s-%s" .chezmoi.os .chezmoi.arch) }}
+{{ $direnv_url := (printf "https://github.com/direnv/direnv/releases/download/%s/%s" $direnv_version $direnv_package) }}
+{{ with $direnv_package }}
+["direnv"]
+type = "file"
+url = "{{ $direnv_url }}"
+executable = true
+refreshPerios = "168h"
+{{ end }}
+
 
 {{- if ( eq .chezmoi.os "linux" ) }}
 # these do not have package for all distributions, so it is easier to just install them on linux like this

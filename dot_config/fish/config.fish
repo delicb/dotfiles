@@ -5,10 +5,12 @@
 if status is-interactive
 	# initialize rtx
 	if type -q rtx
-		# not using `rtx activate` here, since tha does not play nicely with direnv
-		# ref: https://github.com/jdxcode/rtx/issues/8
-		rtx env -s fish | source
-		# rtx activate -s fish | source
+		rtx activate -s fish | source
+	end
+
+	# initialize direnv
+	if type -q direnv
+		direnv hook fish | source
 	end
 
 	# initialize prompt

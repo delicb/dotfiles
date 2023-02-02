@@ -18,4 +18,6 @@ if test -e /opt/homebrew/bin
 	set -gx HOMEBREW_NO_ANALYTICS 1
 
 	fish_add_path -P /opt/homebrew/bin /opt/homebrew/sbin
+
+	set -gx HOMEBREW_BAT true
 end
