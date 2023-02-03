@@ -3,25 +3,10 @@
 #####################################################################
 
 if status is-interactive
-	# initialize rtx
-	if type -q rtx
-		rtx activate fish --quiet | source
-	end
-
-	# initialize direnv
-	if type -q direnv
-		direnv hook fish | source
-	end
-
-	# initialize prompt
-	if type -q starship
-		starship init fish | source
-	end
-
-	# initialize jump
-	if type -q jump
-		jump shell fish | source
-	end
+	type -q rtx;      and rtx activate fish --quiet | source
+	type -q direnv;   and direnv hook fish | source
+	type -q starship; and starship init fish | source
+	type -q jump;     and jump shell fish | source
 
 	# run script with porentially private config
 	if test -e $HOME/.private.config.fish
