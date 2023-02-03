@@ -5,7 +5,7 @@
 if status is-interactive
 	# initialize rtx
 	if type -q rtx
-		rtx activate -s fish | source
+		rtx activate fish --quiet | source
 	end
 
 	# initialize direnv
