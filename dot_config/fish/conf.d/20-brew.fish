@@ -16,6 +16,7 @@ if test -e /opt/homebrew/bin
 
 	# disable homebrew analytics
 	set -gx HOMEBREW_NO_ANALYTICS 1
+	set -gx HOMEBREW_NO_GOOGLE_ANALYTICS 1
 
 	fish_add_path -P /opt/homebrew/bin /opt/homebrew/sbin
 
