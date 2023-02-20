@@ -11,11 +11,13 @@
 
 # for installing python via pyenv or asdf or rtx, lzma is (optinally) needed
 # so add path to CPPFLAGS
-set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/xz/include"
+set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/xz/include -I/opt/homebrew/opt/curl/include"
 
 # for building various tools, ssl and libffi is needed
-set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@1.1/include -L$HOMEBREW_PREFIX/opt/openssl@1.1/lib"
+set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@1.1/include -L$HOMEBREW_PREFIX/opt/openssl@1.1/lib -L$HOMEBREW_PREFIX/opt/curl/lib"
 set -gx LDFLAGS "$LDFLAGS -I$HOMEBREW_PREFIX/opt/libffi/include -L$HOMEBREW_PREFIX/opt/libffi/lib"
+
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/curl/lib/pkgconfig"
 
 # for installing python libs like psycopg2, libpq is needed, so adding
 # its bin folder to path (pg_config is needed)
