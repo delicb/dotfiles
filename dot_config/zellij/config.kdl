@@ -1,0 +1,45 @@
+on_force_close "quit"
+theme "default"
+pane_frames true
+mouse_mode true
+scroll_buffer_size 100000
+copy_command "pbcopy"
+copy_on_select true
+layout_dir "$HOME/.config/zellij/layouts"
+
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
+themes {
+    tokyo-night-dark {
+        fg 169 177 214
+        bg 26 27 38
+        black 56 62 90
+        red 249 51 87
+        green 158 206 106
+        yellow 224 175 104
+        blue 122 162 247
+        magenta 187 154 247
+        cyan 42 195 222
+        white 192 202 245
+        orange 255 158 100
+    }
+
+   dracula {
+        fg 248 248 242
+        bg 40 42 54
+        black 0 0 0
+        red 255 85 85
+        green 80 250 123
+        yellow 241 250 140
+        blue 98 114 164
+        magenta 255 121 198
+        cyan 139 233 253
+        white 255 255 255
+        orange 255 184 108
+    }
+}
+
