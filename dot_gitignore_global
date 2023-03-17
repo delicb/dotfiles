@@ -11,3 +11,10 @@
 # Direnv stuff
 .direnv
 .envrc
+
+# venvs
+.venv
+
+# rtx config
+.rtx.toml
+
