@@ -27,8 +27,8 @@ prepare_env() {
 	"alpine")
 		apk add curl
 		;;
-	"ubuntu")
-		apt-get update && apt-get install -y curl
+	"debian" | "ubuntu")
+		apt update && apt install -y curl
 		;;
 	*)
 		echo "unsupported operating system"
