@@ -51,7 +51,7 @@ refreshPeriod = "168h"
 
 # https://github.com/dandavison/delta
 {{ $delta_version := "0.15.1"}}
-{{ $build := "gnu" }}
+{{ $build := "musl" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
 {{   $build = "musl" }}
 {{ end }}
