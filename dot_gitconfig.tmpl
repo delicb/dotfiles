@@ -1,6 +1,3 @@
-[user]
-    signingkey = {{ onepasswordRead "op://Personal/MainSSHKey/public key" }}
-
 [core]
     editor = vim
     excludesfile = {{.chezmoi.homeDir}}/.gitignore_global
@@ -60,6 +57,10 @@
 [merge]
     conflictStyle = zdiff3
 
+{{ if not .ephemeral -}}
+[user]
+    signingkey = {{ onepasswordRead "op://Personal/MainSSHKey/public key" }}
+
 [gpg]
   format = ssh
 
@@ -68,4 +69,4 @@
 
 [commit]
   gpgsign = true
-
+{{ end }}
