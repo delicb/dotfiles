@@ -7,7 +7,7 @@ alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias ls exa
-alias l "exa -Flb --git --color-scale --sort name --group-directories-first"
+alias l "exa -Flb --git --color-scale --sort name --no-user --group-directories-first --icons"
 alias ll l
 alias la "l -a"
 alias ldir "l -D"
