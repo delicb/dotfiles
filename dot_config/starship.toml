@@ -67,7 +67,7 @@ zig.disabled = true
 [cmd_duration]
 min_time = 1000
 show_milliseconds = true
-format = " took [$duration]($style)"
+format = "took [$duration]($style)"
 
 [directory]
 # if in git repo, treat is as root (which is normally home folder)
