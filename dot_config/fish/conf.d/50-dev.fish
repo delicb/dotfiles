@@ -13,3 +13,6 @@ set -gx USE_EMOJI true
 # require virtualenv for pip
 # to install to non-venv, use 'PIP_REQUIRE_VIRTUALENV="" pip install ...'
 set -gx PIP_REQUIRE_VIRTUALENV true
+
+# use TOML for rtx configuration
+set -gx RTX_USE_TOML 1
