@@ -1,77 +1,27 @@
 #!/bin/sh
 {{- if ( eq .chezmoi.os "linux" ) }}
 
-# prevent installation of tzdata to prompt for timezone
+set -o errexit -o nounset
 
+echo "Loading {{ .chezmoi.sourceDir }}/scripts/{{ .chezmoi.osRelease.id}}.sh"
+. {{ .chezmoi.sourceDir }}/scripts/{{ .chezmoi.osRelease.id}}.sh
 
-{{- if (eq .chezmoi.osRelease.id "alpine") }}
-UPDATE_CACHE_COMMAND="apk update"
-INSTALL_COMMAND="apk add"
-{{- else if (eq .chezmoi.osRelease.id "ubuntu") }}
-UPDATE_CACHE_COMMAND="apt update"
-INSTALL_COMMAND="apt install -y"
-{{- else }}
-echo "unsupported linux distrubution {{ .chezmoi.osRelease.id }}"
-exit 1
-{{- end }}
+prepare
 
-prepare() {
-	# set timezone, needed for various tools
-	# (e.g. on ubuntu, installing some packages goes to interactive
-	# timezone selection)
-	TZ=UTC
-	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-	{{ if (eq .chezmoi.osRelease.id "ubuntu") }}
-		prepare_ubuntu
-	{{ end }}
-	{{ if (eq .chezmoi.osRelease.id "alpine") }}
-		prepare_alpine
-	{{ end }}
-}
-
-prepare_ubuntu() {
-	# prepares environment for package installations to prevent
-	# interactive questions, since this should be installed without
-	# interactivity (beside from initial chezmoi setup, if needed)
-	DEBIAN_FRONTEND=noninteractive
-	TZ=UTC
-	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-	$INSTALL_COMMAND software-properties-common
-
-	# add custom repositories
-	apt-add-repository ppa:fish-shell/release-3 -y
-}
-
-prepare_alpine() {
-	$INSTALL_COMMAND tzdata
-}
-
-install_packages() {
-	# update cache
-	$UPDATE_CACHE_COMMAND
-
-	prepare
-
-	# packages to install
-	packages="
-	fish
-	git
-	jq
-	vim
-	wget
-	{{ if (ne .chezmoi.osRelease.id "ubuntu") }}
-	bat
-	exa
-	ripgrep
-	starship
-	{{ end }}
-	"
-	for pkg in $packages; do
-		$INSTALL_COMMAND "$pkg"
-	done
-}
-
-install_packages
+# packages to install
+packages="
+fish
+git
+jq
+vim
+wget
+{{ if (and (ne .chezmoi.osRelease.id "ubuntu") (ne .chezmoi.osRelease.id "debian")) }}
+bat
+exa
+ripgrep
+starship
+{{ end }}
+"
+install_pkg $packages
 
 {{ end }}
