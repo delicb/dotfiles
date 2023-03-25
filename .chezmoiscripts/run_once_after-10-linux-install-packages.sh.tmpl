@@ -15,7 +15,8 @@ git
 jq
 vim
 wget
-{{ if (and (ne .chezmoi.osRelease.id "ubuntu") (ne .chezmoi.osRelease.id "debian")) }}
+{{ if (eq .chezmoi.osRelease.id "alpine") }}
+bash
 bat
 exa
 ripgrep
