@@ -1,8 +1,0 @@
-{{- if not .ephemeral -}}
-export GIT_AUTHOR_NAME="{{ .work_git_author_name }}"
-export GIT_AUTHOR_EMAIL="{{ .work_git_author_email }}"
-export GIT_COMMITTER_NAME="{{ .work_git_author_name }}"
-export GIT_COMMITTER_EMAIL="{{ .work_git_author_email }}"
-
-source_up_if_exists
-{{ end }}

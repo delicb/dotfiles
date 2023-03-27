@@ -1,9 +1,0 @@
-{{- if not .ephemeral -}}
-# setup aws for personal projects
-export AWS_PROFILE=default
-
-export GIT_AUTHOR_NAME="{{ .personal_git_author_name }}"
-export GIT_AUTHOR_EMAIL="{{ .personal_git_author_email }}"
-export GIT_COMMITTER_NAME="{{ .personal_git_author_name }}"
-export GIT_COMMITTER_EMAIL="{{ .personal_git_author_email }}"
-{{ end }}
