@@ -3,12 +3,13 @@
 missing_runtime_behavior = 'warn' # other options: 'ignore', 'warn', 'prompt', 'autoinstall'
 legacy_version_file = true
 experimental = true
-shims_dir = "/Users/del-boy/.rtx/shims"
+shims_dir = "/Users/del-boy/.local/share/rtx/shims"
+trusted_config_paths = ["~/work"]
 raw = true
 
 [tools]
 python = "latest"
-golang = "1.20"
+golang = "latest"
 sqlite = "3.40.1"
 httpie-go = "latest"
 awscli = "2.9.19"
