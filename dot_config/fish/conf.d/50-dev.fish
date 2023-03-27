@@ -7,7 +7,7 @@ set -gx GOPATH $HOME/go
 set -gx SAM_CLI_TELEMETRY 0
 
 # pipx config
-type -q rtx; and set -gx PIPX_DEFAULT_PYTHON (rtx where python)/bin/python
+set -gx PIPX_DEFAULT_PYTHON (rtx where python)/bin/python
 set -gx USE_EMOJI true
 
 # require virtualenv for pip
