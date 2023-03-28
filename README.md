@@ -2,6 +2,9 @@
 
 Managed using [chezmoi](https://github.com/twpayne/chezmoi).
 
-Still work in progress, both from standpoint of adding all the config
-that I have, tweaking these configuration files to work both on MacOS and
-Linux and migrating from [old dotconfig](https://github.com/delicb/dotfiles-old).
+Mostly focused on MacOS, since that is my daily driver, but I mostly keep
+it up to date for various Linux distributions (Ubuntu, Debian, Alpine) which
+I use in containers. 
+
+My [old dotconfig](https://github.com/delicb/dotfiles-old) are still available
+but not used or updated.
