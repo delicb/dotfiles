@@ -101,7 +101,8 @@ threshold = 1
 [python]
 pyenv_version_name = false
 symbol = " "  # python symbol, to be visible, Nerd fonts are needed
-format = '\[[${symbol}(${version})( $virtualenv)]($style)\] '
+format = '\[[${symbol}(${version})]($style)\] '
+version_format = "v${major}.${minor}"
 style = "yellow"
 
 [ruby]
@@ -112,5 +113,4 @@ symbol = " "
 
 [username]
 style_root = "white bold"
-
 
