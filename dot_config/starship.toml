@@ -14,12 +14,11 @@ $git_branch\
 $git_state\
 $git_metrics\
 $git_status\
+$ruby\
 $golang\
 $python\
-$ruby\
 $line_break\
 $status\
-$shell\
 $character"""
 
 # disable everything I do not need
@@ -64,6 +63,10 @@ zig.disabled = true
 
 # configure modules I do want
 
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
 [cmd_duration]
 min_time = 1000
 show_milliseconds = true
@@ -85,7 +88,7 @@ style = "bold purple"
 
 [golang]
 symbol = "ﳑ "  # gopher icon, to be visible, Nerd fonts are needed
-format = '\[[$symbol($version )]($style)\]'
+format = '\[[$symbol($version)]($style)\] '
 
 [hostname]
 ssh_only = true
@@ -98,11 +101,16 @@ threshold = 1
 [python]
 pyenv_version_name = false
 symbol = " "  # python symbol, to be visible, Nerd fonts are needed
-format = '\[[${symbol}(${version} )($virtualenv)]($style)\]'
+format = '\[[${symbol}(${version})( $virtualenv)]($style)\] '
+style = "yellow"
+
+[ruby]
+format = '\[[$symbol($version)]($style)\] '
 
 [fill]
 symbol = " "
 
 [username]
 style_root = "white bold"
+
 
