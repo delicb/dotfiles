@@ -11,6 +11,8 @@ alias l "exa -Flb --git --color-scale --sort name --no-user --group-directories-
 alias ll l
 alias la "l -a"
 alias ldir "l -D"
+alias vim "nvim"
+
 function tree --wraps exa --description "alias tree exa"
 	if count $argv > /dev/null
 		set level $argv[1]
