@@ -3,7 +3,6 @@
 #####################################################################
 
 if status is-interactive
-	type -q rtx;      and rtx activate fish --quiet | source
 	type -q starship; and starship init fish | source
 	type -q jump;     and jump shell fish | source
 

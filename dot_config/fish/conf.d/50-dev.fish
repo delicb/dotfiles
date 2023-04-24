@@ -1,5 +1,8 @@
 # general development related configs
 
+# activate rtx
+type -q rtx; and rtx activate fish | source
+
 # golang
 set -gx GOPATH $HOME/go
 
