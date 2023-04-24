@@ -1,8 +1,13 @@
+[user]
+    name = {{ .personal_git_author_name }}
+    email = {{ .personal_git_author_email }}
+
 [core]
     editor = vim
     excludesfile = {{.chezmoi.homeDir}}/.gitignore_global
     pager = "delta --dark"
     ignorecase = true
+
 [pager]
     diff = delta
     log = delta
@@ -70,3 +75,7 @@
 [commit]
   gpgsign = true
 {{ end }}
+
+# if in work directory, include work overrides
+[includeIf "gitdir:~/work"]
+    path = ~/work/gitconfig
