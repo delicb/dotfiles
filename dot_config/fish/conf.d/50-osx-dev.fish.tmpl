@@ -14,7 +14,7 @@
 set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/xz/include -I/opt/homebrew/opt/curl/include"
 
 # for building various tools, ssl and libffi is needed
-set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@1.1/include -L$HOMEBREW_PREFIX/opt/openssl@1.1/lib -L$HOMEBREW_PREFIX/opt/curl/lib"
+set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@3/include -L$HOMEBREW_PREFIX/opt/openssl@3/lib -L$HOMEBREW_PREFIX/opt/curl/lib"
 set -gx LDFLAGS "$LDFLAGS -I$HOMEBREW_PREFIX/opt/libffi/include -L$HOMEBREW_PREFIX/opt/libffi/lib"
 
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/curl/lib/pkgconfig"
