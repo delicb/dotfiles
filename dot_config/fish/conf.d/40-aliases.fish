@@ -6,20 +6,20 @@
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
-alias ls exa
-alias l "exa -Flb --git --color-scale --sort name --no-user --group-directories-first --icons"
+alias ls eza
+alias l "eza -Flb --git --color-scale --sort name --no-user --group-directories-first --icons"
 alias ll l
 alias la "l -a"
 alias ldir "l -D"
 type -q nvim; and alias vim "nvim"
 
-function tree --wraps exa --description "alias tree exa"
+function tree --wraps eza --description "alias tree eza"
 	if count $argv > /dev/null
 		set level $argv[1]
 	else
 		set level 2
 	end
-	exa --tree --level $level
+	eza --tree --level $level
 end
 
 
