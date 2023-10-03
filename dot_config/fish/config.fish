@@ -4,7 +4,7 @@
 
 if status is-interactive
 	type -q starship; and starship init fish | source
-	type -q jump;     and jump shell fish | source
+	type -q zoxide;   and zoxide init --cmd j fish | source
 
 	# run script with porentially private config
 	if test -e $HOME/.private.config.fish
