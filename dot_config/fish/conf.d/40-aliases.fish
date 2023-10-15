@@ -11,7 +11,6 @@ alias l "eza -Flb --git --color-scale --sort name --no-user --group-directories-
 alias ll l
 alias la "l -a"
 alias ldir "l -D"
-type -q nvim; and alias vim "nvim"
 
 function tree --wraps eza --description "alias tree eza"
 	if count $argv > /dev/null
