@@ -53,3 +53,6 @@ abbr -a -g reload "exec fish"
 if test -x /Applications/Tailscale.app/Contents/MacOS/Tailscale
 	alias tailscale /Applications/Tailscale.app/Contents/MacOS/Tailscale
 end
+
+# kitty kittens
+type -q kitten; and abbr -a -g icat "kitten icat"
