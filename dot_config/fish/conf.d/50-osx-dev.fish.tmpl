@@ -1,6 +1,15 @@
 {{ if ( eq .chezmoi.os "darwin" ) -}}
 # initialize development related config specific to OSX
 
+# add rtx shims - while not used always, rtx is not activated on non-interactive
+# shells, so fallback to shims is preferred. Also, some tools like "nox" search
+# for executables in path, so it is not only the current version that
+# should be found (e.g. nox looks for "python3.10", "python3.11", "python3.12")
+
+# setting shims to start of PATH to override homebrew and in interactive
+# use rtx will prepend custom paths anyway.
+fish_add_path --path --move --prepend $HOME/.local/share/rtx/shims
+
 #########################################################################
 # this config assumes that following packages are installed via homebrew
 # - xz
