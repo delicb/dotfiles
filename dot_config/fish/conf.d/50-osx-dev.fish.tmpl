@@ -10,23 +10,13 @@
 # use rtx will prepend custom paths anyway.
 fish_add_path --path --move --prepend $HOME/.local/share/rtx/shims
 
-#########################################################################
-# this config assumes that following packages are installed via homebrew
-# - xz
-# - openssl
-# - libpq
-# - libffi
-#########################################################################
-
-# for installing python via pyenv or asdf or rtx, lzma is (optinally) needed
-# so add path to CPPFLAGS
-set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/xz/include -I/opt/homebrew/opt/curl/include"
-
-# for building various tools, ssl and libffi is needed
-set -gx LDFLAGS "-I$HOMEBREW_PREFIX/opt/openssl@3/include -L$HOMEBREW_PREFIX/opt/openssl@3/lib -L$HOMEBREW_PREFIX/opt/curl/lib"
-set -gx LDFLAGS "$LDFLAGS -I$HOMEBREW_PREFIX/opt/libffi/include -L$HOMEBREW_PREFIX/opt/libffi/lib"
-
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/curl/lib/pkgconfig"
+# for compiling packages (e.g. installing python via pyenv or asdf or rtx)
+# we need CFLAGS and LDFLAGS configured. Setting them here to brew installed
+# versions. Python needs "xz", "openssl", "libpq", "libffi", so make sure
+# they are installed
+set -gx CFLAGS "-I$HOMEBREW_PREFIX/include"
+set -gx LDFLAGS "-I$HOMEBREW_PREFIX/include -L$HOMEBREW_PREFIX/lib"
+set -gx PKG_CONFIG_PATH "$HOMEBREW_PREFIX/lib/pkgconfig/"
 
 # for installing python libs like psycopg2, libpq is needed, so adding
 # its bin folder to path (pg_config is needed)
