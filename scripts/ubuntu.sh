@@ -1,17 +1,26 @@
 set -o errexit -o nounset
 
+maybe_sudo() {
+	if [ -z "$CODESPACES" ]; then
+		SUDO=
+	else
+		SUDO="sudo "
+	fi
+}
+
 prepare() {
+	maybe_sudo
 	apt update
 	TZ=UTC
-	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+	${SUDO}ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 	DEBIAN_FRONTEND=noninteractive
-	apt install -y software-properties-common curl gnupg
+	${SUDO}apt install -y software-properties-common curl gnupg
 
-	apt-add-repository -y ppa:fish-shell/release-3
-	apt update
+	${SUDO}apt-add-repository -y ppa:fish-shell/release-3
+	${SUDO}apt update
 }
 
 install_pkg() {
-	apt install -y $@
+	${SUDO}apt install -y $@
 }

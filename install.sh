@@ -21,14 +21,23 @@ detect_os() {
 	fi
 }
 
+maybe_sudo() {
+	if [ -z "$CODESPACES" ]
+		SUDO=
+	else
+		SUDO="sudo "
+	fi
+}
+
 prepare_env() {
 	detect_os
+	maybe_sudo
 	case $OS in
 	"alpine")
-		apk add curl
+		${SUDO}apk add curl
 		;;
 	"debian" | "ubuntu")
-		apt update && apt install -y curl
+		${SUDO}apt update && ${SUDO}apt install -y curl
 		;;
 	*)
 		echo "unsupported operating system"
