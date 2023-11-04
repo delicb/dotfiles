@@ -8,3 +8,12 @@ I use in containers.
 
 My [old dotconfig](https://github.com/delicb/dotfiles-old) are still available
 but not used or updated.
+
+# Install
+```
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply delicb
+```
+or
+```
+sh -c "$(wget -qO- get.chezmoi.io)" -- init --apply delicb
+```
