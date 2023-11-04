@@ -85,16 +85,15 @@ url = {{ $starship_url | quote }}
 extract = true
 refresh_period = "168h"
 
-## https://github.com/ogham/exa
+## https://github.com/eza-community/eza
 ##
-{{ $exa_version := "v0.10.1"}}
-{{ $exa_package := (printf "exa-linux-x86_64-musl-%s.zip" $exa_version) }}
-{{ $exa_url := (printf "https://github.com/ogham/exa/releases/download/%s/%s" $exa_version $exa_package) }}
-["exa"]
+{{ $eza_version := "v0.15.2"}}
+{{ $eza_package := (printf "eza_x86_64-unknown-linux-musl.zip") }}
+{{ $eza_url := (printf "https://github.com/eza-community/eza/releases/download/%s/%s" $eza_version $eza_package) }}
+["eza"]
 type = "archive"
-url = {{ $exa_url | quote }}
+url = {{ $eza_url | quote }}
 extract = true
-stripComponents = 1
 refresh_period = "168h"
 
 
