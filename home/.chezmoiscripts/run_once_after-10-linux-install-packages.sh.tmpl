@@ -3,8 +3,8 @@
 
 set -o errexit -o nounset
 
-echo "Loading {{ .chezmoi.sourceDir }}/scripts/{{ .chezmoi.osRelease.id}}.sh"
-. {{ .chezmoi.sourceDir }}/scripts/{{ .chezmoi.osRelease.id}}.sh
+echo "Loading {{ .chezmoi.workingTree }}/scripts/{{ .chezmoi.osRelease.id}}.sh"
+. {{ .chezmoi.workingTree }}/scripts/{{ .chezmoi.osRelease.id}}.sh
 
 prepare
 
