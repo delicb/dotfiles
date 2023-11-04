@@ -10,7 +10,7 @@ maybe_sudo() {
 
 prepare() {
 	maybe_sudo
-	apt update
+	${SUDO}apt update
 	TZ=UTC
 	${SUDO}ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
