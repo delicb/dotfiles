@@ -12,7 +12,7 @@ prepare() {
 	maybe_sudo
 	${SUDO}apt update
 	TZ=UTC
-	${SUDO}ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && ${SUDO}echo $TZ > /etc/timezone
+	${SUDO}ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
 
 	DEBIAN_FRONTEND=noninteractive
 	${SUDO}apt install -y software-properties-common curl gnupg
