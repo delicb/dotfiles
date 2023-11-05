@@ -22,7 +22,7 @@ detect_os() {
 }
 
 maybe_sudo() {
-	if [ -z "$CODESPACES" ]
+	if [ -z "$CODESPACES" ]; then
 		SUDO=
 	else
 		SUDO="sudo "
