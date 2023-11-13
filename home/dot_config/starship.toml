@@ -17,6 +17,7 @@ $git_status\
 $ruby\
 $golang\
 $python\
+$kubernetes\
 $line_break\
 $status\
 $character"""
@@ -60,6 +61,7 @@ vagrant.disabled = true
 vlang.disabled = true
 vcsh.disabled = true
 zig.disabled = true
+
 
 # configure modules I do want
 
@@ -114,3 +116,6 @@ symbol = " "
 [username]
 style_root = "white bold"
 
+[kubernetes]
+disabled = false
+format = '[$symbol$context]($style)'
