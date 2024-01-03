@@ -17,3 +17,4 @@
 
 # rtx config
 .rtx.toml
+.mise.toml

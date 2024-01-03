@@ -1,16 +1,16 @@
 {{ if ( eq .chezmoi.os "darwin" ) -}}
 # initialize development related config specific to OSX
 
-# add rtx shims - while not used always, rtx is not activated on non-interactive
+# add mise shims - while not used always, mise is not activated on non-interactive
 # shells, so fallback to shims is preferred. Also, some tools like "nox" search
 # for executables in path, so it is not only the current version that
 # should be found (e.g. nox looks for "python3.10", "python3.11", "python3.12")
 
 # setting shims to start of PATH to override homebrew and in interactive
-# use rtx will prepend custom paths anyway.
-fish_add_path --path --move --prepend $HOME/.local/share/rtx/shims
+# use mise will prepend custom paths anyway.
+fish_add_path --path --move --prepend $HOME/.local/share/mise/shims
 
-# for compiling packages (e.g. installing python via pyenv or asdf or rtx)
+# for compiling packages (e.g. installing python via pyenv or asdf or mise)
 # we need CFLAGS and LDFLAGS configured. Setting them here to brew installed
 # versions. Python needs "xz", "openssl", "libpq", "libffi", so make sure
 # they are installed
