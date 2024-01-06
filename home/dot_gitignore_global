@@ -18,3 +18,5 @@
 # rtx config
 .rtx.toml
 .mise.toml
+
+.pdm-python
