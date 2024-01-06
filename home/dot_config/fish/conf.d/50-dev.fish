@@ -3,6 +3,10 @@
 # activate mise
 type -q mise; and mise activate fish | source
 
+
+set -gx MISE_USE_TOML 1  # use TOML for mise configuration
+set -gx MISE_FISH_AUTO_ACTIVATE 0  # do not use vendor auto-activate, I activate manually
+
 # golang
 set -gx GOPATH $HOME/go
 
@@ -17,5 +21,3 @@ set -gx USE_EMOJI true
 # to install to non-venv, use 'PIP_REQUIRE_VIRTUALENV="" pip install ...'
 set -gx PIP_REQUIRE_VIRTUALENV true
 
-# use TOML for mise configuration
-set -gx MISE_USE_TOML 1
