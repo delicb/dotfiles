@@ -1,0 +1,7 @@
+legacy_version_file = true
+experimental = true
+trusted_config_paths = ["~/work"]
+raw = true
+
+python_venv_auto_create = true
+python_compile = true
