@@ -15,13 +15,4 @@ if status is-interactive
 	string match -q "$TERM_PROGRAM" "vscode"
 	and command --query code
 	and . (code --locate-shell-integration-path fish)
-
-	# set up theme
-	if type -q theme.sh && not string match -q "$TERM_PROGRAM" "vscode"
-		if test -e ~/.theme_history
-			theme.sh (theme.sh -l | tail -n1)
-		else
-			theme.sh phd  # default if no history
-		end
-	end
 end
