@@ -1,19 +1,33 @@
 {{- if not .ephemeral -}}
+// some constants
+const CHROME_BUNDLE_ID = "com.google.Chrome";
+const BRAVE_BUNDLE_ID = "com.brave.Browser";
+const SLACK_BUNDLE_ID = "com.tinyspeck.slackmacgap";
+const NOTION_BUNDLE_ID = "notion.id";
+
+
 // Profile 1 and 2 are personal and work respectively. 
 // Names can be found in chrome://version under "Profile path"
 // as last segment of the path when specific profile is active
-const PERSONAL_BRAVE = {name: "com.brave.Browser", profile: "Profile 1"};
-const WORK_BRAVE = {name: "com.brave.Browser", profile: "Profile 2"};
+const CA_CHROME = {name: CHROME_BUNDLE_ID, profile: "Default"};
+const ORGNOSTIC_CHROME = {name: CHROME_BUNDLE_ID, profile: "Profile 1"};
 
-const WORK_DOMAINS = [
-    "orgnostic",  // anything that has "orgnostic" in hostname or path is work related
+const PERSONAL_BRAVE = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
+
+const ORGNOSTIC_DOMAINS = [
+    "orgnostic",  // anything that has "orgnostic" in hostname or path
     "device.sso.us-east-1.amazonaws.com",  // AWS SSO links
     "datadoghq",
 ];
 
-const WORK_CONTEXTUAL_DOMAINS = [
+const ORGNOSTIC_CONTEXTUAL_DOMAINS = [
     "docs.google.com",
     "meet.google.com"
+];
+
+
+const CA_DOMAINS = [
+    "cultureamp", // anything that has "cultureamp" in hostname
 ];
 
 const SOCIAL_NETWORK_DOMAINS = [
@@ -26,8 +40,8 @@ const SOCIAL_NETWORK_DOMAINS = [
     "reddit.com"
 ];
 
-SLACK_BUNDLE_ID = "com.tinyspeck.slackmacgap";
-NOTION_BUNDLE_ID = "notion.id";
+
+
 
 // matches URL with list of provided domains. 
 // name parameter is only for logging (for debugging purposes)
@@ -95,21 +109,27 @@ module.exports = {
         },
         {
             match: () => finicky.getKeys().option,
-            browser: WORK_BRAVE,
+            browser: ORGNOSTIC_CHROME,
         },
 
-        // match work related stuff, use list of domains that should always be
+        // match Org related stuff, use list of domains that should always be
         // opened in work browser.
         {
-            match: matchDomains(WORK_DOMAINS),
-            browser: WORK_BRAVE
+            match: matchDomains(ORGNOSTIC_DOMAINS),
+            browser: ORGNOSTIC_CHROME,
+        },
+
+        // match CA related stuff
+        {
+            match: matchDomains(CA_DOMAINS),
+            browser: CA_CHROME,
         },
 
         // slightly different from previous handler - set of domains that should
         // be opened in work browser only if link is clicked in Slack.
         {
-            match: matchDomains(WORK_CONTEXTUAL_DOMAINS, [SLACK_BUNDLE_ID, NOTION_BUNDLE_ID]),
-            browser: WORK_BRAVE,
+            match: matchDomains(ORGNOSTIC_CONTEXTUAL_DOMAINS, [SLACK_BUNDLE_ID, NOTION_BUNDLE_ID]),
+            browser: ORGNOSTIC_CHROME,
 
         },
         // match social networks

@@ -63,20 +63,6 @@
 [merge]
     conflictStyle = zdiff3
 
-{{ if not .ephemeral -}}
-[user]
-    signingkey = {{ onepasswordRead "op://Personal/MainSSHKey/public key" }}
-
-[gpg]
-  format = ssh
-
-[gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
-[commit]
-  gpgsign = true
-{{ end }}
-
 # if in work directory, include work overrides
 [includeIf "gitdir:~/work"]
     path = ~/work/gitconfig
