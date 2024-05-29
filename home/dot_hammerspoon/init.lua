@@ -119,27 +119,27 @@ end)
 
 hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
 
-local grid = {
-	rightTopHalf = '6,0 6x6',
-	rightBottomHalf = '6,6 6x6',
-}
+-- local grid = {
+-- 	rightTopHalf = '6,0 6x6',
+-- 	rightBottomHalf = '6,6 6x6',
+-- }
 
-function moveFrontmostWindow(where)
-	return function()
-		local window = hs.window.frontmostWindow()
-		local screen = window:screen()
-		hs.grid.set(window, where, screen)
-	end
-end
+-- function moveFrontmostWindow(where)
+-- 	return function()
+-- 		local window = hs.window.frontmostWindow()
+-- 		local screen = window:screen()
+-- 		hs.grid.set(window, where, screen)
+-- 	end
+-- end
 
-function launchOrFocus(app)
-	return function()
-	  hs.application.launchOrFocus(app)
-	end
-end
+-- function launchOrFocus(app)
+-- 	return function()
+-- 	  hs.application.launchOrFocus(app)
+-- 	end
+-- end
 
 
-hs.hotkey.bind({"alt", "ctrl"}, "l", function()
-	launchOrFocus("Viber")()
-	moveFrontmostWindow(grid.rightBottomHalf)()
-end)
+-- hs.hotkey.bind({"alt", "ctrl"}, "l", function()
+-- 	launchOrFocus("Viber")()
+-- 	moveFrontmostWindow(grid.rightBottomHalf)()
+-- end)
