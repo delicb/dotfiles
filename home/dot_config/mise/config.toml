@@ -12,6 +12,8 @@ helm = "3.8.1"
 nodejs = "18.13.0"
 go = "latest"
 node = "20"
+just = "latest"
+usage = "latest"
 
 [alias]
 
