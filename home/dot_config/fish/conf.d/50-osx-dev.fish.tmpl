@@ -10,6 +10,9 @@
 # use mise will prepend custom paths anyway.
 fish_add_path --path --move --prepend $HOME/.local/share/mise/shims
 
+# if usage command (used by mise) is available, use it to install mise completions
+type -q usage; and type -q mise; and mise completions fish | source
+
 # for compiling packages (e.g. installing python via pyenv or asdf or mise)
 # we need CFLAGS and LDFLAGS configured. Setting them here to brew installed
 # versions. Python needs "xz", "openssl", "libpq", "libffi", so make sure
