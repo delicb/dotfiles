@@ -77,6 +77,7 @@ hs.hotkey.bind({"alt"}, "`", function()
 		
 		scrFrame = screen:frame()
 		local width = math.max(scrFrame.w / 2, 2000)
+		width = math.min(scrFrame.w, width)  -- maximum screen size
 		winFrame.w = width
 		winFrame.h = scrFrame.h
 		winFrame.x = scrFrame.w - width
