@@ -29,7 +29,7 @@ packages:
       - xz
       - zoxide
       per_host:
-        bdelic:
+        bdelić-D7GJWV:
           - kubectl
           - kubectx
           - k9s
