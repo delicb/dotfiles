@@ -1,21 +1,12 @@
 {{- if ( eq .chezmoi.os "darwin" ) -}}
 #!/bin/sh
 
+{{ template "activate-brew" }}
+
 # check if mise is isntalled first
 if ! command -v mise &> /dev/null; then
 	echo "ERROR: mise is not installed, skipping rest of the setup"
 	exit 0
 fi
-
-{{ $mise_packages := list
-	"python"
-	"golang"
-	"awscli"
--}}
-
-{{ range ($mise_packages | sortAlpha | uniq) -}}
-	mise install {{ . }}@latest
-	mise global {{ . }}@latest
-{{ end -}}
-
-{{ end -}}
+mise install
+{{ end }}
