@@ -55,4 +55,9 @@ packages:
       - jetbrains-toolbox
       
     pipx:
+      always:
       - pgcli
+      - pdm
+      - poetry
+      - hatch
+

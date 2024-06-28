@@ -1,0 +1,14 @@
+{{- $packages := .packages.always -}}
+{{- $perHost := (index . "per_host") -}}
+
+{{- if (ne $perHost nil) -}}
+{{-   $thisHost := (index $perHost .hostname) -}}
+{{-   if (ne $thisHost nil) -}}
+{{-     $packages = (concat $packages $thisHost) -}}
+{{-   end -}}
+{{- end -}}
+
+{{ range $packages | sortAlpha | uniq -}}
+echo "⬇️ {{ . }}"
+pipx install {{ . | quote }}
+{{ end -}}
