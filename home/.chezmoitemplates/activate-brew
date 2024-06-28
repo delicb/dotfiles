@@ -1,0 +1,4 @@
+if [ -f /opt/homebrew/bin/brew ]; then
+	echo "🔷 Activating brew"
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi

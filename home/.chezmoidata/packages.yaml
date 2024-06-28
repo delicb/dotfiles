@@ -1,0 +1,58 @@
+packages:
+  darwin:
+    brews:
+      always:
+      - bat
+      - chezmoi
+      - coreutils
+      - curl
+      - defaultbrowser
+      - dockutil
+      - eza
+      - fd
+      - fish
+      - fzf
+      - git-delta
+      - git-extras
+      - git
+      - jq
+      - less
+      - libffi
+      - mise
+      - openssl
+      - pipx
+      - ripgrep
+      - starship
+      - vim
+      - watch
+      - wget
+      - xz
+      - zoxide
+      per_host:
+        bdelic:
+          - kubectl
+          - kubectx
+          - k9s
+          - libpq
+    casks:
+      always:
+      - 1password-cli
+      - 1Password
+      - alfred
+      - bettertouchtool
+      - finicky
+      - font-hack-nerd-font
+      - font-hasklig
+      - font-inconsolata
+      - font-input
+      - font-jetbrains-mono
+      - google-chrome
+      - hammerspoon
+      - hiddenbar
+      - karabiner-elements
+      - kitty
+      - scroll-reverser
+      - jetbrains-toolbox
+      
+    pipx:
+      - pgcli

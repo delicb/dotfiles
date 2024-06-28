@@ -1,83 +1,9 @@
 {{- if ( eq .chezmoi.os "darwin" ) -}}
 #!/bin/bash
 
-if ! command -v brew &> /dev/null
-then
-    echo "brew not found, installing..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # activate brew env in this script
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+{{ template "install-brew" }}
 
-{{ $brews := list
-    "bat"
-    "chezmoi"
-    "coreutils"
-    "curl"
-    "defaultbrowser"
-    "eza"
-    "fd"
-    "fish"
-    "fzf"
-    "git-delta"
-    "git-extras"
-    "git"
-    "jq"
-    "kubectl"
-    "kubectx"
-    "less"
-    "libffi"
-    "libpq"
-    "mise"
-    "openssl"
-    "pipenv"
-    "pipx"
-    "pure"
-    "ripgrep"
-    "starship"
-    "vim"
-    "watch"
-    "wget"
-    "xz"
-    "zellij"
-    "zoxide"
-    "zplug" -}}
-
-{{ $casks := list
-    "1password-cli"
-    "1Password"
-    "alfred"
-    "bettertouchtool"
-    "brave-browser"
-    "finicky"
-    "firefox"
-    "font-hack-nerd-font"
-    "font-hasklig"
-    "font-inconsolata"
-    "font-input"
-    "font-jetbrains-mono"
-    "google-chrome"
-    "hammerspoon"
-    "hiddenbar"
-    "iterm2"
-    "karabiner-elements"
-    "kitty"
-    "obsidian"
-    "scroll-reverser"
--}}
-
-# use brew bundle to install all - generate brewfile on stdin directly in a script
-brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range ($brews | sortAlpha | uniq) -}}
-brew "{{ . }}"
-{{ end -}}
-{{ range ($casks | sortAlpha | uniq) -}}
-cask "{{ . }}"
-{{ end -}}
-EOF
-
-# setup fisher for plugins
-#fisher_path=$HOME/.config/fish/plugins fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update"
+{{ template "brew-bundle" . -}}
 
 # change shell to fish
 if ! grep -q "$(brew --prefix)/bin/fish" /etc/shells; then

@@ -1,0 +1,32 @@
+{{- if ( eq .chezmoi.os "darwin" ) -}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- with .packages.darwin -}}
+{{- $brews := .brews.always -}}
+{{- $casks := .casks.always -}}
+{{- $brewsPerHost := (index .brews "per_host") -}}
+{{- $casksPerHost := (index .casks "per_host") -}}
+
+{{- if (ne $brewsPerHost nil) -}}
+{{-   $thisHost := (index $brewsPerHost $hostname) -}}
+{{-   if (ne $thisHost nil) -}}
+{{-     $brews = (concat $brews $thisHost) -}}
+{{-    end -}}
+{{- end -}}
+
+{{- if (ne $casksPerHost nil) -}}
+{{-   $thisHost := (index $casksPerHost $hostname) -}}
+{{-   if (ne $thisHost nil) -}}
+{{-     $casks = (concat $casks $thisHost) -}}
+{{-   end -}}
+{{- end -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range $brews | sortAlpha | uniq -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range $casks | sortAlpha | uniq -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ end }}
+{{ end -}}
