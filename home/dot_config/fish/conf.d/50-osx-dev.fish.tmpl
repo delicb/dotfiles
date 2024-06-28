@@ -8,7 +8,7 @@
 
 # setting shims to start of PATH to override homebrew and in interactive
 # use mise will prepend custom paths anyway.
-fish_add_path --path --move --prepend $HOME/.local/share/mise/shims
+fish_add_path --path --move --append $HOME/.local/share/mise/shims
 
 # if usage command (used by mise) is available, use it to install mise completions
 type -q usage; and type -q mise; and mise completions fish | source
