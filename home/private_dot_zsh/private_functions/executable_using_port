@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-using_port() {
-	lsof -n -i:$1 | grep LISTEN
-}
-
-using_port "$@"
