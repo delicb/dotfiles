@@ -1,8 +1,3 @@
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
-	hs.application.launchOrFocus("iTerm")
-	hs.alert.show(hs.application.frontmostApplication())
-end)
-
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
 
