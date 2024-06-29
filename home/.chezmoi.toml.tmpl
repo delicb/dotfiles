@@ -3,9 +3,9 @@
 {{- $secure_env := false -}}  {{/* should contain secrets? */}}
 {{- $name := "Bojan Delić" -}}  {{/* name of the owner, used for things like git user */}}
 {{- $_personalHostnames := list "mentat" -}}
-{{- $_workHostnames := list "" -}}
-{{- $personal := (has "mentat" $_personalHostnames) -}}
-{{- $work := (has "bdelić-1234" $_workHostnames) -}}
+{{- $_workHostnames := list "bdelić-D7GJWV" -}}
+{{- $personal := (has .chezmoi.hostname $_personalHostnames) -}}
+{{- $work := (has .chezmoi.hostname $_workHostnames) -}}
 {{- $email := "" -}} {{/* email used to configure git with */}}
 
 
