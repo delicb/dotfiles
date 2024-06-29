@@ -1,6 +1,6 @@
 [user]
-    name = {{ .personal_git_author_name }}
-    email = {{ .personal_git_author_email }}
+    name = {{ .git_author_name }}
+    email = {{ .git_author_email }}
 
 [core]
     editor = vim
@@ -63,6 +63,13 @@
 [merge]
     conflictStyle = zdiff3
 
+{{- if .work -}}
 # if in work directory, include work overrides
 [includeIf "gitdir:~/work"]
     path = ~/work/gitconfig
+{{ end -}}
+{{- if .personal -}}
+# if in src directory, include personal overrides
+[includeIf "gitdir:~/src"]
+    path = ~/src/gitconfig
+{{ end }}
