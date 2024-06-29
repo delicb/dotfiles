@@ -124,6 +124,13 @@ defaults write com.apple.dock largesize -float 90
 # Minimize effect
 defaults write com.apple.dock mineffect -string "genie"
 
+# zoom icons on hover
+defaults write com.apple.dock magnification -int 1
+
+# show only running apps in dock
+# this removes all icons from dock
+defaults write com.apple.dock "static-only" -bool "true"
+
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
 
@@ -142,15 +149,26 @@ defaults write com.apple.dock autohide -bool true
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
+# Do nothing when only Fn is pressed
+# default is changing input sources, but I use Karabiner for that
+defaults write com.apple.HIToolbox AppleFnUsageType -int "0"
+
+# F keys behvave as function keys, use Fn+F for special behavior
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
+
 # Fix scroll
 # Disable “natural” (Lion-style) scrolling
 # This disables both horizontal and vertical "natural" scoll. 
 # In order to keep vertical, I use https://pilotmoon.com/scrollreverser/
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-killall Dock
 
+
+{{ template "activate-brew" }}
 # set default browser to finicky, it's config has entries that determine
 # which browser to actually use for different URLs
 defaultbrowser finicky
+
+killall Dock
 {{ end -}}
