@@ -1,9 +1,12 @@
 {{- writeToStdout "\nConfigure dot files\n\n" -}}
 {{- $ephemeral := false -}}  {{/* cloud instances, containers, etc */}}
-{{- $secure_env := false -}}  {{/* should contain personal secrets? */}}
+{{- $secure_env := false -}}  {{/* should contain secrets? */}}
 {{- $name := "Bojan Delić" -}}  {{/* name of the owner, used for things like git user */}}
-{{- $work_email := "" -}} {{/* work email */}}
-{{- $personal_email := "" -}}  {{/* personal email for git */}}
+{{- $_personalHostnames := list "mentat" -}}
+{{- $_workHostnames := list "" -}}
+{{- $personal := (has "mentat" $_personalHostnames) -}}
+{{- $work := (has "bdelić-1234" $_workHostnames) -}}
+{{- $email := "" -}} {{/* email used to configure git with */}}
 
 
 {{/* detect GitHub codespaces, VSCode remote containers, Docker containers, and Vagrant boxes */}}
@@ -14,18 +17,17 @@
 {{- end -}}
 
 {{- if not $ephemeral -}}
-{{-   $secure_env = promptBool "secure_env" -}}  {{/* should contain personal secrets? */}}
+{{-   $secure_env = promptBool "secure_env" -}}  {{/* should contain secrets? */}}
 {{-   $name = promptString "Name" "Bojan Delić" -}}
-{{-   $work_email = promptString "Work email (for git)" -}}
-{{-   $personal_email = promptString "Personal email (for git)" -}}
+{{-   $email = promptString "Email for git setup" -}}
 {{- end -}}
 
 pager = "delta --dark"
 
 [data]
 secure_env = {{ $secure_env }}
-work_git_author_name = {{ $name | quote }}
-work_git_author_email = {{ $work_email | quote }}
-personal_git_author_name = {{ $name | quote }}
-personal_git_author_email = {{ $personal_email | quote }}
+git_author_name = {{ $name | quote }}
+git_author_email = {{ $email | quote }}
 ephemeral = {{ $ephemeral }}
+personal = {{ $personal }}
+work = {{ $work }}

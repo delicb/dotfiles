@@ -1,0 +1,13 @@
+{{- if (and .personal (not .ephemeral)) -}}
+[user]
+    signingkey = {{ onepasswordRead "op://Private/MainSSHKey/public key" }}
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+{{ end }}
