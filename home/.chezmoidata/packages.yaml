@@ -18,6 +18,7 @@ packages:
       - jq
       - less
       - libffi
+      - mdcat
       - mise
       - openssl
       - pipx

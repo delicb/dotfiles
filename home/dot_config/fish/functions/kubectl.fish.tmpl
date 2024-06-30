@@ -1,3 +1,4 @@
+{{- if .work -}}
 function kubectl --wraps=kubectl --description "Wrapper for kubectl that does automatic signin if needed"
 	# if "org" command exists, use it to login in to AWS
 	# org command is smart enough not to login if credentials are
@@ -7,3 +8,4 @@ function kubectl --wraps=kubectl --description "Wrapper for kubectl that does au
 	end
 	command kubectl $argv
 end
+{{- end }}
