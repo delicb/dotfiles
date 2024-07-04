@@ -1,0 +1,46 @@
+// browser bundle IDs
+const CHROME_BUNDLE_ID = "com.google.Chrome";
+const BRAVE_BUNDLE_ID = "com.brave.Browser";
+const SAFARI_BUNDLE_ID = "com.apple.safari";
+
+const SLACK_BUNDLE_ID = "com.tinyspeck.slackmacgap";
+
+const NOTION_BUNDLE_ID = "notion.id";
+
+// Default profile is usually first one created. 
+// After than, each new is numbered. To find out which value should
+// go here for some profile, while profile is active,
+// open chrome://version and under "profile path" and take last path segment .
+
+// matches URL with list of provided domains.
+function matchDomains(matches, sourceAppBundleIds = []) {
+    return ({ url, opener }) => {
+        for (let match of matches) {
+            if (url.host.indexOf(match) > -1 || url.pathname.indexOf(match) > -1) {
+                if (opener && sourceAppBundleIds.length > 0) {
+                    return sourceAppBundleIds.indexOf(opener.bundleId) > -1
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+// removes marketing and tracking query parameters from URL,
+// otherwise leaves it unchanged
+function stripTrackingParams({ url }) {
+    const removeKeysStartingWith = ["utm_", "uta_"]; // Remove all query parameters beginning with these strings
+    const removeKeys = ["fbclid", "gclid"]; // Remove all query parameters matching these keys
+
+    const search = url.search
+        .split("&")
+        .map((parameter) => parameter.split("="))
+        .filter(([key]) => !removeKeysStartingWith.some((startingWith) => key.startsWith(startingWith)))
+        .filter(([key]) => !removeKeys.some((removeKey) => key === removeKey));
+
+    return {
+        ...url,
+        search: search.map((parameter) => parameter.join("=")).join("&"),
+    };
+}

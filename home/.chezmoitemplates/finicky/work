@@ -1,0 +1,116 @@
+// for opening CA related stuff
+const CA_CHROME = {name: CHROME_BUNDLE_ID, profile: "Default"};
+// for opening orgnostic related stuff
+const ORGNOSTIC_CHROME = {name: CHROME_BUNDLE_ID, profile: "Profile 1"};
+
+// all other, non-explicitly mapped stuff, open in this browser. 
+// Intention is not to open e.g. social links or similar in work
+// browsers.
+const OTHER = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
+
+// keywords (or domains) that should always open in Orgnostic profile
+// if they appear in hostname or path
+const ORGNOSTIC_DOMAINS = [
+    "orgnostic",  // anything that has "orgnostic" in hostname or path
+    "device.sso.us-east-1.amazonaws.com",  // AWS SSO links
+    "amazonaws.com",
+    "datadoghq",
+    "auth0",
+];
+
+// domains that should open in Orgnostic profile in some contexts, e.g. if
+// opened from Slack. Note that this includes "github.com" (for example), but 
+// "ORGNOSTIC_DOMAINS" has higher priority, so "github.com/orgnostic" will 
+// open in Orgnostic profile even when not opened from slack. Random
+// Github URLs will not.
+const ORGNOSTIC_CONTEXTUAL_DOMAINS = [
+    "github.com",
+    "docs.google.com",
+    "meet.google.com"
+];
+
+// keywords (or domains) that should always open in CultureAmp profile
+// if they appear in hostname or path
+const CA_DOMAINS = [
+    "cultureamp", // anything that has "cultureamp" in hostname
+];
+
+// explicit list of domains to always open in OTHER browser
+const SOCIAL_NETWORK_DOMAINS = [
+    "facebook.com",
+    "twitter.com",
+    "instagram.com",
+    "youtube.com",
+    "linkedin.com",
+    "hachyderm.io",
+    "reddit.com"
+];
+
+// finicky rules
+module.exports = {
+    // if no rules match, open OTHER browser. In most cases, some rule will match.
+    defaultBrowser: OTHER,
+
+    // rewrite URLs to enforce HTTPS and remove tracking parameters
+    rewrite: [
+        // enforce https on all urls
+        {
+            match: ({ url }) => url.protocol === "http" && url.host !== "localhost",
+            url: { protocol: "https" }
+        },
+        // remove marketing/tracking information from URL
+        {
+            match: () => true, // Execute rewrite on all incoming urls
+            url: stripTrackingParams,
+        },
+    ],
+
+    handlers: [
+        // open notion links in desktop app
+        {
+            match: ({ url }) => url.host.indexOf("notion.so") > -1,
+            url: ({ url }) => ({...url, protocol: "notion"}),
+            browser: "Notion",
+        },
+
+        // override all other matches for manual control
+        // * shift + click always opens in OTHER browser
+        // * option + click always opens in ORGNOSTIC browser
+        {
+            match: () => finicky.getKeys().shift,
+            browser: OTHER,
+        },
+        {
+            match: () => finicky.getKeys().option,
+            browser: ORGNOSTIC_CHROME,
+        },
+
+        // match Orgnostic related stuff, use list of domains that should always be
+        // opened in work browser.
+        {
+            match: matchDomains(ORGNOSTIC_DOMAINS),
+            browser: ORGNOSTIC_CHROME,
+        },
+
+        // match CA related stuff
+        {
+            match: matchDomains(CA_DOMAINS),
+            browser: CA_CHROME,
+        },
+
+        // slightly different from previous handler - set of domains that should
+        // be opened in work browser only if link is clicked in Slack.
+        {
+            match: matchDomains(ORGNOSTIC_CONTEXTUAL_DOMAINS, [SLACK_BUNDLE_ID, NOTION_BUNDLE_ID]),
+            browser: ORGNOSTIC_CHROME,
+        },
+
+        // match social networks
+        {
+            match: matchDomains(SOCIAL_NETWORK_DOMAINS),
+            // this is essentially the same as default, but keeping it explicit
+            // for now, I have some ideas. 
+            browser: OTHER,
+        }
+    ]
+}

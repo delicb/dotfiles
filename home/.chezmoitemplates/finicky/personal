@@ -1,0 +1,21 @@
+DEFAULT = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
+
+// finicky rules
+module.exports = {
+    // if no rules match, open OTHER browser. In most cases, some rule will match.
+    defaultBrowser: DEFAULT,
+
+    // rewrite URLs to enforce HTTPS and remove tracking parameters
+    rewrite: [
+        // enforce https on all urls
+        {
+            match: ({ url }) => url.protocol === "http" && url.host !== "localhost",
+            url: { protocol: "https" }
+        },
+        // remove marketing/tracking information from URL
+        {
+            match: () => true, // Execute rewrite on all incoming urls
+            url: stripTrackingParams,
+        },
+    ],
+}
