@@ -1,7 +1,7 @@
 {{- if not .ephemeral -}}
 legacy_version_file = true
 experimental = true
-{{- if .work -}}
+{{ if .work -}}
 trusted_config_paths = ["~/work"]
 {{- end }}
 raw = true
