@@ -54,6 +54,7 @@ packages:
       - kitty
       - raycast
       - scroll-reverser
+      - shottr
       per_host:
         bdelić-D7GJWV:
           - rancher
