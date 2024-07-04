@@ -1,50 +1,30 @@
 #!/bin/sh
-# Goal of this is to allow simple script that will bootstrap the environment. 
-# While having dotfiles in combination with chezmoi is nice, one still needs
-# to install chezmoi and apply the changes and commands for doing so are
-# different for different operating systems and linux environments. So, with 
-# this script, it should be a single command to quickly bootstrap environment, 
-# which is mostly useful in ephemeral environments, like inside docker 
-# containers.
 
-# important to use sh (not bash or anything else), since this should work on
-# most basic of environments (e.g. in alpine container)
+# -e: exit on error
+# -u: exit on unset variables
+set -eu
 
-# detect package manager, support apt-get and apk for now
-detect_os() {
-	if [ -f /etc/os-release ]; then
-		. /etc/os-release
-		OS=$ID
+if ! chezmoi="$(command -v chezmoi)"; then
+	bin_dir="${HOME}/.local/bin"
+	chezmoi="${bin_dir}/chezmoi"
+	echo "Installing chezmoi to '${chezmoi}'" >&2
+	if command -v curl >/dev/null; then
+		chezmoi_install_script="$(curl -fsSL get.chezmoi.io)"
+	elif command -v wget >/dev/null; then
+		chezmoi_install_script="$(wget -qO- get.chezmoi.io)"
 	else
-		echo "unkonwn operating system"
+		echo "To install chezmoi, you must have curl or wget installed." >&2
 		exit 1
 	fi
-}
+	sh -c "${chezmoi_install_script}" -- -b "${bin_dir}"
+	unset chezmoi_install_script bin_dir
+fi
 
-maybe_sudo() {
-	if [ -z "$CODESPACES" ]; then
-		SUDO=
-	else
-		SUDO="sudo "
-	fi
-}
+# POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
+script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
-prepare_env() {
-	detect_os
-	maybe_sudo
-	case $OS in
-	"alpine")
-		${SUDO}apk add curl
-		;;
-	"debian" | "ubuntu")
-		${SUDO}apt update && ${SUDO}apt install -y curl
-		;;
-	*)
-		echo "unsupported operating system"
-		exit 1
-		;;
-	esac
-}
+set -- init --apply --source="${script_dir}"
 
-prepare_env
-sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply delicb
+echo "Running 'chezmoi $*'" >&2
+# exec: replace current process with chezmoi
+exec "$chezmoi" "$@"
