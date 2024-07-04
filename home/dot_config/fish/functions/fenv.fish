@@ -11,7 +11,7 @@ function fenv --description "print value of selected environment variable"
 			--height=25% \
 			--cycle \
 			--preview='printenv {}' \
-			--preview-window=right:70% \
+			--preview-window='right:70%,wrap' \
 			--padding 1 \
 			--preview-label 'Env var value: {}'
 	)
