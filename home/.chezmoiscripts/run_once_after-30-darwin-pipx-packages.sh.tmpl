@@ -1,6 +1,6 @@
 #!/bin/bash
 
-{{ template "activate-brew" }}
+{{ template "system/activate-brew" }}
 
 # if mise installed, ensure to use selected version of python for pipx installs
 if command -v mise &> /dev/null
@@ -8,4 +8,4 @@ then
 	PIPX_DEFAULT_PYTHON="$(mise where python)/bin/python"
 fi
 
-{{ template "pipx-install" dict "hostname" .chezmoi.hostname "packages" .packages.darwin.pipx }}
+{{ template "system/pipx-install" dict "hostname" .chezmoi.hostname "packages" .packages.darwin.pipx }}

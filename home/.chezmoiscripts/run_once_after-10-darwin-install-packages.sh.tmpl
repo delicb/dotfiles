@@ -1,9 +1,9 @@
 {{- if ( eq .chezmoi.os "darwin" ) -}}
 #!/bin/bash
 
-{{ template "install-brew" }}
+{{ template "system/install-brew" }}
 
-{{ template "brew-bundle" (dict "hostname" .chezmoi.hostname "brews" .packages.darwin.brews "casks" .packages.darwin.casks) -}}
+{{ template "system/brew-bundle" (dict "hostname" .chezmoi.hostname "brews" .packages.darwin.brews "casks" .packages.darwin.casks) -}}
 
 # change shell to fish
 if ! grep -q "$(brew --prefix)/bin/fish" /etc/shells; then

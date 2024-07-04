@@ -1,7 +1,7 @@
 {{- if ( eq .chezmoi.os "darwin" ) -}}
 #!/bin/sh
 
-{{ template "activate-brew" }}
+{{ template "system/activate-brew" }}
 
 # check if mise is isntalled first
 if ! command -v mise &> /dev/null; then
