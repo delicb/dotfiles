@@ -53,6 +53,9 @@ packages:
       - kitty
       - scroll-reverser
       - jetbrains-toolbox
+      per_host:
+        bdelić-D7GJWV:
+          - rancher
       
     pipx:
       always:
