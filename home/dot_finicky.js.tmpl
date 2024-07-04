@@ -1,35 +1,56 @@
 {{- if not .ephemeral -}}
-// some constants
+// browser bundle IDs
 const CHROME_BUNDLE_ID = "com.google.Chrome";
 const BRAVE_BUNDLE_ID = "com.brave.Browser";
+const SAFARI_BUNDLE_ID = "com.apple.safari";
+
 const SLACK_BUNDLE_ID = "com.tinyspeck.slackmacgap";
+
 const NOTION_BUNDLE_ID = "notion.id";
 
+// Default profile is usually first one created. 
+// After than, each new is numbered. To find out which value should
+// go here for some profile, while profile is active,
+// open chrome://version and under "profile path" and take last path segment .
 
-// Profile 1 and 2 are personal and work respectively. 
-// Names can be found in chrome://version under "Profile path"
-// as last segment of the path when specific profile is active
+// for opening CA related stuff
 const CA_CHROME = {name: CHROME_BUNDLE_ID, profile: "Default"};
+// for opening orgnostic related stuff
 const ORGNOSTIC_CHROME = {name: CHROME_BUNDLE_ID, profile: "Profile 1"};
 
-const PERSONAL_BRAVE = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
+// all other, non-explicitly mapped stuff, open in this browser. 
+// Intention is not to open e.g. social links or similar in work
+// browsers.
+const OTHER = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
 
+// keywords (or domains) that should always open in Orgnostic profile
+// if they appear in hostname or path
 const ORGNOSTIC_DOMAINS = [
     "orgnostic",  // anything that has "orgnostic" in hostname or path
     "device.sso.us-east-1.amazonaws.com",  // AWS SSO links
+    "amazonaws.com",
     "datadoghq",
+    "auth0",
 ];
 
+// domains that should open in Orgnsotic profile in some contexts, e.g. if
+// opened from Slack. Note that this includes "github.com" (for example), but 
+// "ORGNOSTIC_DOMAINS" has higher priority, so "github.com/orgnostic" will 
+// open in Orgnostic profile even when not opened from slack. Random
+// Github URLs will not.
 const ORGNOSTIC_CONTEXTUAL_DOMAINS = [
+    "github.com",
     "docs.google.com",
     "meet.google.com"
 ];
 
-
+// keywords (or domains) that should always open in CultureAmp profile
+// if they appear in hostname or path
 const CA_DOMAINS = [
     "cultureamp", // anything that has "cultureamp" in hostname
 ];
 
+// explicit list of domains to always open in OTHER browser
 const SOCIAL_NETWORK_DOMAINS = [
     "facebook.com",
     "twitter.com",
@@ -44,7 +65,6 @@ const SOCIAL_NETWORK_DOMAINS = [
 
 
 // matches URL with list of provided domains. 
-// name parameter is only for logging (for debugging purposes)
 function matchDomains(matches, sourceAppBundleIds = []) {
     return ({ url, opener }) => {
         for (let match of matches) {
@@ -79,7 +99,10 @@ function stripTrackingParams({ url }) {
 
 // finicky rules
 module.exports = {
-    defaultBrowser: PERSONAL_BRAVE,
+    // if no rules match, open OTHER browser. In most cases, some rule will match.
+    defaultBrowser: OTHER,
+
+    // rewrite URLs to enforce HTTPS and remove tracking parameters
     rewrite: [
         // enforce https on all urls
         {
@@ -92,6 +115,7 @@ module.exports = {
             url: stripTrackingParams,
         },
     ],
+
     handlers: [
         // open notion links in desktop app
         {
@@ -101,18 +125,18 @@ module.exports = {
         },
 
         // override all other matches for manual control
-        // * cmd + click always opens in personal browser
-        // * option + click always opens in work browser
+        // * shift + click always opens in OTHER browser
+        // * option + click always opens in ORGNOSTIC browser
         {
-            match: () => finicky.getKeys().command,
-            browser: PERSONAL_BRAVE,
+            match: () => finicky.getKeys().shift,
+            browser: OTHER,
         },
         {
             match: () => finicky.getKeys().option,
             browser: ORGNOSTIC_CHROME,
         },
 
-        // match Org related stuff, use list of domains that should always be
+        // match Orgnostic related stuff, use list of domains that should always be
         // opened in work browser.
         {
             match: matchDomains(ORGNOSTIC_DOMAINS),
@@ -130,14 +154,14 @@ module.exports = {
         {
             match: matchDomains(ORGNOSTIC_CONTEXTUAL_DOMAINS, [SLACK_BUNDLE_ID, NOTION_BUNDLE_ID]),
             browser: ORGNOSTIC_CHROME,
-
         },
+
         // match social networks
         {
             match: matchDomains(SOCIAL_NETWORK_DOMAINS),
             // this is essentially the same as default, but keeping it explicit
             // for now, I have some ideas. 
-            browser: PERSONAL_BRAVE,
+            browser: OTHER,
         }
     ]
 }
