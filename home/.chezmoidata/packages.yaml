@@ -12,9 +12,9 @@ packages:
       - fd
       - fish
       - fzf
+      - git
       - git-delta
       - git-extras
-      - git
       - jq
       - less
       - libffi
@@ -36,9 +36,8 @@ packages:
           - libpq
     casks:
       always:
-      - 1password-cli
       - 1Password
-      - alfred
+      - 1password-cli
       - bettertouchtool
       - finicky
       - font-hack-nerd-font
@@ -49,18 +48,24 @@ packages:
       - google-chrome
       - hammerspoon
       - hiddenbar
+      - jetbrains-toolbox
       - karabiner-elements
       - kitty
+      - raycast
       - scroll-reverser
-      - jetbrains-toolbox
       per_host:
         bdelić-D7GJWV:
           - rancher
       
     pipx:
       always:
-      - pgcli
-      - pdm
-      - poetry
+      - cookiecutter
       - hatch
-
+      - httpie
+      - pdm
+      - pgcli
+      - poetry
+      per_host:
+        bdelić-D7GJWV:
+        - check-jsonschema
+        - twine
