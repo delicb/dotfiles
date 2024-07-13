@@ -67,11 +67,11 @@
 
 {{ if .work -}}
 # if in work directory, include work overrides
-[includeIf "gitdir:~/work"]
+[includeIf "gitdir:~/work/"]
     path = ~/work/gitconfig
 {{ end -}}
 {{ if .personal -}}
 # if in src directory, include personal overrides
-[includeIf "gitdir:~/src"]
+[includeIf "gitdir:~/src/"]
     path = ~/src/gitconfig
 {{ end }}
