@@ -15,7 +15,7 @@
 # venvs
 .venv
 
-# rtx config
+# mise config
 .rtx.toml
 .mise.toml
 
