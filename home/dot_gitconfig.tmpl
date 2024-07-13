@@ -65,6 +65,14 @@
 [merge]
     conflictStyle = zdiff3
 
+# use SSH instead of HTTPS for github
+[url "git@github.com:"]
+    insteadOf = "https://github.com/"
+
+# shortcut, so "gh:owner/repo" works as well
+[url "git@github.com:"]
+    insteadOf = "gh:"
+
 {{ if .work -}}
 # if in work directory, include work overrides
 [includeIf "gitdir:~/work/"]
