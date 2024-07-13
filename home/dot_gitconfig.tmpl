@@ -54,6 +54,7 @@
     unstage = reset HEAD --
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
     prune-branches = "!git fetch -p && for branch in `git branch -vv | grep -v $(git branch --show-current) | grep ': gone' | awk '{print $1}'`; do git branch -d $branch; done"
+    sw = "!f() { git switch \"$1\" 2> /dev/null || git switch -c \"$1\"; }; f"
 
 [init]
     defaultBranch = main
@@ -64,12 +65,12 @@
 [merge]
     conflictStyle = zdiff3
 
-{{- if .work -}}
+{{ if .work -}}
 # if in work directory, include work overrides
 [includeIf "gitdir:~/work"]
     path = ~/work/gitconfig
 {{ end -}}
-{{- if .personal -}}
+{{ if .personal -}}
 # if in src directory, include personal overrides
 [includeIf "gitdir:~/src"]
     path = ~/src/gitconfig
