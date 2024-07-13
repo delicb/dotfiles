@@ -24,10 +24,12 @@ packages:
       - pipx
       - ripgrep
       - starship
+      - unar
       - vim
       - watch
       - wget
       - xz
+      - yazi
       - zoxide
       per_host:
         bdelić-D7GJWV:
