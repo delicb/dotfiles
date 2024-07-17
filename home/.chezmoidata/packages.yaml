@@ -8,6 +8,7 @@ packages:
       - curl
       - defaultbrowser
       - dockutil
+      - exiftool
       - eza
       - fd
       - fish
