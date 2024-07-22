@@ -1,8 +1,15 @@
 {{- if .work -}}
 function pip --wraps=pip --description "Wrapper for pip that does automatic signin if needed"
+	# skip auth if autocomplete request
 	if set -q PIP_AUTO_COMPLETE
 		command pip $argv
 		return
+	end
+
+	# purely local commands do not need auth refresh
+	set -l _skip_auth freeze uninstall list show config hash completion debug help
+	if contains $argv[1] $_skip_auth
+		command kubectl $argv
 	end
 
 	# if "org" command exists, use it to login in to pip

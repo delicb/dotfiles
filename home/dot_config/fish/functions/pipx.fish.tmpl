@@ -4,6 +4,13 @@ function pipx --wraps pipx --description "Wrapper for pipx that does automatic s
 		command pipx $argv
 		return
 	end
+
+	# purely local commands do not need auth refresh
+	set -l _skip_auth list interpreter ensurepath environment completions
+	if contains $argv[1] $_skip_auth
+		command kubectl $argv
+	end
+
 	# if "org" command exists, use it to login in to pip
 	# org command is smart enough not to login if pip credentials are
 	# still valid, so it is not that expensive to call it every time
