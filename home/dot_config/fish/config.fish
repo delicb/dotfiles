@@ -3,7 +3,7 @@
 #####################################################################
 
 if status is-interactive
-        #type -q starship; and starship init fish | source
+	type -q starship; and starship init fish | source
 	type -q zoxide;   and zoxide init --cmd j fish | source
 
 	# run script with porentially private config
