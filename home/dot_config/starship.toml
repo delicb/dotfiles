@@ -1,121 +1,159 @@
-# global config
-scan_timeout = 30
-command_timeout = 500
-add_newline = true
-
 format = """
-$sudo\
-$hostname\
 $username\
 $directory\
-$cmd_duration\
-$fill\
 $git_branch\
 $git_state\
-$git_metrics\
 $git_status\
+$git_metrics\
+[](fg:prompt_bg_color)\
+$fill\
+[](fg:prompt_bg_color)\
+$time\
+${env_var.FLASK_RUN_PORT}\
+$aws\
+$python\
 $ruby\
 $golang\
-$python\
 $kubernetes\
 $line_break\
-$status\
-$character"""
+$cmd_duration\
+$character\
+"""
 
-# disable everything I do not need
-aws.disabled = true
-cmake.disabled = true
-conda.disabled = true
-crystal.disabled = true
-dart.disabled = true
-deno.disabled = true
-docker_context.disabled = true
-dotnet.disabled = true
-elixir.disabled = true
-elm.disabled = true
-erlang.disabled = true
-gcloud.disabled = true
-helm.disabled = true
-java.disabled = true
-julia.disabled = true
-kotlin.disabled = true
-lua.disabled = true
-hg_branch.disabled = true
-nim.disabled = true
-nix_shell.disabled = true
-nodejs.disabled = true
-ocaml.disabled = true
-openstack.disabled = true
-package.disabled = true
-perl.disabled = true
-php.disabled = true
-purescript.disabled = true
-rlang.disabled = true
-red.disabled = true
-rust.disabled = true
-scala.disabled = true
-singularity.disabled = true
-swift.disabled = true
-terraform.disabled = true
-vagrant.disabled = true
-vlang.disabled = true
-vcsh.disabled = true
-zig.disabled = true
+palette = "main"
+
+[palettes.main]
+gray = "#303030"
+white = "#ffffff"
+red = "#c90011"
+blue = "#0087AF"
 
 
-# configure modules I do want
+prompt_bg_color = "#303030"
+separator_color = "#ffffff"
+character_color = "#5FD700"
+fill_color = "#3d3d3d"
+
+git_repo_root_color = "#00AFFF"
+git_branch = "#5FD700"
+
+python_color = "#00AFAF"
+ruby_color = "#B31209"
+go_color = "#00ACD7"
+kube_color = "#326CE5"
+aws_color = "#FF9900"
+cmd_duration = "#87875F"
+kubernetes_color = "#326CE5"
+
+# general
+[line_break]
+disabled = false
 
 [character]
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
+success_symbol = "[❯](bold character_color)"
+error_symbol = "[❯](bold red)"
 
 [cmd_duration]
-min_time = 1000
-show_milliseconds = true
-format = "⏱ [$duration]($style)"
+min_time = 500
+format = ' [$duration](cmd_duration) '
+
+[fill]
+symbol = "┄"
+style = 'fill_color'
+
+[memory_usage]
+disabled = false
+
+# left prompt
+
+[username]
+show_always = true
+style_user = "bg:prompt_bg_color"
+style_root = "bg:#9A348E"
+format = '[ $user ]($style)'
+disabled = true
+
+[os]
+style = "fg:white bg:gray"
+disabled = false # Disabled by default
+
+[os.symbols]
+Macos = " "
 
 [directory]
-# if in git repo, treat is as root (which is normally home folder)
+style = "bg:gray fg:blue bold"
+before_repo_root_style = "bg:gray fg:blue"
 truncate_to_repo = true
+repo_root_style = "bg:gray git_repo_root_color"
+read_only_style = "bg:gray"
+repo_root_format = '[  $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only ]($read_only_style)'
+format = "[  $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
+[git_branch]
+symbol = ""
+always_show_remote = false
+truncation_length = 30
+style = "bg:prompt_bg_color fg:git_branch"
+format = '[](bg:gray fg:separator_color)[ $symbol $branch(:$remote_branch) ]($style)'
+
+[git_state]
+style = "bold fg:yellow bg:gray"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[git_status]
+style = "bg:prompt_bg_color"
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+format ="([\\[$all_status$ahead_behind\\] ]($style))"
+
 [git_metrics]
 disabled = false
-format = '\[[+$added]($added_style) [-$deleted]($deleted_style)\]'
+added_style = "bold fg:green bg:gray"
+deleted_style = "bold fg:red bg:gray"
+format = '([+$added ]($added_style))([-$deleted ]($deleted_style))'
 
-[git_branch]
-format = '\[[$symbol$branch]($style)(:[$remote]($style))\]'
-style = "bold purple"
 
-[golang]
-symbol = "ﳑ "  # gopher icon, to be visible, Nerd fonts are needed
-format = '\[[$symbol($version)]($style)\] '
-
-[hostname]
-ssh_only = true
-trim_at = "."
-
-[jobs]
-symbol = "+ "
-threshold = 1
-
-[python]
-pyenv_version_name = false
-symbol = " "  # python symbol, to be visible, Nerd fonts are needed
-format = '\[[${symbol}(${version})]($style)\] '
-version_format = "v${major}.${minor}"
-style = "yellow"
-
-[ruby]
-format = '\[[$symbol($version)]($style)\] '
-
-[fill]
-symbol = " "
-
-[username]
-style_root = "white bold"
+# right prompt
+[aws]
+disabled = false
+force_display = true
+style = "bg:prompt_bg_color"
+format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+region_aliases = {"us-west-2"="us", "eu-west-1"="eu"}
 
 [kubernetes]
 disabled = false
-format = '[$symbol$context]($style)'
+style = 'bg:prompt_bg_color fg:kubernetes_color'
+format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol$context]($style)'
+# detect_folders = ["work"]
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:prompt_bg_color"
+format = '[  $time ]($style)'
+
+[python]
+symbol = ""
+style = "bg:gray fg:python_color"
+format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol ($version) ]($style)'
+
+[ruby]
+symbol = "💎"
+style = "bg:gray"
+format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:prompt_bg_color fg:go_color"
+format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol ($version) ]($style)'
+
+[env_var.FLASK_RUN_PORT]
+variable = "FLASK_RUN_PORT"
+symbol = "🍼 "
+style = "bg:prompt_bg_color white dimmed"
+format ="[](fg:separator_color bg:prompt_bg_color)[ $symbol$env_value ]($style)"
+description = "Port on which flask server will be started"
