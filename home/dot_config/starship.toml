@@ -15,6 +15,8 @@ $python\
 $ruby\
 $golang\
 $kubernetes\
+$battery\
+$memory_usage\
 $line_break\
 $cmd_duration\
 $character\
@@ -23,10 +25,10 @@ $character\
 palette = "main"
 
 [palettes.main]
-gray = "#303030"
 white = "#ffffff"
 red = "#c90011"
 blue = "#0087AF"
+yellow = "#574400"
 
 
 prompt_bg_color = "#303030"
@@ -61,9 +63,6 @@ format = ' [$duration](cmd_duration) '
 symbol = "┄"
 style = 'fill_color'
 
-[memory_usage]
-disabled = false
-
 # left prompt
 
 [username]
@@ -74,18 +73,18 @@ format = '[ $user ]($style)'
 disabled = true
 
 [os]
-style = "fg:white bg:gray"
+style = "fg:white bg:prompt_bg_color"
 disabled = false # Disabled by default
 
 [os.symbols]
 Macos = " "
 
 [directory]
-style = "bg:gray fg:blue bold"
-before_repo_root_style = "bg:gray fg:blue"
+style = "bg:prompt_bg_color fg:blue bold"
+before_repo_root_style = "bg:prompt_bg_color fg:blue"
 truncate_to_repo = true
-repo_root_style = "bg:gray git_repo_root_color"
-read_only_style = "bg:gray"
+repo_root_style = "bg:prompt_bg_color git_repo_root_color"
+read_only_style = "bg:prompt_bg_color"
 repo_root_format = '[  $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only ]($read_only_style)'
 format = "[  $path ]($style)"
 truncation_length = 3
@@ -96,10 +95,10 @@ symbol = ""
 always_show_remote = false
 truncation_length = 30
 style = "bg:prompt_bg_color fg:git_branch"
-format = '[](bg:gray fg:separator_color)[ $symbol $branch(:$remote_branch) ]($style)'
+format = '[](bg:prompt_bg_color fg:separator_color)[ $symbol $branch(:$remote_branch) ]($style)'
 
 [git_state]
-style = "bold fg:yellow bg:gray"
+style = "bold fg:yellow bg:prompt_bg_color"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [git_status]
@@ -111,8 +110,8 @@ format ="([\\[$all_status$ahead_behind\\] ]($style))"
 
 [git_metrics]
 disabled = false
-added_style = "bold fg:green bg:gray"
-deleted_style = "bold fg:red bg:gray"
+added_style = "bold fg:green bg:prompt_bg_color"
+deleted_style = "bold fg:red bg:prompt_bg_color"
 format = '([+$added ]($added_style))([-$deleted ]($deleted_style))'
 
 
@@ -127,7 +126,7 @@ region_aliases = {"us-west-2"="us", "eu-west-1"="eu"}
 [kubernetes]
 disabled = false
 style = 'bg:prompt_bg_color fg:kubernetes_color'
-format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol$context]($style)'
+format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol$context ]($style)'
 # detect_folders = ["work"]
 
 [time]
@@ -138,12 +137,12 @@ format = '[  $time ]($style)'
 
 [python]
 symbol = ""
-style = "bg:gray fg:python_color"
+style = "bg:prompt_bg_color fg:python_color"
 format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol ($version) ]($style)'
 
 [ruby]
 symbol = "💎"
-style = "bg:gray"
+style = "bg:prompt_bg_color"
 format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol ($version) ]($style)'
 
 [golang]
@@ -157,3 +156,28 @@ symbol = "🍼 "
 style = "bg:prompt_bg_color white dimmed"
 format ="[](fg:separator_color bg:prompt_bg_color)[ $symbol$env_value ]($style)"
 description = "Port on which flask server will be started"
+
+[battery]
+disabled = false
+format = "[](fg:separator_color bg:prompt_bg_color)[ $symbol$percentage ]($style)"
+# full_symbol = '🔋'
+# charging_symbol = "🔥 "
+
+[[battery.display]]
+style = "bg:prompt_bg_color"
+threshold = 60
+
+[[battery.display]]
+style = "bg:prompt_bg_color fg:yellow"
+threshold = 40
+
+[[battery.display]]
+style = "bg:prompt_bg_color fg:red"
+threshold = 20
+
+[memory_usage]
+disabled = false
+threshold = 10
+symbol = " "
+style = "bg:prompt_bg_color"
+format ="[](fg:separator_color bg:prompt_bg_color)[ $symbol $ram_pct(| $swap_pct)]($style) "
