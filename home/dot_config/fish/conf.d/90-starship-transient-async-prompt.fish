@@ -16,32 +16,32 @@ set -gx STARSHIP_SHELL fish
 set -gx STARSHIP_SESSION_KEY (random 10000000000000 9999999999999999)
 
 # Transient prompt
-function __starship_async_cancel_repaint --on-event fish_cancel
-    commandline -f repaint
-end
-function __starship_async_maybe_execute
-    commandline --is-valid
-    if test $status != 2
-        set -g TRANSIENT 1
-        commandline -f repaint
-    end
-    commandline -f execute
-end
-function __starship_async_cancel_commandline
-    if string length -q -- (commandline)
-        set -g TRANSIENT 1
-        commandline -f repaint
-    end
-    commandline -f cancel-commandline
-end
-function __starship_async_edit_command_buffer
-    printf '\e[2F' # 2 lines up
-    edit_command_buffer
-end
-bind \r  __starship_async_maybe_execute       # ENTER
-bind \cc __starship_async_cancel_commandline  # CTRL+C
-bind \ee __starship_async_edit_command_buffer # ALT+E
-bind \ev __starship_async_edit_command_buffer # ALT+V
+# function __starship_async_cancel_repaint --on-event fish_cancel
+#     commandline -f repaint
+# end
+# function __starship_async_maybe_execute
+#     commandline --is-valid
+#     if test $status != 2
+#         set -g TRANSIENT 1
+#         commandline -f repaint
+#     end
+#     commandline -f execute
+# end
+# function __starship_async_cancel_commandline
+#     if string length -q -- (commandline)
+#         set -g TRANSIENT 1
+#         commandline -f repaint
+#     end
+#     commandline -f cancel-commandline
+# end
+# function __starship_async_edit_command_buffer
+#     printf '\e[2F' # 2 lines up
+#     edit_command_buffer
+# end
+# bind \r  __starship_async_maybe_execute       # ENTER
+# bind \cc __starship_async_cancel_commandline  # CTRL+C
+# bind \ee __starship_async_edit_command_buffer # ALT+E
+# bind \ev __starship_async_edit_command_buffer # ALT+V
 
 # Prompt
 function fish_prompt
