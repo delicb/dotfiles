@@ -32,7 +32,7 @@ yellow = "#574400"
 
 
 prompt_bg_color = "#303030"
-separator_color = "#ffffff"
+separator_color = "#737272"
 character_color = "#5FD700"
 fill_color = "#3d3d3d"
 
@@ -46,6 +46,8 @@ kube_color = "#326CE5"
 aws_color = "#FF9900"
 cmd_duration = "#87875F"
 kubernetes_color = "#326CE5"
+time_color = "#4D98fA"
+memory_color = "#f7ff63"
 
 # general
 [line_break]
@@ -105,6 +107,8 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bg:prompt_bg_color"
 ahead = '⇡${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+conflicted = "${count} (red)"
+stashed = '[${count}](red)'
 behind = '⇣${count}'
 format ="([\\[$all_status$ahead_behind\\] ]($style))"
 
@@ -132,7 +136,7 @@ format = '[](fg:separator_color bg:prompt_bg_color)[ $symbol$context ]($style
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:prompt_bg_color"
+style = "bg:prompt_bg_color fg:time_color"
 format = '[  $time ]($style)'
 
 [python]
@@ -179,5 +183,5 @@ threshold = 20
 disabled = false
 threshold = 10
 symbol = " "
-style = "bg:prompt_bg_color"
-format ="[](fg:separator_color bg:prompt_bg_color)[ $symbol $ram_pct(| $swap_pct)]($style) "
+style = "bg:prompt_bg_color fg:memory_color"
+format ="[](fg:separator_color bg:prompt_bg_color)[ $symbol $ram_pct(| $swap_pct) ]($style)"
