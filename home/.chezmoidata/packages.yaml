@@ -51,8 +51,8 @@ packages:
       - font-jetbrains-mono
       - google-chrome
       - hammerspoon
-      - hiddenbar
       - jetbrains-toolbox
+      - jordanbaird-ice
       - karabiner-elements
       - kitty
       - raycast
