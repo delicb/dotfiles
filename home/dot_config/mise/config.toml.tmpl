@@ -8,12 +8,14 @@ awscli = "latest"
 shellcheck = "latest"
 just = "latest"
 usage = "latest"
+uv = "latest"
 {{ if .work -}}
 ruby = "3.2.4"
 terraform = "1.3.7"
 deno = "1.30.0"
 helm = "3.8.1"
 nodejs = "18.20.3"
+mongosh = "latest"
 {{ end }}
 
 {{- if .work -}}
