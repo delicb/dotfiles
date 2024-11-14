@@ -60,14 +60,13 @@ packages:
       - scroll-reverser
       - shottr
 
-    pipx:
+    uv_tools:
       always:
       - cookiecutter
       - hatch
       - httpie
       - pdm
       - pgcli
-      - poetry
       per_host:
         bdelić-D7GJWV:
         - check-jsonschema

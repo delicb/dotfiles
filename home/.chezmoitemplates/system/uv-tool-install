@@ -10,5 +10,5 @@
 
 {{ range $packages | sortAlpha | uniq -}}
 echo "⬇️ {{ . }}"
-pipx install {{ . | quote }}
+uv tool install {{ . | quote }}
 {{ end -}}
