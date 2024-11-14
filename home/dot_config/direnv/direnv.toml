@@ -5,3 +5,4 @@ strict_env = true
 
 load_dotenv = false
 
+hide_env_diff = true

@@ -1,9 +1,15 @@
 : ${XDG_CACHE_HOME:=$HOME/.cache}
 
-declare -A direnv_layout_dirs
-direnv_layout_dir() {
-    echo "${direnv_layout_dirs[$PWD]:=$(
-        echo -n "$XDG_CACHE_HOME"/direnv/layouts/$(basename "$PWD")
-    )}"
+layout_uv() {
+  if [[ ! -d .venv ]]; then
+    log_status "creating venv"
+    uv venv
+    if [[ -f uv.lock ]]; then
+      log_status "found uv.lock, syncing dependencies"
+      uv sync --frozen
+    fi
+  fi
+  VIRTUAL_ENV=$(realpath ".venv")
+  PATH_add "$VIRTUAL_ENV/bin"
 }
 

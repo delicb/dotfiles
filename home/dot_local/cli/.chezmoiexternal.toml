@@ -10,7 +10,7 @@ path = "jless"
 
 ## https://github.com/direnv/direnv
 # install direnv, controll manually instead of with brew package
-{{ $direnv_version := "v2.32.3" }}
+{{ $direnv_version := "v2.35.0" }}
 {{ $direnv_package := (printf "direnv.%s-%s" .chezmoi.os .chezmoi.arch) }}
 {{ $direnv_url := (printf "https://github.com/direnv/direnv/releases/download/%s/%s" $direnv_version $direnv_package) }}
 ["direnv"]
