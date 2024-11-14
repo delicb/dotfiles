@@ -1,5 +1,8 @@
 # general development related configs
 
+# activate direnv
+type -q direnv; and direnv hook fish | source
+
 # activate mise
 type -q mise; and mise activate fish | source
 
