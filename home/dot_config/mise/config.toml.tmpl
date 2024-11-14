@@ -9,6 +9,7 @@ shellcheck = "latest"
 just = "latest"
 usage = "latest"
 uv = "latest"
+xh = "latest"
 {{ if .work -}}
 ruby = "3.2.4"
 terraform = "1.3.7"
@@ -16,13 +17,5 @@ deno = "1.30.0"
 helm = "3.8.1"
 nodejs = "18.20.3"
 mongosh = "latest"
-{{ end }}
-
-{{- if .work -}}
-[alias]
-[alias.python]
-"3.12" = "3.12.3"
-"3.11" = "3.11.7"
-"3.10" = "3.10.9"
 {{ end }}
 {{ end }}
