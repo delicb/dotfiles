@@ -38,6 +38,7 @@ packages:
           - kubectx
           - k9s
           - libpq
+          - colima
     casks:
       always:
       - 1Password
@@ -58,10 +59,7 @@ packages:
       - raycast
       - scroll-reverser
       - shottr
-      per_host:
-        bdelić-D7GJWV:
-          - rancher
-      
+
     pipx:
       always:
       - cookiecutter

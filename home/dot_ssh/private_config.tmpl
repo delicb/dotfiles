@@ -1,4 +1,8 @@
 {{- if and (not .ephemeral) (lookPath "op") -}}
+{{- if .work -}}
+Include /Users/bojan.delic/.colima/ssh_config
+{{- end }}
+
 # use 1password ssh agent
 Host *
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

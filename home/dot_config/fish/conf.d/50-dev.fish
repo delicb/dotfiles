@@ -17,10 +17,12 @@ set -gx GOPATH $HOME/go
 set -gx SAM_CLI_TELEMETRY 0
 
 # pipx config
-type -q mise; and set -gx PIPX_DEFAULT_PYTHON (mise where python)/bin/python
+#type -q mise; and set -gx PIPX_DEFAULT_PYTHON (mise where python)/bin/python
 set -gx USE_EMOJI true
 
 # require virtualenv for pip
 # to install to non-venv, use 'PIP_REQUIRE_VIRTUALENV="" pip install ...'
 set -gx PIP_REQUIRE_VIRTUALENV true
 
+# setup colima
+type -q colima; and export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock
