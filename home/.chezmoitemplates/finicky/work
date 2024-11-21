@@ -27,6 +27,7 @@ const CA_DOMAINS = [
     "meet.google.com",
     "auth0",
     "zoom.us",
+    "miro.com",
 ];
 
 // explicit list of domains to always open in OTHER browser
