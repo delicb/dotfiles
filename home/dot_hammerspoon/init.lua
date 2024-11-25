@@ -20,6 +20,19 @@ spoon.ReloadConfiguration:start()
 -- 	setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 -- end
 
+function dump(o)
+	if type(o) == 'table' then
+	   local s = '{ '
+	   for k,v in pairs(o) do
+		  if type(k) ~= 'number' then k = '"'..k..'"' end
+		  s = s .. '['..k..'] = ' .. dump(v) .. ','
+	   end
+	   return s .. '} '
+	else
+	   return tostring(o)
+	end
+ end
+
 
 mouseCircle = nil
 mouseCircleTimer = nil
@@ -57,8 +70,10 @@ hs.hotkey.bind({"cmd", "alt", "shift"}, "D", mouseHighlight)
 -- drop-down quake-style terminal
 
 hs.hotkey.bind({"alt"}, "`", function()
-	local APP_NAME = "kitty"
-	local APP_BUNDLE = "net.kovidgoyal.kitty"
+	-- local APP_NAME = "kitty"
+	-- local APP_BUNDLE = "net.kovidgoyal.kitty"
+	local APP_NAME = "ghostty"
+	local APP_BUNDLE = "com.mitchellh.ghostty"
 
 	function moveWindow(terminal)
 		-- screen to move termonal to, always main one
@@ -83,7 +98,7 @@ hs.hotkey.bind({"alt"}, "`", function()
 	end
 
 	local terminal = hs.application.get(APP_BUNDLE)
-	print(terminal)
+
 	if terminal ~= nil and terminal:isFrontmost() then
 		terminal:hide()
 	else
@@ -109,33 +124,35 @@ hs.hotkey.bind({"alt"}, "`", function()
 			moveWindow(terminal)
 		end
 	end
-
 end)
 
+-- utility function to check if a string starts with another string
+string.startswith = function(self, str) 
+    return self:find('^' .. str) ~= nil
+end
+
+-- temporary, this support bouncing focus between jetbrains product (pycharm, goland)
+-- and ghostty terminal. Assumption is that jetbrains product is on the left and ghostty is
+-- on the right. This is how I use it.
+-- this should be merged with alt+` above, and detect situations when to do bounce and when to
+-- just open the ghosty (e.g. when no ghosty and jebrains product can be found in the same screen)
+-- also - it would be great to automate creating this layout, but support for full screen 
+-- (which is what I am using) is not ideal. 
+hs.hotkey.bind({"alt"}, "1", function()
+	local GHOSTTY_BUNDLE = "com.mitchellh.ghostty"
+	local JETBRAINS_BUNDLE = "com.jetbrains."
+
+	-- local terminal = hs.application.get("com.mitchellh.ghostty")
+	local frontmost = hs.window.focusedWindow()
+	local frontmost_bundle = frontmost:application():bundleID()
+	if frontmost_bundle == GHOSTTY_BUNDLE then
+		print("switching focus to window to the left")
+		frontmost.focusWindowWest()
+	end
+	if frontmost_bundle:startswith(JETBRAINS_BUNDLE) then
+		print("switching focus to window to the right")
+		frontmost.focusWindowEast()
+	end
+end)
 
 hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
-
--- local grid = {
--- 	rightTopHalf = '6,0 6x6',
--- 	rightBottomHalf = '6,6 6x6',
--- }
-
--- function moveFrontmostWindow(where)
--- 	return function()
--- 		local window = hs.window.frontmostWindow()
--- 		local screen = window:screen()
--- 		hs.grid.set(window, where, screen)
--- 	end
--- end
-
--- function launchOrFocus(app)
--- 	return function()
--- 	  hs.application.launchOrFocus(app)
--- 	end
--- end
-
-
--- hs.hotkey.bind({"alt", "ctrl"}, "l", function()
--- 	launchOrFocus("Viber")()
--- 	moveFrontmostWindow(grid.rightBottomHalf)()
--- end)

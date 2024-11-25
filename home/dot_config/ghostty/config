@@ -1,5 +1,26 @@
+theme = Dracula+
+
+window-new-tab-position = end
+window-padding-x = 10
+
 background = 061229
 foreground = b8bbc2
+selection-foreground = 1F2533 
+selection-background = cfcfcf
+
+cursor-color = b8bbc2
+cursor-style = block
+
+quick-terminal-screen = mouse
+quick-terminal-position = left
+
+keybind = global:cmd+shift+l=toggle_quick_terminal
+keybind = opt+up=jump_to_prompt:-1
+keybind = opt+down=jump_to_prompt:1
+keybind = cmd+ctrl+left=resize_split:left,20
+keybind = cmd+ctrl+right=resize_split:right,20
+keybind = cmd+ctrl+up=resize_split:up,20
+keybind = cmd+ctrl+down=resize_split:down,20
 
 font-family = JetBrains Mono Regular
 #font-family-bold = JetBrains Mono SemiBold
@@ -8,7 +29,6 @@ font-family = JetBrains Mono Regular
 
 font-thicken = true
 
-theme = Dracula+
 
 # black
 palette = 0=061229
