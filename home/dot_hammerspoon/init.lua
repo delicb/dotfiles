@@ -2,24 +2,6 @@ hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
 
 
--- caffeine = hs.menubar.new()
--- function setCaffeineDisplay(state)
--- 	if state then
--- 		caffeine:setTitle("AWAKE")
--- 	else
--- 		caffeine:setTitle("SLEEPY")
--- 	end
--- end
-
--- function caffeineClicked()
--- 	setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
--- end
-
--- if caffeine then
--- 	caffeine:setClickCallback(caffeineClicked)
--- 	setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
--- end
-
 function dump(o)
 	if type(o) == 'table' then
 	   local s = '{ '
@@ -63,15 +45,11 @@ function mouseHighlight()
 end
 hs.hotkey.bind({"cmd", "alt", "shift"}, "D", mouseHighlight)
 
--- hs.fnutils.each(hs.application.runningApplications(), function(app) print(app:title()) end)
-
--- hs.application.enableSpotlightForNameSearches(true)
-
--- drop-down quake-style terminal
-
+-- show terminal on current desktop, open it if needed
+-- tp make this work, workaround is needed - open Ghostty and do right click on in in Dock,
+--   select Options -> Assign to All Desktops. This is needed because Apple made private API
+--   that was needed for activeSpaceOnScreen function since MacOS Sequoia
 hs.hotkey.bind({"alt"}, "`", function()
-	-- local APP_NAME = "kitty"
-	-- local APP_BUNDLE = "net.kovidgoyal.kitty"
 	local APP_NAME = "ghostty"
 	local APP_BUNDLE = "com.mitchellh.ghostty"
 
@@ -108,8 +86,6 @@ hs.hotkey.bind({"alt"}, "`", function()
 			local appWatcher = nil
 			print("create app watcher")
 			appWatcher = hs.application.watcher.new(function(name, event, app)
-				print(name)
-				print(event)
 				if event == hs.application.watcher.launched and name == APP_NAME then
 					app:hide()
 					moveWindow(app)
@@ -131,28 +107,5 @@ string.startswith = function(self, str)
     return self:find('^' .. str) ~= nil
 end
 
--- temporary, this support bouncing focus between jetbrains product (pycharm, goland)
--- and ghostty terminal. Assumption is that jetbrains product is on the left and ghostty is
--- on the right. This is how I use it.
--- this should be merged with alt+` above, and detect situations when to do bounce and when to
--- just open the ghosty (e.g. when no ghosty and jebrains product can be found in the same screen)
--- also - it would be great to automate creating this layout, but support for full screen 
--- (which is what I am using) is not ideal. 
-hs.hotkey.bind({"alt"}, "1", function()
-	local GHOSTTY_BUNDLE = "com.mitchellh.ghostty"
-	local JETBRAINS_BUNDLE = "com.jetbrains."
-
-	-- local terminal = hs.application.get("com.mitchellh.ghostty")
-	local frontmost = hs.window.focusedWindow()
-	local frontmost_bundle = frontmost:application():bundleID()
-	if frontmost_bundle == GHOSTTY_BUNDLE then
-		print("switching focus to window to the left")
-		frontmost.focusWindowWest()
-	end
-	if frontmost_bundle:startswith(JETBRAINS_BUNDLE) then
-		print("switching focus to window to the right")
-		frontmost.focusWindowEast()
-	end
-end)
 
 hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
