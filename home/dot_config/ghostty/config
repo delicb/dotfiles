@@ -13,7 +13,7 @@ quick-terminal-screen = macos-menu-bar
 quick-terminal-position = right
 quick-terminal-animation-duration = 0.1
 
-keybind = global:cmd+shift+l=toggle_quick_terminal
+keybind = global:alt+space=toggle_quick_terminal
 keybind = opt+up=jump_to_prompt:-1
 keybind = opt+down=jump_to_prompt:1
 keybind = cmd+ctrl+left=resize_split:left,20
