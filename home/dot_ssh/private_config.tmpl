@@ -1,7 +1,5 @@
 {{- if and (not .ephemeral) (lookPath "op") -}}
-{{- if .work -}}
-Include /Users/bojan.delic/.colima/ssh_config
-{{- end }}
+Include /Users/{{- .chezmoi.username -}}/.colima/ssh_config
 
 # use 1password ssh agent
 Host *
