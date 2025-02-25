@@ -9,6 +9,9 @@ just = "latest"
 usage = "latest"
 uv = "latest"
 xh = "latest"
+{{ if .personal -}}
+nodejs = "latest"
+{{ end }}
 {{ if .work -}}
 ruby = "3.2.4"
 terraform = "1.3.7"
