@@ -13,12 +13,16 @@ set hlsearch            " highlight matches
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+set background=dark
+
 " do not store swp and backup files in same dir
 set directory=~/.vim-swp
 set backupdir=~/.vim-backup
 
 syntax on
-colorscheme tomorrownight
+" colorscheme tomorrownight
+colorscheme catppuccin_mocha
+let g:lightline = {'colorscheme': 'catppuccin_frappe'}
 set nocompatible "be iMproved
 filetype off
 set backspace=2
@@ -31,6 +35,7 @@ nnoremap k gk
 "set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 Plug 'fatih/vim-go'
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 call plug#end()
 filetype plugin indent on
 

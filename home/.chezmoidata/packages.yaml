@@ -34,11 +34,12 @@ packages:
       - zoxide
       per_host:
         bdelić-D7GJWV:
+          - colima
+          - granted
+          - k9s
           - kubectl
           - kubectx
-          - k9s
           - libpq
-          - colima
     casks:
       always:
       - 1Password

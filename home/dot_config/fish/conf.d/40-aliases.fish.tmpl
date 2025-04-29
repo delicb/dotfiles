@@ -56,3 +56,7 @@ end
 
 # kitty kittens
 type -q kitten; and abbr -a -g icat "kitten icat"
+
+{{ if .work }}
+alias assume="source (brew --prefix)/bin/assume.fish"
+{{ end }}

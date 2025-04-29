@@ -13,7 +13,9 @@ quick-terminal-screen = macos-menu-bar
 quick-terminal-position = right
 quick-terminal-animation-duration = 0.1
 
-keybind = global:alt+cmd+l=toggle_quick_terminal
+window-inherit-working-directory = false
+
+keybind = global:cmd+shift+l=toggle_quick_terminal
 keybind = opt+up=jump_to_prompt:-1
 keybind = opt+down=jump_to_prompt:1
 keybind = cmd+ctrl+left=resize_split:left,20
@@ -27,6 +29,8 @@ font-family = JetBrains Mono
 #font-family-bold-italic = JetBrains Mono SemiBold Italic
 
 font-thicken = true
+
+macos-option-as-alt = true
 
 #background-opacity = 0.7
 #background-blur-radius = 20
