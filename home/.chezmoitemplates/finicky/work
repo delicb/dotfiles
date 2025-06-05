@@ -6,6 +6,20 @@ const CA_CHROME = {name: CHROME_BUNDLE_ID, profile: "Default"};
 // browsers.
 const OTHER = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
 
+// when using firefox, define two browsers - they are the same browser, but with two different profiles
+const CA_FIREFOX = (url) => ({
+    name: "/opt/homebrew/bin/firefox",
+    appType: "path",
+    args: ["--args", "--profile", "/Users/bojan.delic/Library/Application Support/Firefox/Profiles/eTMv5NOz.Profile 2/", `${url.href}`],
+})
+
+const OTHER_FIREFOX = (url) => ({
+    name: "/opt/homebrew/bin/firefox",
+    appType: "path",
+    args: ["--args", "--profile", "/Users/bojan.delic/Library/Application Support/Firefox/Profiles/1puuoRi4.Profile 1/", `${url.href}`],
+})
+
+
 // domains that should open in Orgnostic profile in some contexts, e.g. if
 // opened from Slack. Note that this includes "github.com" (for example), but 
 // "ORGNOSTIC_DOMAINS" has higher priority, so "github.com/orgnostic" will 
@@ -28,6 +42,7 @@ const CA_DOMAINS = [
     "auth0",
     "zoom.us",
     "miro.com",
+    "atlassian.com",
 ];
 
 // explicit list of domains to always open in OTHER browser
@@ -42,16 +57,26 @@ const SOCIAL_NETWORK_DOMAINS = [
 ];
 
 // finicky rules
-module.exports = {
+/**
+ * @type {FinickyConfig}
+ */
+export default {
     // if no rules match, open OTHER browser. In most cases, some rule will match.
-    defaultBrowser: OTHER,
+    defaultBrowser: OTHER_FIREFOX,
+
+    options: {
+        logRequests: false,
+    },
 
     // rewrite URLs to enforce HTTPS and remove tracking parameters
     rewrite: [
         // enforce https on all urls
         {
-            match: ({ url }) => url.protocol === "http" && url.host !== "localhost",
-            url: { protocol: "https" }
+            match: (url) => url.protocol === "http" && url.host !== "localhost",
+            url: (url) => {
+                url.protocol = "https";
+                return url;
+            }
         },
         // remove marketing/tracking information from URL
         {
@@ -65,18 +90,18 @@ module.exports = {
         // * shift + click always opens in OTHER browser
         // * option + click always opens in ORGNOSTIC browser
         {
-            match: () => finicky.getKeys().shift,
-            browser: OTHER,
+            match: () => finicky.getModifierKeys().shift,
+            browser: OTHER_FIREFOX,
         },
         {
-            match: () => finicky.getKeys().option,
-            browser: CA_CHROME,
+            match: () => finicky.getModifierKeys().option,
+            browser: CA_FIREFOX,
         },
 
         // match CA related stuff
         {
             match: matchDomains(CA_DOMAINS),
-            browser: CA_CHROME,
+            browser: CA_FIREFOX,
         },
 
         // match social networks
@@ -84,7 +109,7 @@ module.exports = {
             match: matchDomains(SOCIAL_NETWORK_DOMAINS),
             // this is essentially the same as default, but keeping it explicit
             // for now, I have some ideas. 
-            browser: OTHER,
+            browser: OTHER_FIREFOX,
         }
     ]
 }

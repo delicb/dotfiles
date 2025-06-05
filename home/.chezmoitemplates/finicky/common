@@ -1,3 +1,10 @@
+// @ts-check
+
+/**
+ * @typedef {import('/Applications/Finicky.app/Contents/Resources/finicky.d.ts')} Globals
+ * @typedef {import('/Applications/Finicky.app/Contents/Resources/finicky.d.ts').FinickyConfig} FinickyConfig
+ */
+
 // browser bundle IDs
 const CHROME_BUNDLE_ID = "com.google.Chrome";
 const BRAVE_BUNDLE_ID = "com.brave.Browser";
@@ -14,7 +21,7 @@ const NOTION_BUNDLE_ID = "notion.id";
 
 // matches URL with list of provided domains.
 function matchDomains(matches, sourceAppBundleIds = []) {
-    return ({ url, opener }) => {
+    return (url, { opener }) => {
         for (let match of matches) {
             if (url.host.indexOf(match) > -1 || url.pathname.indexOf(match) > -1) {
                 if (opener && sourceAppBundleIds.length > 0) {
@@ -29,7 +36,7 @@ function matchDomains(matches, sourceAppBundleIds = []) {
 
 // removes marketing and tracking query parameters from URL,
 // otherwise leaves it unchanged
-function stripTrackingParams({ url }) {
+function stripTrackingParams(url) {
     const removeKeysStartingWith = ["utm_", "uta_"]; // Remove all query parameters beginning with these strings
     const removeKeys = ["fbclid", "gclid"]; // Remove all query parameters matching these keys
 

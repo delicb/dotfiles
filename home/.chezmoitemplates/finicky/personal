@@ -1,7 +1,10 @@
 DEFAULT = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
 
 // finicky rules
-module.exports = {
+/**
+ * @type {FinickyConfig}
+ */
+export default {
     // if no rules match, open OTHER browser. In most cases, some rule will match.
     defaultBrowser: DEFAULT,
 
@@ -9,8 +12,11 @@ module.exports = {
     rewrite: [
         // enforce https on all urls
         {
-            match: ({ url }) => url.protocol === "http" && url.host !== "localhost",
-            url: { protocol: "https" }
+            match: (url) => url.protocol === "http" && url.host !== "localhost",
+            url: (url) => {
+                url.protocol = "https";
+                return url;
+            }
         },
         // remove marketing/tracking information from URL
         {
