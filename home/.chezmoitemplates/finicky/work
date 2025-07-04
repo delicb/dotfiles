@@ -10,13 +10,13 @@ const OTHER = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
 const CA_FIREFOX = (url) => ({
     name: "/opt/homebrew/bin/firefox",
     appType: "path",
-    args: ["--args", "--profile", "/Users/bojan.delic/Library/Application Support/Firefox/Profiles/eTMv5NOz.Profile 2/", `${url.href}`],
+    args: ["--profile", "/Users/bojan.delic/Library/Application Support/Firefox/Profiles/eTMv5NOz.Profile 2/", `${url.href}`],
 })
 
 const OTHER_FIREFOX = (url) => ({
     name: "/opt/homebrew/bin/firefox",
     appType: "path",
-    args: ["--args", "--profile", "/Users/bojan.delic/Library/Application Support/Firefox/Profiles/1puuoRi4.Profile 1/", `${url.href}`],
+    args: ["--profile", "/Users/bojan.delic/Library/Application Support/Firefox/Profiles/1puuoRi4.Profile 1/", `${url.href}`],
 })
 
 
