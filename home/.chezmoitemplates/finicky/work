@@ -43,6 +43,7 @@ const CA_DOMAINS = [
     "zoom.us",
     "miro.com",
     "atlassian.com",
+    "account.jetbrains.com",
 ];
 
 // explicit list of domains to always open in OTHER browser
