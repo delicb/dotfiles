@@ -1,5 +1,6 @@
 #theme = Dracula+
-theme = catppuccin-mocha
+#theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 scrollback-limit = 100000000
 
@@ -68,3 +69,4 @@ macos-option-as-alt = true
 # white
 #palette = 7=b8bbc2
 #palette = 15=ffffff
+keybind = shift+enter=text:\n
