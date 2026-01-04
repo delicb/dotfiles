@@ -25,4 +25,4 @@ set -gx USE_EMOJI true
 set -gx PIP_REQUIRE_VIRTUALENV true
 
 # setup colima
-type -q colima; and export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock
+# type -q colima; and export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock

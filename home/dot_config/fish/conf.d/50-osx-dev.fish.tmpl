@@ -26,7 +26,7 @@ set -gx PKG_CONFIG_PATH "$HOMEBREW_PREFIX/lib/pkgconfig/"
 fish_add_path --path --move --append $HOMEBREW_PREFIX/opt/libpq/bin
 
 {{ if .personal }}
-{{/* using rye for personal setup only for now */}}
-fish_add_path --path --move --prepend $HOME/.rye/shims
+{{/* using orbstack for personal setup only for now */}}
+test -d $HOME/.orbstack/bin; and fish_add_path --path --prepend $HOME/.orbstack/bin
 {{ end -}}
 {{ end -}}

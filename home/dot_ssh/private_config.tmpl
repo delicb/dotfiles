@@ -1,9 +1,16 @@
-{{- if and (not .ephemeral) (lookPath "op") -}}
-Include /Users/{{- .chezmoi.username -}}/.colima/ssh_config
+{{- if not .ephemeral -}}
+#Include /Users/{{- .chezmoi.username -}}/.colima/ssh_config
+{{- if stat (joinPath "/Users" .chezmoi.username ".orbstack/ssh/config") -}}
+# setup orbstack ssh config, to access its linux machines via ssh
+Include /Users/{{- .chezmoi.username -}}/.orbstack/ssh/config
+{{- end }}
+
 
 # use 1password ssh agent
 Host *
+{{- if (lookPath "op") }}
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{- end }}
 Host *
   ServerAliveInterval 240
   ServerAliveCountMax 30
