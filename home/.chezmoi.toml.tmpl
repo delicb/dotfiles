@@ -13,7 +13,7 @@
 {{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "vscode" "vagrant") -}}
 {{-   $ephemeral = true -}}
 {{- else -}}
-{{-   $ephemeral = promptBool "Is emphemeral envvironment?" false -}}
+{{-   $ephemeral = promptBool "Is ephemeral envvironment?" false -}}
 {{- end -}}
 
 {{- if not $ephemeral -}}
