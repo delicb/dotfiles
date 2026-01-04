@@ -51,13 +51,15 @@ packages:
       - font-inconsolata
       - font-input
       - font-jetbrains-mono
+      - ghostty
       - google-chrome
       - hammerspoon
+      - hiddenbar
       - jetbrains-toolbox
-      - jordanbaird-ice
       - karabiner-elements
       - kitty
       - raycast
+      - rectangle-pro
       - scroll-reverser
       - shottr
 
