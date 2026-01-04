@@ -60,3 +60,5 @@ type -q kitten; and abbr -a -g icat "kitten icat"
 {{ if .work }}
 alias assume="source (brew --prefix)/bin/assume.fish"
 {{ end }}
+
+test -f $HOME/.claude/local/claude; and alias claude="$HOME/.claude/local/claude"
