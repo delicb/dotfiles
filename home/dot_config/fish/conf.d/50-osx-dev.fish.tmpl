@@ -25,8 +25,6 @@ set -gx PKG_CONFIG_PATH "$HOMEBREW_PREFIX/lib/pkgconfig/"
 # its bin folder to path (pg_config is needed)
 fish_add_path --path --move --append $HOMEBREW_PREFIX/opt/libpq/bin
 
-# add rancher tools to path
-test -d $HOME/.rd/bin; and fish_add_path --path --prepend $HOME/.rd/bin
 {{ if .personal }}
 {{/* using rye for personal setup only for now */}}
 fish_add_path --path --move --prepend $HOME/.rye/shims
