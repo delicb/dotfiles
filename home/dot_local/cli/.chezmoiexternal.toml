@@ -1,7 +1,7 @@
 ## https://github.com/PaulJuliusMartinez/jless
 # install jless, it does not provide brew package
 {{ $jless_version := "v0.9.0" }}
-{{ $jless_package := (printf "jless-%s-x86_64-apple-%s.zip" $jless_version .chezmoi.os) }}
+{{ $jless_package := (printf "jless-%s-aarch64-apple-%s.zip" $jless_version .chezmoi.os) }}
 {{ $jless_url := (printf "https://github.com/PaulJuliusMartinez/jless/releases/download/%s/%s" $jless_version $jless_package ) }}
 ["jless"]
 type = "archive-file"
