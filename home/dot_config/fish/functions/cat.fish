@@ -12,5 +12,9 @@ function cat --wraps=bat --description "Replaces cat with bat, except for markdo
 		mdcat $flags $params
 		return
 	end
-	command bat $flags $params
+	if command --query bat
+		command bat $flags $params
+		return
+	end
+	command cat $flags $params
 end
