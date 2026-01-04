@@ -1,5 +1,5 @@
 #theme = Dracula+
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 scrollback-limit = 100000000
 
