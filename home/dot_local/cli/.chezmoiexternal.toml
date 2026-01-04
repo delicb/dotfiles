@@ -1,7 +1,18 @@
+## https://github.com/lemnos/theme.sh
+# install theme.sh
+{{ $theme_sh_url := "https://git.io/JM70M" }}
+["theme.sh"]
+type = "file"
+url = "{{ $theme_sh_url }}"
+executable = true
+
+{{- if ( eq .chezmoi.os "linux" ) }}
+# these do not have package for all distributions, so it is easier to just install them on linux like this
+
 ## https://github.com/PaulJuliusMartinez/jless
 # install jless, it does not provide brew package
 {{ $jless_version := "v0.9.0" }}
-{{ $jless_package := (printf "jless-%s-aarch64-apple-%s.zip" $jless_version .chezmoi.os) }}
+{{ $jless_package := (printf "jless-%s-x86_64-apple-%s.zip" $jless_version .chezmoi.os) }}
 {{ $jless_url := (printf "https://github.com/PaulJuliusMartinez/jless/releases/download/%s/%s" $jless_version $jless_package ) }}
 ["jless"]
 type = "archive-file"
@@ -18,17 +29,6 @@ type = "file"
 url = "{{ $direnv_url }}"
 executable = true
 
-## https://github.com/lemnos/theme.sh
-# install theme.sh
-{{ $theme_sh_url := "https://git.io/JM70M" }}
-["theme.sh"]
-type = "file"
-url = "{{ $theme_sh_url }}"
-executable = true
-
-{{- if ( eq .chezmoi.os "linux" ) }}
-# these do not have package for all distributions, so it is easier to just install them on linux like this
-
 ## https://github.com/gsamokovarov/jump
 {{ $jump_version := "v0.51.0" }}
 {{ $jump_package := "jump_linux_amd64_binary" }}
@@ -44,7 +44,7 @@ refreshPeriod = "168h"
 
 
 # https://github.com/dandavison/delta
-{{ $delta_version := "0.15.1"}}
+{{ $delta_version := "0.18.2"}}
 {{ $build := "musl" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
 {{   $build = "musl" }}
@@ -62,7 +62,7 @@ refresh_period = "168h"
 
 ## https://github.com/starship/starship
 ##
-{{ $starship_version := "v1.12.0" }}
+{{ $starship_version := "v1.24.2" }}
 {{ $build := "musl" }}
 {{ $arch := "x86_64" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
@@ -81,7 +81,7 @@ refresh_period = "168h"
 
 ## https://github.com/eza-community/eza
 ##
-{{ $eza_version := "v0.15.2"}}
+{{ $eza_version := "v0.23.4"}}
 {{ $eza_package := (printf "eza_x86_64-unknown-linux-musl.zip") }}
 {{ $eza_url := (printf "https://github.com/eza-community/eza/releases/download/%s/%s" $eza_version $eza_package) }}
 ["eza"]
@@ -93,7 +93,7 @@ refresh_period = "168h"
 
 ## https://github.com/BurntSushi/ripgrep
 ##
-{{ $rg_version := "13.0.0"}}
+{{ $rg_version := "15.1.0"}}
 {{ $rg_package := (printf "ripgrep-%s-x86_64-unknown-linux-musl.tar.gz" $rg_version) }}
 {{ $rg_url := (printf "https://github.com/BurntSushi/ripgrep/releases/download/%s/%s" $rg_version $rg_package) }}
 ["rg"]
@@ -105,7 +105,7 @@ refresh_period = "168h"
 
 ## https://github.com/sharkdp/bat
 ##
-{{ $bat_version := "v0.23.0" }}
+{{ $bat_version := "v0.26.1" }}
 {{ $bat_package := (printf "bat-%s-x86_64-unknown-linux-musl.tar.gz" $bat_version) }}
 {{ $bat_url := (printf "https://github.com/sharkdp/bat/releases/download/%s/%s" $bat_version $bat_package) }}
 ["bat"]

@@ -6,7 +6,7 @@ if status is-interactive
 	type -q starship; and starship init fish | source
 	type -q zoxide;   and zoxide init --cmd j fish | source
 
-	# run script with porentially private config
+	# run script with potentially private config
 	if test -e $HOME/.private.config.fish
 		source $HOME/.private.config.fish
 	end
