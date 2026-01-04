@@ -68,3 +68,4 @@ macos-option-as-alt = true
 # white
 #palette = 7=b8bbc2
 #palette = 15=ffffff
+keybind = shift+enter=text:\n
