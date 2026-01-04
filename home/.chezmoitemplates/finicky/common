@@ -9,6 +9,7 @@
 const CHROME_BUNDLE_ID = "com.google.Chrome";
 const BRAVE_BUNDLE_ID = "com.brave.Browser";
 const SAFARI_BUNDLE_ID = "com.apple.safari";
+const FIREFOX_BUNDLE_ID = "org.mozilla.firefox";
 
 const SLACK_BUNDLE_ID = "com.tinyspeck.slackmacgap";
 

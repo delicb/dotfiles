@@ -1,4 +1,4 @@
-DEFAULT = {name: BRAVE_BUNDLE_ID, profile: "Profile 1"};
+DEFAULT = {name: "Firefox"};
 
 // finicky rules
 /**
