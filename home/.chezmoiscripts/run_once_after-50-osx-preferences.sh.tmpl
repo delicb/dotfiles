@@ -3,9 +3,9 @@
 
 # Starting point: https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
-# Close any open System Preferences panes, to prevent them from overriding
+# Close any open System Settings panes, to prevent them from overriding
 # settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+osascript -e 'tell application "System Settings" to quit'
 
 # Ask for administrator password upfront
 sudo -v
@@ -77,10 +77,8 @@ sudo systemsetup -settimezone "Europe/Belgrade" > /dev/null
 # Energy saving                                                               #
 ###############################################################################
 
-# Sleep the display after 10 minutes
-sudo pmset -a displaysleep 10
-
-# Set machine sleep to 5 minutes on battery
+sudo pmset -c displaysleep 10  # AC only
+sudo pmset -b displaysleep 3   # Battery: display before system
 sudo pmset -b sleep 5
 
 
@@ -143,7 +141,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
-# Set default icon sise
+# Set default icon size
 defaults write com.apple.dock tilesize -int 50
 
 # Large size
@@ -167,9 +165,6 @@ defaults write com.apple.dock orientation left
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
