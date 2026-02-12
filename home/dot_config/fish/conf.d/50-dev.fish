@@ -26,3 +26,9 @@ set -gx PIP_REQUIRE_VIRTUALENV true
 
 # setup colima
 # type -q colima; and export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock
+
+# set up pnpm
+set -gx PNPM_HOME "$HOME/Library/pnpm" 
+if not string match -q -- $PNPM_HOME $PATH 
+	set -gx PATH "$PNPM_HOME" $PATH 
+end
