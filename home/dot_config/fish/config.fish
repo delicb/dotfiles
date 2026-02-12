@@ -12,9 +12,9 @@ if status is-interactive
 	end
 
 	# configure shell integration for vscode, if available
-	string match -q "$TERM_PROGRAM" "vscode"
-	and command --query code
-	and . (code --locate-shell-integration-path fish)
+	# string match -q "$TERM_PROGRAM" "vscode"
+	# and command --query code
+	# and . (code --locate-shell-integration-path fish)
 end
 
 # pnpm
