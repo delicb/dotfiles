@@ -27,8 +27,15 @@ set -gx PIP_REQUIRE_VIRTUALENV true
 # setup colima
 # type -q colima; and export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock
 
+{{ if eq .chezmoi.os "darwin" -}}
 # set up pnpm
 set -gx PNPM_HOME "$HOME/Library/pnpm" 
 if not string match -q -- $PNPM_HOME $PATH 
 	set -gx PATH "$PNPM_HOME" $PATH 
+end
+{{- end }}
+
+# Load gcloud SDK if installed (TODO: only to work profile later)
+if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]
+	. "$HOME/google-cloud-sdk/path.fish.inc"
 end

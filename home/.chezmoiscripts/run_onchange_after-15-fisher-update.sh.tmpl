@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# fish_plugins hash: {{ include "dot_config/fish/fish_plugins" | sha256sum }}
+
+# Update fisher plugins when fish_plugins changes
+if command -v fish &> /dev/null; then
+    echo "Updating fisher plugins..."
+    fish -c 'fisher update' 2>/dev/null || echo "fisher not installed yet, skipping plugin update"
+fi

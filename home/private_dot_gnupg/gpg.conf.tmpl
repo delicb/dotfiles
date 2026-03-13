@@ -59,5 +59,7 @@ use-agent
 # This protects against a subtle attack against subkeys that can sign.
 require-cross-certification
 
+{{ if .personal -}}
 # ID of a key to use by default for signing
 default-key F4D95D71B5B0C2C4125370521F0B33B41DA5214F
+{{- end }}

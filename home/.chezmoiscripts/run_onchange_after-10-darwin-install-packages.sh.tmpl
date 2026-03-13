@@ -1,5 +1,6 @@
 {{- if ( eq .chezmoi.os "darwin" ) -}}
 #!/bin/bash
+# packages.yaml hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
 
 {{ template "system/install-brew" }}
 

@@ -10,8 +10,10 @@ usage = "latest"
 uv = "latest"
 xh = "latest"
 {{ if .personal -}}
-node = "latest"
+node = "22.22.0"
 bun = "latest"
+"npm:@mariozechner/pi-coding-agent" = "latest"  # TODO: move to work setup later
+"npm:pnpm" = "latest"  # TODO: move to work setup later
 {{ end }}
 {{ if .work -}}
 ruby = "3.2.4"
@@ -25,7 +27,3 @@ bun = "latest"
 prek = "latest"
 {{ end }}
 {{ end }}
-
-[settings]
-vfox = false
-idiomatic_version_file_enable_tools = []

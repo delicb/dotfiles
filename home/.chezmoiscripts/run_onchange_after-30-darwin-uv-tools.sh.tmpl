@@ -1,0 +1,4 @@
+#!/bin/bash
+# packages.yaml hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+
+{{ template "system/uv-tool-install" (dict "hostname" .chezmoi.hostname "packages" .packages.darwin.uv_tools) }}

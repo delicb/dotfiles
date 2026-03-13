@@ -1,4 +1,5 @@
 #!/bin/bash
+# packages hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
 {{- if ( eq .chezmoi.os "linux" ) }}
 
 set -o errexit -o nounset
@@ -19,7 +20,7 @@ fzf
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
 bash
 bat
-exa
+eza
 ripgrep
 starship
 {{ end }}

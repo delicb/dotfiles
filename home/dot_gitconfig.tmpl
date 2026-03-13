@@ -73,11 +73,12 @@
 [url "git@github.com:"]
     insteadOf = "gh:"
 
-{{ if .work -}}
+{{/* if .work -*/}}  # TODO: only work profile later
 # if in work directory, include work overrides
 [includeIf "gitdir:~/work/"]
     path = ~/work/gitconfig
-{{ end -}}
+{{/* end -*/}}
+
 {{ if .personal -}}
 # if in src directory, include personal overrides
 [includeIf "gitdir:~/src/"]

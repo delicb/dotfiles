@@ -1,6 +1,6 @@
-{{- if (and .work (not .ephemeral)) -}}
+{{/*- if (and .work (not .ephemeral)) -*/}}  # TODO: only work profile later
 [user]
-    signingkey = {{ onepasswordRead "op://Private/SSH-CA/public key" }}
+    signingkey = {{ onepasswordRead "op://Private/MainSSHKey/public key" }}
 
 [gpg]
     format = ssh
@@ -10,4 +10,4 @@
 
 [commit]
   gpgsign = true
-{{ end }}
+{{/* end */}}

@@ -1,7 +1,7 @@
 set -o errexit -o nounset
 
 maybe_sudo() {
-	if [ -z "$CODESPACES" ]; then
+	if [ -z "${CODESPACES:-}" ]; then
 		SUDO=
 	else
 		SUDO="sudo "

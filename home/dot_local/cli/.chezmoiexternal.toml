@@ -10,8 +10,7 @@ executable = true
 # these do not have package for all distributions, so it is easier to just install them on linux like this
 
 ## https://github.com/PaulJuliusMartinez/jless
-# install jless, it does not provide brew package
-{{ $jless_version := "v0.9.0" }}
+{{ $jless_version := .linux_tool_versions.jless }}
 {{ $jless_package := (printf "jless-%s-x86_64-apple-%s.zip" $jless_version .chezmoi.os) }}
 {{ $jless_url := (printf "https://github.com/PaulJuliusMartinez/jless/releases/download/%s/%s" $jless_version $jless_package ) }}
 ["jless"]
@@ -20,8 +19,7 @@ url = "{{ $jless_url }}"
 path = "jless"
 
 ## https://github.com/direnv/direnv
-# install direnv, controll manually instead of with brew package
-{{ $direnv_version := "v2.35.0" }}
+{{ $direnv_version := .linux_tool_versions.direnv }}
 {{ $direnv_package := (printf "direnv.%s-%s" .chezmoi.os .chezmoi.arch) }}
 {{ $direnv_url := (printf "https://github.com/direnv/direnv/releases/download/%s/%s" $direnv_version $direnv_package) }}
 ["direnv"]
@@ -30,7 +28,7 @@ url = "{{ $direnv_url }}"
 executable = true
 
 ## https://github.com/gsamokovarov/jump
-{{ $jump_version := "v0.51.0" }}
+{{ $jump_version := .linux_tool_versions.jump }}
 {{ $jump_package := "jump_linux_amd64_binary" }}
 {{ $jump_url := (printf "https://github.com/gsamokovarov/jump/releases/download/%s/%s" $jump_version $jump_package ) }}
 {{ with $jump_package }}
@@ -38,32 +36,29 @@ executable = true
 type = "file"
 url = {{ $jump_url | quote }}
 executable = true
-# stripComponents = 1
 refreshPeriod = "168h"
 {{ end }}
 
-
-# https://github.com/dandavison/delta
-{{ $delta_version := "0.18.2"}}
-{{ $build := "musl" }}
+## https://github.com/dandavison/delta
+{{ $delta_version := .linux_tool_versions.delta }}
+{{ $build := "gnu" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
 {{   $build = "musl" }}
 {{ end }}
 {{ $delta_package := (printf "delta-%s-x86_64-unknown-linux-%s.tar.gz" $delta_version $build) }}
 {{ $delta_url := (printf "https://github.com/dandavison/delta/releases/download/%s/%s" $delta_version $delta_package) }}
-{{ with $jump_package }}
+{{ with $delta_package }}
 ["delta"]
 type = "archive"
 url = {{ $delta_url | quote }}
 extract = true
 stripComponents = 1
-refresh_period = "168h"
+refreshPeriod = "168h"
 {{ end }}
 
 ## https://github.com/starship/starship
-##
-{{ $starship_version := "v1.24.2" }}
-{{ $build := "musl" }}
+{{ $starship_version := .linux_tool_versions.starship }}
+{{ $build := "gnu" }}
 {{ $arch := "x86_64" }}
 {{ if (eq .chezmoi.osRelease.id "alpine") }}
 {{    $build = "musl" }}
@@ -77,23 +72,20 @@ refresh_period = "168h"
 type = "archive"
 url = {{ $starship_url | quote }}
 extract = true
-refresh_period = "168h"
+refreshPeriod = "168h"
 
 ## https://github.com/eza-community/eza
-##
-{{ $eza_version := "v0.23.4"}}
+{{ $eza_version := .linux_tool_versions.eza }}
 {{ $eza_package := (printf "eza_x86_64-unknown-linux-musl.zip") }}
 {{ $eza_url := (printf "https://github.com/eza-community/eza/releases/download/%s/%s" $eza_version $eza_package) }}
 ["eza"]
 type = "archive"
 url = {{ $eza_url | quote }}
 extract = true
-refresh_period = "168h"
-
+refreshPeriod = "168h"
 
 ## https://github.com/BurntSushi/ripgrep
-##
-{{ $rg_version := "15.1.0"}}
+{{ $rg_version := .linux_tool_versions.ripgrep }}
 {{ $rg_package := (printf "ripgrep-%s-x86_64-unknown-linux-musl.tar.gz" $rg_version) }}
 {{ $rg_url := (printf "https://github.com/BurntSushi/ripgrep/releases/download/%s/%s" $rg_version $rg_package) }}
 ["rg"]
@@ -101,11 +93,10 @@ type = "archive"
 url = {{ $rg_url | quote }}
 extract = true
 stripComponents = 1
-refresh_period = "168h"
+refreshPeriod = "168h"
 
 ## https://github.com/sharkdp/bat
-##
-{{ $bat_version := "v0.26.1" }}
+{{ $bat_version := .linux_tool_versions.bat }}
 {{ $bat_package := (printf "bat-%s-x86_64-unknown-linux-musl.tar.gz" $bat_version) }}
 {{ $bat_url := (printf "https://github.com/sharkdp/bat/releases/download/%s/%s" $bat_version $bat_package) }}
 ["bat"]
@@ -113,6 +104,6 @@ type = "archive"
 url = {{ $bat_url | quote }}
 extract = true
 stripComponents = 1
-refresh_period = "168h"
+refreshPeriod = "168h"
 
 {{ end }}

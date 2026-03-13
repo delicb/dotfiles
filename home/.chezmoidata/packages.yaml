@@ -1,3 +1,13 @@
+linux_tool_versions:
+  delta: "0.18.2"
+  starship: "v1.24.2"
+  eza: "v0.23.4"
+  ripgrep: "15.1.0"
+  bat: "v0.26.1"
+  jless: "v0.9.0"
+  direnv: "v2.35.0"
+  jump: "v0.51.0"
+
 packages:
   darwin:
     brews:

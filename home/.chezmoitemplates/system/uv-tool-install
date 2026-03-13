@@ -1,5 +1,5 @@
 {{- $packages := .packages.always -}}
-{{- $perHost := (index . "per_host") -}}
+{{- $perHost := (index .packages "per_host") -}}
 
 {{- if (ne $perHost nil) -}}
 {{-   $thisHost := (index $perHost .hostname) -}}
