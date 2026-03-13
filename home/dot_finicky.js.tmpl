@@ -2,12 +2,16 @@
 
 {{ template "finicky/common" }}
 
-{{ if .personal -}}
+{{ if and .personal (not .include_CA) (not .include_Linear) -}}
 {{ template "finicky/personal" }}
 {{ end -}}
 
 {{- if .include_CA -}}
 {{ template "finicky/work" }}
+{{ end -}}
+
+{{- if .include_Linear -}}
+{{ template "finicky/linear" }}
 {{ end -}}
 
 {{ end -}}

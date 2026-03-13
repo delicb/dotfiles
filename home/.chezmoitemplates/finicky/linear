@@ -1,0 +1,87 @@
+const PRIVATE_FIREFOX = (url) => ({
+    name: "/opt/homebrew/bin/firefox",
+    appType: "path",
+    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/ifonbiyq.default-release/", `${url.href}`],
+})
+
+const LINEAR_FIREFOX = (url) => ({
+    name: "/opt/homebrew/bin/firefox",
+    appType: "path",
+    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/gJlxL5Kw.Profile 1/", `${url.href}`],
+})
+
+const SOCIAL_NETWORK_DOMAINS = [
+    "facebook.com",
+    "twitter.com",
+    "instagram.com",
+    "youtube.com",
+    "linkedin.com",
+    "hachyderm.io",
+    "reddit.com"
+];
+
+function linearDesktopUrl(url) {
+    const search = url.search ? `?${url.search}` : '';
+    if (url.host === "linear.review") {
+        return `linear://linear.app/review${url.pathname}${search}`;
+    }
+    return `linear://${url.pathname.substring(1)}${search}`;
+}
+
+/**
+ * @type {FinickyConfig}
+ */
+export default {
+    defaultBrowser: PRIVATE_FIREFOX,
+
+    options: {
+        logRequests: false,
+    },
+
+    rewrite: [
+        {
+            match: (url) => url.protocol === "http" && url.host !== "localhost",
+            url: (url) => {
+                url.protocol = "https";
+                return url;
+            }
+        },
+        {
+            match: () => true,
+            url: stripTrackingParams,
+        },
+    ],
+
+    handlers: [
+        {
+            match: () => finicky.getModifierKeys().shift,
+            browser: PRIVATE_FIREFOX,
+        },
+        {
+            match: () => finicky.getModifierKeys().option,
+            browser: LINEAR_FIREFOX,
+        },
+
+        // linear.app and linear.review -> Linear desktop app via linear:// scheme
+        {
+            match: (url) => url.host === "linear.app" || url.host.endsWith(".linear.app") || url.host === "linear.review",
+            browser: (url) => ({
+                name: "/bin/sh",
+                appType: "path",
+                args: ["-c", `open '${linearDesktopUrl(url)}'`],
+            }),
+        },
+
+        // anything else with "linear" in the URL -> Linear Firefox profile
+        {
+            match: (url) => /linear/i.test(url.host + url.pathname),
+            browser: LINEAR_FIREFOX,
+        },
+
+        // social networks explicitly go to private Firefox profile
+        {
+            match: matchDomains(SOCIAL_NETWORK_DOMAINS),
+            browser: PRIVATE_FIREFOX,
+        },
+    ]
+}
