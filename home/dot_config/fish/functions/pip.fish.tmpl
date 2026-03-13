@@ -1,4 +1,4 @@
-{{- if .work -}}
+{{- if .include_CA -}}
 function pip --wraps=pip --description "Wrapper for pip that does automatic signin if needed"
 	# skip auth if autocomplete request
 	if set -q PIP_AUTO_COMPLETE

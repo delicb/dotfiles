@@ -1,4 +1,4 @@
-{{/*- if (and .work (not .ephemeral)) -*/}}  # TODO: only work profile later
+{{- if (and .include_Linear (not .ephemeral)) -}}
 [user]
     signingkey = {{ onepasswordRead "op://Private/MainSSHKey/public key" }}
 
@@ -10,4 +10,4 @@
 
 [commit]
   gpgsign = true
-{{/* end */}}
+{{ end }}

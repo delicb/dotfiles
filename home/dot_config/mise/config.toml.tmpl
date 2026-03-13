@@ -9,13 +9,12 @@ just = "latest"
 usage = "latest"
 uv = "latest"
 xh = "latest"
-{{ if .personal -}}
+{{ if .include_Linear -}}
 node = "22.22.0"
-bun = "latest"
-"npm:@mariozechner/pi-coding-agent" = "latest"  # TODO: move to work setup later
-"npm:pnpm" = "latest"  # TODO: move to work setup later
+{{ else }}
+node = "latest"
 {{ end }}
-{{ if .work -}}
+{{ if .include_CA -}}
 ruby = "3.2.4"
 terraform = "1.5.7"
 deno = "1.30.0"

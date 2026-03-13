@@ -1,4 +1,4 @@
-{{- if .work -}}
+{{- if .include_CA -}}
 function pipx --wraps pipx --description "Wrapper for pipx that does automatic signin if needed"
 	if set -q _ARGCOMPLETE
 		command pipx $argv

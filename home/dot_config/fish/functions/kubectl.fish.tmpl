@@ -1,4 +1,4 @@
-{{- if .work -}}
+{{- if .include_CA -}}
 function kubectl --wraps=kubectl --description "Wrapper for kubectl that does automatic signin if needed"
 	# purely local commands do not need auth refresh
 	set -l _skip_auth config
