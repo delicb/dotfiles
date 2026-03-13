@@ -10,6 +10,22 @@ const LINEAR_FIREFOX = (url) => ({
     args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/gJlxL5Kw.Profile 1/", `${url.href}`],
 })
 
+// domains that should always open in Linear Firefox profile
+const LINEAR_DOMAINS = [
+    "openai.com",
+    "zoom.us",
+    "console.cloud.google.com",
+    "accounts.google.com",
+    "amazonaws.com",
+    "datadoghq.com",
+    "notion.so",
+    "ramp.com",
+    "retool.com",
+    "dash.cloudflare.com",
+    "us.hevodata.com",
+    "sentry.dev",
+];
+
 const SOCIAL_NETWORK_DOMAINS = [
     "facebook.com",
     "twitter.com",
@@ -75,6 +91,11 @@ export default {
         // anything else with "linear" in the URL -> Linear Firefox profile
         {
             match: (url) => /linear/i.test(url.host + url.pathname),
+            browser: LINEAR_FIREFOX,
+        },
+
+        {
+            match: matchDomains(LINEAR_DOMAINS),
             browser: LINEAR_FIREFOX,
         },
 
