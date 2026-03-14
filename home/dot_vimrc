@@ -20,9 +20,6 @@ set directory=~/.vim-swp
 set backupdir=~/.vim-backup
 
 syntax on
-" colorscheme tomorrownight
-colorscheme catppuccin_mocha
-let g:lightline = {'colorscheme': 'catppuccin_frappe'}
 set nocompatible "be iMproved
 filetype off
 set backspace=2
@@ -38,6 +35,10 @@ Plug 'fatih/vim-go'
 Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 call plug#end()
 filetype plugin indent on
+
+" colorscheme tomorrownight
+colorscheme catppuccin_mocha
+let g:lightline = {'colorscheme': 'catppuccin_frappe'}
 
 " Settings for golang
 let g:go_highlight_functions = 1
