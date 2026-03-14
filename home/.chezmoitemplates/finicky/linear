@@ -24,6 +24,7 @@ const LINEAR_DOMAINS = [
     "dash.cloudflare.com",
     "us.hevodata.com",
     "sentry.dev",
+    "app.vacationtracker.io",
 ];
 
 const SOCIAL_NETWORK_DOMAINS = [
