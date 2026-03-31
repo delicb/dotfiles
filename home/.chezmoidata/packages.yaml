@@ -74,14 +74,14 @@ packages:
       - scroll-reverser
       - shottr
 
-    uv_tools:
-      always:
-      - cookiecutter
-      - hatch
-      - httpie
-      - pdm
-      - pgcli
-      per_host:
-        bdelić-D7GJWV:
-        - check-jsonschema
-        - twine
+    # uv_tools:
+    #   always:
+    #   - cookiecutter
+    #   - hatch
+    #   - httpie
+    #   - pdm
+    #   - pgcli
+    #   per_host:
+    #     bdelić-D7GJWV:
+    #     - check-jsonschema
+    #     - twine
