@@ -2,11 +2,9 @@
 {{- $ephemeral := false -}}  {{/* cloud instances, containers, etc */}}
 {{- $secure_env := false -}}  {{/* should contain secrets? */}}
 {{- $name := "Bojan Delić" -}}  {{/* name of the owner, used for things like git user */}}
-{{- $_personalHostnames := list "mentat" -}}
-{{- $_includeCAHostnames := list "bdelić-D7GJWV" -}}
-{{- $_includeLinearHostnames := list "mentat" -}}
+{{- $_personalHostnames := list "mentat" "zaphod" -}}
+{{- $_includeLinearHostnames := list "mentat" "zaphod" -}}
 {{- $personal := (has .chezmoi.hostname $_personalHostnames) -}}
-{{- $include_CA := (has .chezmoi.hostname $_includeCAHostnames) -}}
 {{- $include_Linear := (has .chezmoi.hostname $_includeLinearHostnames) -}}
 {{- $email := "" -}} {{/* email used to configure git with */}}
 
@@ -37,5 +35,4 @@ git_author_name = {{ $name | quote }}
 git_author_email = {{ $email | quote }}
 ephemeral = {{ $ephemeral }}
 personal = {{ $personal }}
-include_CA = {{ $include_CA }}
 include_Linear = {{ $include_Linear }}

@@ -16,15 +16,4 @@ node = "22.22.0"
 {{ else }}
 node = "latest"
 {{ end }}
-{{ if .include_CA -}}
-ruby = "3.2.4"
-terraform = "1.5.7"
-deno = "1.30.0"
-helm = "3.8.1"
-node = "18.20.3"
-mongosh = "latest"
-java = "21"
-bun = "latest"
-prek = "latest"
-{{ end }}
 {{ end }}

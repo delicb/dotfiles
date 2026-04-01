@@ -1,9 +1,6 @@
 {{- if not .ephemeral -}}
 legacy_version_file = false
 experimental = false
-{{ if .include_CA -}}
-trusted_config_paths = ["~/work"]
-{{- end }}
 raw = true
 
 python_venv_auto_create = false

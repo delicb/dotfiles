@@ -2,7 +2,7 @@
 
 Personal dotfiles for macOS and Linux, managed with [chezmoi](https://www.chezmoi.io/).
 Shared across personal and work machines. Personal config is the baseline; work-specific
-config is toggled via independent include flags (`include_CA`, `include_Linear`).
+config is toggled via independent include flags (`include_Linear`).
 
 ## Repository Layout
 
@@ -61,7 +61,6 @@ Templates use Go `text/template` syntax. Data comes from three sources:
    | `ephemeral` | bool | `true` for containers, codespaces, vagrant. Skips most config. |
    | `secure_env` | bool | Whether secrets (1Password) are available |
    | `personal` | bool | `true` on personal machine (hostname `mentat`) |
-   | `include_CA` | bool | `true` on CultureAmp machine (hostname `bdelić-D7GJWV`) |
    | `include_Linear` | bool | `true` on Linear machine (no hostname mapped yet) |
    | `git_author_name` | string | Name for git commits |
    | `git_author_email` | string | Email for git commits |
@@ -76,17 +75,13 @@ Templates use Go `text/template` syntax. Data comes from three sources:
 
 ### Conditional branching pattern
 
-Most templates branch on `personal` / `include_CA` / `include_Linear` / `ephemeral` / `.chezmoi.os`.
-`personal` is the baseline profile. `include_CA` and `include_Linear` are independent flags that
-layer work-specific config on top. They are not mutually exclusive - a machine can have both.
+Most templates branch on `personal` / `include_Linear` / `ephemeral` / `.chezmoi.os`.
+`personal` is the baseline profile. `include_Linear` is independent flags that
+layer work-specific config on top. 
 
 ```
 {{ if .personal -}}
 ...personal-only content...
-{{ end -}}
-
-{{ if .include_CA -}}
-...CultureAmp-specific content...
 {{ end -}}
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -188,7 +183,7 @@ per_host:
   hostname-here:
     - package-name
 ```
-For per-host config in templates, prefer the include flags (`{{ if .include_CA }}`) over raw hostname checks.
+For per-host config in templates, prefer the include flags (`{{ if .include_Linear }}`) over raw hostname checks.
 
 ## Design Principles
 

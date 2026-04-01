@@ -42,6 +42,7 @@ packages:
       - wget
       - xz
       - yazi
+      - zellij
       - zoxide
       per_host:
         bdelić-D7GJWV:
@@ -51,6 +52,7 @@ packages:
           - kubectl
           - kubectx
           - libpq
+
     casks:
       always:
       - 1Password
@@ -73,6 +75,9 @@ packages:
       - rectangle-pro
       - scroll-reverser
       - shottr
+      # per_host:
+      #   zaphod:
+      #     - tailscale-app
 
     # uv_tools:
     #   always:
