@@ -64,11 +64,10 @@ hs.hotkey.bind({"alt"}, "`", function()
 		winFrame = win:frame()
 		
 		scrFrame = screen:frame()
-		local width = math.max(scrFrame.w / 2, 2000)
-		width = math.min(scrFrame.w, width)  -- maximum screen size
+		local width = math.min(winFrame.w, scrFrame.w)
 		winFrame.w = width
 		winFrame.h = scrFrame.h
-		winFrame.x = scrFrame.w - width
+		winFrame.x = scrFrame.x + scrFrame.w - width
 		winFrame.y = scrFrame.y
 		win:setFrame(winFrame, 0.4)
 		hs.spaces.moveWindowToSpace(win, hs.spaces.activeSpaceOnScreen(screen))
