@@ -45,13 +45,14 @@ packages:
       - zellij
       - zoxide
       per_host:
-        bdelić-D7GJWV:
+        zaphod:
           - colima
-          - granted
+          - docker
           - k9s
           - kubectl
           - kubectx
           - libpq
+          - terraform
 
     casks:
       always:
@@ -75,18 +76,13 @@ packages:
       - rectangle-pro
       - scroll-reverser
       - shottr
-      # per_host:
-      #   zaphod:
-      #     - tailscale-app
+      per_host:
+        zaphod:
+          - google-drive
+          - obsidian
+          - zen
 
-    # uv_tools:
-    #   always:
-    #   - cookiecutter
-    #   - hatch
-    #   - httpie
-    #   - pdm
-    #   - pgcli
-    #   per_host:
-    #     bdelić-D7GJWV:
-    #     - check-jsonschema
-    #     - twine
+    uv_tools:
+      always:
+      - httpie
+      - pgcli

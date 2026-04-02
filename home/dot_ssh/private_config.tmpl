@@ -1,8 +1,8 @@
 {{- if not .ephemeral -}}
-#Include /Users/{{- .chezmoi.username -}}/.colima/ssh_config
+Include /Users/{{- .chezmoi.username -}}/.colima/ssh_config
 {{- if stat (joinPath "/Users" .chezmoi.username ".orbstack/ssh/config") -}}
 # setup orbstack ssh config, to access its linux machines via ssh
-Include /Users/{{- .chezmoi.username -}}/.orbstack/ssh/config
+#Include /Users/{{- .chezmoi.username -}}/.orbstack/ssh/config
 {{- end }}
 
 

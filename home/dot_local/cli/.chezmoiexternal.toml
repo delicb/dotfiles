@@ -6,17 +6,19 @@ type = "file"
 url = "{{ $theme_sh_url }}"
 executable = true
 
-{{- if ( eq .chezmoi.os "linux" ) }}
-# these do not have package for all distributions, so it is easier to just install them on linux like this
-
+{{- if ( eq .chezmoi.os "darwin" ) }}
 ## https://github.com/PaulJuliusMartinez/jless
 {{ $jless_version := .linux_tool_versions.jless }}
-{{ $jless_package := (printf "jless-%s-x86_64-apple-%s.zip" $jless_version .chezmoi.os) }}
+{{ $jless_package := (printf "jless-%s-aarch64-apple-%s.zip" $jless_version .chezmoi.os) }}
 {{ $jless_url := (printf "https://github.com/PaulJuliusMartinez/jless/releases/download/%s/%s" $jless_version $jless_package ) }}
 ["jless"]
 type = "archive-file"
 url = "{{ $jless_url }}"
 path = "jless"
+{{ end}}
+
+{{- if ( eq .chezmoi.os "linux" ) }}
+# these do not have package for all distributions, so it is easier to just install them on linux like this
 
 ## https://github.com/direnv/direnv
 {{ $direnv_version := .linux_tool_versions.direnv }}
