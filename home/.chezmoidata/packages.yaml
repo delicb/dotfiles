@@ -27,6 +27,7 @@ packages:
       - git
       - git-delta
       - git-extras
+      - git-spice
       - jq
       - less
       - libffi
