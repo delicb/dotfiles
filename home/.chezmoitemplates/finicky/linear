@@ -1,13 +1,13 @@
 const PRIVATE_FIREFOX = (url) => ({
     name: "/opt/homebrew/bin/firefox",
     appType: "path",
-    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/ifonbiyq.default-release/", `${url.href}`],
+    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/2c0ncgn9.default-release/", `${url.href}`],
 })
 
 const LINEAR_FIREFOX = (url) => ({
     name: "/opt/homebrew/bin/firefox",
     appType: "path",
-    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/gJlxL5Kw.Profile 1/", `${url.href}`],
+    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/Q2qCNG2I.Profile 1", `${url.href}`],
 })
 
 // domains that should always open in Linear Firefox profile
@@ -37,6 +37,9 @@ const SOCIAL_NETWORK_DOMAINS = [
     "reddit.com"
 ];
 
+const OPEN_LINEAR_IN_DESKTOP_APP = false;
+const LINEAR_LOCALHOST_PORTS = new Set(["8787", "8080", "8788"]);
+
 function linearDesktopUrl(url) {
     const search = url.search ? `?${url.search}` : '';
     if (url.host === "linear.review") {
@@ -57,7 +60,7 @@ export default {
 
     rewrite: [
         {
-            match: (url) => url.protocol === "http" && url.host !== "localhost",
+            match: (url) => url.protocol === "http" && url.hostname !== "localhost",
             url: (url) => {
                 url.protocol = "https";
                 return url;
@@ -78,10 +81,13 @@ export default {
             match: () => finicky.getModifierKeys().option,
             browser: LINEAR_FIREFOX,
         },
-
+        {
+            match: (url) => url.hostname == "localhost" && LINEAR_LOCALHOST_PORTS.has(url.port),
+            browser: LINEAR_FIREFOX,
+        },
         // linear.app and linear.review -> Linear desktop app via linear:// scheme
         {
-            match: (url) => url.host === "linear.app" || url.host.endsWith(".linear.app") || url.host === "linear.review",
+            match: (url) => OPEN_LINEAR_IN_DESKTOP_APP && (url.host === "linear.app" || url.host.endsWith(".linear.app") || url.host === "linear.review"),
             browser: (url) => ({
                 name: "/bin/sh",
                 appType: "path",
