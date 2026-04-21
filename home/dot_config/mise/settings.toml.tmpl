@@ -6,3 +6,8 @@ raw = true
 python_venv_auto_create = false
 python_compile = true
 {{ end }}
+
+hook_env.chpwd_only = true
+hook_env.cache_ttl = "10s"
+fetch_remote_versions_cache = "24h"
+prefer_offline = true
