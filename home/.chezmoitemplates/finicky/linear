@@ -1,13 +1,46 @@
+// Firefox profiles per machine. Each machine entry also lists hostname
+// aliases used to identify it, because `finicky.getSystemInfo().name`
+// can return the scutil hostname, a .local name, or a Tailscale/MagicDNS
+// FQDN depending on how the network is configured.
+const FIREFOX_PROFILES_BY_HOST = {
+    zaphod: {
+        aliases: ["zaphod"],
+        profiles: {
+            private: "/Users/del-boy/Library/Application Support/Firefox/Profiles/2c0ncgn9.default-release/",
+            linear: "/Users/del-boy/Library/Application Support/Firefox/Profiles/Q2qCNG2I.Profile 1",
+        },
+    },
+    mentat: {
+        aliases: ["mentat"],
+        profiles: {
+            private: "/Users/del-boy/Library/Application Support/Firefox/Profiles/6eq0tjws.default-release/",
+            linear: "/Users/del-boy/Library/Application Support/Firefox/Profiles/VyPT5Ram.Profile 1",
+        },
+    },
+};
+
+function firefoxProfile(kind) {
+    const rawHost = finicky.getSystemInfo().name
+        .replace(/[\s\u00A0]+/g, "")
+        .toLowerCase();
+    for (const { aliases, profiles } of Object.values(FIREFOX_PROFILES_BY_HOST)) {
+        if (aliases.some((alias) => rawHost.includes(alias))) {
+            return profiles[kind];
+        }
+    }
+    return FIREFOX_PROFILES_BY_HOST.zaphod.profiles[kind];
+}
+
 const PRIVATE_FIREFOX = (url) => ({
     name: "/opt/homebrew/bin/firefox",
     appType: "path",
-    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/2c0ncgn9.default-release/", `${url.href}`],
+    args: ["--profile", firefoxProfile("private"), `${url.href}`],
 })
 
 const LINEAR_FIREFOX = (url) => ({
     name: "/opt/homebrew/bin/firefox",
     appType: "path",
-    args: ["--profile", "/Users/del-boy/Library/Application Support/Firefox/Profiles/Q2qCNG2I.Profile 1", `${url.href}`],
+    args: ["--profile", firefoxProfile("linear"), `${url.href}`],
 })
 
 // domains that should always open in Linear Firefox profile
