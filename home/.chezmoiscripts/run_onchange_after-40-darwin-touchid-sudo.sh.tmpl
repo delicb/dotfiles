@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Enable Touch ID for sudo via /etc/pam.d/sudo_local.
+# sudo_local is used instead of sudo because Apple preserves it across
+# macOS updates, while /etc/pam.d/sudo gets reset.
+{{ if eq .chezmoi.os "darwin" -}}
+set -euo pipefail
+
+TARGET=/etc/pam.d/sudo_local
+DESIRED='# Managed by chezmoi
+auth       sufficient     pam_tid.so'
+
+if [[ -f "$TARGET" ]] && [[ "$(cat "$TARGET")" == "$DESIRED" ]]; then
+    exit 0
+fi
+
+echo "Enabling Touch ID for sudo (writes $TARGET, requires sudo)..."
+printf '%s\n' "$DESIRED" | sudo tee "$TARGET" >/dev/null
+sudo chmod 444 "$TARGET"
+{{ end -}}
