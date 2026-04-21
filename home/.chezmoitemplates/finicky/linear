@@ -25,6 +25,7 @@ const LINEAR_DOMAINS = [
     "us.hevodata.com",
     "sentry.dev",
     "app.vacationtracker.io",
+    "salesforce.com",
 ];
 
 const SOCIAL_NETWORK_DOMAINS = [
