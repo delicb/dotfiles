@@ -69,9 +69,6 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 # Show language menu in the top right corner of the boot screen
 sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
 
-# Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Belgrade" > /dev/null
-
 
 ###############################################################################
 # Energy saving                                                               #
@@ -189,70 +186,71 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
-# Privacy: don’t send search queries to Apple
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+# Safari's prefs live in a TCC-protected container since macOS Mojave.
+# Writing them requires Full Disk Access for the terminal running this script.
+if defaults write com.apple.Safari __fda_probe -bool true 2>/dev/null; then
+    defaults delete com.apple.Safari __fda_probe 2>/dev/null
 
-# Press Tab to highlight each item on a web page
-defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+    # Privacy: don’t send search queries to Apple
+    defaults write com.apple.Safari UniversalSearchEnabled -bool false
+    defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
-# Show the full URL in the address bar (note: this still hides the scheme)
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+    # Press Tab to highlight each item on a web page
+    defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 
-# Prevent Safari from opening ‘safe’ files automatically after downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+    # Show the full URL in the address bar (note: this still hides the scheme)
+    defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
-# Allow hitting the Backspace key to go to the previous page in history
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+    # Prevent Safari from opening ‘safe’ files automatically after downloading
+    defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
-# Disable Safari’s thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+    # Allow hitting the Backspace key to go to the previous page in history
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
 
-# Make Safari’s search banners default to Contains instead of Starts With
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+    # Disable Safari’s thumbnail cache for History and Top Sites
+    defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
-# Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+    # Make Safari’s search banners default to Contains instead of Starts With
+    defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 
-# Add a context menu item for showing the Web Inspector in web views
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+    # Enable the Develop menu and the Web Inspector in Safari
+    defaults write com.apple.Safari IncludeDevelopMenu -bool true
+    defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
-# Enable continuous spellchecking
-defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
-# Disable auto-correct
-defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
+    # Add a context menu item for showing the Web Inspector in web views
+    defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-# Disable AutoFill
-defaults write com.apple.Safari AutoFillFromAddressBook -bool false
-defaults write com.apple.Safari AutoFillPasswords -bool false
-defaults write com.apple.Safari AutoFillCreditCardData -bool false
-defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+    # Enable continuous spellchecking
+    defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
+    # Disable auto-correct
+    defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
 
-# Warn about fraudulent websites
-defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+    # Disable AutoFill
+    defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+    defaults write com.apple.Safari AutoFillPasswords -bool false
+    defaults write com.apple.Safari AutoFillCreditCardData -bool false
+    defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
 
-# Disable plug-ins
-#defaults write com.apple.Safari WebKitPluginsEnabled -bool false
-#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
+    # Warn about fraudulent websites
+    defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 
-# Block pop-up windows
-#defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
-#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
+    # Enable “Do Not Track”
+    defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
-# Disable auto-playing video
-#defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
-#defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false
-#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-#defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-
-# Enable “Do Not Track”
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-
-# Update extensions automatically
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+    # Update extensions automatically
+    defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+else
+    script_path="$(chezmoi source-path)/.chezmoiscripts/run_once_after-50-osx-preferences.sh.tmpl"
+    echo >&2 ""
+    echo >&2 "  !! Skipping Safari preferences: no Full Disk Access."
+    echo >&2 "     Grant it to your terminal in:"
+    echo >&2 "     System Settings -> Privacy & Security -> Full Disk Access"
+    echo >&2 "     then re-run with:"
+    echo >&2 "       chezmoi execute-template < ${script_path} | bash"
+    echo >&2 ""
+fi
 
 
 ###############################################################################
