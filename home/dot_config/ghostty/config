@@ -3,6 +3,9 @@ theme = Catppuccin Mocha
 
 scrollback-limit = 100000000
 
+# Prevent Pi from jumping to the live bottom when copying text from scrollback.
+scroll-to-bottom = no-keystroke
+
 window-new-tab-position = end
 window-padding-x = 10
 
