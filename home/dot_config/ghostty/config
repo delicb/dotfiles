@@ -3,8 +3,10 @@ theme = Catppuccin Mocha
 
 scrollback-limit = 100000000
 
-# Prevent Pi from jumping to the live bottom when copying text from scrollback.
-scroll-to-bottom = no-keystroke
+# Pi jumps to the end when doing cmd+c. This prevents it. However this also prevents
+# jump to the cursor in other situations where I want it. Disabling for now and trying
+# out Pi-extension approach. 
+# scroll-to-bottom = no-keystroke
 
 window-new-tab-position = end
 window-padding-x = 10
