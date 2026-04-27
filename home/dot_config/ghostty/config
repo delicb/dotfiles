@@ -17,6 +17,7 @@ quick-terminal-position = right
 quick-terminal-animation-duration = 0.1
 
 window-inherit-working-directory = false
+tab-inherit-working-directory = false
 
 keybind = global:cmd+shift+u=toggle_quick_terminal
 keybind = opt+up=jump_to_prompt:-1
