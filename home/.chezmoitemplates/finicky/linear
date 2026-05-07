@@ -59,6 +59,7 @@ const LINEAR_DOMAINS = [
     "sentry.dev",
     "app.vacationtracker.io",
     "salesforce.com",
+    "app.launchdarkly.com",
 ];
 
 const SOCIAL_NETWORK_DOMAINS = [
