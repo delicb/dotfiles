@@ -20,6 +20,10 @@ home/                 # chezmoi source root
   dot_config/         # -> ~/.config (fish, ghostty, kitty, starship, mise, etc.)
   dot_ssh/            # -> ~/.ssh
   dot_local/          # -> ~/.local (bin symlinks, CLI externals)
+  dot_agents/         # -> ~/.agents (shared agent instructions and skills)
+  dot_claude/         # -> ~/.claude (Claude Code links to shared agent config)
+  dot_codex/          # -> ~/.codex (Codex config, shared agent imports, RTK)
+  dot_pi/             # -> ~/.pi (Pi links to shared agent config)
   private_dot_gnupg/  # -> ~/.gnupg
   private_Library/    # -> ~/Library (lazygit, lazydocker configs)
   bin/                # -> ~/bin (helper scripts)
@@ -130,6 +134,10 @@ On macOS, these come from Homebrew instead.
 | Karabiner | `dot_config/private_karabiner/` | Keyboard remapping (macOS) |
 | Finicky | `dot_finicky.js.tmpl` | URL routing to different browsers (personal vs CA) |
 | Zellij | `dot_config/zellij/` | Terminal multiplexer, Catppuccin Mocha theme |
+| Shared agent config | `dot_agents/` | `~/.agents/AGENTS.md` and `~/.agents/skills` |
+| Claude Code | `dot_claude/` | `CLAUDE.md` and skill symlinks to shared agent config |
+| Codex | `dot_codex/` | `AGENTS.md` wrapper importing shared rules plus Codex-only RTK |
+| Pi | `dot_pi/agent/` | Global `AGENTS.md` symlink to shared rules |
 | SSH | `dot_ssh/private_config.tmpl` | 1Password agent, connection reuse |
 | GnuPG | `private_dot_gnupg/` | GPG config, agent using 1Password |
 | direnv | `dot_config/direnv/` | Per-directory env management |
@@ -152,6 +160,34 @@ Prefer `chezmoi add <target>` when possible. If creating manually:
 1. Place it under `home/` with correct chezmoi prefixes
 2. If it needs template data, add `.tmpl` suffix and use Go template syntax
 3. If it is OS-specific, either guard with template conditionals or add to `.chezmoiignore`
+
+### Adding or updating shared agent config
+
+Shared personal agent instructions live in `home/dot_agents/AGENTS.md`, which renders to `~/.agents/AGENTS.md`.
+Keep only agent-agnostic rules there.
+
+Agent-specific entry points are linked or wrapped as follows:
+
+| Agent | Source | Target | Notes |
+|---|---|---|---|
+| Pi | `home/dot_pi/agent/symlink_AGENTS.md` | `~/.pi/agent/AGENTS.md` | Symlink to `~/.agents/AGENTS.md` |
+| Claude Code | `home/dot_claude/symlink_CLAUDE.md` | `~/.claude/CLAUDE.md` | Symlink to `~/.agents/AGENTS.md` |
+| Codex | `home/dot_codex/private_AGENTS.md.tmpl` | `~/.codex/AGENTS.md` | Imports shared rules and Codex-only `~/.codex/RTK.md` |
+
+Shared skills live in `home/dot_agents/skills/<name>/SKILL.md`, which renders to
+`~/.agents/skills/<name>/SKILL.md`. Pi reads `~/.agents/skills` directly. Claude
+Code and Codex need per-skill symlinks:
+
+- `home/dot_claude/skills/symlink_<name>` -> `../../.agents/skills/<name>`
+- `home/dot_codex/skills/symlink_<name>` -> `../../.agents/skills/<name>`
+
+When adding a shared skill, add the skill directory under `home/dot_agents/skills/`
+and add both symlinks above. Do not replace the whole `~/.codex/skills` directory,
+because Codex keeps bundled system skills there. If a skill bundles scripts, use
+chezmoi `executable_` prefixes for executable script files.
+
+Codex-only behavior belongs in `home/dot_codex/private_RTK.md` or the Codex wrapper,
+not in shared `AGENTS.md`.
 
 ### Adding a new fish function
 
