@@ -1,0 +1,56 @@
+{
+  "lastChangelogVersion": "0.76.0",
+  "compaction": {
+    "enabled": true
+  },
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "xhigh",
+  "hideThinkingBlock": true,
+  "packages": [
+    {
+      "source": "git:github.com/aliou/pi-extensions",
+      "extensions": [
+        "extensions/introspection/index.ts",
+        "extensions/planning/index.ts",
+        "extensions/guardrails/index.ts",
+        "extensions/breadcrumbs/index.ts"
+      ]
+    },
+    "git:github.com/aliou/pi-extension-dev",
+    "../../src/pi-extensions",
+    "git:github.com/nicobailon/pi-powerline-footer",
+    "git:github.com/nicobailon/pi-web-access",
+    "git:github.com/aliou/pi-processes",
+    "git:github.com/nicobailon/pi-mcp-adapter",
+    "git:github.com/nicobailon/pi-interactive-shell",
+    "git:github.com/dbachelder/pi-btw",
+    "npm:pi-screenshots-picker",
+    "git:https://github.com/aliou/pi-guardrails",
+    "npm:@sherif-fanous/pi-rtk"
+  ],
+  "workingVibe": "hpmor",
+  "workingVibeMode": "file",
+  "projectSkillPaths": [
+    ".claude/skills"
+  ],
+  "theme": "catppuccin-mocha-contrast",
+  "showHardwareCursor": true,
+  "followUpMode": "one-at-a-time",
+  "steeringMode": "one-at-a-time",
+  "transport": "auto",
+  "quietStartup": true,
+  "doubleEscapeAction": "tree",
+  "collapseChangelog": true,
+  "powerline": {
+    "preset": "default",
+    "mouseScroll": false,
+    "fixedEditor": false
+  },
+  "pi-screenshots": {
+    "sources": [
+      "~/Documents/Screenshots/*.png",
+      "~/Desktop"
+    ]
+  }
+}
