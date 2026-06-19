@@ -60,6 +60,11 @@ const LINEAR_DOMAINS = [
     "app.vacationtracker.io",
     "salesforce.com",
     "app.launchdarkly.com",
+    "ngrok.io",
+    "incident.io",
+    "sanity.io",
+    "awsapps.com",
+    //"claude.ai",
 ];
 
 const SOCIAL_NETWORK_DOMAINS = [
