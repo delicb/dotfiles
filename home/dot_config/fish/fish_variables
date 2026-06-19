@@ -7,3 +7,4 @@ SETUVAR _fisher_plugins:jorgebucaran/fisher\x1epatrickf1/fzf\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_features:ampersend\x2dnobg\x2din\x2dtoken\x1eampersend\x2dnobg\x2din\x2dtoken\x1eqmark\x2dnoglob
 SETUVAR fish_greeting:
+SETUVAR fish_user_paths:/opt/homebrew/opt/libpq\x4018\x2e3/bin
