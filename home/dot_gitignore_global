@@ -20,3 +20,5 @@
 .mise.toml
 
 .pdm-python
+
+**/.claude/settings.local.json
