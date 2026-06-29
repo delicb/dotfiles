@@ -1,0 +1,78 @@
+type BrowserKind = "personal" | "linear";
+type ActiveBrowser = "firefox" | "helium";
+
+type BrowserProfileSet = {
+    personal: BrowserResolver;
+    linear: BrowserResolver;
+};
+
+type FirefoxHostProfile = {
+    aliases: string[];
+    profiles: Record<BrowserKind, string>;
+};
+
+const CHROME_BUNDLE_ID = "com.google.Chrome";
+const BRAVE_BUNDLE_ID = "com.brave.Browser";
+const SAFARI_BUNDLE_ID = "com.apple.safari";
+const FIREFOX_BUNDLE_ID = "org.mozilla.firefox";
+const HELIUM_BUNDLE_ID = "net.imput.helium";
+
+const FIREFOX_PATH = "/opt/homebrew/bin/firefox";
+const HELIUM_PATH = "/Applications/Helium.app/Contents/MacOS/Helium";
+
+const FIREFOX_PROFILES_BY_HOST: Record<string, FirefoxHostProfile> = {
+    zaphod: {
+        aliases: ["zaphod"],
+        profiles: {
+            personal: "/Users/del-boy/Library/Application Support/Firefox/Profiles/2c0ncgn9.default-release/",
+            linear: "/Users/del-boy/Library/Application Support/Firefox/Profiles/Q2qCNG2I.Profile 1",
+        },
+    },
+    mentat: {
+        aliases: ["mentat"],
+        profiles: {
+            personal: "/Users/del-boy/Library/Application Support/Firefox/Profiles/6eq0tjws.default-release/",
+            linear: "/Users/del-boy/Library/Application Support/Firefox/Profiles/VyPT5Ram.Profile 1",
+        },
+    },
+};
+
+function normalizedHost(): string {
+    return finicky.getSystemInfo().name
+        .replace(/[\s\u00A0]+/g, "")
+        .toLowerCase();
+}
+
+function firefoxProfile(kind: BrowserKind): string {
+    const host = normalizedHost();
+    for (const { aliases, profiles } of Object.values(FIREFOX_PROFILES_BY_HOST)) {
+        if (aliases.some((alias) => host.includes(alias))) {
+            return profiles[kind];
+        }
+    }
+    return FIREFOX_PROFILES_BY_HOST.zaphod.profiles[kind];
+}
+
+function firefoxBrowser(kind: BrowserKind): BrowserResolver {
+    return pathBrowser(FIREFOX_PATH, (url) => ["--profile", firefoxProfile(kind), url.href]);
+}
+
+function heliumBrowser(profileDirectory: string): BrowserResolver {
+    return shellBrowser((url) => `${shellQuote(HELIUM_PATH)} --profile-directory=${shellQuote(profileDirectory)} ${shellQuote(url.href)}`);
+}
+
+const PERSONAL_FIREFOX: BrowserResolver = firefoxBrowser("personal");
+const LINEAR_FIREFOX: BrowserResolver = firefoxBrowser("linear");
+const PERSONAL_HELIUM: BrowserResolver = heliumBrowser("Default");
+const LINEAR_HELIUM: BrowserResolver = heliumBrowser("Profile 1");
+
+const BROWSER_PROFILES: Record<ActiveBrowser, BrowserProfileSet> = {
+    firefox: {
+        personal: PERSONAL_FIREFOX,
+        linear: LINEAR_FIREFOX,
+    },
+    helium: {
+        personal: PERSONAL_HELIUM,
+        linear: LINEAR_HELIUM,
+    },
+};

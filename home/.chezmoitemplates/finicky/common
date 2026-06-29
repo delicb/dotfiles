@@ -1,54 +1,73 @@
-// @ts-check
-
-/**
- * @typedef {import('/Applications/Finicky.app/Contents/Resources/finicky.d.ts')} Globals
- * @typedef {import('/Applications/Finicky.app/Contents/Resources/finicky.d.ts').FinickyConfig} FinickyConfig
- */
-
-// browser bundle IDs
-const CHROME_BUNDLE_ID = "com.google.Chrome";
-const BRAVE_BUNDLE_ID = "com.brave.Browser";
-const SAFARI_BUNDLE_ID = "com.apple.safari";
-const FIREFOX_BUNDLE_ID = "org.mozilla.firefox";
+import type {
+    BrowserHandler,
+    BrowserResolver,
+    BrowserSpecification,
+    FinickyConfig,
+    ProcessInfo,
+    UrlMatcher,
+    UrlMatcherFunction,
+    UrlTransformer,
+} from "/Applications/Finicky.app/Contents/Resources/finicky.d.ts";
 
 const SLACK_BUNDLE_ID = "com.tinyspeck.slackmacgap";
-
 const NOTION_BUNDLE_ID = "notion.id";
 
-// Default profile is usually first one created. 
-// After than, each new is numbered. To find out which value should
-// go here for some profile, while profile is active,
-// open chrome://version and under "profile path" and take last path segment .
-
-// matches URL with list of provided domains.
-function matchDomains(matches, sourceAppBundleIds = []) {
-    return (url, { opener }) => {
-        for (let match of matches) {
-            if (url.host.indexOf(match) > -1 || url.pathname.indexOf(match) > -1) {
-                if (opener && sourceAppBundleIds.length > 0) {
-                    return sourceAppBundleIds.indexOf(opener.bundleId) > -1
-                }
-                return true;
-            }
-        }
-        return false;
-    }
+function matchesSourceApp(opener: ProcessInfo | null, sourceAppBundleIds: string[]): boolean {
+    return sourceAppBundleIds.length === 0 || Boolean(opener && sourceAppBundleIds.includes(opener.bundleId));
 }
 
-// removes marketing and tracking query parameters from URL,
-// otherwise leaves it unchanged
-function stripTrackingParams(url) {
-    const removeKeysStartingWith = ["utm_", "uta_"]; // Remove all query parameters beginning with these strings
-    const removeKeys = ["fbclid", "gclid"]; // Remove all query parameters matching these keys
+function hostMatchesDomain(hostname: string, domain: string): boolean {
+    const normalizedHost = hostname.toLowerCase();
+    const normalizedDomain = domain.toLowerCase();
+    return normalizedHost === normalizedDomain || normalizedHost.endsWith(`.${normalizedDomain}`);
+}
 
-    const search = url.search
-        .split("&")
-        .map((parameter) => parameter.split("="))
-        .filter(([key]) => !removeKeysStartingWith.some((startingWith) => key.startsWith(startingWith)))
-        .filter(([key]) => !removeKeys.some((removeKey) => key === removeKey));
-
-    return {
-        ...url,
-        search: search.map((parameter) => parameter.join("=")).join("&"),
+function matchDomains(domains: string[], sourceAppBundleIds: string[] = []): UrlMatcherFunction {
+    return (url, { opener }) => {
+        return matchesSourceApp(opener, sourceAppBundleIds) &&
+            domains.some((domain) => hostMatchesDomain(url.hostname, domain));
     };
+}
+
+function urlContainsText(text: string): UrlMatcherFunction {
+    const needle = text.toLowerCase();
+    return (url) => `${url.host}${url.pathname}`.toLowerCase().includes(needle);
+}
+
+const ALL_URLS: UrlMatcherFunction = () => true;
+
+const NON_LOCAL_HTTP_URL: UrlMatcherFunction = (url) => url.protocol === "http" && url.hostname !== "localhost";
+
+const ENFORCE_HTTPS: UrlTransformer = (url) => {
+    url.protocol = "https";
+    return url;
+};
+
+function stripTrackingParams(url: URL): URL {
+    const removeKeyPrefixes = ["utm_", "uta_"];
+    const removeKeys = new Set(["fbclid", "gclid"]);
+
+    for (const key of [...url.searchParams.keys()]) {
+        if (removeKeys.has(key) || removeKeyPrefixes.some((prefix) => key.startsWith(prefix))) {
+            url.searchParams.delete(key);
+        }
+    }
+
+    return url;
+}
+
+function shellQuote(value: unknown): string {
+    return `'${String(value).replace(/'/g, `'\\''`)}'`;
+}
+
+function pathBrowser(path: string, argsForUrl: (url: URL) => string[]): BrowserResolver {
+    return (url) => ({
+        name: path,
+        appType: "path",
+        args: argsForUrl(url),
+    });
+}
+
+function shellBrowser(commandForUrl: (url: URL) => string): BrowserResolver {
+    return pathBrowser("/bin/sh", (url) => ["-c", commandForUrl(url)]);
 }
