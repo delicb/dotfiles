@@ -51,6 +51,7 @@ That order matters. Rewrites are not just preprocessing notes. They change the U
 - Use a browser string for simple routing.
 - Use a browser object when you need a profile, background opening, explicit app type, or other per-app settings.
 - Use a browser function only when the browser depends on the URL or opener.
+- Finicky launches browser specs through macOS `open`. For `appType: "path"`, `args` are passed after `open -a <path> --args`, not by directly executing the binary. If a CLI flag must be handled by the executable itself, route via `/bin/sh -c` and call the binary directly.
 
 ## Interpret callbacks correctly
 
@@ -78,6 +79,7 @@ When debugging or reviewing a config, check these first:
 - Is a matcher written for a hostname when Finicky is matching against the whole URL string?
 - Is a rewrite mutating the URL the handler is expected to match later?
 - Is a browser profile written in the expected `Browser:Profile` form or object form?
+- If `appType: "path"` with `args` behaves oddly, is macOS `open -a <path> --args` changing app/profile behavior? Try a `/bin/sh -c` direct binary call.
 - Is the logic depending on `opener`, modifier keys, or utility helpers that need a function matcher?
 
 ## Source of truth

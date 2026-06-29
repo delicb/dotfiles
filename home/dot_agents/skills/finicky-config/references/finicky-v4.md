@@ -165,6 +165,32 @@ Useful keys:
 
 The current v4 source schema also includes `args?: string[]` on the object form, even though the wiki page does not highlight it.
 
+### How Finicky launches browsers
+
+Finicky browser specs are launched through macOS `open`, not by directly executing the `name` value as a process.
+
+Observed behavior in Finicky 4.2.2 debug logs:
+
+```text
+open -a /path/to/app-or-binary --args arg1 arg2
+open -b bundle.identifier URL
+```
+
+This matters for `appType: "path"` plus `args`. Some apps, especially Chromium based apps, may ignore or reinterpret profile flags when invoked through `open -a`, reusing the last focused window or profile. If a flag must be passed to the executable itself, use a shell trampoline:
+
+```js
+const browser = (url) => ({
+  name: "/bin/sh",
+  appType: "path",
+  args: [
+    "-c",
+    `'/Applications/Helium.app/Contents/MacOS/Helium' --profile-directory='Default' '${url.href}'`,
+  ],
+});
+```
+
+Quote shell arguments if any values are dynamic.
+
 ### Dynamic browser selection
 
 ```js
