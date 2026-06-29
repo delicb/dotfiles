@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.79.6",
+  "lastChangelogVersion": "0.80.2",
   "compaction": {
     "enabled": true
   },
@@ -26,7 +26,6 @@
     "git:github.com/nicobailon/pi-interactive-shell",
     "git:github.com/dbachelder/pi-btw",
     "npm:pi-screenshots-picker",
-    "git:https://github.com/aliou/pi-guardrails",
     "npm:@sherif-fanous/pi-rtk"
   ],
   "workingVibe": "hpmor",
