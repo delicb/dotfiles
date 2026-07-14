@@ -74,6 +74,8 @@ Find the repo root with `git rev-parse --show-toplevel`, then search only these 
 
 Use targeted searches based on the incident signal: service name, monitor name, alert text, error message, namespace, workflow name, dependency, metric name, or dashboard name.
 
+When using `rg` to search any runbook path that starts with `.`, include `--hidden`; otherwise ripgrep skips hidden directories and can falsely report no runbook.
+
 Read only relevant markdown files. If multiple runbooks match and the right one is unclear, ask the user which one applies.
 
 When a project-local runbook matches the incident, prefer it over the bundled `references/playbooks.md`. Use the bundled playbook only to fill gaps.
