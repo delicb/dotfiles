@@ -1,0 +1,23 @@
+{{- if ( eq .chezmoi.os "darwin" ) -}}
+function ibin --description 'Install an executable into ~/bin'
+    if test (count $argv) -eq 0
+        echo 'usage: ibin SOURCE [NAME]' >&2
+        return 2
+    end
+
+    if test (count $argv) -gt 2
+        echo 'usage: ibin SOURCE [NAME]' >&2
+        return 2
+    end
+
+    set -l source "$argv[1]"
+    set -l name (basename "$source")
+
+    if test (count $argv) -eq 2
+        set name "$argv[2]"
+    end
+
+    mkdir -p "$HOME/bin"; or return
+    /usr/bin/install -m 755 "$source" "$HOME/bin/$name"
+end
+{{ end -}}
