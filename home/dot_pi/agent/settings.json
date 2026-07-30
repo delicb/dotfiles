@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "0.82.0",
   "compaction": {
     "enabled": true
   },
@@ -26,7 +26,8 @@
     "git:github.com/nicobailon/pi-interactive-shell",
     "git:github.com/dbachelder/pi-btw",
     "npm:pi-screenshots-picker",
-    "npm:@sherif-fanous/pi-rtk"
+    "npm:@sherif-fanous/pi-rtk",
+    "npm:pi-claude-auth"
   ],
   "workingVibe": "hpmor",
   "workingVibeMode": "file",
@@ -52,5 +53,7 @@
       "~/Desktop"
     ]
   },
-  "npmCommand": ["pnpm"]
+  "npmCommand": [
+    "pnpm"
+  ]
 }

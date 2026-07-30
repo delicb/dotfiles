@@ -1,6 +1,6 @@
 ---
 name: incident-response
-description: Live production incident investigation mode for infrastructure engineers. Use this skill IMMEDIATELY whenever the user reports a live or suspected production problem - a firing monitor/alert (or a link to one), a stack trace, an error message, elevated latency, a hot database, DB connection pool exhaustion, Kubernetes pods not scaling or crashlooping, stuck workflow executions, elevated error rates, or any message like "something is wrong with X", "we have an incident", "prod is slow", "this alert just fired". Trigger even from a terse one-liner or a pasted URL/trace with no other context.
+description: Live production incident investigation mode for infrastructure engineers. Use only when the user explicitly asks you to handle, investigate, or respond to an incident, or explicitly invokes the incident-response skill. Do not trigger only because the user reports a production issue, alert, error, stack trace, slow service, failed workload, or other incident-like signal.
 ---
 
 # Incident Response
