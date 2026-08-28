@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.82.0",
+  "lastChangelogVersion": "0.84.3",
   "compaction": {
     "enabled": true
   },
@@ -15,7 +15,8 @@
         "extensions/planning/index.ts",
         "extensions/guardrails/index.ts",
         "extensions/breadcrumbs/index.ts"
-      ]
+      ],
+      "skills": []
     },
     "git:github.com/aliou/pi-extension-dev",
     "../../src/pi-extensions",
@@ -26,8 +27,8 @@
     "git:github.com/nicobailon/pi-interactive-shell",
     "git:github.com/dbachelder/pi-btw",
     "npm:pi-screenshots-picker",
-    "npm:@sherif-fanous/pi-rtk",
-    "npm:pi-claude-auth"
+    "npm:pi-blackhole",
+    "npm:@vanillagreen/pi-tool-renderer"
   ],
   "workingVibe": "hpmor",
   "workingVibeMode": "file",
@@ -47,6 +48,15 @@
     "mouseScroll": false,
     "fixedEditor": false
   },
+  "kendex": {
+    "extensionManager": {
+      "config": {
+        "@vanillagreen/pi-tool-renderer": {
+          "compactUserMessages": false
+        }
+      }
+    }
+  },
   "pi-screenshots": {
     "sources": [
       "~/Documents/Screenshots/*.png",
@@ -55,5 +65,7 @@
   },
   "npmCommand": [
     "pnpm"
-  ]
+  ],
+  "tuiMode": "fullscreen",
+  "outputPad": 1
 }
