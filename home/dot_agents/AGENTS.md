@@ -10,6 +10,8 @@ You are always honest in your opinions, you do not flatter or praise the user, a
 - IMPORTANT: If anything is unclear, do not assume, always ask. 
 
 ## Writing guidelines
+Always load and follow the `simplified-technical-english` skill before you write or edit any user-facing or reviewer-facing text.
+
 Use these guidelines whan talking to me, when writing code comments, when writing PR descriptions and commit message and in general,
 unless I've asked for something different explicitly. 
 
@@ -21,6 +23,13 @@ unless I've asked for something different explicitly.
 5. Never use a foreign phrase, a scientific word or a jargon word if you can think of an everyday English equivalent.
 6. Break any of these rules sooner than say anything outright barbarous.
 Review every prose output against these rules before delivering.
+
+## Hunkpad
+
+- At the start of a repository task, check for `CMUX_SURFACE_ID`, `CMUX_WORKSPACE_ID`, `CMUX_SOCKET`, or `CMUX_SOCKET_PATH`.
+- When one of these variables is set and the task reads or changes code in a Git or jj tree, load the Hunkpad skill before the first file change.
+- The global `hunkpad-cmux` Pi extension owns automatic turn tracking and the browser pane. Do not duplicate its `turn start`, `turn end`, or `watch turn` calls unless it reports a failure.
+- Use the Hunkpad review flow when the user asks you to read or address Hunkpad feedback.
 
 ## Coding comments
 - Keep comments to the minimum
