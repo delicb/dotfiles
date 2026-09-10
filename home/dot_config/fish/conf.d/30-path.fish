@@ -8,6 +8,3 @@ else
 	# if there is no /etc/paths, hardcode some common paths
 	fish_add_path --path --move --append /usr/local/bin /usr/bin /bin /usr/sbin /sbin
 end
-
-# linear needs pg_dump 18.3
-fish_add_path --prepend (brew --prefix "$tap/libpq@18.3")/bin
