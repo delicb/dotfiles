@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.3",
+  "lastChangelogVersion": "0.85.1",
   "compaction": {
     "enabled": true
   },
@@ -19,7 +19,6 @@
       "skills": []
     },
     "git:github.com/aliou/pi-extension-dev",
-    "../../src/pi-extensions",
     "git:github.com/nicobailon/pi-powerline-footer",
     "git:github.com/nicobailon/pi-web-access",
     "git:github.com/aliou/pi-processes",
@@ -27,7 +26,6 @@
     "git:github.com/nicobailon/pi-interactive-shell",
     "git:github.com/dbachelder/pi-btw",
     "npm:pi-screenshots-picker",
-    "npm:pi-blackhole",
     "npm:@vanillagreen/pi-tool-renderer"
   ],
   "workingVibe": "hpmor",
@@ -63,9 +61,6 @@
       "~/Desktop"
     ]
   },
-  "npmCommand": [
-    "pnpm"
-  ],
   "tuiMode": "fullscreen",
   "outputPad": 1
 }
