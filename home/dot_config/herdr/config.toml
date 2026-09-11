@@ -1,0 +1,73 @@
+onboarding = false
+
+[theme]
+# Matches the Ghostty Catppuccin Mocha theme.
+name = "catppuccin"
+
+[terminal]
+new_cwd = "follow"
+
+[session]
+resume_agents_on_restore = true
+
+[ui]
+accent = "#89b4fa"
+# Agents that need attention come first.
+agent_panel_sort = "priority"
+# Distinct glyphs instead of color dots.
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = true
+hide_tab_bar_when_single_tab = true
+# No name prompt on each new tab. Rename with prefix+shift+t.
+prompt_new_tab_name = false
+prompt_new_workspace_name = true
+confirm_close = true
+mouse_capture = true
+copy_on_select = true
+window_title = "herdr {workspace}: {tab}"
+
+[ui.toast]
+# Ghostty shows the macOS notification.
+delivery = "terminal"
+delay_seconds = 1
+
+[ui.sound]
+enabled = true
+
+[experimental]
+# Keeps pane screen history after a server restart.
+pane_history = true
+
+[advanced]
+# Per pane. The default is 10 MB.
+scrollback_limit_bytes = 50000000
+
+[keys]
+prefix = "ctrl+a"
+
+split_vertical = ["prefix+v", "cmd+d"]
+split_horizontal = ["prefix+minus", "cmd+shift+d"]
+focus_pane_left = ["prefix+h", "cmd+alt+left"]
+focus_pane_down = ["prefix+j", "cmd+alt+down"]
+focus_pane_up = ["prefix+k", "cmd+alt+up"]
+focus_pane_right = ["prefix+l", "cmd+alt+right"]
+cycle_pane_previous = ["prefix+shift+tab", "cmd+["]
+cycle_pane_next = ["prefix+tab", "cmd+]"]
+resize_pane_left = "cmd+ctrl+left"
+resize_pane_down = "cmd+ctrl+down"
+resize_pane_up = "cmd+ctrl+up"
+resize_pane_right = "cmd+ctrl+right"
+zoom = ["prefix+z", "cmd+shift+enter"]
+close_pane = ["prefix+x", "cmd+w"]
+
+new_tab = ["prefix+c", "cmd+t"]
+previous_tab = ["prefix+p", "cmd+shift+["]
+next_tab = ["prefix+n", "cmd+shift+]"]
+switch_tab = ["prefix+1..9", "cmd+1..9"]
+close_tab = ["prefix+shift+x", "cmd+alt+w"]
+
+new_workspace = ["prefix+shift+n", "cmd+n"]
+previous_workspace = "cmd+shift+left"
+next_workspace = "cmd+shift+right"
+switch_workspace = "cmd+ctrl+1..9"
+close_workspace = ["prefix+shift+d", "cmd+shift+w"]
