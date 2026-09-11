@@ -24,10 +24,63 @@ tab-inherit-working-directory = false
 keybind = global:cmd+shift+u=toggle_quick_terminal
 keybind = opt+up=jump_to_prompt:-1
 keybind = opt+down=jump_to_prompt:1
+
+# Keep Ghostty resize shortcuts outside Herdr mode.
 keybind = cmd+ctrl+left=resize_split:left,20
 keybind = cmd+ctrl+right=resize_split:right,20
 keybind = cmd+ctrl+up=resize_split:up,20
 keybind = cmd+ctrl+down=resize_split:down,20
+
+# Toggle Herdr mode.
+keybind = cmd+shift+h=activate_key_table:herdr
+keybind = herdr/
+keybind = herdr/cmd+shift+h=deactivate_key_table
+
+# Panes.
+keybind = herdr/performable:cmd+d=csi:100;9u
+keybind = herdr/performable:cmd+shift+d=csi:100;10u
+keybind = herdr/performable:cmd+[=csi:91;9u
+keybind = herdr/performable:cmd+]=csi:93;9u
+keybind = herdr/performable:cmd+alt+left=csi:1;11D
+keybind = herdr/performable:cmd+alt+down=csi:1;11B
+keybind = herdr/performable:cmd+alt+up=csi:1;11A
+keybind = herdr/performable:cmd+alt+right=csi:1;11C
+keybind = herdr/performable:cmd+ctrl+left=csi:1;13D
+keybind = herdr/performable:cmd+ctrl+down=csi:1;13B
+keybind = herdr/performable:cmd+ctrl+up=csi:1;13A
+keybind = herdr/performable:cmd+ctrl+right=csi:1;13C
+keybind = herdr/performable:cmd+shift+enter=csi:13;10u
+keybind = herdr/performable:cmd+w=csi:119;9u
+
+# Tabs.
+keybind = herdr/performable:cmd+t=csi:116;9u
+keybind = herdr/performable:cmd+shift+[=csi:91;10u
+keybind = herdr/performable:cmd+shift+]=csi:93;10u
+keybind = herdr/performable:cmd+digit_1=csi:49;9u
+keybind = herdr/performable:cmd+digit_2=csi:50;9u
+keybind = herdr/performable:cmd+digit_3=csi:51;9u
+keybind = herdr/performable:cmd+digit_4=csi:52;9u
+keybind = herdr/performable:cmd+digit_5=csi:53;9u
+keybind = herdr/performable:cmd+digit_6=csi:54;9u
+keybind = herdr/performable:cmd+digit_7=csi:55;9u
+keybind = herdr/performable:cmd+digit_8=csi:56;9u
+keybind = herdr/performable:cmd+digit_9=csi:57;9u
+keybind = herdr/performable:cmd+alt+w=csi:119;11u
+
+# Workspaces.
+keybind = herdr/performable:cmd+n=csi:110;9u
+keybind = herdr/performable:cmd+shift+left=csi:1;10D
+keybind = herdr/performable:cmd+shift+right=csi:1;10C
+keybind = herdr/performable:cmd+ctrl+1=csi:49;13u
+keybind = herdr/performable:cmd+ctrl+2=csi:50;13u
+keybind = herdr/performable:cmd+ctrl+3=csi:51;13u
+keybind = herdr/performable:cmd+ctrl+4=csi:52;13u
+keybind = herdr/performable:cmd+ctrl+5=csi:53;13u
+keybind = herdr/performable:cmd+ctrl+6=csi:54;13u
+keybind = herdr/performable:cmd+ctrl+7=csi:55;13u
+keybind = herdr/performable:cmd+ctrl+8=csi:56;13u
+keybind = herdr/performable:cmd+ctrl+9=csi:57;13u
+keybind = herdr/performable:cmd+shift+w=csi:119;10u
 
 font-family = JetBrains Mono 
 #font-family-bold = JetBrains Mono SemiBold

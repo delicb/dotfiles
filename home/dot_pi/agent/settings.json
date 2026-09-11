@@ -19,7 +19,6 @@
       "skills": []
     },
     "git:github.com/aliou/pi-extension-dev",
-    "../../src/pi-extensions",
     "git:github.com/nicobailon/pi-powerline-footer",
     "git:github.com/nicobailon/pi-web-access",
     "git:github.com/aliou/pi-processes",
