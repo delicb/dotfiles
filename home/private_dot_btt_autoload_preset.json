@@ -1,0 +1,1547 @@
+{
+  "BTTPresetColor": "75.969600, 177.195760, 199.920000, 255.000000",
+  "BTTPresetContent": [
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "BT.G",
+      "BTTAppName": "Global",
+      "BTTAppSpecificSettings": {
+        "BTTDisableGlobalTriggers": false
+      },
+      "BTTTriggers": [
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.796895,
+              "BTTOrder": 5,
+              "BTTPredefinedActionName": "Lock Screen",
+              "BTTPredefinedActionType": 158,
+              "BTTRemoteTriggerName": "Remote action",
+              "BTTTriggerParentUUID": "509E8A59-4145-4E85-AD87-6715F2B7015D",
+              "BTTUUID": "919AA8D0-FE44-4C3D-BD96-9C4F34E4D286"
+            }
+          ],
+          "BTTLastUpdatedAt": 1789154415.7966499,
+          "BTTOrder": 0,
+          "BTTRemoteTriggerName": "Lock",
+          "BTTTriggerClass": "BTTTriggerTypeBTTRemote",
+          "BTTUUID": "509E8A59-4145-4E85-AD87-6715F2B7015D"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.796876,
+              "BTTOrder": 3,
+              "BTTPredefinedActionName": "Lock Screen",
+              "BTTPredefinedActionType": 158,
+              "BTTTriggerParentUUID": "556A5A43-45AA-4397-A181-0713386F4467",
+              "BTTUUID": "1C2A7DDD-1CF9-412C-A8A5-1CB90F37394C"
+            }
+          ],
+          "BTTEnabled": 0,
+          "BTTKeySequence": {
+            "BTTCharactersToDeleteAfterwards": 2,
+            "BTTKeyCount": 4,
+            "BTTKeySequenceDownKeys": [
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYDown": 1,
+                "BTTKEYOrderRelevant": 1,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              },
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYDown": 1,
+                "BTTKEYOrderRelevant": 1,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              }
+            ],
+            "BTTKeySequenceMixedKeys": [
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYDown": 1,
+                "BTTKEYOrderRelevant": 1,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              },
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              },
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYDown": 1,
+                "BTTKEYOrderRelevant": 1,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              },
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              }
+            ],
+            "BTTKeySequenceUpKeys": [
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              },
+              {
+                "BTTKEYCharacter": " ⎋",
+                "BTTKEYCode": 53,
+                "BTTKEYRequired": 1,
+                "BTTKEYTime": 743297472
+              }
+            ],
+            "BTTPauseBetween": 0.29999999999999999
+          },
+          "BTTLastUpdatedAt": 1789154415.7967129,
+          "BTTOrder": 0,
+          "BTTTriggerClass": "BTTTriggerTypeKeySequence",
+          "BTTTriggerType": 624,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "556A5A43-45AA-4397-A181-0713386F4467"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796994,
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "59,123",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxECHABDtfsAQulUAAFDtfsAQulUAAFDtj2AQu+YAAFDtj2AQvjqAAFDtogAQwEeAAFDtogAQwdOAAFDttUAQwy6AAFDttUAQxLqAAFDttUAQxhWAAFDtyIAQx3CAAFDtyIAQyJrAAFDt7AAQyZRAAFDt_8AQyyBAAFDuEGAQy+jAAFDuNuAQzUPAAFDuSiAQzp7AAFDuSiAQ0IyAAFDubaAQ0YYAAFDugqAQ09VAAFDuleAQ1TBAAFDuqyAQ17CAAFDuvmAQ2QuAAFDuvmAQ2yoAAFDu0QAQ3FRAAFDu0QAQ3X6AAFDu0QAQ3ngAAFDu0QAQ33GAAFDu0QAQ4AUAAFDu0QAQ4GlAAFDu0QAQ4IVAAFDu0QAQ4JQAAFDu0QAQ4JtgAFDu0QAQ4KLAAFDutQAQ4KLAAFDumQAQ4KwgAFDuHEAQ4M_AAFDthyAQ4PUgAFDs8gAQ4RqAAFDsLAAQ4UIgAFDrZgAQ4WnAAFDquIAQ4X0gAFDp8oAQ4ZEAAFDpXWAQ4aPAAFDoZoAQ4bhgAFDnoIAQ4cxAAFDm2oAQ4cxAAFDmFIAQ4cxAAFDlToAQ4cxAAFDk6kAQ4cxAAFDkJEAQ4biAAFDjwAAQ4biAAFDjEoAQ4aVAAFDixkAQ4ZYgAFDiMSAQ4YOAAFDh5OAQ4YOAAFDhyOAQ4XpAAFDhuiAQ4XpAAFDhq2AQ4XpAAFDhpAAQ4XpAAFDhnKAQ4XpAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGeAEOv3YBCumIAAUOv3YBCumIAAUOwKABCw7QAAUOwbwBCy4AAAUOwbwBC1+AAAUOwv4BC5cYAAUOxE4BC+EAAAUOxE4BDBJoAAUOxE4BDEakAAUOxE4BDGJwAAUOxE4BDJCQAAUOxE4BDMG8AAUOwvABDPLoAAUOwvABDSEIAAUOwvABDTzUAAUOwZ4BDWHIAAUOwZ4BDXRsAAUOwZ4BDYcQAAUOwZ4BDZzAAAUOwZ4BDalIAAUOwZ4BDbLQAAUOwZ4BDbxYAAUOwZ4BDcLcAAUOwMwBDclgAAUOwMwBDczgAAUOwFYBDc64AAUOwFYBDc+kAAUOvpYBDc+kAAUOvaoBDc+kAAUOtFgBDc+kAAUOqYABDc08AAUOmIwBDc08AAUOiqYBDc08AAUOdR4BDc_wAAUOZbABDc_wAAUOTqABDc_wAAUOMvwBDc_wAAUOHvoBDc_wAAUOCvgBDc_wAAUN7ewBDcqcAAUNzxABDcgMAAUNtlABDcWUAAUNqcgBDcWUAAUNnUABDcOAAAUNm2gBDcOAAAUNmnwBDcOAAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACsAKyArcCwgLLAtgC2wLoAvEC9gSYBJoEnwSnAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABKo=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "UpLeft",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "9570920A-766E-417C-BA8A-80945E411858"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7966771,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "Lock Screen",
+          "BTTPredefinedActionType": 158,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 182,
+          "BTTTriggerTypeDescriptionReadOnly": "Corner Click Top Left",
+          "BTTUUID": "D0479FCB-9E07-46B2-B29B-3133E725DB84"
+        },
+        {
+          "BTTAdditionalConfiguration": "786465",
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTLastUpdatedAt": 1789154415.796633,
+          "BTTLayoutIndependentChar": "m",
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "Move Window One Space or Desktop Right",
+          "BTTPredefinedActionType": 152,
+          "BTTShortcutAdvancedModifierKeys": "786465",
+          "BTTShortcutKeyCode": 46,
+          "BTTShortcutKeyboardType": 0,
+          "BTTShortcutModifierKeys": 786432,
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "EC9BADBE-4760-4F31-88A5-CA7197D67D1E"
+        },
+        {
+          "BTTAdditionalConfiguration": "786465",
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTLastUpdatedAt": 1789154415.7966151,
+          "BTTLayoutIndependentChar": "n",
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "Move Window One Space or Desktop Left",
+          "BTTPredefinedActionType": 151,
+          "BTTShortcutAdvancedModifierKeys": "786465",
+          "BTTShortcutKeyCode": 45,
+          "BTTShortcutKeyboardType": 0,
+          "BTTShortcutModifierKeys": 786432,
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "2DC8F4A3-1F01-413B-A9A0-3C7C565E4EB5"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.79691,
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "59,124",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxECJQBDqxQAQtMyAAFDqxQAQtMyAAFDq1CAQtf2AAFDq1CAQty6AAFDq5MAQuL+AAFDq5MAQurKAAFDq92AQvQcAAFDq92AQwEBAAFDq92AQwcxAAFDq92AQwydAAFDrDCAQxUXAAFDrH+AQxtHAAFDrH+AQyI6AAFDrH+AQynxAAFDrH+AQzGoAAFDrNKAQzoiAAFDrNKAQ0NfAAFDrNKAQ0jLAAFDrNKAQ1FFAAFDrNKAQ1XuAAFDrSSAQ12lAAFDrWcAQ2DHAAFDrWcAQ2PpAAFDrbGAQ2iSAAFDre4AQ2r0AAFDre4AQ2yVAAFDriIAQ242AAFDriIAQ2_XAAFDriIAQ3C3AAFDriIAQ3JYAAFDriIAQ3LOAAFDriIAQ3NEAAFDriIAQ3O6AAFDriIAQ3P1AAFDriIAQ3QwAAFDrj8AQ3QwAAFDrq6AQ3QwAAFDr98AQ3QwAAFDsW+AQ3QwAAFDsj+AQ3QwAAFDtJOAQ3ObAAFDt6sAQ3ObAAFDuf8AQ3ObAAFDvFMAQ3ObAAFDwPGAQ3ObAAFDxAkAQ3L9AAFDxr6AQ3L9AAFDzIIAQ3GiAAFDz_sAQ3GiAAFD03QAQ3EBAAFD1ouAQ3BjAAFD2gSAQ2_CAAFD3RwAQ28kAAFD4DOAQ26GAAFD4oeAQ23xAAFD5NuAQ21cAAFD5UsAQ21cAAFD5nuAQ2zjAAFD5usAQ2zjAAFD5wgAQ2zjAAFD5yUAQ2zjAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQH4AEObxoBCi7AAAUObxoBCi7AAAUObxoBCkHQAAUObxoBCmEAAAUObxoBCm4IAAUObxoBCp+IAAUObIYBCt1AAAUOa0gBCw7AAAUOaf4BC0x4AAUOZ2oBC4owAAUOZL4BC9o4AAUOYhIBDBUgAAUOX1oBDENAAAUOW1ABDG5QAAUOVzYBDJ98AAUOUa4BDNbEAAUOTCYBDQ4MAAUOSawBDSbMAAUORCwBDVsIAAUOPrQBDYw0AAUOOqIBDbpUAAUOOBoBDdYgAAUONaABDe7gAAUONGoBDgJIAAUOM0wBDgoUAAUOMi4BDhHgAAUOMi4BDhmsAAUOMi4BDhtsAAUOMi4BDhviAAUOMqIBDhviAAUOMxYBDhviAAUOM4oBDhviAAUOM_4BDhviAAUONHIBDhviAAUONVwBDhviAAUONkYBDhviAAUOOYYBDhviAAUOP8gBDhviAAUOSRgBDhq4AAUOU+4BDhq4AAUOYdIBDhq4AAUOcT4BDhq4AAUOg7gBDhq4AAUOmsYBDhwUAAUOsdQBDhwUAAUOvKoBDh1KAAUO1sYBDh1KAAUO71oBDh6oAAUPCXYBDh6oAAUPEsYBDh6oAAUPJsYBDh_+AAUPNjIBDh_+AAUPQQgBDiE0AAUPR0oBDiE0AAUPSooBDiIGAAUPSv4BDiIGAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACuQK7AsACywLUAuEC5ALxAvoC_wT7BP0FAgUKAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABQ0=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "UpRight",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "87AC019D-55DC-43F6-85B5-C12B1FFA7FC5"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.796778,
+              "BTTOrder": 1,
+              "BTTPredefinedActionName": "Volume Up",
+              "BTTPredefinedActionType": 24,
+              "BTTTriggerParentUUID": "B69D2878-0980-472A-A350-49C8EEEA72B2",
+              "BTTUUID": "0186EC80-7AA2-41FC-96C9-7DD163506A19"
+            }
+          ],
+          "BTTEnabled2": 0,
+          "BTTLastUpdatedAt": 1789154415.7967691,
+          "BTTOrder": 1,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 118,
+          "BTTTriggerTypeDescriptionReadOnly": "Rotate Right",
+          "BTTUUID": "B69D2878-0980-472A-A350-49C8EEEA72B2"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1787734283.316555,
+              "BTTLaunchPath": "/Applications/Slack.app",
+              "BTTOrder": 7,
+              "BTTPredefinedActionName": "Launch Application  or  Open File  or  Start Apple Script …",
+              "BTTPredefinedActionType": 49,
+              "BTTTriggerParentUUID": "7F394AF7-6617-4820-A9CC-92E9943210B2",
+              "BTTUUID": "CC4C1989-50C4-4D54-889B-6CDD332B09BF"
+            }
+          ],
+          "BTTAdditionalConfiguration": "1966123",
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTLastUpdatedAt": 1787908612.7825909,
+          "BTTLayoutIndependentChar": "s",
+          "BTTOrder": 2,
+          "BTTShortcutAdvancedModifierKeys": "1966123",
+          "BTTShortcutKeyCode": 1,
+          "BTTShortcutKeyboardType": 0,
+          "BTTShortcutModifierKeys": 1966080,
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "7F394AF7-6617-4820-A9CC-92E9943210B2"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.7971001,
+              "BTTOrder": 4,
+              "BTTPredefinedActionName": "Volume Down",
+              "BTTPredefinedActionType": 25,
+              "BTTTriggerParentUUID": "85DC3396-5D9C-441C-8402-44B15C00A5A5",
+              "BTTUUID": "E908B7B5-1C65-4257-9BD5-0A6A28B65C4B"
+            }
+          ],
+          "BTTEnabled2": 0,
+          "BTTLastUpdatedAt": 1789154415.796644,
+          "BTTOrder": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 117,
+          "BTTTriggerTypeDescriptionReadOnly": "Rotate Left",
+          "BTTUUID": "85DC3396-5D9C-441C-8402-44B15C00A5A5"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1787740378.496074,
+              "BTTLaunchPath": "/Applications/Linear.app",
+              "BTTOrder": 8,
+              "BTTPredefinedActionName": "Launch Application  or  Open File  or  Start Apple Script …",
+              "BTTPredefinedActionType": 49,
+              "BTTTriggerParentUUID": "9DAF9557-5B94-404B-9961-0441861386D8",
+              "BTTUUID": "434356B7-CCEC-4CC0-B0FC-0E6E235ECDFF"
+            }
+          ],
+          "BTTAdditionalConfiguration": "1966123",
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTLastUpdatedAt": 1787740349.511349,
+          "BTTLayoutIndependentChar": "l",
+          "BTTOrder": 3,
+          "BTTShortcutAdvancedModifierKeys": "1966123",
+          "BTTShortcutKeyCode": 37,
+          "BTTShortcutKeyboardType": 0,
+          "BTTShortcutModifierKeys": 1966080,
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "9DAF9557-5B94-404B-9961-0441861386D8"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.7965569,
+              "BTTOrder": 5,
+              "BTTPredefinedActionName": "Brightness Up",
+              "BTTPredefinedActionType": 28,
+              "BTTTriggerParentUUID": "C18976C9-0197-472C-BA36-98F3665EDFB9",
+              "BTTUUID": "B254CD1C-1996-49F5-9337-BA5B168CEE11"
+            }
+          ],
+          "BTTEnabled2": 0,
+          "BTTLastUpdatedAt": 1789154415.7969198,
+          "BTTOrder": 3,
+          "BTTRequiredModifierKeys": 1048576,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 118,
+          "BTTTriggerTypeDescriptionReadOnly": "Rotate Right",
+          "BTTUUID": "C18976C9-0197-472C-BA36-98F3665EDFB9"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.7971091,
+              "BTTOrder": 6,
+              "BTTPredefinedActionName": "Brightness Down",
+              "BTTPredefinedActionType": 29,
+              "BTTTriggerParentUUID": "C44D2C0D-D127-4C8C-B85A-DB20000728B4",
+              "BTTUUID": "C2D028E9-26F7-4CCE-9221-AFE03755D761"
+            }
+          ],
+          "BTTEnabled2": 0,
+          "BTTLastUpdatedAt": 1789154415.7965889,
+          "BTTOrder": 4,
+          "BTTRequiredModifierKeys": 1048576,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 117,
+          "BTTTriggerTypeDescriptionReadOnly": "Rotate Left",
+          "BTTUUID": "C44D2C0D-D127-4C8C-B85A-DB20000728B4"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1787741021.6137462,
+              "BTTLaunchPath": "/Applications/Helium.app",
+              "BTTOrder": 9,
+              "BTTPredefinedActionName": "Launch Application  or  Open File  or  Start Apple Script …",
+              "BTTPredefinedActionType": 49,
+              "BTTTriggerParentUUID": "D999657D-510B-41F0-8421-1DAA576555DF",
+              "BTTUUID": "3A4FDC59-75CB-4FE3-B135-1F16A0A3E8D0"
+            }
+          ],
+          "BTTAdditionalConfiguration": "1966123",
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTLastUpdatedAt": 1787741013.5634069,
+          "BTTLayoutIndependentChar": "h",
+          "BTTOrder": 4,
+          "BTTShortcutAdvancedModifierKeys": "1966123",
+          "BTTShortcutKeyCode": 4,
+          "BTTShortcutKeyboardType": 0,
+          "BTTShortcutModifierKeys": 1966080,
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "D999657D-510B-41F0-8421-1DAA576555DF"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.796665,
+              "BTTLayoutIndependentActionChar": "[",
+              "BTTOrder": 1,
+              "BTTPredefinedActionName": "",
+              "BTTPredefinedActionType": 264,
+              "BTTShortcutToSend": "56,55,33",
+              "BTTTriggerParentUUID": "A4D075CD-F11D-4274-B702-E9B6C82639C5",
+              "BTTUUID": "53A3BCE0-71F6-4A28-95DE-413EFCEC7A74"
+            }
+          ],
+          "BTTEnabled2": 0,
+          "BTTLastUpdatedAt": 1789154415.796881,
+          "BTTOrder": 5,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 113,
+          "BTTTriggerTypeDescriptionReadOnly": "TipTap Left (1 Finger Fix)",
+          "BTTUUID": "A4D075CD-F11D-4274-B702-E9B6C82639C5"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1787908624.4417129,
+              "BTTLaunchPath": "/Applications/cmux.app",
+              "BTTOrder": 10,
+              "BTTPredefinedActionName": "Launch Application  or  Open File  or  Start Apple Script …",
+              "BTTPredefinedActionType": 49,
+              "BTTTriggerParentUUID": "F5AD366D-075C-424C-B9EA-9EFA1B6BA304",
+              "BTTUUID": "CCD65084-B9F7-4A91-B623-9A3854CAA8B6"
+            }
+          ],
+          "BTTAdditionalConfiguration": "1966123",
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTLastUpdatedAt": 1787908618.733355,
+          "BTTLayoutIndependentChar": "x",
+          "BTTOrder": 5,
+          "BTTShortcutAdvancedModifierKeys": "1966123",
+          "BTTShortcutKeyCode": 7,
+          "BTTShortcutKeyboardType": -2052004921,
+          "BTTShortcutModifierKeys": 1966080,
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "F5AD366D-075C-424C-B9EA-9EFA1B6BA304"
+        },
+        {
+          "BTTActionsToExecute": [
+            {
+              "BTTIsPureAction": true,
+              "BTTLastUpdatedAt": 1789154415.79689,
+              "BTTLayoutIndependentActionChar": "]",
+              "BTTOrder": 2,
+              "BTTPredefinedActionName": "",
+              "BTTPredefinedActionType": 264,
+              "BTTShortcutToSend": "56,55,30",
+              "BTTTriggerParentUUID": "5452BC98-40F3-4839-9ADD-351FADEBB19F",
+              "BTTUUID": "654C7818-5582-4BCB-8624-DD47D1248802"
+            }
+          ],
+          "BTTEnabled2": 0,
+          "BTTLastUpdatedAt": 1789154415.796695,
+          "BTTOrder": 6,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 114,
+          "BTTTriggerTypeDescriptionReadOnly": "TipTap Right (1 Finger Fix)",
+          "BTTUUID": "5452BC98-40F3-4839-9ADD-351FADEBB19F"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "BT.L",
+      "BTTAppName": "Recently Used",
+      "BTTTriggers": []
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.apple.Safari",
+      "BTTAppName": "Safari",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Safari",
+      "BTTTriggers": [
+        {
+          "BTTLastUpdatedAt": 1789154415.796701,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "C85D4A6B-EF90-4F82-8EC4-4AFCF4B38848"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7968578,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "F80A4983-8E85-4CC0-9A81-778E6AA9BBE4"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969041,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "7A4D332E-2353-460A-B059-40FAC264ADAE"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7968001,
+          "BTTLayoutIndependentActionChar": "[",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "56,55,33",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEBwgBDtfgAQ4kKgAFDtfgAQ4kKgAFDtfgAQ4faAAFDtfgAQ4ZJgAFDtfgAQ4S5AAFDta0AQ4JlAAFDta0AQ39fAAFDta0AQ3kwAAFDta0AQ3I+AAFDta0AQ2qIAAFDta0AQ2OWAAFDta0AQ1sdAAFDta0AQ07TAAFDta0AQ0WWAAFDtViAQzxZAAFDtQQAQzMcAAFDtQQAQy2xAAFDtLCAQyU4AAFDtGMAQx_NAAFDtBIAQxjbAAFDtBIAQxNwAAFDs8KAQw1BAAFDs8KAQwogAAFDs8KAQwe_AAFDs8KAQwVeAAFDs8KAQwO+AAFDs8KAQwLfAAFDs8KAQwKlAAFDs6UAQwKlAAFDs2oAQwKlAAFDsdkAQwMrAAFDryMAQwPGAAFDrG0AQwRhAAFDqJGAQwUGAAFDpLYAQwWrAAFDoHkAQwZSAAFDm3iAQwZSAAFDlbSAQwWlAAFDkXeAQwRYAAFDjf4AQwMVAAFDiiKAQwEoAAFDhwqAQv6aAAFDhFSAQvwyAAFDgsOAQvsoAAFDgNCAQvjwAAFDgAAAQvggAAFDfyAAQvggAAFDfqoAQvesAAFDfm8AQvesAAFDfjQAQvesAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGnAEOliIBDgbqAAUOliIBDgbqAAUOliIBDf5AAAUOl0wBDeugAAUOl0wBDc_YAAUOmJQBDbEAAAUOmeQBDYwMAAUOmywBDW00AAUOnHQBDU5cAAUOncQBDSloAAUOncQBDQFoAAUOnxwBDNZcAAUOoGQBDLeEAAUOocABDIZcAAUOoxoBDFhAAAUOoxoBDDx4AAUOpFYBDCO8AAUOpZ4BDATkAAUOpZ4BC+qgAAUOpZ4BC9eYAAUOpZ4BC8SQAAUOpZ4BC72YAAUOpZ4BC7nwAAUOpZ4BC7ggAAUOpZ4BC7ZQAAUOpSgBC7ZQAAUOpLIBC7ZQAAUOnm4BC7ZQAAUOk5YBC7_4AAUOhCgBC89oAAUOeVABC9RAAAUOYLoBC+SoAAUORRYBC+owAAUOLgYBC+owAAUOFvYBC+owAAUN7XwBC9loAAUNy5QBC8nIAAUNnXQBC7QYAAUNcmQBC56YAAUNTXABC4mAAAUNPdgBC4CgAAUNLkABC3fAAAUNKsABC3fAAAUNKOgBC3fAAAUNKOgBC3XwAAUNKOgBC3fIAAUNKzwBC37IAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACVgJYAl0CaAJxAn4CgQKOApcCnARHBEkETgRWAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABFk=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownLeft",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "C4BEEC1D-F046-482D-8E67-3697F271D6F7"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967229,
+          "BTTLayoutIndependentActionChar": "]",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "56,55,30",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEB3QBDoL4AQ4cQgAFDoL4AQ4cQgAFDoImAQ4ZAgAFDoImAQ4SwAAFDoImAQ4MfgAFDoImAQ4GPAAFDoImAQ385AAFDoImAQ3tUAAFDoImAQ3XpAAFDoImAQ2+6AAFDoNyAQ2dBAAFDoNyAQ2BPAAFDoS6AQ1iZAAFDoS6AQ1AgAAFDoS6AQ0hqAAFDoYCAQ0C0AAFDoYCAQztJAAFDoYCAQzLQAAFDodOAQypXAAFDodOAQyNlAAFDodOAQx02AAFDodOAQxGvAAFDodOAQwuAAAFDodOAQwSOAAFDodOAQv5GAAFDoYiAQvT2AAFDoYiAQuumAAFDoYiAQuq8AAFDoYiAQud8AAFDoYiAQuaSAAFDoYiAQuYeAAFDoYiAQuWqAAFDocMAQuWqAAFDof2AQuWqAAFDpFGAQuSAAAFDpwcAQuNMAAFDquIAQuC6AAFDr+IAQt4QAAFDtB6AQtt2AAFDuYAAQtjGAAFDwAcAQtYIAAFDxu+AQtSoAAFDzLMAQtNOAAFD0hSAQtNOAAFD19gAQtNOAAFD3ZuAQtNOAAFD4puAQtNOAAFD5zoAQtSgAAFD6rMAQtXkAAFD6+OAQtXkAAFD7LOAQta2AAFD7O4AQta2AAFD7O4AQtcsAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGwAEOaXwBDhUmAAUOaXwBDhUmAAUOaXwBDg7kAAUOaXwBDgcaAAUOar4BDfJsAAUOar4BDdzAAAUOar4BDbTAAAUOar4BDZLcAAUOar4BDW3oAAUOar4BDT_MAAUObBoBDQ6kAAUObBoBDNdgAAUObBoBDLJsAAUObBoBDHgcAAUObWYBDFY4AAUObWYBDCIAAAUObWYBDAY4AAUObWYBC+EYAAUObq4BC6NoAAUObq4BC4pgAAUOb7gBC3FYAAUOb7gBC1hQAAUOb7gBC0tQAAUOcEwBC0RYAAUOcEwBCz1gAAUOcEwBCzuQAAUOcMABCzuQAAUOcTQBCzuQAAUOcvIBCzuQAAUOeTQBC0PwAAUOevIBC0PwAAUOhcgBC0jIAAUOiooBC0jIAAUOmfYBC0jIAAUOoDgBC0z4AAUOsrIBC0z4AAUOunwBC0z4AAUO0AIBC0z4AAUO2tgBC0z4AAUO8eYBC0z4AAUO_LwBC0z4AAUPEkIBC0z4AAUPGgwBC0iIAAUPKXgBC0iIAAUPLjoBC0iIAAUPNHwBC0iIAAUPNjoBC0iIAAUPNq4BC0iIAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACcQJzAngCgwKMApkCnAKpArICtwRrBG0EcgR6AAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABH0=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownRight",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "B0DB805C-7F2F-4AB2-8DBE-7C402512A269"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969851,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "F20A44F4-9314-47CF-BC2B-EF53751E2C45"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967739,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 3,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEDDwBDaKUAQsDWAAFDaKUAQsDWAAFDaDwAQsQYAAFDZ7YAQspcAAFDZycAQtIoAAFDZoUAQuAOAAFDZUgAQuxuAAFDY+8AQwD7AAFDYpEAQw1GAAFDYJwAQxXAAAFDXoIAQyXcAAFDW8YAQzInAAFDWbYAQz82AAFDVkYAQ0xFAAFDU5UAQ1cJAAFDUPEAQ2BGAAFDTwMAQ2f9AAFDTn0AQ2sfAAFDTe4AQ28FAAFDTYUAQ3CmAAFDTYUAQ3GGAAFDTYUAQ3HBAAFDTb8AQ3HBAAFDUOAAQ3E8AAFDVksAQ29uAAFDXsQAQ27IAAFDZnoAQ24kAAFDdQ4AQ21zAAFDgpSAQ24nAAFDh_YAQ27UAAFDjn0AQ3A0AAFDmZYAQ3NgAAFDoB0AQ3TAAAFDpkIAQ3YeAAFDrGcAQ3bNAAFDtHSAQ3g0AAFDuLEAQ3g0AAFDvIwAQ3g0AAFDvn6AQ3g0AAFDv06AQ3fMAAFDv4kAQ3fMAAFDv6YAQ3eSAAFDv6YAQ3dYAAFDv6YAQ3ceAAFDv6YAQ3bkAAFDv6YAQ3ZvAAFDv6YAQ3TPAAFDv6YAQ3MvAAFDv6YAQ3AOAAFDv6YAQ2wpAAFDv6YAQ2RzAAFDv6YAQ15EAAFDv6YAQ1gVAAFDv6YAQ1BfAAFDv_kAQ0fmAAFDwFAAQzucAAFDwKCAQzSqAAFDwKCAQy24AAFDwPEAQybGAAFDwUAAQyCXAAFDwY8AQxpoAAFDwcMAQxjIAAFDwhOAQxHWAAFDwmKAQwunAAFDwrGAQwV4AAFDwvwAQwDQAAFDwzAAQv5gAAFDw3KAQvgeAAFDw6aAQvTeAAFDw6aAQvP0AAFDw6aAQvOAAAFDw6aAQvMMAAFDw8OAQvMMAAFDw8OAQvIiAAFDw_eAQu7iAAFDxByAQu0kAAFDxEGAQutmAAFDxEGAQumoAAFDxF6AQui+AAFDxJKAQuV+AAFDxMaAQuI+AAFDxUAAQt18AAFDxWUAQtu+AAFDxZkAQth+AAFDxbYAQtgKAAFDxdMAQteWAAFDxdMAQtciAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ2AENwZABCyz4AAUNwZABCyz4AAUNwZABCzoAAAUNv3gBC1MQAAUNvWABC2wgAAUNuyQBC4tQAAUNtlABC7awAAUNs9QBC+gwAAUNrqwBDBL0AAUNpqgBDDr4AAUNnpQBDGYIAAUNloABDJEYAAUNi5ABDMJEAAUNiRQBDNsEAAUNfiQBDQwwAAUNdfABDT1cAAUNaywBDWhsAAUNYygBDZBwAAUNYOwBDaAIAAUNW_gBDbjIAAUNV0wBDctsAAUNVagBDdHwAAUNVagBDdPIAAUNVagBDdS0AAUNVagBDdPMAAUNVpABDdLkAAUNYBQBDc8YAAUNbJgBDcjYAAUNiGABDb7AAAUNpCgBDbcsAAUNwwABDa94AAUN5_QBDao0AAUOAFgBDaVEAAUOGOwBDZ_QAAUOMYABDZ0YAAUOQnIBDZ0YAAUOVOwBDZ0YAAUOc5wBDZ0YAAUOhhYBDZ0YAAUOmJABDZ+8AAUOtbgBDaVMAAUOxSQBDafgAAUOz_oBDay0AAUO2UoBDa8MAAUO3IoBDbCwAAUO3P4BDbCwAAUO3XIBDbCwAAUO3XIBDa00AAUO3XIBDaOwAAUO3qYBDY4EAAUO4TgBDW8sAAUO4oABDVBUAAUO5ogBDSVIAAUO6pgBDPcsAAUO7qABDMwgAAUO8pQBDKcsAAUO+AoBDHYEAAUO+_IBDFQgAAUO__IBDCwgAAUPA_IBDAQgAAUPB_oBC7IoAAUPCowBC3R4AAUPEAoBCwwIAAUPFBoBCq_QAAUPFpIBCn5YAAUPGkgBCkzgAAUPHf4BChtoAAUPHvABCghgAAUPH4QBCgFoAAUPH_gBCfuAAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADowOlA6oDtQO+A8sDzgPbA+QD6QZjBmUGagZyAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABnU=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "CirP",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "00F21149-C969-4C45-9DB7-83AA59956654"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.apple.SafariTechnologyPreview",
+      "BTTAppName": "Safari Technology Preview",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Safari Technology Preview",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7968709,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "8BCFD9B4-24C1-4D22-AE29-29135A7E399D"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7968202,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "C6DD28BF-8FD5-4B7C-A94A-0A60163AA3E5"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7970481,
+          "BTTLayoutIndependentActionChar": "[",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "56,55,33",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEBwgBDtfgAQ4kKgAFDtfgAQ4kKgAFDtfgAQ4faAAFDtfgAQ4ZJgAFDtfgAQ4S5AAFDta0AQ4JlAAFDta0AQ39fAAFDta0AQ3kwAAFDta0AQ3I+AAFDta0AQ2qIAAFDta0AQ2OWAAFDta0AQ1sdAAFDta0AQ07TAAFDta0AQ0WWAAFDtViAQzxZAAFDtQQAQzMcAAFDtQQAQy2xAAFDtLCAQyU4AAFDtGMAQx_NAAFDtBIAQxjbAAFDtBIAQxNwAAFDs8KAQw1BAAFDs8KAQwogAAFDs8KAQwe_AAFDs8KAQwVeAAFDs8KAQwO+AAFDs8KAQwLfAAFDs8KAQwKlAAFDs6UAQwKlAAFDs2oAQwKlAAFDsdkAQwMrAAFDryMAQwPGAAFDrG0AQwRhAAFDqJGAQwUGAAFDpLYAQwWrAAFDoHkAQwZSAAFDm3iAQwZSAAFDlbSAQwWlAAFDkXeAQwRYAAFDjf4AQwMVAAFDiiKAQwEoAAFDhwqAQv6aAAFDhFSAQvwyAAFDgsOAQvsoAAFDgNCAQvjwAAFDgAAAQvggAAFDfyAAQvggAAFDfqoAQvesAAFDfm8AQvesAAFDfjQAQvesAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGnAEOliIBDgbqAAUOliIBDgbqAAUOliIBDf5AAAUOl0wBDeugAAUOl0wBDc_YAAUOmJQBDbEAAAUOmeQBDYwMAAUOmywBDW00AAUOnHQBDU5cAAUOncQBDSloAAUOncQBDQFoAAUOnxwBDNZcAAUOoGQBDLeEAAUOocABDIZcAAUOoxoBDFhAAAUOoxoBDDx4AAUOpFYBDCO8AAUOpZ4BDATkAAUOpZ4BC+qgAAUOpZ4BC9eYAAUOpZ4BC8SQAAUOpZ4BC72YAAUOpZ4BC7nwAAUOpZ4BC7ggAAUOpZ4BC7ZQAAUOpSgBC7ZQAAUOpLIBC7ZQAAUOnm4BC7ZQAAUOk5YBC7_4AAUOhCgBC89oAAUOeVABC9RAAAUOYLoBC+SoAAUORRYBC+owAAUOLgYBC+owAAUOFvYBC+owAAUN7XwBC9loAAUNy5QBC8nIAAUNnXQBC7QYAAUNcmQBC56YAAUNTXABC4mAAAUNPdgBC4CgAAUNLkABC3fAAAUNKsABC3fAAAUNKOgBC3fAAAUNKOgBC3XwAAUNKOgBC3fIAAUNKzwBC37IAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACVgJYAl0CaAJxAn4CgQKOApcCnARHBEkETgRWAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABFk=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownLeft",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "89038268-009E-4DD2-874F-1B6992DA0DD1"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967329,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "8F9D1937-D989-4EA2-BE40-BB26F8E11871"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7968059,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "5E6DAC70-01BF-414D-BEA8-0532516ED1F9"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796824,
+          "BTTLayoutIndependentActionChar": "]",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "56,55,30",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEB3QBDoL4AQ4cQgAFDoL4AQ4cQgAFDoImAQ4ZAgAFDoImAQ4SwAAFDoImAQ4MfgAFDoImAQ4GPAAFDoImAQ385AAFDoImAQ3tUAAFDoImAQ3XpAAFDoImAQ2+6AAFDoNyAQ2dBAAFDoNyAQ2BPAAFDoS6AQ1iZAAFDoS6AQ1AgAAFDoS6AQ0hqAAFDoYCAQ0C0AAFDoYCAQztJAAFDoYCAQzLQAAFDodOAQypXAAFDodOAQyNlAAFDodOAQx02AAFDodOAQxGvAAFDodOAQwuAAAFDodOAQwSOAAFDodOAQv5GAAFDoYiAQvT2AAFDoYiAQuumAAFDoYiAQuq8AAFDoYiAQud8AAFDoYiAQuaSAAFDoYiAQuYeAAFDoYiAQuWqAAFDocMAQuWqAAFDof2AQuWqAAFDpFGAQuSAAAFDpwcAQuNMAAFDquIAQuC6AAFDr+IAQt4QAAFDtB6AQtt2AAFDuYAAQtjGAAFDwAcAQtYIAAFDxu+AQtSoAAFDzLMAQtNOAAFD0hSAQtNOAAFD19gAQtNOAAFD3ZuAQtNOAAFD4puAQtNOAAFD5zoAQtSgAAFD6rMAQtXkAAFD6+OAQtXkAAFD7LOAQta2AAFD7O4AQta2AAFD7O4AQtcsAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGwAEOaXwBDhUmAAUOaXwBDhUmAAUOaXwBDg7kAAUOaXwBDgcaAAUOar4BDfJsAAUOar4BDdzAAAUOar4BDbTAAAUOar4BDZLcAAUOar4BDW3oAAUOar4BDT_MAAUObBoBDQ6kAAUObBoBDNdgAAUObBoBDLJsAAUObBoBDHgcAAUObWYBDFY4AAUObWYBDCIAAAUObWYBDAY4AAUObWYBC+EYAAUObq4BC6NoAAUObq4BC4pgAAUOb7gBC3FYAAUOb7gBC1hQAAUOb7gBC0tQAAUOcEwBC0RYAAUOcEwBCz1gAAUOcEwBCzuQAAUOcMABCzuQAAUOcTQBCzuQAAUOcvIBCzuQAAUOeTQBC0PwAAUOevIBC0PwAAUOhcgBC0jIAAUOiooBC0jIAAUOmfYBC0jIAAUOoDgBC0z4AAUOsrIBC0z4AAUOunwBC0z4AAUO0AIBC0z4AAUO2tgBC0z4AAUO8eYBC0z4AAUO_LwBC0z4AAUPEkIBC0z4AAUPGgwBC0iIAAUPKXgBC0iIAAUPLjoBC0iIAAUPNHwBC0iIAAUPNjoBC0iIAAUPNq4BC0iIAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACcQJzAngCgwKMApkCnAKpArICtwRrBG0EcgR6AAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABH0=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownRight",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "75DCA878-5D7D-4B4E-9460-7E42C5ABFBD9"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967911,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 3,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEDDwBDaKUAQsDWAAFDaKUAQsDWAAFDaDwAQsQYAAFDZ7YAQspcAAFDZycAQtIoAAFDZoUAQuAOAAFDZUgAQuxuAAFDY+8AQwD7AAFDYpEAQw1GAAFDYJwAQxXAAAFDXoIAQyXcAAFDW8YAQzInAAFDWbYAQz82AAFDVkYAQ0xFAAFDU5UAQ1cJAAFDUPEAQ2BGAAFDTwMAQ2f9AAFDTn0AQ2sfAAFDTe4AQ28FAAFDTYUAQ3CmAAFDTYUAQ3GGAAFDTYUAQ3HBAAFDTb8AQ3HBAAFDUOAAQ3E8AAFDVksAQ29uAAFDXsQAQ27IAAFDZnoAQ24kAAFDdQ4AQ21zAAFDgpSAQ24nAAFDh_YAQ27UAAFDjn0AQ3A0AAFDmZYAQ3NgAAFDoB0AQ3TAAAFDpkIAQ3YeAAFDrGcAQ3bNAAFDtHSAQ3g0AAFDuLEAQ3g0AAFDvIwAQ3g0AAFDvn6AQ3g0AAFDv06AQ3fMAAFDv4kAQ3fMAAFDv6YAQ3eSAAFDv6YAQ3dYAAFDv6YAQ3ceAAFDv6YAQ3bkAAFDv6YAQ3ZvAAFDv6YAQ3TPAAFDv6YAQ3MvAAFDv6YAQ3AOAAFDv6YAQ2wpAAFDv6YAQ2RzAAFDv6YAQ15EAAFDv6YAQ1gVAAFDv6YAQ1BfAAFDv_kAQ0fmAAFDwFAAQzucAAFDwKCAQzSqAAFDwKCAQy24AAFDwPEAQybGAAFDwUAAQyCXAAFDwY8AQxpoAAFDwcMAQxjIAAFDwhOAQxHWAAFDwmKAQwunAAFDwrGAQwV4AAFDwvwAQwDQAAFDwzAAQv5gAAFDw3KAQvgeAAFDw6aAQvTeAAFDw6aAQvP0AAFDw6aAQvOAAAFDw6aAQvMMAAFDw8OAQvMMAAFDw8OAQvIiAAFDw_eAQu7iAAFDxByAQu0kAAFDxEGAQutmAAFDxEGAQumoAAFDxF6AQui+AAFDxJKAQuV+AAFDxMaAQuI+AAFDxUAAQt18AAFDxWUAQtu+AAFDxZkAQth+AAFDxbYAQtgKAAFDxdMAQteWAAFDxdMAQtciAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ2AENwZABCyz4AAUNwZABCyz4AAUNwZABCzoAAAUNv3gBC1MQAAUNvWABC2wgAAUNuyQBC4tQAAUNtlABC7awAAUNs9QBC+gwAAUNrqwBDBL0AAUNpqgBDDr4AAUNnpQBDGYIAAUNloABDJEYAAUNi5ABDMJEAAUNiRQBDNsEAAUNfiQBDQwwAAUNdfABDT1cAAUNaywBDWhsAAUNYygBDZBwAAUNYOwBDaAIAAUNW_gBDbjIAAUNV0wBDctsAAUNVagBDdHwAAUNVagBDdPIAAUNVagBDdS0AAUNVagBDdPMAAUNVpABDdLkAAUNYBQBDc8YAAUNbJgBDcjYAAUNiGABDb7AAAUNpCgBDbcsAAUNwwABDa94AAUN5_QBDao0AAUOAFgBDaVEAAUOGOwBDZ_QAAUOMYABDZ0YAAUOQnIBDZ0YAAUOVOwBDZ0YAAUOc5wBDZ0YAAUOhhYBDZ0YAAUOmJABDZ+8AAUOtbgBDaVMAAUOxSQBDafgAAUOz_oBDay0AAUO2UoBDa8MAAUO3IoBDbCwAAUO3P4BDbCwAAUO3XIBDbCwAAUO3XIBDa00AAUO3XIBDaOwAAUO3qYBDY4EAAUO4TgBDW8sAAUO4oABDVBUAAUO5ogBDSVIAAUO6pgBDPcsAAUO7qABDMwgAAUO8pQBDKcsAAUO+AoBDHYEAAUO+_IBDFQgAAUO__IBDCwgAAUPA_IBDAQgAAUPB_oBC7IoAAUPCowBC3R4AAUPEAoBCwwIAAUPFBoBCq_QAAUPFpIBCn5YAAUPGkgBCkzgAAUPHf4BChtoAAUPHvABCghgAAUPH4QBCgFoAAUPH_gBCfuAAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADowOlA6oDtQO+A8sDzgPbA+QD6QZjBmUGagZyAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABnU=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "CirP",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "760286A5-2782-4AD7-A0E9-E02C9D11F532"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.apple.finder",
+      "BTTAppName": "Finder",
+      "BTTTriggers": []
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.brave.Browser",
+      "BTTAppName": "Brave Browser",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Brave Browser",
+      "BTTTriggers": [
+        {
+          "BTTLastUpdatedAt": 1789154415.7965789,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "2DCF270C-40F4-4F95-90CA-35D36C055DBA"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969279,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "5038BBAE-3546-46FB-BC79-6A1C1D463EAD"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969332,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "B095B686-5A27-4FD1-A88F-F711B8A71545"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.google.Chrome",
+      "BTTAppName": "Google Chrome",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Google Chrome",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967958,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "CB6DA449-A3D1-4D95-936C-2D181AF8E761"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.797024,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "E9E82340-25D0-45F9-8E16-C21B9F7E8E30"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796833,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "9E625ACF-415E-46A0-AC7E-3A687C9DFF16"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7971129,
+          "BTTLayoutIndependentActionChar": "[",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "56,55,33",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEBwgBDtfgAQ4kKgAFDtfgAQ4kKgAFDtfgAQ4faAAFDtfgAQ4ZJgAFDtfgAQ4S5AAFDta0AQ4JlAAFDta0AQ39fAAFDta0AQ3kwAAFDta0AQ3I+AAFDta0AQ2qIAAFDta0AQ2OWAAFDta0AQ1sdAAFDta0AQ07TAAFDta0AQ0WWAAFDtViAQzxZAAFDtQQAQzMcAAFDtQQAQy2xAAFDtLCAQyU4AAFDtGMAQx_NAAFDtBIAQxjbAAFDtBIAQxNwAAFDs8KAQw1BAAFDs8KAQwogAAFDs8KAQwe_AAFDs8KAQwVeAAFDs8KAQwO+AAFDs8KAQwLfAAFDs8KAQwKlAAFDs6UAQwKlAAFDs2oAQwKlAAFDsdkAQwMrAAFDryMAQwPGAAFDrG0AQwRhAAFDqJGAQwUGAAFDpLYAQwWrAAFDoHkAQwZSAAFDm3iAQwZSAAFDlbSAQwWlAAFDkXeAQwRYAAFDjf4AQwMVAAFDiiKAQwEoAAFDhwqAQv6aAAFDhFSAQvwyAAFDgsOAQvsoAAFDgNCAQvjwAAFDgAAAQvggAAFDfyAAQvggAAFDfqoAQvesAAFDfm8AQvesAAFDfjQAQvesAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGnAEOliIBDgbqAAUOliIBDgbqAAUOliIBDf5AAAUOl0wBDeugAAUOl0wBDc_YAAUOmJQBDbEAAAUOmeQBDYwMAAUOmywBDW00AAUOnHQBDU5cAAUOncQBDSloAAUOncQBDQFoAAUOnxwBDNZcAAUOoGQBDLeEAAUOocABDIZcAAUOoxoBDFhAAAUOoxoBDDx4AAUOpFYBDCO8AAUOpZ4BDATkAAUOpZ4BC+qgAAUOpZ4BC9eYAAUOpZ4BC8SQAAUOpZ4BC72YAAUOpZ4BC7nwAAUOpZ4BC7ggAAUOpZ4BC7ZQAAUOpSgBC7ZQAAUOpLIBC7ZQAAUOnm4BC7ZQAAUOk5YBC7_4AAUOhCgBC89oAAUOeVABC9RAAAUOYLoBC+SoAAUORRYBC+owAAUOLgYBC+owAAUOFvYBC+owAAUN7XwBC9loAAUNy5QBC8nIAAUNnXQBC7QYAAUNcmQBC56YAAUNTXABC4mAAAUNPdgBC4CgAAUNLkABC3fAAAUNKsABC3fAAAUNKOgBC3fAAAUNKOgBC3XwAAUNKOgBC3fIAAUNKzwBC37IAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACVgJYAl0CaAJxAn4CgQKOApcCnARHBEkETgRWAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABFk=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownLeft",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "B1CC8264-61F5-4F0F-AC4E-19D5CF50FD8A"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7970409,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "45FB150B-934E-4682-9848-04EB0695AB78"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7968669,
+          "BTTLayoutIndependentActionChar": "]",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "56,55,30",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEB3QBDoL4AQ4cQgAFDoL4AQ4cQgAFDoImAQ4ZAgAFDoImAQ4SwAAFDoImAQ4MfgAFDoImAQ4GPAAFDoImAQ385AAFDoImAQ3tUAAFDoImAQ3XpAAFDoImAQ2+6AAFDoNyAQ2dBAAFDoNyAQ2BPAAFDoS6AQ1iZAAFDoS6AQ1AgAAFDoS6AQ0hqAAFDoYCAQ0C0AAFDoYCAQztJAAFDoYCAQzLQAAFDodOAQypXAAFDodOAQyNlAAFDodOAQx02AAFDodOAQxGvAAFDodOAQwuAAAFDodOAQwSOAAFDodOAQv5GAAFDoYiAQvT2AAFDoYiAQuumAAFDoYiAQuq8AAFDoYiAQud8AAFDoYiAQuaSAAFDoYiAQuYeAAFDoYiAQuWqAAFDocMAQuWqAAFDof2AQuWqAAFDpFGAQuSAAAFDpwcAQuNMAAFDquIAQuC6AAFDr+IAQt4QAAFDtB6AQtt2AAFDuYAAQtjGAAFDwAcAQtYIAAFDxu+AQtSoAAFDzLMAQtNOAAFD0hSAQtNOAAFD19gAQtNOAAFD3ZuAQtNOAAFD4puAQtNOAAFD5zoAQtSgAAFD6rMAQtXkAAFD6+OAQtXkAAFD7LOAQta2AAFD7O4AQta2AAFD7O4AQtcsAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGwAEOaXwBDhUmAAUOaXwBDhUmAAUOaXwBDg7kAAUOaXwBDgcaAAUOar4BDfJsAAUOar4BDdzAAAUOar4BDbTAAAUOar4BDZLcAAUOar4BDW3oAAUOar4BDT_MAAUObBoBDQ6kAAUObBoBDNdgAAUObBoBDLJsAAUObBoBDHgcAAUObWYBDFY4AAUObWYBDCIAAAUObWYBDAY4AAUObWYBC+EYAAUObq4BC6NoAAUObq4BC4pgAAUOb7gBC3FYAAUOb7gBC1hQAAUOb7gBC0tQAAUOcEwBC0RYAAUOcEwBCz1gAAUOcEwBCzuQAAUOcMABCzuQAAUOcTQBCzuQAAUOcvIBCzuQAAUOeTQBC0PwAAUOevIBC0PwAAUOhcgBC0jIAAUOiooBC0jIAAUOmfYBC0jIAAUOoDgBC0z4AAUOsrIBC0z4AAUOunwBC0z4AAUO0AIBC0z4AAUO2tgBC0z4AAUO8eYBC0z4AAUO_LwBC0z4AAUPEkIBC0z4AAUPGgwBC0iIAAUPKXgBC0iIAAUPLjoBC0iIAAUPNHwBC0iIAAUPNjoBC0iIAAUPNq4BC0iIAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACcQJzAngCgwKMApkCnAKpArICtwRrBG0EcgR6AAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABH0=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownRight",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "FC626D30-F0F6-4320-B5AE-1DCD9A0C4214"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969751,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 3,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEDDwBDaKUAQsDWAAFDaKUAQsDWAAFDaDwAQsQYAAFDZ7YAQspcAAFDZycAQtIoAAFDZoUAQuAOAAFDZUgAQuxuAAFDY+8AQwD7AAFDYpEAQw1GAAFDYJwAQxXAAAFDXoIAQyXcAAFDW8YAQzInAAFDWbYAQz82AAFDVkYAQ0xFAAFDU5UAQ1cJAAFDUPEAQ2BGAAFDTwMAQ2f9AAFDTn0AQ2sfAAFDTe4AQ28FAAFDTYUAQ3CmAAFDTYUAQ3GGAAFDTYUAQ3HBAAFDTb8AQ3HBAAFDUOAAQ3E8AAFDVksAQ29uAAFDXsQAQ27IAAFDZnoAQ24kAAFDdQ4AQ21zAAFDgpSAQ24nAAFDh_YAQ27UAAFDjn0AQ3A0AAFDmZYAQ3NgAAFDoB0AQ3TAAAFDpkIAQ3YeAAFDrGcAQ3bNAAFDtHSAQ3g0AAFDuLEAQ3g0AAFDvIwAQ3g0AAFDvn6AQ3g0AAFDv06AQ3fMAAFDv4kAQ3fMAAFDv6YAQ3eSAAFDv6YAQ3dYAAFDv6YAQ3ceAAFDv6YAQ3bkAAFDv6YAQ3ZvAAFDv6YAQ3TPAAFDv6YAQ3MvAAFDv6YAQ3AOAAFDv6YAQ2wpAAFDv6YAQ2RzAAFDv6YAQ15EAAFDv6YAQ1gVAAFDv6YAQ1BfAAFDv_kAQ0fmAAFDwFAAQzucAAFDwKCAQzSqAAFDwKCAQy24AAFDwPEAQybGAAFDwUAAQyCXAAFDwY8AQxpoAAFDwcMAQxjIAAFDwhOAQxHWAAFDwmKAQwunAAFDwrGAQwV4AAFDwvwAQwDQAAFDwzAAQv5gAAFDw3KAQvgeAAFDw6aAQvTeAAFDw6aAQvP0AAFDw6aAQvOAAAFDw6aAQvMMAAFDw8OAQvMMAAFDw8OAQvIiAAFDw_eAQu7iAAFDxByAQu0kAAFDxEGAQutmAAFDxEGAQumoAAFDxF6AQui+AAFDxJKAQuV+AAFDxMaAQuI+AAFDxUAAQt18AAFDxWUAQtu+AAFDxZkAQth+AAFDxbYAQtgKAAFDxdMAQteWAAFDxdMAQtciAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ2AENwZABCyz4AAUNwZABCyz4AAUNwZABCzoAAAUNv3gBC1MQAAUNvWABC2wgAAUNuyQBC4tQAAUNtlABC7awAAUNs9QBC+gwAAUNrqwBDBL0AAUNpqgBDDr4AAUNnpQBDGYIAAUNloABDJEYAAUNi5ABDMJEAAUNiRQBDNsEAAUNfiQBDQwwAAUNdfABDT1cAAUNaywBDWhsAAUNYygBDZBwAAUNYOwBDaAIAAUNW_gBDbjIAAUNV0wBDctsAAUNVagBDdHwAAUNVagBDdPIAAUNVagBDdS0AAUNVagBDdPMAAUNVpABDdLkAAUNYBQBDc8YAAUNbJgBDcjYAAUNiGABDb7AAAUNpCgBDbcsAAUNwwABDa94AAUN5_QBDao0AAUOAFgBDaVEAAUOGOwBDZ_QAAUOMYABDZ0YAAUOQnIBDZ0YAAUOVOwBDZ0YAAUOc5wBDZ0YAAUOhhYBDZ0YAAUOmJABDZ+8AAUOtbgBDaVMAAUOxSQBDafgAAUOz_oBDay0AAUO2UoBDa8MAAUO3IoBDbCwAAUO3P4BDbCwAAUO3XIBDbCwAAUO3XIBDa00AAUO3XIBDaOwAAUO3qYBDY4EAAUO4TgBDW8sAAUO4oABDVBUAAUO5ogBDSVIAAUO6pgBDPcsAAUO7qABDMwgAAUO8pQBDKcsAAUO+AoBDHYEAAUO+_IBDFQgAAUO__IBDCwgAAUPA_IBDAQgAAUPB_oBC7IoAAUPCowBC3R4AAUPEAoBCwwIAAUPFBoBCq_QAAUPFpIBCn5YAAUPGkgBCkzgAAUPHf4BChtoAAUPHvABCghgAAUPH4QBCgFoAAUPH_gBCfuAAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADowOlA6oDtQO+A8sDzgPbA+QD6QZjBmUGagZyAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABnU=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "CirP",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "709696D4-485E-49B7-B39C-7B6B71755CEA"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.googlecode.iterm2",
+      "BTTAppName": "iTerm2",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "iTerm2",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797003,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "313A8B04-43F1-41E8-A793-C4AED7562BD4"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7970839,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEDDwBDaKUAQsDWAAFDaKUAQsDWAAFDaDwAQsQYAAFDZ7YAQspcAAFDZycAQtIoAAFDZoUAQuAOAAFDZUgAQuxuAAFDY+8AQwD7AAFDYpEAQw1GAAFDYJwAQxXAAAFDXoIAQyXcAAFDW8YAQzInAAFDWbYAQz82AAFDVkYAQ0xFAAFDU5UAQ1cJAAFDUPEAQ2BGAAFDTwMAQ2f9AAFDTn0AQ2sfAAFDTe4AQ28FAAFDTYUAQ3CmAAFDTYUAQ3GGAAFDTYUAQ3HBAAFDTb8AQ3HBAAFDUOAAQ3E8AAFDVksAQ29uAAFDXsQAQ27IAAFDZnoAQ24kAAFDdQ4AQ21zAAFDgpSAQ24nAAFDh_YAQ27UAAFDjn0AQ3A0AAFDmZYAQ3NgAAFDoB0AQ3TAAAFDpkIAQ3YeAAFDrGcAQ3bNAAFDtHSAQ3g0AAFDuLEAQ3g0AAFDvIwAQ3g0AAFDvn6AQ3g0AAFDv06AQ3fMAAFDv4kAQ3fMAAFDv6YAQ3eSAAFDv6YAQ3dYAAFDv6YAQ3ceAAFDv6YAQ3bkAAFDv6YAQ3ZvAAFDv6YAQ3TPAAFDv6YAQ3MvAAFDv6YAQ3AOAAFDv6YAQ2wpAAFDv6YAQ2RzAAFDv6YAQ15EAAFDv6YAQ1gVAAFDv6YAQ1BfAAFDv_kAQ0fmAAFDwFAAQzucAAFDwKCAQzSqAAFDwKCAQy24AAFDwPEAQybGAAFDwUAAQyCXAAFDwY8AQxpoAAFDwcMAQxjIAAFDwhOAQxHWAAFDwmKAQwunAAFDwrGAQwV4AAFDwvwAQwDQAAFDwzAAQv5gAAFDw3KAQvgeAAFDw6aAQvTeAAFDw6aAQvP0AAFDw6aAQvOAAAFDw6aAQvMMAAFDw8OAQvMMAAFDw8OAQvIiAAFDw_eAQu7iAAFDxByAQu0kAAFDxEGAQutmAAFDxEGAQumoAAFDxF6AQui+AAFDxJKAQuV+AAFDxMaAQuI+AAFDxUAAQt18AAFDxWUAQtu+AAFDxZkAQth+AAFDxbYAQtgKAAFDxdMAQteWAAFDxdMAQtciAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ2AENwZABCyz4AAUNwZABCyz4AAUNwZABCzoAAAUNv3gBC1MQAAUNvWABC2wgAAUNuyQBC4tQAAUNtlABC7awAAUNs9QBC+gwAAUNrqwBDBL0AAUNpqgBDDr4AAUNnpQBDGYIAAUNloABDJEYAAUNi5ABDMJEAAUNiRQBDNsEAAUNfiQBDQwwAAUNdfABDT1cAAUNaywBDWhsAAUNYygBDZBwAAUNYOwBDaAIAAUNW_gBDbjIAAUNV0wBDctsAAUNVagBDdHwAAUNVagBDdPIAAUNVagBDdS0AAUNVagBDdPMAAUNVpABDdLkAAUNYBQBDc8YAAUNbJgBDcjYAAUNiGABDb7AAAUNpCgBDbcsAAUNwwABDa94AAUN5_QBDao0AAUOAFgBDaVEAAUOGOwBDZ_QAAUOMYABDZ0YAAUOQnIBDZ0YAAUOVOwBDZ0YAAUOc5wBDZ0YAAUOhhYBDZ0YAAUOmJABDZ+8AAUOtbgBDaVMAAUOxSQBDafgAAUOz_oBDay0AAUO2UoBDa8MAAUO3IoBDbCwAAUO3P4BDbCwAAUO3XIBDbCwAAUO3XIBDa00AAUO3XIBDaOwAAUO3qYBDY4EAAUO4TgBDW8sAAUO4oABDVBUAAUO5ogBDSVIAAUO6pgBDPcsAAUO7qABDMwgAAUO8pQBDKcsAAUO+AoBDHYEAAUO+_IBDFQgAAUO__IBDCwgAAUPA_IBDAQgAAUPB_oBC7IoAAUPCowBC3R4AAUPEAoBCwwIAAUPFBoBCq_QAAUPFpIBCn5YAAUPGkgBCkzgAAUPHf4BChtoAAUPHvABCghgAAUPH4QBCgFoAAUPH_gBCfuAAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADowOlA6oDtQO+A8sDzgPbA+QD6QZjBmUGagZyAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABnU=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "CirP",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "387A1400-3EE5-4A8A-9B02-F6CBBF207CC3"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.jetbrains.WebStorm",
+      "BTTAppName": "WebStorm",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "WebStorm",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796854,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "A08EDAA5-CFC1-495C-B150-9C2A7E9170F4"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7966599,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "E6B02775-76FD-4B8D-B55C-3BF422CFA140"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7970691,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "5E11879F-00D4-475D-853A-0810B6F1ED3D"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.jetbrains.datagrip",
+      "BTTAppName": "DataGrip",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "DataGrip",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969151,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "795BF134-4FC8-436A-BC8B-D471D847E3F8"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967072,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "AC720F81-4119-4018-B899-E927D2C9927E"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7968111,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "0E5D0D5B-F011-4E94-9E62-C4FA07648A36"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.jetbrains.goland",
+      "BTTAppName": "GoLand",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "GoLand",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796845,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "029526CC-E52C-4B89-AA28-187C0D9CED4E"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796747,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "65C760B7-EF48-4DF2-8EFC-D21F8227E28C"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7970161,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "56C3E3FE-207C-4209-A0D9-8896FE7F9028"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.jetbrains.intellij",
+      "BTTAppName": "IntelliJ IDEA",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "IntelliJ IDEA",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797008,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "37D7A09B-D9F5-4F9D-A868-0A540205D54F"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797132,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "63FC7092-A1C5-4233-AAF2-320943ADBE44"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7970119,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "10F6A41F-F2E2-4BFB-9706-E2C17A388A1E"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.jetbrains.pycharm",
+      "BTTAppName": "PyCharm",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "PyCharm",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967639,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "9651A3B8-B3E8-4601-A827-E7598999446D"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7966552,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "B3C66EE2-0625-4D9E-AD2F-A993F1C5CBBC"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7966208,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "417AA150-7EB7-4DC0-BEA8-FFDDFF9F01C2"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.jetbrains.rubymine",
+      "BTTAppName": "RubyMine",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "RubyMine",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797092,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "8557BB06-23D8-4B8D-9DCF-B05F1E7CEC95"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.79703,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "F5845CB0-357A-42C0-AC52-253C06D87A00"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7967191,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "3BA43BF3-E2C4-43F7-A071-90015C9EB8B7"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.jetbrains.rustrover",
+      "BTTAppName": "RustRover",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "RustRover",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7965951,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "DBE347AF-63E5-4D44-B436-2E6337725B82"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.796999,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "AE699E9B-525D-4FBD-AFA5-D79B7147DCC0"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.linear",
+      "BTTAppName": "Linear",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Linear",
+      "BTTTriggers": [
+        {
+          "BTTLastUpdatedAt": 1789154415.797121,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "E72519F5-4835-4E5F-B649-F9535F89B1D9"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.79702,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "D60CCA9D-8936-4B9E-B1C1-E7D739A1A3B7"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967858,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "C0946FC3-1172-4A7B-8615-94C6455CABE0"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "com.microsoft.VSCode",
+      "BTTAppName": "Code",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Code",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7966862,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "009D39AE-B3CC-4A6E-AB18-6AD09BAB0149"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.79706,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeNormalMouse",
+          "BTTTriggerType": 1002,
+          "BTTTriggerTypeDescriptionReadOnly": "Middle Mouse Button",
+          "BTTUUID": "3AB318CA-6B74-4CE1-AE15-33725A93FE8A"
+        },
+        {
+          "BTTAdditionalConfiguration": "1966123",
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969799,
+          "BTTLayoutIndependentActionChar": "[",
+          "BTTLayoutIndependentChar": "1",
+          "BTTOrder": 0,
+          "BTTShortcutAdvancedModifierKeys": "1966123",
+          "BTTShortcutKeyCode": 18,
+          "BTTShortcutKeyboardType": 7928,
+          "BTTShortcutModifierKeys": 1966080,
+          "BTTShortcutToSend": "55,33",
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "76F5581C-BC9E-4232-B6E2-94630B22DEB3"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796829,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "D9E620A0-FD5C-4C39-825D-A6BE0D2A1D4E"
+        },
+        {
+          "BTTAdditionalConfiguration": "1966123",
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTAutoAdaptToKeyboardLayout": 0,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7969379,
+          "BTTLayoutIndependentActionChar": "]",
+          "BTTLayoutIndependentChar": "2",
+          "BTTOrder": 1,
+          "BTTShortcutAdvancedModifierKeys": "1966123",
+          "BTTShortcutKeyCode": 19,
+          "BTTShortcutKeyboardType": 7928,
+          "BTTShortcutModifierKeys": 1966080,
+          "BTTShortcutToSend": "55,30",
+          "BTTTriggerClass": "BTTTriggerTypeKeyboardShortcut",
+          "BTTTriggerOnDown": 1,
+          "BTTTriggerType": 0,
+          "BTTUUID": "4D936C2A-0184-4408-B5BD-E8AC44D9FFCF"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.7969899,
+          "BTTOrder": 1,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "A3278996-39B8-4A6C-9B3B-EE0642582C78"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "md.obsidian",
+      "BTTAppName": "Obsidian",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Obsidian",
+      "BTTTriggers": [
+        {
+          "BTTLastUpdatedAt": 1789154415.796886,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "06A1C18A-8A30-4F10-8172-28D42E9A78A0"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797117,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "6320BA0E-4B5C-49F0-9A2C-31303AB92BDE"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797096,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "6DB56F65-33DE-41B2-87A6-23ACB484CFAF"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "net.imput.helium",
+      "BTTAppName": "Helium",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Helium",
+      "BTTTriggers": [
+        {
+          "BTTLastUpdatedAt": 1789154415.7970881,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "BCFEA6F8-6E8F-4DB6-B46A-BAB36C044FA4"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797128,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "642E926A-BDC5-4345-ABC1-DC6E7930B0BB"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7966261,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "62B1D4F9-47C6-4C4A-92CB-1DF810F55A0C"
+        }
+      ]
+    },
+    {
+      "BTTAppAutoInvertIcon": 1,
+      "BTTAppBundleIdentifier": "org.mozilla.firefox",
+      "BTTAppName": "Firefox",
+      "BTTAppProcessMatchMode": 2,
+      "BTTAppProcessName": "Firefox",
+      "BTTTriggers": [
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7970729,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 0,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEC_QBDXAMAQ4+MAAFDXAMAQ4+MAAFDXAMAQ437gAFDXAMAQ4wJAAFDXAMAQ4lTgAFDXAMAQ4V4gAFDXKsAQ4DaAAFDXKsAQ3h3AAFDXVcAQ220AAFDXf0AQ2U7AAFDXf0AQ1zCAAFDXqoAQ1E7AAFDXqoAQ0f+AAFDX1IAQz7BAAFDX1IAQzWEAAFDX1IAQy9VAAFDX_4AQySSAAFDX_4AQx2gAAFDX_4AQxLdAAFDX_4AQwvrAAFDX_4AQwEoAAFDX_4AQvRsAAFDX_4AQumWAAFDX_4AQt7AAAFDX_4AQtVwAAFDX_4AQsqaAAFDX_4AQsdaAAFDX_4AQsZwAAFDYDgAQsZwAAFDYK0AQsZwAAFDZJIAQsZwAAFDaToAQsZwAAFDbFsAQsZwAAFDcooAQsU0AAFDekAAQsPsAAFDgPsAQsFaAAFDhZmAQsAKAAFDi10AQr1UAAFDkYIAQrqaAAFDmGqAQrk6AAFDoBaAQrZwAAFDpRaAQrUcAAFDrMKAQrO4AAFDsWEAQrJoAAFDudCAQq+aAAFDvtCAQqzwAAFDw9CAQqpGAAFDyrkAQqeEAAFDzpQAQqeEAAFD0auAQqZIAAFD0_+AQqZIAAFD1fIAQqdmAAFD1iyAQqfcAAFD1kmAQqfcAAFD1maAQqfcAAFD1maAQqhSAAFD1maAQqjIAAFD1maAQqk+AAFD1maAQqr+AAFD1iOAQrFCAAFD1dwAQrkOAAFD1ZkAQr9SAAFD1PQAQs7AAAFD1FWAQtsgAAFD07CAQuqOAAFD0lCAQwJWAAFD0VAAQwxXAAFDz_SAQxffAAFDzpaAQyQqAAFDzOeAQy7uAAFDy4wAQzp2AAFDyjCAQ0X+AAFDySwAQ1GGAAFDx9OAQ1xKAAFDxyiAQ2ZLAAFDxoGAQ27FAAFDxdiAQ3gCAAFDxYYAQ3+5AAFDxOQAQ4NWAAFDxKcAQ4SHAAFDxFmAQ4c9AAFDxBaAQ4jOAAFDw9mAQ4n_AAFDw9mAQ4o6AAFDw9mAQ4pXgIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ_AENp+wBDgX0AAUNp+wBDgX0AAUNp+wBDf9kAAUNpYABDem4AAUNpYABDdD8AAUNpYABDbIkAAUNoswBDYcYAAUNoBgBDVwMAAUNnWABDS3wAAUNl+ABDPm4AAUNlUwBDNrgAAUNjTgBDK_UAAUNiCgBDJQMAAUNgCQBDGwMAAUNe1ABDFZgAAUNdqQBDEPAAAUNcWwBDCHcAAUNbxQBDA88AAUNbxQBC_9QAAUNbxQBC+AoAAUNbxQBC8EAAAUNbxQBC6f4AAUNc4QBC4jQAAUNecQBC2_IAAUNf3gBC2CQAAUNipgBC0pQAAUNjGwBC0aoAAUNmPABCz5QAAUNq5ABCzUAAAUNxEwBCzUAAAUN0NABCzUAAAUOCJ4BCzUAAAUOJEABC0WYAAUOP+IBC1CoAAUOUlwBC1s4AAUOcQwBC3GQAAUOj7wBC4JQAAUOo7wBC5JYAAUOwmwBC6iwAAUO1OYBC7iIAAUO5dgBC8L4AAUO_OYBC9NAAAUPCsoBC91gAAUPFaABC+I4AAUPG+IBC+ZoAAUPHyIBC+mwAAUPIOABC+wIAAUPIOABC+3gAAUPIOABC_TgAAUPIOABDAD0AAUPIOABDBm0AAUPIOABDClMAAUPH5YBDEgoAAUPHPoBDGoQAAUPG6QBDJIUAAUPGPIBDL0kAAUPFlYBDN8MAAUPE5IBDRZUAAUPEOYBDT5YAAUPDjQBDWloAAUPCjIBDZFsAAUPBkgBDbNUAAUPA94BDckEAAUPAUIBDersAAUO_roBDgNcAAUO_ZwBDgsoAAUO+2IBDhL0AAUO+iQBDh9UAAUO+TABDiQYAAUO+TABDidaAAUO+TABDifQAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADkQOTA5gDowOsA7kDvAPJA9ID1wZaBlwGYQZpAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABmw=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "U",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "0CA937C9-5155-4A85-9725-739086D5CB65"
+        },
+        {
+          "BTTLastUpdatedAt": 1789154415.796752,
+          "BTTOrder": 0,
+          "BTTPredefinedActionName": "CMD(⌘)+Click",
+          "BTTPredefinedActionType": 2,
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 104,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Tap",
+          "BTTUUID": "D2099DD6-5718-4A42-9AD7-5BD46F773A49"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7967281,
+          "BTTLayoutIndependentActionChar": "[",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "56,55,33",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEBwgBDtfgAQ4kKgAFDtfgAQ4kKgAFDtfgAQ4faAAFDtfgAQ4ZJgAFDtfgAQ4S5AAFDta0AQ4JlAAFDta0AQ39fAAFDta0AQ3kwAAFDta0AQ3I+AAFDta0AQ2qIAAFDta0AQ2OWAAFDta0AQ1sdAAFDta0AQ07TAAFDta0AQ0WWAAFDtViAQzxZAAFDtQQAQzMcAAFDtQQAQy2xAAFDtLCAQyU4AAFDtGMAQx_NAAFDtBIAQxjbAAFDtBIAQxNwAAFDs8KAQw1BAAFDs8KAQwogAAFDs8KAQwe_AAFDs8KAQwVeAAFDs8KAQwO+AAFDs8KAQwLfAAFDs8KAQwKlAAFDs6UAQwKlAAFDs2oAQwKlAAFDsdkAQwMrAAFDryMAQwPGAAFDrG0AQwRhAAFDqJGAQwUGAAFDpLYAQwWrAAFDoHkAQwZSAAFDm3iAQwZSAAFDlbSAQwWlAAFDkXeAQwRYAAFDjf4AQwMVAAFDiiKAQwEoAAFDhwqAQv6aAAFDhFSAQvwyAAFDgsOAQvsoAAFDgNCAQvjwAAFDgAAAQvggAAFDfyAAQvggAAFDfqoAQvesAAFDfm8AQvesAAFDfjQAQvesAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGnAEOliIBDgbqAAUOliIBDgbqAAUOliIBDf5AAAUOl0wBDeugAAUOl0wBDc_YAAUOmJQBDbEAAAUOmeQBDYwMAAUOmywBDW00AAUOnHQBDU5cAAUOncQBDSloAAUOncQBDQFoAAUOnxwBDNZcAAUOoGQBDLeEAAUOocABDIZcAAUOoxoBDFhAAAUOoxoBDDx4AAUOpFYBDCO8AAUOpZ4BDATkAAUOpZ4BC+qgAAUOpZ4BC9eYAAUOpZ4BC8SQAAUOpZ4BC72YAAUOpZ4BC7nwAAUOpZ4BC7ggAAUOpZ4BC7ZQAAUOpSgBC7ZQAAUOpLIBC7ZQAAUOnm4BC7ZQAAUOk5YBC7_4AAUOhCgBC89oAAUOeVABC9RAAAUOYLoBC+SoAAUORRYBC+owAAUOLgYBC+owAAUOFvYBC+owAAUN7XwBC9loAAUNy5QBC8nIAAUNnXQBC7QYAAUNcmQBC56YAAUNTXABC4mAAAUNPdgBC4CgAAUNLkABC3fAAAUNKsABC3fAAAUNKOgBC3fAAAUNKOgBC3XwAAUNKOgBC3fIAAUNKzwBC37IAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACVgJYAl0CaAJxAn4CgQKOApcCnARHBEkETgRWAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABFk=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownLeft",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "6A8A2F12-5DBE-4A9C-A77E-2EE71C415444"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.796741,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 1,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 102,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Up",
+          "BTTUUID": "B0FABA56-9EA0-4C6F-94CE-0C1B74932BBE"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7970529,
+          "BTTLayoutIndependentActionChar": "]",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "56,55,30",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEB3QBDoL4AQ4cQgAFDoL4AQ4cQgAFDoImAQ4ZAgAFDoImAQ4SwAAFDoImAQ4MfgAFDoImAQ4GPAAFDoImAQ385AAFDoImAQ3tUAAFDoImAQ3XpAAFDoImAQ2+6AAFDoNyAQ2dBAAFDoNyAQ2BPAAFDoS6AQ1iZAAFDoS6AQ1AgAAFDoS6AQ0hqAAFDoYCAQ0C0AAFDoYCAQztJAAFDoYCAQzLQAAFDodOAQypXAAFDodOAQyNlAAFDodOAQx02AAFDodOAQxGvAAFDodOAQwuAAAFDodOAQwSOAAFDodOAQv5GAAFDoYiAQvT2AAFDoYiAQuumAAFDoYiAQuq8AAFDoYiAQud8AAFDoYiAQuaSAAFDoYiAQuYeAAFDoYiAQuWqAAFDocMAQuWqAAFDof2AQuWqAAFDpFGAQuSAAAFDpwcAQuNMAAFDquIAQuC6AAFDr+IAQt4QAAFDtB6AQtt2AAFDuYAAQtjGAAFDwAcAQtYIAAFDxu+AQtSoAAFDzLMAQtNOAAFD0hSAQtNOAAFD19gAQtNOAAFD3ZuAQtNOAAFD4puAQtNOAAFD5zoAQtSgAAFD6rMAQtXkAAFD6+OAQtXkAAFD7LOAQta2AAFD7O4AQta2AAFD7O4AQtcsAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQGwAEOaXwBDhUmAAUOaXwBDhUmAAUOaXwBDg7kAAUOaXwBDgcaAAUOar4BDfJsAAUOar4BDdzAAAUOar4BDbTAAAUOar4BDZLcAAUOar4BDW3oAAUOar4BDT_MAAUObBoBDQ6kAAUObBoBDNdgAAUObBoBDLJsAAUObBoBDHgcAAUObWYBDFY4AAUObWYBDCIAAAUObWYBDAY4AAUObWYBC+EYAAUObq4BC6NoAAUObq4BC4pgAAUOb7gBC3FYAAUOb7gBC1hQAAUOb7gBC0tQAAUOcEwBC0RYAAUOcEwBCz1gAAUOcEwBCzuQAAUOcMABCzuQAAUOcTQBCzuQAAUOcvIBCzuQAAUOeTQBC0PwAAUOevIBC0PwAAUOhcgBC0jIAAUOiooBC0jIAAUOmfYBC0jIAAUOoDgBC0z4AAUOsrIBC0z4AAUOunwBC0z4AAUO0AIBC0z4AAUO2tgBC0z4AAUO8eYBC0z4AAUO_LwBC0z4AAUPEkIBC0z4AAUPGgwBC0iIAAUPKXgBC0iIAAUPLjoBC0iIAAUPNHwBC0iIAAUPNjoBC0iIAAUPNq4BC0iIAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJACcQJzAngCgwKMApkCnAKpArICtwRrBG0EcgR6AAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABH0=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "DownRight",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "21EE326B-A2A1-4737-A357-08BE0EC4EE81"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.7970371,
+          "BTTLayoutIndependentActionChar": "w",
+          "BTTOrder": 2,
+          "BTTShortcutToSend": "55,13",
+          "BTTTriggerClass": "BTTTriggerTypeTouchpadAll",
+          "BTTTriggerType": 103,
+          "BTTTriggerTypeDescriptionReadOnly": "3 Finger Swipe Down",
+          "BTTUUID": "AA43341D-CD14-4589-A343-A9634B752A4D"
+        },
+        {
+          "BTTAutoAdaptActionToKeyboardLayout": true,
+          "BTTGenericActionConfig": "autoAdapt",
+          "BTTLastUpdatedAt": 1789154415.797065,
+          "BTTLayoutIndependentActionChar": "t",
+          "BTTOrder": 3,
+          "BTTShortcutToSend": "55,17",
+          "BTTTriggerClass": "BTTTriggerTypeDrawings",
+          "BTTTriggerConfig": {
+            "BTTDrawingBezierPath": "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGmCwwTFx4hVSRudWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAEgAXSFA4VFlpOU1NlZ21lbnRzTxEDDwBDaKUAQsDWAAFDaKUAQsDWAAFDaDwAQsQYAAFDZ7YAQspcAAFDZycAQtIoAAFDZoUAQuAOAAFDZUgAQuxuAAFDY+8AQwD7AAFDYpEAQw1GAAFDYJwAQxXAAAFDXoIAQyXcAAFDW8YAQzInAAFDWbYAQz82AAFDVkYAQ0xFAAFDU5UAQ1cJAAFDUPEAQ2BGAAFDTwMAQ2f9AAFDTn0AQ2sfAAFDTe4AQ28FAAFDTYUAQ3CmAAFDTYUAQ3GGAAFDTYUAQ3HBAAFDTb8AQ3HBAAFDUOAAQ3E8AAFDVksAQ29uAAFDXsQAQ27IAAFDZnoAQ24kAAFDdQ4AQ21zAAFDgpSAQ24nAAFDh_YAQ27UAAFDjn0AQ3A0AAFDmZYAQ3NgAAFDoB0AQ3TAAAFDpkIAQ3YeAAFDrGcAQ3bNAAFDtHSAQ3g0AAFDuLEAQ3g0AAFDvIwAQ3g0AAFDvn6AQ3g0AAFDv06AQ3fMAAFDv4kAQ3fMAAFDv6YAQ3eSAAFDv6YAQ3dYAAFDv6YAQ3ceAAFDv6YAQ3bkAAFDv6YAQ3ZvAAFDv6YAQ3TPAAFDv6YAQ3MvAAFDv6YAQ3AOAAFDv6YAQ2wpAAFDv6YAQ2RzAAFDv6YAQ15EAAFDv6YAQ1gVAAFDv6YAQ1BfAAFDv_kAQ0fmAAFDwFAAQzucAAFDwKCAQzSqAAFDwKCAQy24AAFDwPEAQybGAAFDwUAAQyCXAAFDwY8AQxpoAAFDwcMAQxjIAAFDwhOAQxHWAAFDwmKAQwunAAFDwrGAQwV4AAFDwvwAQwDQAAFDwzAAQv5gAAFDw3KAQvgeAAFDw6aAQvTeAAFDw6aAQvP0AAFDw6aAQvOAAAFDw6aAQvMMAAFDw8OAQvMMAAFDw8OAQvIiAAFDw_eAQu7iAAFDxByAQu0kAAFDxEGAQutmAAFDxEGAQumoAAFDxF6AQui+AAFDxJKAQuV+AAFDxMaAQuI+AAFDxUAAQt18AAFDxWUAQtu+AAFDxZkAQth+AAFDxbYAQtgKAAFDxdMAQteWAAFDxdMAQtciAIAD0hgZGhtaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0JlemllclBhdGiiHB1cTlNCZXppZXJQYXRoWE5TT2JqZWN00hQOHxZPEQJ2AENwZABCyz4AAUNwZABCyz4AAUNwZABCzoAAAUNv3gBC1MQAAUNvWABC2wgAAUNuyQBC4tQAAUNtlABC7awAAUNs9QBC+gwAAUNrqwBDBL0AAUNpqgBDDr4AAUNnpQBDGYIAAUNloABDJEYAAUNi5ABDMJEAAUNiRQBDNsEAAUNfiQBDQwwAAUNdfABDT1cAAUNaywBDWhsAAUNYygBDZBwAAUNYOwBDaAIAAUNW_gBDbjIAAUNV0wBDctsAAUNVagBDdHwAAUNVagBDdPIAAUNVagBDdS0AAUNVagBDdPMAAUNVpABDdLkAAUNYBQBDc8YAAUNbJgBDcjYAAUNiGABDb7AAAUNpCgBDbcsAAUNwwABDa94AAUN5_QBDao0AAUOAFgBDaVEAAUOGOwBDZ_QAAUOMYABDZ0YAAUOQnIBDZ0YAAUOVOwBDZ0YAAUOc5wBDZ0YAAUOhhYBDZ0YAAUOmJABDZ+8AAUOtbgBDaVMAAUOxSQBDafgAAUOz_oBDay0AAUO2UoBDa8MAAUO3IoBDbCwAAUO3P4BDbCwAAUO3XIBDbCwAAUO3XIBDa00AAUO3XIBDaOwAAUO3qYBDY4EAAUO4TgBDW8sAAUO4oABDVBUAAUO5ogBDSVIAAUO6pgBDPcsAAUO7qABDMwgAAUO8pQBDKcsAAUO+AoBDHYEAAUO+_IBDFQgAAUO__IBDCwgAAUPA_IBDAQgAAUPB_oBC7IoAAUPCowBC3R4AAUPEAoBCwwIAAUPFBoBCq_QAAUPFpIBCn5YAAUPGkgBCkzgAAUPHf4BChtoAAUPHvABCghgAAUPH4QBCgFoAAUPH_gBCfuAAgAPSGBkiI1dOU0FycmF5oiIdAAgAEQAaACQAKQAyADcASQBMAFEAUwBaAGAAZQBwAHcAegB8AH4AgACFAJADowOlA6oDtQO+A8sDzgPbA+QD6QZjBmUGagZyAAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAAAAAAAAAABnU=",
+            "BTTDrawingDirectionShouldMatter": "0",
+            "BTTDrawingName": "CirP",
+            "BTTRequiredDrawingCertainty": "0.700000"
+          },
+          "BTTTriggerType": 620,
+          "BTTTriggerTypeDescriptionReadOnly": "Please Select a Trigger ",
+          "BTTUUID": "D8341083-62CD-4C44-90EE-684D391D3788"
+        }
+      ]
+    }
+  ],
+  "BTTPresetName": "Default",
+  "BTTPresetSnapAreas": [],
+  "BTTPresetUUID": "E9611AEE-3967-4A39-97F9-D6DC7FC9DE2D"
+}

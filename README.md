@@ -9,6 +9,26 @@ I use in containers.
 My [old dotconfig](https://github.com/delicb/dotfiles-old) are still available
 but not used or updated.
 
+# BetterTouchTool
+
+Chezmoi installs `~/.btt_autoload_preset.json`. BetterTouchTool loads this file
+when it next starts.
+
+After you change the master preset in the BetterTouchTool UI:
+
+1. Keep BetterTouchTool running.
+2. Run `btt-save`.
+3. Review the Git diff before you commit it.
+
+The script exports the active master preset without general settings. It keeps
+the tracked preset UUID to prevent false changes between exports.
+
+On another Mac, pull the repository and run `chezmoi apply`. Restart
+BetterTouchTool to load the updated preset immediately.
+
+Do not enable BetterTouchTool cloud sync for the tracked preset. Two sync methods
+can overwrite changes from each other.
+
 # Agent config
 
 Shared agent instructions and skills live under `home/dot_agents/`, rendered to
