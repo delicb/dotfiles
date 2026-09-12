@@ -12,17 +12,17 @@
         {
           "BTTActionsToExecute": [
             {
+              "BTTGestureNotes": "Remote action",
               "BTTIsPureAction": true,
-              "BTTLastUpdatedAt": 1789154415.796895,
+              "BTTLastUpdatedAt": 1789156798.77808,
               "BTTOrder": 5,
               "BTTPredefinedActionName": "Lock Screen",
               "BTTPredefinedActionType": 158,
-              "BTTRemoteTriggerName": "Remote action",
               "BTTTriggerParentUUID": "509E8A59-4145-4E85-AD87-6715F2B7015D",
               "BTTUUID": "919AA8D0-FE44-4C3D-BD96-9C4F34E4D286"
             }
           ],
-          "BTTLastUpdatedAt": 1789154415.7966499,
+          "BTTLastUpdatedAt": 1789156798.7773991,
           "BTTOrder": 0,
           "BTTRemoteTriggerName": "Lock",
           "BTTTriggerClass": "BTTTriggerTypeBTTRemote",
