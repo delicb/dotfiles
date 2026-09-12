@@ -2,10 +2,15 @@
 {{- $ephemeral := false -}}  {{/* cloud instances, containers, etc */}}
 {{- $secure_env := false -}}  {{/* should contain secrets? */}}
 {{- $name := "Bojan Delić" -}}  {{/* name of the owner, used for things like git user */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{/* chezmoi takes the hostname from DNS, which can give "local" on some networks */}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname = output "scutil" "--get" "LocalHostName" | trim -}}
+{{- end -}}
 {{- $_personalHostnames := list "mentat" "zaphod" -}}
 {{- $_includeLinearHostnames := list "mentat" "zaphod" -}}
-{{- $personal := (has .chezmoi.hostname $_personalHostnames) -}}
-{{- $include_Linear := (has .chezmoi.hostname $_includeLinearHostnames) -}}
+{{- $personal := (has $hostname $_personalHostnames) -}}
+{{- $include_Linear := (has $hostname $_includeLinearHostnames) -}}
 {{- $email := "" -}} {{/* email used to configure git with */}}
 
 
@@ -30,6 +35,7 @@ prompt = false
 account = "my.1password.com"
 
 [data]
+hostname = {{ $hostname | quote }}
 secure_env = {{ $secure_env }}
 git_author_name = {{ $name | quote }}
 git_author_email = {{ $email | quote }}

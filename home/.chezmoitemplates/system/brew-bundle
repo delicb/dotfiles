@@ -17,6 +17,13 @@
 {{-   end -}}
 {{- end -}}
 
+{{- if .include_Linear -}}
+{{-   $casksLinear := (index .casks "linear") -}}
+{{-   if (ne $casksLinear nil) -}}
+{{-     $casks = (concat $casks $casksLinear) -}}
+{{-   end -}}
+{{- end -}}
+
 brew bundle --file=/dev/stdin <<EOF
 {{ range $brews | sortAlpha | uniq -}}
 brew {{ . | quote }}

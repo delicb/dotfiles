@@ -13,6 +13,7 @@ packages:
     brews:
       always:
       - bat
+      - btop
       - chezmoi
       - coreutils
       - curl
@@ -24,15 +25,21 @@ packages:
       - fd
       - fish
       - fzf
+      - gh
       - git
       - git-delta
       - git-extras
+      - git-lfs
       - git-spice
+      - herdr
       - jq
       - less
       - libffi
       - mdcat
       - mise
+      - mkcert
+      - neovim
+      - nss
       - openssl
       - pipx
       - ripgrep
@@ -53,12 +60,12 @@ packages:
           - kubectl
           - kubectx
           - libpq
-          - terraform
 
     casks:
       always:
       - 1Password
       - 1password-cli
+      - alt-tab
       - bettertouchtool
       - finicky
       - font-hack-nerd-font
@@ -77,6 +84,10 @@ packages:
       - rectangle-pro
       - scroll-reverser
       - shottr
+      - terminal-browser
+      - visual-studio-code
+      linear:
+      - ngrok
       per_host:
         zaphod:
           - google-drive
