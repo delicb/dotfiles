@@ -1,0 +1,16 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+# plist hash: {{ include "private_Library/LaunchAgents/private_com.delicb.btt-save.plist.tmpl" | sha256sum }}
+
+set -eu
+
+label="com.delicb.btt-save"
+domain="gui/$(id -u)"
+plist="$HOME/Library/LaunchAgents/$label.plist"
+
+[ -f "$plist" ] || exit 0
+launchctl print "$domain" >/dev/null 2>&1 || exit 0
+launchctl bootout "$domain/$label" >/dev/null 2>&1 || true
+launchctl bootstrap "$domain" "$plist"
+launchctl kickstart "$domain/$label"
+{{ end -}}

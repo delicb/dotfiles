@@ -1,0 +1,207 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
+set -eu
+
+fail() {
+    printf 'btt-save: %s\n' "$1" >&2
+    exit 1
+}
+
+scheduled=false
+if [ "$#" -gt 1 ]; then
+    fail "Usage: btt-save [--scheduled]."
+fi
+if [ "$#" -eq 1 ]; then
+    [ "$1" = "--scheduled" ] || fail "Usage: btt-save [--scheduled]."
+    scheduled=true
+fi
+
+if ! pgrep -x BetterTouchTool >/dev/null; then
+    [ "$scheduled" = true ] && exit 0
+    fail "Start BetterTouchTool before you save its preset."
+fi
+
+for command_name in chezmoi jq osascript; do
+    command -v "$command_name" >/dev/null 2>&1 || fail "The $command_name command is required."
+done
+
+target="$HOME/.btt_autoload_preset.json"
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/btt-save"
+state_file="$state_dir/last-synced.sha256"
+temp_dir=$(mktemp -d "${TMPDIR:-/tmp}/btt-save.XXXXXX")
+staged_file=
+
+semantic_checksum() {
+    jq -S 'walk(if type == "object" then del(.BTTLastUpdatedAt) else . end)' "$1" \
+        | shasum -a 256 \
+        | awk '{print $1}'
+}
+
+write_state() {
+    mkdir -p "$state_dir"
+    printf '%s\n' "$1" > "$state_file.tmp"
+    mv -f "$state_file.tmp" "$state_file"
+}
+
+cleanup() {
+    rm -rf "$temp_dir"
+    if [ -n "$staged_file" ]; then
+        rm -f "$staged_file"
+    fi
+}
+trap cleanup EXIT
+trap 'exit 1' HUP INT TERM
+
+master_json=$(osascript -l JavaScript <<'JXA'
+function run() {
+  const btt = Application('BetterTouchTool');
+  const presets = JSON.parse(btt.get_preset_details());
+  const masters = presets.filter((preset) => preset.activated === 2);
+
+  if (masters.length !== 1) {
+    throw new Error(`Expected one master preset, found ${masters.length}`);
+  }
+
+  return JSON.stringify(masters[0]);
+}
+JXA
+) || fail "Could not find the BetterTouchTool master preset."
+
+master_name=$(printf '%s\n' "$master_json" | jq -er '.name | select(type == "string" and length > 0)') || fail "The master preset has no name."
+master_uuid=$(printf '%s\n' "$master_json" | jq -er '.uuid | select(type == "string" and length > 0)') || fail "The master preset has no UUID."
+master_color=$(printf '%s\n' "$master_json" | jq -r '.color // ""')
+export_file="$temp_dir/master.bttpreset"
+
+osascript - "$master_name" "$export_file" <<'APPLESCRIPT' >/dev/null
+on run argv
+  set presetName to item 1 of argv
+  set outputFile to item 2 of argv
+
+  tell application "BetterTouchTool"
+    export_preset presetName outputPath outputFile includeSettings false compress false
+  end tell
+end run
+APPLESCRIPT
+
+wait_count=0
+while ! jq -e 'type == "object"' "$export_file" >/dev/null 2>&1; do
+    wait_count=$((wait_count + 1))
+    [ "$wait_count" -lt 100 ] || fail "BetterTouchTool did not finish the preset export."
+    sleep 0.1
+done
+
+jq -e 'type == "object"
+    and (.BTTPresetName | type == "string" and length > 0)
+    and (.BTTPresetUUID | type == "string" and length > 0)
+    and (.BTTPresetContent | type == "array")
+    and (has("BTTGeneralSettings") | not)' "$export_file" >/dev/null \
+    || fail "BetterTouchTool returned an invalid preset export."
+
+exported_name=$(jq -r '.BTTPresetName' "$export_file")
+exported_color=$(jq -r '.BTTPresetColor // ""' "$export_file")
+
+[ "$exported_name" = "$master_name" ] || fail "BetterTouchTool exported a preset that is not the master preset."
+[ "$exported_color" = "$master_color" ] || fail "The master preset name is not unique. Rename the duplicate presets."
+
+source_file=$(chezmoi source-path "$target" 2>/dev/null || true)
+preset_uuid=
+
+if [ -f "$target" ]; then
+    preset_uuid=$(jq -er '.BTTPresetUUID | select(type == "string" and length > 0)' "$target" 2>/dev/null || true)
+fi
+
+if [ -z "$preset_uuid" ] && [ -n "$source_file" ] && [ -f "$source_file" ]; then
+    preset_uuid=$(jq -er '.BTTPresetUUID | select(type == "string" and length > 0)' "$source_file" 2>/dev/null || true)
+fi
+
+if [ -z "$preset_uuid" ]; then
+    preset_uuid=$master_uuid
+fi
+
+normalized_file="$temp_dir/master.json"
+if [ -f "$target" ]; then
+    jq -S --arg preset_uuid "$preset_uuid" --slurpfile previous "$target" '
+        def without_update_times:
+            walk(if type == "object" then del(.BTTLastUpdatedAt) else . end);
+
+        ($previous[0]
+            | [.. | objects | select(has("BTTUUID")) | { key: .BTTUUID, value: . }]
+            | from_entries) as $previous_by_uuid
+        | .BTTPresetUUID = $preset_uuid
+        | walk(
+            if type == "object"
+                and has("BTTUUID")
+                and ($previous_by_uuid[.BTTUUID] != null)
+                and ((. | without_update_times) == ($previous_by_uuid[.BTTUUID] | without_update_times))
+            then .BTTLastUpdatedAt = $previous_by_uuid[.BTTUUID].BTTLastUpdatedAt
+            else .
+            end
+        )
+    ' "$export_file" > "$normalized_file"
+else
+    jq -S --arg preset_uuid "$preset_uuid" '.BTTPresetUUID = $preset_uuid' "$export_file" > "$normalized_file"
+fi
+
+current_hash=$(semantic_checksum "$normalized_file")
+target_hash=
+source_hash=
+previous_hash=
+
+if [ -f "$target" ]; then
+    target_hash=$(semantic_checksum "$target")
+fi
+
+rendered_source="$temp_dir/source.json"
+if [ -n "$source_file" ] && chezmoi cat "$target" > "$rendered_source" 2>/dev/null; then
+    source_hash=$(semantic_checksum "$rendered_source")
+fi
+
+if [ -f "$state_file" ]; then
+    previous_hash=$(cat "$state_file")
+fi
+
+if [ "$scheduled" = true ]; then
+    if [ -n "$source_hash" ] && [ "$source_hash" != "$target_hash" ]; then
+        printf '%s\n' "btt-save: Scheduled export skipped because the chezmoi source and target differ." >&2
+        exit 0
+    fi
+
+    if [ "$current_hash" = "$target_hash" ]; then
+        write_state "$current_hash"
+        exit 0
+    fi
+
+    if [ -z "$previous_hash" ]; then
+        printf '%s\n' "btt-save: Scheduled export skipped because no prior sync state exists." >&2
+        printf '%s\n' "Run btt-save once or restart BetterTouchTool after you apply the preset." >&2
+        exit 0
+    fi
+
+    if [ "$target_hash" != "$previous_hash" ]; then
+        printf '%s\n' "btt-save: Scheduled export skipped because the preset file changed outside BetterTouchTool." >&2
+        printf '%s\n' "Restart BetterTouchTool before you export again." >&2
+        exit 0
+    fi
+fi
+
+staged_file=$(mktemp "$HOME/.btt_autoload_preset.json.XXXXXX")
+cp "$normalized_file" "$staged_file"
+chmod 600 "$staged_file"
+mv -f "$staged_file" "$target"
+staged_file=
+
+chezmoi add "$target"
+source_file=$(chezmoi source-path "$target")
+source_root=$(chezmoi source-path)
+write_state "$current_hash"
+
+if [ "$scheduled" = false ]; then
+    printf 'Saved master preset "%s".\n' "$master_name"
+
+    if git -C "$source_root" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        git -C "$source_root" status --short -- "$source_file"
+        git -C "$source_root" diff -- "$source_file"
+    fi
+fi
+{{ end -}}
