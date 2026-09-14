@@ -11,6 +11,7 @@
     "npm:pi-screenshots-picker",
     "npm:@vanillagreen/pi-tool-renderer",
     "npm:@aliou/pi-guardrails",
+    "./packages/rtk-rewrite",
     "npm:pi-mcp-adapter",
     "npm:@aliou/pi-dev-kit",
     "npm:pi-powerline-footer",
