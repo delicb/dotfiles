@@ -8,25 +8,16 @@
   "defaultThinkingLevel": "xhigh",
   "hideThinkingBlock": true,
   "packages": [
-    {
-      "source": "git:github.com/aliou/pi-extensions",
-      "extensions": [
-        "extensions/introspection/index.ts",
-        "extensions/planning/index.ts",
-        "extensions/guardrails/index.ts",
-        "extensions/breadcrumbs/index.ts"
-      ],
-      "skills": []
-    },
-    "git:github.com/aliou/pi-extension-dev",
-    "git:github.com/nicobailon/pi-powerline-footer",
-    "git:github.com/nicobailon/pi-web-access",
-    "git:github.com/aliou/pi-processes",
-    "git:github.com/nicobailon/pi-mcp-adapter",
-    "git:github.com/nicobailon/pi-interactive-shell",
-    "git:github.com/dbachelder/pi-btw",
     "npm:pi-screenshots-picker",
-    "npm:@vanillagreen/pi-tool-renderer"
+    "npm:@vanillagreen/pi-tool-renderer",
+    "npm:@aliou/pi-guardrails",
+    "npm:pi-mcp-adapter",
+    "npm:@aliou/pi-dev-kit",
+    "npm:pi-powerline-footer",
+    "npm:pi-web-access",
+    "npm:@aliou/pi-processes",
+    "npm:pi-interactive-shell",
+    "npm:pi-btw"
   ],
   "workingVibe": "hpmor",
   "workingVibeMode": "file",
@@ -61,9 +52,6 @@
       "~/Desktop"
     ]
   },
-  "npmCommand": [
-    "pnpm"
-  ],
   "tuiMode": "fullscreen",
   "outputPad": 1
 }
