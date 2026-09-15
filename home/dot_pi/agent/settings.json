@@ -28,9 +28,6 @@
   ],
   "workingVibe": "hpmor",
   "workingVibeMode": "file",
-  "projectSkillPaths": [
-    ".claude/skills"
-  ],
   "theme": "catppuccin-mocha-contrast",
   "showHardwareCursor": true,
   "followUpMode": "one-at-a-time",
