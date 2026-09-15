@@ -90,7 +90,7 @@ function inspectToolCall(
     if (path && isPathInside(options.primaryRoot, options.cwd, path)) {
       return {
         blockReason:
-          "This write targets the primary worktree. Call worktree_prepare and retry.",
+          "This write targets the primary worktree. Call worktree_prepare to ask the user where to continue, then retry.",
         sandboxedCommands: 0,
       };
     }

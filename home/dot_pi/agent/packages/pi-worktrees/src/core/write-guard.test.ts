@@ -38,7 +38,7 @@ describe("applyPrimaryWriteGuard", () => {
       applyPrimaryWriteGuard("edit", { path: "../../src/app.ts" }, options),
     ).toEqual({
       blockReason:
-        "This write targets the primary worktree. Call worktree_prepare and retry.",
+        "This write targets the primary worktree. Call worktree_prepare to ask the user where to continue, then retry.",
       sandboxedCommands: 0,
     });
     expect(
@@ -49,7 +49,7 @@ describe("applyPrimaryWriteGuard", () => {
       ),
     ).toEqual({
       blockReason:
-        "This write targets the primary worktree. Call worktree_prepare and retry.",
+        "This write targets the primary worktree. Call worktree_prepare to ask the user where to continue, then retry.",
       sandboxedCommands: 0,
     });
   });
@@ -126,7 +126,7 @@ describe("applyPrimaryWriteGuard", () => {
       applyPrimaryWriteGuard("multi_tool_use.parallel", input, options),
     ).toEqual({
       blockReason:
-        "This write targets the primary worktree. Call worktree_prepare and retry.",
+        "This write targets the primary worktree. Call worktree_prepare to ask the user where to continue, then retry.",
       sandboxedCommands: 1,
     });
   });

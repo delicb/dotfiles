@@ -6,9 +6,11 @@ This private Pi package uses Worktrunk to isolate agent changes in linked Git wo
 
 Pi keeps all tools available in a protected primary Git worktree. It blocks `edit` and `write` calls that target files inside that worktree.
 
-On macOS, Pi runs direct and batched `bash` commands in a sandbox. Commands can read the repository, but write attempts fail. The tool result tells the agent to call `worktree_prepare` and retry. If `sandbox-exec` is unavailable, shell commands run without this limit.
+On macOS, Pi runs direct and batched `bash` commands in a sandbox. Commands can read the repository, but write attempts fail. The tool result tells the agent to call `worktree_prepare`. If `sandbox-exec` is unavailable, shell commands run without this limit.
 
-Other tools, including MCP tools, remain unrestricted. The `worktree_prepare` tool creates or joins a worktree before intended code changes.
+Other tools, including MCP tools, remain unrestricted. Before intended code changes, the agent calls `worktree_prepare` to ask where it should continue.
+
+The user can select the requested worktree or allow primary worktree changes for the current Pi session. Cancellation creates no worktree. Modes without UI also create no worktree.
 
 Global settings can protect or allow primary worktrees by default. Repository rules can override that default.
 
