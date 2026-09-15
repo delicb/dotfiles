@@ -3,6 +3,11 @@
   "compaction": {
     "enabled": true
   },
+  "worktrees": {
+    "protectPrimaryByDefault": true,
+    "allow": [],
+    "deny": []
+  },
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "xhigh",
@@ -12,6 +17,7 @@
     "npm:@vanillagreen/pi-tool-renderer",
     "npm:@aliou/pi-guardrails",
     "./packages/rtk-rewrite",
+    "./packages/pi-worktrees",
     "npm:pi-mcp-adapter",
     "npm:@aliou/pi-dev-kit",
     "npm:pi-powerline-footer",

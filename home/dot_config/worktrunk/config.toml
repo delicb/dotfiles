@@ -1,0 +1,4 @@
+worktree-path = "~/worktrees/{{ repo }}/{{ branch | sanitize }}"
+
+[projects."github.com/linear/linear-app"]
+pre-start.bootstrap = "./bootstrap-worktree.sh"

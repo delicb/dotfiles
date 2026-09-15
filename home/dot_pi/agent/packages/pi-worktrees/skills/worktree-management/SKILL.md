@@ -1,0 +1,55 @@
+---
+name: worktree-management
+description: Create, join, finish, inspect, and clean Git worktrees through Worktrunk. Use before an agent modifies code, when several agents must share a worktree, or when worktree cleanup is required.
+---
+
+# Worktree management
+
+The Pi extension protects direct file writes in the primary Git worktree. On macOS, it also blocks shell writes inside that worktree.
+
+Read-only investigation does not require a worktree. You can use shell commands, MCP tools, and other tools normally.
+
+## Start isolated work
+
+Call `worktree_prepare` before you intend to modify code in the primary worktree. If a write attempt is blocked, call `worktree_prepare` and retry it.
+
+Use `mode: "create"` unless the user asks you to use an existing worktree. Choose a short branch name that describes the task.
+
+The tool creates the worktree, runs Worktrunk `pre-start` hooks, and moves the current Pi session into it.
+
+Use `mode: "join"` only in these cases:
+
+- The user asks agents to share one worktree.
+- The task must continue in an existing worktree.
+- A prior cleanup failed and the worktree still contains required changes.
+
+Concurrent agents can overwrite each other's changes. Share a worktree only when the task has clear file ownership or one agent only reviews.
+
+## Agent tools
+
+- `worktree_status` lists worktrees and active Pi leases.
+- `worktree_finish` leaves and cleans the current worktree after a direct user request.
+- `worktree_cleanup` removes an inactive worktree after a direct user request.
+
+## User commands
+
+- `/worktree status` lists worktrees and active Pi leases.
+- `/worktree allow-primary` allows primary worktree changes for the current saved Pi session.
+- `/worktree start <branch> [base]` creates a worktree and moves the session.
+- `/worktree join <branch-or-path>` moves the session into an existing worktree.
+- `/worktree finish` moves the session to the primary worktree and requests cleanup.
+- `/worktree cleanup <branch-or-path>` removes an unused worktree.
+
+Only the user can choose `/worktree allow-primary`. Do not suggest or run it to avoid worktree isolation.
+
+## Cleanup rules
+
+Cleanup stops when another Pi session holds a lease.
+
+Cleanup also stops for staged changes, tracked changes, or untracked files. Git-ignored generated files do not block Worktrunk removal.
+
+Worktrunk keeps an unmerged branch unless the user explicitly requests branch deletion. Do not use `wt remove --force` or `wt remove --force-delete` without direct user approval.
+
+If cleanup stops because files remain, inspect the worktree. Keep useful changes or remove confirmed generated files. Then run cleanup again.
+
+A stopped or killed Pi process can leave a lease file. The extension removes the lease after it confirms that its process no longer exists.
