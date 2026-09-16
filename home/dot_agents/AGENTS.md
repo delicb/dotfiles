@@ -27,9 +27,6 @@ Review every prose output against these rules before delivering.
 
 ## Hunkpad
 
-- At the start of a repository task, check for `CMUX_SURFACE_ID`, `CMUX_WORKSPACE_ID`, `CMUX_SOCKET`, or `CMUX_SOCKET_PATH`.
-- When one of these variables is set and the task reads or changes code in a Git or jj tree, load the Hunkpad skill before the first file change.
-- The global `hunkpad-cmux` Pi extension owns automatic turn tracking and the browser pane. Do not duplicate its `turn start`, `turn end`, or `watch turn` calls unless it reports a failure.
 - Use the Hunkpad review flow when the user asks you to read or address Hunkpad feedback.
 
 ## Coding comments
