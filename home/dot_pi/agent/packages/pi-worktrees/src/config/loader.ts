@@ -1,6 +1,11 @@
 import { readFile } from "node:fs/promises";
 import { DEFAULT_WORKTREE_CONFIG } from "./defaults";
-import type { LoadedWorktreeConfig, ResolvedWorktreeConfig } from "./types";
+import {
+  type LoadedWorktreeConfig,
+  type ResolvedWorktreeConfig,
+  WORKTREE_POLICIES,
+  type WorktreePolicy,
+} from "./types";
 
 export async function loadWorktreeConfig(
   settingsPath: string,
@@ -54,51 +59,63 @@ export function parseWorktreeSettings(
     return { config, warnings };
   }
 
-  if (section.protectPrimaryByDefault !== undefined) {
-    if (typeof section.protectPrimaryByDefault === "boolean") {
-      config.protectPrimaryByDefault = section.protectPrimaryByDefault;
+  if (section.default !== undefined) {
+    if (isWorktreePolicy(section.default)) {
+      config.default = section.default;
     } else {
       warnings.push(
-        `Set worktrees.protectPrimaryByDefault in ${source} to true or false.`,
+        `Set worktrees.default in ${source} to "always", "never", or "ask".`,
       );
     }
   }
 
-  config.allow = parseRepositoryList(section.allow, "allow", source, warnings);
-  config.deny = parseRepositoryList(section.deny, "deny", source, warnings);
+  config.repositories = parseRepositoryPolicies(
+    section.repositories,
+    source,
+    warnings,
+  );
 
   return { config, warnings };
 }
 
-function parseRepositoryList(
+function parseRepositoryPolicies(
   value: unknown,
-  key: "allow" | "deny",
   source: string,
   warnings: string[],
-): string[] {
-  if (value === undefined) return [];
-  if (!Array.isArray(value)) {
-    warnings.push(`Set worktrees.${key} in ${source} to an array of strings.`);
-    return [];
+): Record<string, WorktreePolicy> {
+  if (value === undefined) return {};
+  if (!isRecord(value)) {
+    warnings.push(`Set worktrees.repositories in ${source} to an object.`);
+    return {};
   }
 
-  const entries = value
-    .filter((entry): entry is string => typeof entry === "string")
-    .map((entry) => entry.trim())
-    .filter(Boolean);
-  if (entries.length !== value.length) {
+  const entries: Array<[string, WorktreePolicy]> = [];
+  let hasInvalidEntry = false;
+  for (const [rawRepository, policy] of Object.entries(value)) {
+    const repository = rawRepository.trim();
+    if (repository.length === 0 || !isWorktreePolicy(policy)) {
+      hasInvalidEntry = true;
+      continue;
+    }
+    entries.push([repository, policy]);
+  }
+
+  if (hasInvalidEntry) {
     warnings.push(
-      `Remove non-string or empty entries from worktrees.${key} in ${source}.`,
+      `Use non-empty repository names and valid policies in worktrees.repositories in ${source}.`,
     );
   }
-  return entries;
+  return Object.fromEntries(entries);
+}
+
+function isWorktreePolicy(value: unknown): value is WorktreePolicy {
+  return WORKTREE_POLICIES.some((policy) => policy === value);
 }
 
 function cloneDefaults(): ResolvedWorktreeConfig {
   return {
     ...DEFAULT_WORKTREE_CONFIG,
-    allow: [...DEFAULT_WORKTREE_CONFIG.allow],
-    deny: [...DEFAULT_WORKTREE_CONFIG.deny],
+    repositories: { ...DEFAULT_WORKTREE_CONFIG.repositories },
   };
 }
 

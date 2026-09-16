@@ -13,13 +13,17 @@ Read-only investigation does not require a worktree. You can use shell commands,
 
 Call `worktree_prepare` before you intend to modify code in a protected primary worktree. If a write attempt is blocked, call `worktree_prepare`.
 
-The tool asks the user where to continue. It can use the requested worktree or allow primary worktree changes for the current Pi session.
+The repository policy controls the tool. It can use the requested worktree automatically or ask the user where to continue.
+
+The `never` policy permits changes in the primary worktree, so `worktree_prepare` is not required.
 
 Use `mode: "create"` unless the user asks you to use an existing worktree. Choose a short branch name that describes the task.
 
 If the user selects the requested worktree, the tool runs Worktrunk setup hooks and moves the Pi session into it.
 
 If the tool allows the primary worktree, retry the requested change there. Do not call `worktree_prepare` again for that session.
+
+The `always` policy uses the requested worktree without a prompt. The `ask` policy asks before it changes the session.
 
 Use `mode: "join"` only in these cases:
 
@@ -44,7 +48,7 @@ Concurrent agents can overwrite each other's changes. Share a worktree only when
 - `/worktree finish` moves the session to the primary worktree and requests cleanup.
 - `/worktree cleanup <branch-or-path>` removes an unused worktree.
 
-Only the user can allow primary worktree changes through the tool choice or `/worktree allow-primary`. Do not infer this choice.
+For the `always` and `ask` policies, only the user can allow primary worktree changes. Do not infer this choice.
 
 ## Cleanup rules
 

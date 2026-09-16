@@ -22,8 +22,8 @@ import {
   type WorktreeLease,
 } from "../../src/core/lease-store";
 import {
-  decidePrimaryProtection,
-  type ProtectionDecision,
+  decideWorktreePolicy,
+  type WorktreePolicyDecision,
 } from "../../src/core/protection-policy";
 import {
   findWorktree,
@@ -144,7 +144,7 @@ class PiWorktrees {
     | { path: string; sessionId: string; store: LeaseStore }
     | undefined;
   private readonly pendingHandoffs = new Map<string, PendingHandoff>();
-  private primaryProtection: ProtectionDecision | undefined;
+  private primaryWorktreePolicy: WorktreePolicyDecision | undefined;
   private primaryWriteGuardRoot: string | undefined;
   private protectedSession = false;
   private sandboxExecutable: string | undefined;
@@ -180,8 +180,12 @@ class PiWorktrees {
         const shellPolicy = this.sandboxExecutable
           ? " Shell commands can read the repository, but macOS denies their writes inside it."
           : " Shell commands are unrestricted because the macOS sandbox is unavailable.";
+        const targetPolicy =
+          this.primaryWorktreePolicy?.policy === "always"
+            ? "It uses the requested linked worktree without asking the user."
+            : "It asks the user whether to use a linked worktree or allow primary worktree changes for this session.";
         return {
-          systemPrompt: `${event.systemPrompt}\n\n## Worktree requirement\nThis session is in the protected primary Git worktree. Use all tools normally for investigation. Call worktree_prepare before you intend to change repository files. It asks the user whether to use a linked worktree or allow primary worktree changes for this session. Direct edit and write calls into the repository are blocked.${shellPolicy}`,
+          systemPrompt: `${event.systemPrompt}\n\n## Worktree requirement\nThis session is in the protected primary Git worktree. Use all tools normally for investigation. Call worktree_prepare before you intend to change repository files. ${targetPolicy} Direct edit and write calls into the repository are blocked.${shellPolicy}`,
         };
       }
       return {
@@ -218,12 +222,16 @@ class PiWorktrees {
         .map((item) => item.text)
         .join("\n");
       if (!hasSandboxWriteDenial(event.toolName, event.input, output)) return;
+      const nextStep =
+        this.primaryWorktreePolicy?.policy === "always"
+          ? "Call worktree_prepare to use the requested linked worktree, then retry."
+          : "Call worktree_prepare to ask the user where to continue, then retry.";
       return {
         content: [
           ...event.content,
           {
             type: "text",
-            text: "The command could not write inside the primary worktree. Call worktree_prepare to ask the user where to continue, then retry.",
+            text: `The command could not write inside the primary worktree. ${nextStep}`,
           },
         ],
       };
@@ -235,11 +243,11 @@ class PiWorktrees {
       name: "worktree_prepare",
       label: "Prepare Worktree",
       description:
-        "Ask whether to create or join a Worktrunk worktree, or continue in the primary worktree for this Pi session.",
+        "Apply the repository worktree policy before changes. Create or join a Worktrunk worktree, or allow primary worktree changes for this session.",
       promptSnippet:
-        "Ask where to make changes before modifying a protected primary worktree",
+        "Apply repository worktree policy before modifying a protected primary worktree",
       promptGuidelines: [
-        "Use worktree_prepare to ask where to make changes before modifying code in a protected primary worktree.",
+        "Use worktree_prepare before modifying code in a protected primary worktree.",
         "After worktree_prepare allows the primary worktree, retry the requested change there.",
         "Use worktree_prepare with mode create by default. Use mode join only when the user wants agents to share a worktree.",
       ],
@@ -253,7 +261,11 @@ class PiWorktrees {
         ctx,
       ): Promise<AgentToolResult<PrepareDetails>> => {
         const source = await this.requireGitContext(ctx.cwd, signal);
-        if (!source.linked && this.primaryWriteGuardRoot) {
+        if (
+          !source.linked &&
+          this.primaryWriteGuardRoot &&
+          this.primaryWorktreePolicy?.policy === "ask"
+        ) {
           const choice = await this.choosePrimaryWriteTarget(params, ctx);
           if (choice === "primary") {
             this.allowPrimaryForSession(ctx, source);
@@ -540,7 +552,7 @@ class PiWorktrees {
   private async startSession(ctx: ExtensionContext): Promise<void> {
     await this.stopLease();
     this.gitContext = await this.getGitContext(ctx.cwd, ctx.signal);
-    this.primaryProtection = undefined;
+    this.primaryWorktreePolicy = undefined;
     this.primaryWriteGuardRoot = undefined;
     this.protectedSession = false;
     this.sandboxExecutable = undefined;
@@ -567,7 +579,7 @@ class PiWorktrees {
         );
       }
 
-      this.primaryProtection = decidePrimaryProtection(
+      this.primaryWorktreePolicy = decideWorktreePolicy(
         loaded.config,
         this.gitContext.primaryPath,
         { repositoryName: this.gitContext.primaryName },
@@ -576,7 +588,10 @@ class PiWorktrees {
         ctx,
         this.gitContext.primaryPath,
       );
-      if (this.sessionAllowsPrimary || !this.primaryProtection.protect) {
+      if (
+        this.sessionAllowsPrimary ||
+        this.primaryWorktreePolicy.policy === "never"
+      ) {
         ctx.ui.setStatus("worktrees", "wt primary allowed");
         return;
       }
@@ -589,7 +604,7 @@ class PiWorktrees {
       this.protectedSession = true;
       this.sandboxExecutable = findSandboxExecutable();
       this.enableWorktreeTools();
-      ctx.ui.setStatus("worktrees", "wt protected");
+      ctx.ui.setStatus("worktrees", `wt ${this.primaryWorktreePolicy.policy}`);
       return;
     }
 
@@ -755,7 +770,7 @@ class PiWorktrees {
       );
       return;
     }
-    if (this.primaryProtection?.protect === false) {
+    if (this.primaryWorktreePolicy?.policy === "never") {
       this.report(
         ctx,
         "Configuration already allows primary worktree changes in this repository.",
@@ -953,10 +968,10 @@ class PiWorktrees {
     ];
     if (!context.linked) {
       const protection = this.protectedSession
-        ? "protected"
+        ? `protected (${this.primaryWorktreePolicy?.policy ?? "unknown"})`
         : this.sessionAllowsPrimary
           ? "allowed for this session"
-          : this.primaryProtection?.protect === false
+          : this.primaryWorktreePolicy?.policy === "never"
             ? "allowed by configuration"
             : "not active";
       lines.push(`Primary worktree: ${protection}`);

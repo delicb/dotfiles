@@ -8,11 +8,13 @@ Pi keeps all tools available in a protected primary Git worktree. It blocks `edi
 
 On macOS, Pi runs direct and batched `bash` commands in a sandbox. Commands can read the repository, but write attempts fail. The tool result tells the agent to call `worktree_prepare`. If `sandbox-exec` is unavailable, shell commands run without this limit.
 
-Other tools, including MCP tools, remain unrestricted. Before intended code changes, the agent calls `worktree_prepare` to ask where it should continue.
+Other tools, including MCP tools, remain unrestricted. Before code changes, the agent calls `worktree_prepare` to apply the repository policy.
 
-The user can select the requested worktree or allow primary worktree changes for the current Pi session. Cancellation creates no worktree. Modes without UI also create no worktree.
+The `always` policy uses the requested worktree without a prompt. The `never` policy permits primary worktree changes. The `ask` policy prompts the user.
 
-Global settings can protect or allow primary worktrees by default. Repository rules can override that default.
+If the `ask` prompt is cancelled, Pi creates no worktree. Modes without UI cannot use the `ask` prompt.
+
+A global policy applies by default. Repository entries can override that policy.
 
 The package copies the Pi session to the selected worktree. Pi then reloads its tools, settings, skills, and context files for that directory.
 
@@ -51,29 +53,32 @@ Set `worktrees` in `~/.pi/agent/settings.json`:
 ```json
 {
   "worktrees": {
-    "protectPrimaryByDefault": true,
-    "allow": [
-      "dotfiles",
-      "~/src/github.com/example/scratch"
-    ],
-    "deny": [
-      "linear-app",
-      "/Users/example/work/github.com/linear/linear-app"
-    ]
+    "default": "ask",
+    "repositories": {
+      "dotfiles": "never",
+      "~/src/github.com/example/scratch": "always",
+      "/Users/example/work/github.com/linear/linear-app": "ask"
+    }
   }
 }
 ```
 
-Each entry must contain a repository folder name or an absolute repository root path. Paths can start with `~`.
+Use one of these policies:
+
+- `always`: Use the requested linked worktree without a prompt.
+- `never`: Allow changes in the primary worktree.
+- `ask`: Ask whether to use the requested worktree or the primary worktree.
+
+Each repository key must be a root folder name or an absolute repository root path. Paths can start with `~`.
 
 The extension applies policy in this order:
 
 1. `/worktree allow-primary` allows the current session.
-2. A matching `deny` entry protects the primary worktree.
-3. A matching `allow` entry allows primary worktree changes.
-4. `protectPrimaryByDefault` supplies the result when neither list matches.
+2. An exact repository path match sets the policy.
+3. A repository folder name match sets the policy.
+4. `default` sets the policy when no repository entry matches.
 
-A `deny` entry wins when both lists match. A folder name matches all repositories with that root folder name.
+An exact path match takes priority over a folder name match.
 
 ## Cleanup safety
 

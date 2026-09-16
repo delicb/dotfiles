@@ -4,42 +4,58 @@ import { parseWorktreeSettings } from "./loader";
 describe("parseWorktreeSettings", () => {
   it("uses safe defaults when worktree settings are absent", () => {
     expect(parseWorktreeSettings({}).config).toEqual({
-      protectPrimaryByDefault: true,
-      allow: [],
-      deny: [],
+      default: "ask",
+      repositories: {},
     });
   });
 
-  it("loads the default and repository lists", () => {
+  it("loads the default and repository policies", () => {
     expect(
       parseWorktreeSettings({
         worktrees: {
-          protectPrimaryByDefault: false,
-          allow: ["linear-app", " /repos/dotfiles "],
-          deny: ["production"],
+          default: "always",
+          repositories: {
+            " linear-app ": "never",
+            "/repos/dotfiles": "ask",
+          },
         },
       }).config,
     ).toEqual({
-      protectPrimaryByDefault: false,
-      allow: ["linear-app", "/repos/dotfiles"],
-      deny: ["production"],
+      default: "always",
+      repositories: {
+        "linear-app": "never",
+        "/repos/dotfiles": "ask",
+      },
     });
   });
 
   it("ignores invalid values and reports warnings", () => {
     const result = parseWorktreeSettings({
       worktrees: {
-        protectPrimaryByDefault: "yes",
-        allow: ["linear-app", "", 42],
-        deny: "production",
+        default: "sometimes",
+        repositories: {
+          "": "always",
+          "linear-app": "sometimes",
+          dotfiles: "never",
+        },
       },
     });
 
     expect(result.config).toEqual({
-      protectPrimaryByDefault: true,
-      allow: ["linear-app"],
-      deny: [],
+      default: "ask",
+      repositories: { dotfiles: "never" },
     });
-    expect(result.warnings).toHaveLength(3);
+    expect(result.warnings).toHaveLength(2);
+  });
+
+  it("rejects a non-object repository map", () => {
+    const result = parseWorktreeSettings({
+      worktrees: {
+        repositories: ["linear-app"],
+      },
+    });
+
+    expect(result.config.repositories).toEqual({});
+    expect(result.warnings).toHaveLength(1);
   });
 });

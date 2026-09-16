@@ -4,9 +4,11 @@
     "enabled": true
   },
   "worktrees": {
-    "protectPrimaryByDefault": true,
-    "allow": [],
-    "deny": []
+    "default": "ask",
+    "repositories": {
+      "~/work/linear-app": "always",
+      "~/.local/share/chezmoi": "ask"
+    }
   },
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
