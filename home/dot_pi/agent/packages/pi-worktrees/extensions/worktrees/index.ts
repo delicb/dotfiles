@@ -17,6 +17,11 @@ import {
 import { Type } from "typebox";
 import { loadWorktreeConfig } from "../../src/config";
 import {
+  type CleanupCandidate,
+  formatCleanupCandidate,
+  parseCleanupCandidates,
+} from "../../src/core/cleanup";
+import {
   ActiveWorktreeLeaseError,
   LeaseStore,
   type WorktreeLease,
@@ -60,6 +65,7 @@ const HEARTBEAT_INTERVAL_MS = 30_000;
 const WORKTREE_TOOLS = [
   "worktree_cleanup",
   "worktree_finish",
+  "worktree_gc",
   "worktree_prepare",
   "worktree_status",
 ] as const;
@@ -99,10 +105,15 @@ interface PrepareDetails {
 }
 
 interface CleanupDetails {
-  target: string;
+  queued: boolean;
+  target?: string;
 }
 
 interface FinishDetails {
+  queued: boolean;
+}
+
+interface GcDetails {
   queued: boolean;
 }
 
@@ -422,29 +433,68 @@ class PiWorktrees {
         name: "worktree_cleanup",
         label: "Clean Worktree",
         description:
-          "Remove an inactive linked worktree when it has no tracked or untracked changes.",
-        promptSnippet: "Safely remove an inactive linked worktree",
+          "Clean the current linked worktree or select an inactive clean worktree.",
+        promptSnippet: "Safely clean a linked worktree",
         promptGuidelines: [
-          "Use worktree_cleanup only when the user asks to remove an inactive worktree.",
-          "Use worktree_finish instead of worktree_cleanup for the current worktree.",
+          "Use worktree_cleanup only when the user asks to clean a worktree.",
+          "Call worktree_cleanup without a target to clean the current linked worktree or select an inactive one.",
         ],
         parameters: Type.Object({
-          target: Type.String({
-            description: "Branch name or worktree path to remove",
-            minLength: 1,
-          }),
+          target: Type.Optional(
+            Type.String({
+              description: "Optional branch name or worktree path to remove",
+              minLength: 1,
+            }),
+          ),
         }),
         execute: async (
           _toolCallId,
           params,
-          signal,
-          _onUpdate,
-          ctx,
         ): Promise<AgentToolResult<CleanupDetails>> => {
-          const result = await this.cleanup(ctx.cwd, params.target, signal);
+          const target = params.target?.trim();
+          this.pi.sendUserMessage(
+            `/worktree cleanup${target ? ` ${target}` : ""}`,
+            {
+              deliverAs: "followUp",
+              expandPromptTemplates: true,
+            },
+          );
           return {
-            content: [{ type: "text", text: result }],
-            details: { target: params.target },
+            content: [
+              { type: "text", text: "Queued the worktree cleanup command." },
+            ],
+            details: { queued: true, target },
+            terminate: true,
+          };
+        },
+      }),
+    );
+
+    this.pi.registerTool(
+      defineTool({
+        name: "worktree_gc",
+        label: "Collect Worktrees",
+        description:
+          "Find clean, inactive, integrated worktrees and request confirmation before removal.",
+        promptSnippet: "Find and remove unused integrated worktrees",
+        promptGuidelines: [
+          "Use worktree_gc only when the user asks to remove unused worktrees.",
+        ],
+        parameters: Type.Object({}),
+        execute: async (): Promise<AgentToolResult<GcDetails>> => {
+          this.pi.sendUserMessage("/worktree gc", {
+            deliverAs: "followUp",
+            expandPromptTemplates: true,
+          });
+          return {
+            content: [
+              {
+                type: "text",
+                text: "Queued the worktree garbage collection command.",
+              },
+            ],
+            details: { queued: true },
+            terminate: true,
           };
         },
       }),
@@ -456,6 +506,7 @@ class PiWorktrees {
       "allow-primary",
       "cleanup",
       "finish",
+      "gc",
       "join",
       "start",
       "status",
@@ -495,10 +546,13 @@ class PiWorktrees {
             case "cleanup":
               await this.cleanupFromCommand(rest, ctx);
               return;
+            case "gc":
+              await this.gcFromCommand(ctx);
+              return;
             default:
               this.report(
                 ctx,
-                "Use /worktree status, allow-primary, start <branch> [base], join <branch-or-path>, finish, or cleanup <branch-or-path>.",
+                "Use /worktree status, allow-primary, start <branch> [base], join <branch-or-path>, finish, cleanup [branch-or-path], or gc.",
                 "error",
               );
           }
@@ -884,17 +938,150 @@ class PiWorktrees {
     ctx: ExtensionCommandContext,
   ): Promise<void> {
     const target = args.join(" ");
-    if (!target) {
+    if (target) {
+      const result = await this.cleanup(ctx.cwd, target, ctx.signal);
+      this.report(ctx, result, "info");
+      return;
+    }
+
+    const context = await this.requireGitContext(ctx.cwd, ctx.signal);
+    if (context.linked) {
+      await this.finish(ctx);
+      return;
+    }
+
+    if (!ctx.hasUI) {
       this.report(
         ctx,
-        "Use /worktree cleanup <branch-or-path>. Use /worktree finish to clean the current worktree.",
-        "error",
+        "Use /worktree cleanup <branch-or-path> because this mode cannot show a picker.",
+        "warning",
       );
       return;
     }
 
-    const result = await this.cleanup(ctx.cwd, target, ctx.signal);
+    const candidates = await this.findCleanupCandidates(
+      context,
+      false,
+      ctx.signal,
+    );
+    if (candidates.length === 0) {
+      this.report(ctx, "No inactive clean worktrees are available.", "info");
+      return;
+    }
+
+    const labels = candidates.map(formatCleanupCandidate);
+    const selection = await ctx.ui.select(
+      "Select an inactive worktree to remove",
+      labels,
+    );
+    if (!selection) {
+      this.report(ctx, "Worktree cleanup was cancelled.", "info");
+      return;
+    }
+
+    const candidate = candidates[labels.indexOf(selection)];
+    if (!candidate) throw new Error("The selected worktree is not available.");
+
+    const confirmed = await ctx.ui.confirm(
+      "Remove worktree?",
+      `${formatCleanupCandidate(candidate)}\nWorktrunk keeps the branch when it contains unmerged work.`,
+    );
+    if (!confirmed) {
+      this.report(ctx, "Worktree cleanup was cancelled.", "info");
+      return;
+    }
+
+    const result = await this.cleanup(ctx.cwd, candidate.path, ctx.signal);
     this.report(ctx, result, "info");
+  }
+
+  private async gcFromCommand(ctx: ExtensionCommandContext): Promise<void> {
+    const context = await this.requireGitContext(ctx.cwd, ctx.signal);
+    const candidates = await this.findCleanupCandidates(
+      context,
+      true,
+      ctx.signal,
+    );
+    if (candidates.length === 0) {
+      this.report(
+        ctx,
+        "No clean, inactive, integrated worktrees are available.",
+        "info",
+      );
+      return;
+    }
+
+    const summary = candidates.map(formatCleanupCandidate).join("\n");
+    if (!ctx.hasUI) {
+      this.report(
+        ctx,
+        `Garbage collection needs confirmation. No worktrees were removed.\n${summary}`,
+        "warning",
+      );
+      return;
+    }
+
+    const confirmed = await ctx.ui.confirm(
+      `Remove ${candidates.length} unused worktree${candidates.length === 1 ? "" : "s"}?`,
+      summary,
+    );
+    if (!confirmed) {
+      this.report(ctx, "Worktree garbage collection was cancelled.", "info");
+      return;
+    }
+
+    const removed: CleanupCandidate[] = [];
+    const failures: string[] = [];
+    for (const candidate of candidates) {
+      try {
+        await this.cleanup(ctx.cwd, candidate.path, ctx.signal);
+        removed.push(candidate);
+      } catch (error) {
+        failures.push(`${candidate.path}: ${errorMessage(error)}`);
+      }
+    }
+
+    const lines = [
+      `Removed ${removed.length} worktree${removed.length === 1 ? "" : "s"}.`,
+      ...removed.map((candidate) => `- ${candidate.path}`),
+    ];
+    if (failures.length > 0) {
+      lines.push(
+        `Could not remove ${failures.length} worktree${failures.length === 1 ? "" : "s"}:`,
+        ...failures.map((failure) => `- ${failure}`),
+      );
+    }
+    this.report(
+      ctx,
+      lines.join("\n"),
+      failures.length > 0 ? "warning" : "info",
+    );
+  }
+
+  private async findCleanupCandidates(
+    context: GitContext,
+    integratedOnly: boolean,
+    signal: AbortSignal | undefined,
+  ): Promise<CleanupCandidate[]> {
+    const listed = await this.run(
+      "wt",
+      ["-C", context.primaryPath, "list", "--format=json"],
+      context.primaryPath,
+      signal,
+    );
+    const parsed = parseCleanupCandidates(
+      listed.stdout,
+      context.root,
+      integratedOnly,
+    );
+    const store = new LeaseStore(context.commonGitDir);
+    const candidates: CleanupCandidate[] = [];
+    for (const candidate of parsed) {
+      if ((await store.listActive(candidate.path)).length === 0) {
+        candidates.push(candidate);
+      }
+    }
+    return candidates;
   }
 
   private async cleanup(

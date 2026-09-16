@@ -37,7 +37,8 @@ Concurrent agents can overwrite each other's changes. Share a worktree only when
 
 - `worktree_status` lists worktrees and active Pi leases.
 - `worktree_finish` leaves and cleans the current worktree after a direct user request.
-- `worktree_cleanup` removes an inactive worktree after a direct user request.
+- `worktree_cleanup` cleans the current worktree or a selected inactive worktree after a direct user request.
+- `worktree_gc` finds clean, inactive, integrated worktrees and requests confirmation before removal.
 
 ## User commands
 
@@ -46,7 +47,9 @@ Concurrent agents can overwrite each other's changes. Share a worktree only when
 - `/worktree start <branch> [base]` creates a worktree and moves the session.
 - `/worktree join <branch-or-path>` moves the session into an existing worktree.
 - `/worktree finish` moves the session to the primary worktree and requests cleanup.
-- `/worktree cleanup <branch-or-path>` removes an unused worktree.
+- `/worktree cleanup` finishes the current linked worktree or shows an inactive-worktree picker from the primary worktree.
+- `/worktree cleanup <branch-or-path>` removes the named clean worktree.
+- `/worktree gc` requests confirmation before it removes clean, inactive, integrated worktrees.
 
 For the `always` and `ask` policies, only the user can allow primary worktree changes. Do not infer this choice.
 
@@ -55,6 +58,8 @@ For the `always` and `ask` policies, only the user can allow primary worktree ch
 Cleanup stops when another Pi session holds a lease.
 
 Cleanup also stops for staged changes, tracked changes, or untracked files. Git-ignored generated files do not block Worktrunk removal.
+
+Garbage collection excludes the primary worktree, the current worktree, active leases, dirty worktrees, and unmerged worktrees.
 
 Worktrunk keeps an unmerged branch unless the user explicitly requests branch deletion. Do not use `wt remove --force` or `wt remove --force-delete` without direct user approval.
 

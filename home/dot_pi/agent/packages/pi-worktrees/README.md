@@ -27,6 +27,7 @@ worktree_prepare
 worktree_status
 worktree_finish
 worktree_cleanup
+worktree_gc
 ```
 
 The finish and cleanup tools run only after a direct user request.
@@ -39,12 +40,17 @@ The finish and cleanup tools run only after a direct user request.
 /worktree start <branch> [base]
 /worktree join <branch-or-path>
 /worktree finish
-/worktree cleanup <branch-or-path>
+/worktree cleanup [branch-or-path]
+/worktree gc
 ```
 
 `allow-primary` allows changes in the primary worktree for the current saved Pi session. It overrides the configured repository policy.
 
 `finish` returns the Pi session to the primary worktree before cleanup. This prevents Pi from holding the directory that Worktrunk removes.
+
+`cleanup` without a target finishes the current linked worktree. From the primary worktree, it shows a picker of inactive clean worktrees.
+
+`gc` finds clean, inactive, integrated worktrees. It shows all candidates and requests confirmation before removal.
 
 ## Configuration
 
@@ -83,6 +89,8 @@ An exact path match takes priority over a folder name match.
 ## Cleanup safety
 
 Cleanup blocks on active Pi leases and non-ignored working tree changes. Worktrunk removes Git-ignored generated files and keeps unmerged branches.
+
+Garbage collection excludes the primary worktree, the current worktree, active leases, dirty worktrees, and unmerged worktrees.
 
 The extension never passes `--force` or `--force-delete` to Worktrunk.
 
