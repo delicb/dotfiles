@@ -27,6 +27,8 @@ Review every prose output against these rules before delivering.
 
 ## Hunkpad
 
+- For code reviews, run `hunkpad watch` in the worktree under review. Open its URL with `terminal-browser open <url> --split right`.
+- Use `terminal-browser action` to inspect the diff. Run `terminal-browser action done` when you finish.
 - Use the Hunkpad review flow when the user asks you to read or address Hunkpad feedback.
 
 ## Coding comments
