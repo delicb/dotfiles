@@ -45,60 +45,69 @@ function mouseHighlight()
 end
 hs.hotkey.bind({"cmd", "alt", "shift"}, "D", mouseHighlight)
 
--- show terminal on current desktop, open it if needed
--- tp make this work, workaround is needed - open Ghostty and do right click on in in Dock,
---   select Options -> Assign to All Desktops. This is needed because Apple made private API
---   that was needed for activeSpaceOnScreen function since MacOS Sequoia
+local ghosttyBundleID = "com.mitchellh.ghostty"
+local pendingGhosttyTimer
+
+local function placeGhostty(win, screen)
+	local frame = win:frame()
+	local display = screen:frame()
+
+	frame.w = math.min(frame.w, display.w)
+	frame.h = display.h
+	frame.x = display.x + display.w - frame.w
+	frame.y = display.y
+
+	win:setFrame(frame, 0.4)
+	win:focus()
+end
+
 hs.hotkey.bind({"alt"}, "`", function()
-	local APP_NAME = "ghostty"
-	local APP_BUNDLE = "com.mitchellh.ghostty"
-
-	function moveWindow(terminal)
-		-- screen to move termonal to, always main one
-		local screen = hs.screen.find({x=0, y=0})
-
-		local win = nil
-		while win == nil do
-			win = terminal:mainWindow()
-		end
-		winFrame = win:frame()
-		
-		scrFrame = screen:frame()
-		local width = math.min(winFrame.w, scrFrame.w)
-		winFrame.w = width
-		winFrame.h = scrFrame.h
-		winFrame.x = scrFrame.x + scrFrame.w - width
-		winFrame.y = scrFrame.y
-		win:setFrame(winFrame, 0.4)
-		hs.spaces.moveWindowToSpace(win, hs.spaces.activeSpaceOnScreen(screen))
-		win:focus()
+	if pendingGhosttyTimer then
+		pendingGhosttyTimer:stop()
+		pendingGhosttyTimer = nil
+		local app = hs.application.get(ghosttyBundleID)
+		if app then app:hide() end
+		return
 	end
 
-	local terminal = hs.application.get(APP_BUNDLE)
-
-	if terminal ~= nil and terminal:isFrontmost() then
-		terminal:hide()
-	else
-		local space = hs.spaces.activeSpaceOnScreen()
-		print("activeSpace() = ", space)
-		if terminal == nil and hs.application.launchOrFocusByBundleID(APP_BUNDLE) then
-			local appWatcher = nil
-			print("create app watcher")
-			appWatcher = hs.application.watcher.new(function(name, event, app)
-				if event == hs.application.watcher.launched and name == APP_NAME then
-					app:hide()
-					moveWindow(app)
-					appWatcher:stop()
-				end
-			end)
-			print('start watcher')
-			appWatcher:start()
-		end
-		if terminal ~= nil then
-			print("moving window: ", APP_NAME, " = ", terminal, "space = ", space)
-			moveWindow(terminal)
-		end
+	local app = hs.application.get(ghosttyBundleID)
+	if app and app:isFrontmost() then
+		app:hide()
+		return
 	end
+
+	local screen = hs.screen.primaryScreen()
+	if not screen then return end
+
+	if not hs.application.launchOrFocusByBundleID(ghosttyBundleID) then
+		hs.alert.show("Could not open Ghostty")
+		return
+	end
+
+	local function placeWhenReady()
+		local runningApp = hs.application.get(ghosttyBundleID)
+		local win = runningApp and
+			(runningApp:mainWindow() or runningApp:focusedWindow())
+		if not win then return false end
+
+		placeGhostty(win, screen)
+		return true
+	end
+
+	if placeWhenReady() then return end
+
+	local attempts = 0
+	pendingGhosttyTimer = hs.timer.doEvery(0.1, function()
+		attempts = attempts + 1
+		local placed = placeWhenReady()
+		if placed or attempts >= 50 then
+			pendingGhosttyTimer:stop()
+			pendingGhosttyTimer = nil
+			if not placed then
+				hs.alert.show("Ghostty did not open a window")
+			end
+		end
+	end)
 end)
 
 -- utility function to check if a string starts with another string
