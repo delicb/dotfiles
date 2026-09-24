@@ -36,6 +36,7 @@ delay_seconds = 1
 enabled = true
 
 [experimental]
+kitty_graphics = true
 # Keeps pane screen history after a server restart.
 pane_history = true
 
