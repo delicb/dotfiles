@@ -18,7 +18,7 @@
   "enableSkillCommands": true,
   "packages": [
     "npm:pi-screenshots-picker",
-    "npm:@vanillagreen/pi-tool-renderer",
+    "./packages/compact-tools",
     "npm:@aliou/pi-guardrails",
     "./packages/rtk-rewrite",
     "./packages/pi-worktrees",

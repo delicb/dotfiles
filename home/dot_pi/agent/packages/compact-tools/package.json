@@ -1,0 +1,32 @@
+{
+  "name": "pi-compact-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compact tool rows for Pi, including codemode and MCP.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.99.2",
+    "@earendil-works/pi-tui": "0.99.2"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.99.2",
+    "@earendil-works/pi-tui": ">=0.99.2"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    }
+  },
+  "pi": {
+    "extensions": [
+      "./extensions/compact-tools.ts"
+    ]
+  }
+}
