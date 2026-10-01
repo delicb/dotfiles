@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "0.99.2",
   "compaction": {
     "enabled": true
   },
@@ -12,7 +12,7 @@
     }
   },
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-sol",
+  "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "xhigh",
   "hideThinkingBlock": true,
   "enableSkillCommands": true,
@@ -31,8 +31,6 @@
     "npm:pi-interactive-shell",
     "npm:pi-btw"
   ],
-  "workingVibe": "hpmor",
-  "workingVibeMode": "file",
   "extensions": [
     "-builtin:mcp"
   ],
