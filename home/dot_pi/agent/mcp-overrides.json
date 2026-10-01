@@ -1,0 +1,32 @@
+{
+  "$schema": "./packages/pi-mcp-config/mcp-overrides.schema.json",
+  "defaults": {
+    "exposure": "codemode"
+  },
+  "servers": {
+    "linear": {
+      "exposure": "codemode",
+      "toolExposure": {
+        "get_issue": "direct",
+        "list_comments": "direct",
+        "list_issues": "direct"
+      }
+    },
+    "datadog": {
+      "exposure": "codemode",
+      "toolExposure": {
+        "search_datadog_logs": "direct",
+        "get_datadog_metric": "direct",
+        "analyze_datadog_logs": "direct",
+        "search_datadog_metrics": "direct"
+      }
+    },
+    "linear-admin": {
+      "exposure": "codemode",
+      "toolExposure": {
+        "ask_database": "direct",
+        "find_organizations": "direct"
+      }
+    }
+  }
+}

@@ -23,7 +23,7 @@
     "./packages/rtk-rewrite",
     "./packages/pi-worktrees",
     "./packages/pi-handover",
-    "npm:pi-mcp-adapter",
+    "./packages/pi-mcp-config",
     "npm:@aliou/pi-dev-kit",
     "./packages/pi-footer",
     "npm:pi-web-access",
@@ -33,6 +33,9 @@
   ],
   "workingVibe": "hpmor",
   "workingVibeMode": "file",
+  "extensions": [
+    "-builtin:mcp"
+  ],
   "theme": "catppuccin-mocha-contrast",
   "showHardwareCursor": true,
   "followUpMode": "one-at-a-time",

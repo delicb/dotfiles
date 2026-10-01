@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pi MCP overrides",
+  "description": "Set global defaults and per-server controls without changing shared server definitions.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "defaults": {
+      "$ref": "#/definitions/policy",
+      "description": "Apply these controls only when a server does not define them."
+    },
+    "servers": {
+      "type": "object",
+      "description": "Override controls for existing servers with these exact names.",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_-]+$"
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/policy"
+      }
+    }
+  },
+  "definitions": {
+    "exposure": {
+      "type": "string",
+      "enum": ["codemode", "deferred", "direct", "hidden", "codemode-deferred"]
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exposure": {
+          "$ref": "#/definitions/exposure",
+          "description": "Control how the model can call this server's tools."
+        },
+        "toolExposure": {
+          "type": "object",
+          "description": "Set exposure for exact tool names or patterns with *. Exact names win; the first matching pattern wins.",
+          "additionalProperties": {
+            "$ref": "#/definitions/exposure"
+          }
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Connect to the server when true. Do not start it when false."
+        }
+      }
+    }
+  }
+}
