@@ -1,11 +1,10 @@
 ---
 name: simplified-technical-english
 description: >-
-  Write user-facing and reviewer-facing technical text in ASD-STE100 Simplified
-  Technical English style. Always use this skill when writing or editing code
-  comments. Also use it for PR descriptions, commit message bodies, UI copy,
-  docs, error messages, procedures, onboarding text, or any product wording
-  that must stay clear for non-native readers.
+  Detailed Simplified Technical English guidance for long technical documents,
+  complex procedures, or an explicit request for the full skill. Routine replies,
+  code comments, PR text, and commit messages follow the core rules in AGENTS.md
+  without loading this skill.
 ---
 
 # Simplified Technical English (ASD-STE100)
