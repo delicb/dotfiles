@@ -26,6 +26,7 @@
     "./packages/pi-mcp-config",
     "npm:@aliou/pi-dev-kit",
     "./packages/pi-footer",
+    "./packages/pi-openai-fast",
     "npm:pi-web-access",
     "npm:@aliou/pi-processes",
     "npm:pi-interactive-shell",
