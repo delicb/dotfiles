@@ -1,0 +1,209 @@
+{
+  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.19.0/schema.json",
+  "policies": {
+    "rules": [
+      {
+        "id": "example-ssh-keys",
+        "name": "SSH keys",
+        "description": "Block SSH private key files",
+        "patterns": [
+          {
+            "pattern": "*.pem"
+          },
+          {
+            "pattern": "*_rsa"
+          },
+          {
+            "pattern": "*_ed25519"
+          }
+        ],
+        "allowedPatterns": [
+          {
+            "pattern": "*.pub"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true,
+        "enabled": true
+      },
+      {
+        "id": "example-secret-env-files",
+        "name": "Secret env files",
+        "description": "Block .env files and variants",
+        "patterns": [
+          {
+            "pattern": ".env"
+          },
+          {
+            "pattern": ".env.*"
+          }
+        ],
+        "allowedPatterns": [
+          {
+            "pattern": ".env.example"
+          },
+          {
+            "pattern": "*.sample.env"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true,
+        "enabled": true
+      },
+      {
+        "id": "example-aws-credentials",
+        "name": "AWS credentials",
+        "description": "Block AWS credentials and config files",
+        "patterns": [
+          {
+            "pattern": ".aws/credentials"
+          },
+          {
+            "pattern": ".aws/config"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true,
+        "enabled": true
+      },
+      {
+        "id": "example-database-files",
+        "name": "Database files",
+        "description": "Protect database files from modification",
+        "patterns": [
+          {
+            "pattern": "*.db"
+          },
+          {
+            "pattern": "*.sqlite"
+          },
+          {
+            "pattern": "*.sqlite3"
+          }
+        ],
+        "protection": "readOnly",
+        "onlyIfExists": true,
+        "enabled": true
+      },
+      {
+        "id": "example-k8s-secrets",
+        "name": "Kubernetes secrets",
+        "description": "Block kubectl config and secrets",
+        "patterns": [
+          {
+            "pattern": ".kube/config"
+          },
+          {
+            "pattern": "*kubeconfig*"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true,
+        "enabled": true
+      }
+    ]
+  },
+  "permissionGate": {
+    "patterns": [
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*brew\\b",
+        "description": "Homebrew package manager",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*docker(?:\\s+-\\S+(?:\\s+\\S+)?){0,4}\\s+inspect\\b",
+        "description": "Docker inspect (may expose env vars)",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*terraform(?:\\s+-\\S+(?:\\s+\\S+)?){0,4}\\s+apply\\b",
+        "description": "Terraform infrastructure changes",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*terraform(?:\\s+-\\S+(?:\\s+\\S+)?){0,4}\\s+destroy\\b",
+        "description": "Terraform infrastructure destruction",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*kubectl(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+delete\\b",
+        "description": "Kubernetes resource deletion",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*git(?:\\s+-\\S+(?:\\s+\\S+)?){0,4}\\s+push(?:\\s+\\S+)*\\s+(?:--force(?:-with-lease)?|-f)\\b",
+        "description": "Git force push",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*npm(?:\\s+-\\S+(?:\\s+\\S+)?){0,4}\\s+publish\\b",
+        "description": "NPM package publishing",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*pnpm(?:\\s+-\\S+(?:\\s+\\S+)?){0,4}\\s+publish\\b",
+        "description": "PNPM package publishing",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:(?:psql|mysql|mariadb|sqlite3)\\b[^\\n;]*\\b[Dd][Rr][Oo][Pp]\\s+[Dd][Aa][Tt][Aa][Bb][Aa][Ss][Ee]\\b|[^\\n;]*\\b[Dd][Rr][Oo][Pp]\\s+[Dd][Aa][Tt][Aa][Bb][Aa][Ss][Ee]\\b[^\\n;]*\\|\\s*(?:psql|mysql|mariadb|sqlite3)\\b)",
+        "description": "SQL database drop",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:(?:psql|mysql|mariadb|sqlite3)\\b[^\\n;]*\\b[Dd][Rr][Oo][Pp]\\s+[Tt][Aa][Bb][Ll][Ee]\\b|[^\\n;]*\\b[Dd][Rr][Oo][Pp]\\s+[Tt][Aa][Bb][Ll][Ee]\\b[^\\n;]*\\|\\s*(?:psql|mysql|mariadb|sqlite3)\\b)",
+        "description": "SQL table drop",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*kubectl(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+apply\\b",
+        "description": "Kubernetes resource application",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*kubectl(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+scale\\b",
+        "description": "Kubernetes scaling operation",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*terraform(?:\\s+-\\S+(?:\\s+\\S+)?){0,4}\\s+import\\b",
+        "description": "Terraform resource import",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*gcloud(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+compute\\s+instances\\s+delete\\b",
+        "description": "GCP compute instance deletion",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*gcloud(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+iam\\b",
+        "description": "GCP IAM permission changes",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*gcloud(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+sql\\s+instances\\s+delete\\b",
+        "description": "GCP Cloud SQL instance deletion",
+        "regex": true
+      }
+    ],
+    "autoDenyPatterns": [
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*terraform(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+(?:apply|destroy|import|refresh|taint|untaint)\\b",
+        "description": "Terraform infrastructure or state mutation",
+        "regex": true
+      },
+      {
+        "pattern": "(^|\\n|[;&]\\s+|&&\\s+|\\|\\|\\s+|\\|\\s+)\\s*(?:[A-Za-z_][A-Za-z0-9_]*=\\S+\\s+)*terraform(?:\\s+-\\S+(?:\\s+\\S+)?){0,6}\\s+state\\s+(?:mv|rm|push|replace-provider)\\b",
+        "description": "Terraform state mutation",
+        "regex": true
+      }
+    ]
+  },
+  "applyBuiltinDefaults": true,
+  "onboarding": {
+    "completed": true,
+    "completedAt": "2026-04-28T07:44:23.343Z",
+    "version": "0.9.0-20260327"
+  },
+  "version": "0.19.0"
+}
