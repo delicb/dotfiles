@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.99.2",
+  "lastChangelogVersion": "1.0.3",
   "compaction": {
     "enabled": true
   },
@@ -29,7 +29,8 @@
     "npm:pi-web-access",
     "npm:@aliou/pi-processes",
     "npm:pi-interactive-shell",
-    "npm:pi-btw"
+    "npm:pi-btw",
+    "npm:pi-anthropic-oauth"
   ],
   "extensions": [
     "-builtin:mcp"
@@ -58,5 +59,17 @@
     ]
   },
   "tuiMode": "fullscreen",
-  "outputPad": 1
+  "outputPad": 1,
+  "enabledModels": [
+    "openai-codex/gpt-5.3-codex-spark",
+    "openai-codex/gpt-5.5",
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-6-sol",
+    "openai-codex/gpt-6.1-sol",
+    "anthropic/claude-opus-5-5"
+  ]
 }
