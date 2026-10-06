@@ -37,7 +37,5 @@ end
 {{- end }}
 
 {{ if .include_Linear -}}
-if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]
-	. "$HOME/google-cloud-sdk/path.fish.inc"
-end
+fish_add_path --path --prepend $HOME/google-cloud-sdk/bin
 {{- end }}
