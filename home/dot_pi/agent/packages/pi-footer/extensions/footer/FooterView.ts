@@ -39,18 +39,28 @@ export const FooterView = {
       segments.push(theme.fg("syntaxType", `⎇ ${singleLine(branch)}`));
     }
     const left = segments.join(separator);
-    const status = statusText(statuses);
+    const fastStatus = singleLine(
+      stripTerminalSequences(statuses.get(FAST_STATUS_KEY) ?? ""),
+    );
+    const fastWidth = visibleWidth(fastStatus);
+    const availableFast =
+      width - visibleWidth(context) - visibleWidth(separator);
+    const fast = fastWidth > 0 && fastWidth <= availableFast ? fastStatus : "";
+    const contextStatus = fast
+      ? `${theme.fg("accent", fast)}${separator}${context}`
+      : context;
+    const status = statusText(statuses, fast ? FAST_STATUS_KEY : undefined);
     const inline =
       status.length > 0 &&
       visibleWidth(left) +
         2 +
         visibleWidth(status) +
         2 * visibleWidth(separator) +
-        visibleWidth(context) <=
+        visibleWidth(contextStatus) <=
         width;
     const right = inline
-      ? `${separator}${theme.fg("dim", status)}${separator}${context}`
-      : context;
+      ? `${separator}${theme.fg("dim", status)}${separator}${contextStatus}`
+      : contextStatus;
     const statusLines = inline ? [] : renderStatuses(status, theme, width);
     const available = width - visibleWidth(right) - 2;
     if (available < 1) {
@@ -105,10 +115,15 @@ export type FooterLayout = {
   statuses: string[];
 };
 
+const FAST_STATUS_KEY = "openai-fast";
 const emptyStatuses: ReadonlyMap<string, string> = new Map();
 
-function statusText(statuses: ReadonlyMap<string, string>): string {
+function statusText(
+  statuses: ReadonlyMap<string, string>,
+  excludedKey?: string,
+): string {
   return Array.from(statuses.entries())
+    .filter(([key]) => key !== excludedKey)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([, value]) => singleLine(stripTerminalSequences(value)))
     .filter((value) => visibleWidth(value) > 0)

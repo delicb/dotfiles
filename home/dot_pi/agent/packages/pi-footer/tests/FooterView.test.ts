@@ -1,4 +1,4 @@
-import { visibleWidth } from "@earendil-works/pi-tui";
+import { stripTerminalSequences, visibleWidth } from "@earendil-works/pi-tui";
 import { describe, expect, it, vi } from "vitest";
 import {
   type FooterSnapshot,
@@ -177,6 +177,106 @@ describe("FooterView", () => {
     expect(layout.statuses).toEqual(["rtk on · wt always"]);
   });
 
+  it("keeps Fast mode beside context when other statuses do not fit", () => {
+    const statuses = new Map([
+      ["openai-fast", "⚡️"],
+      ["notice", "[Processes] ".repeat(30)],
+      ["rtk", "rtk on"],
+    ]);
+    theme.fg.mockClear();
+    const layout = FooterView.layout(
+      state,
+      "a-very-long-branch-name".repeat(5),
+      theme,
+      64,
+      statuses,
+    );
+    expect(layout.primary[0]).toMatch(/⚡️ · ctx 23\.5%$/);
+    expect(visibleWidth(layout.primary[0] ?? "")).toBe(64);
+    expect(layout.statuses).toEqual(
+      FooterView.statuses(
+        new Map([
+          ["notice", statuses.get("notice") ?? ""],
+          ["rtk", "rtk on"],
+        ]),
+        theme,
+        64,
+      ),
+    );
+    expect(theme.fg).toHaveBeenCalledWith("accent", "⚡️");
+  });
+
+  it("places Fast mode after other inline statuses without duplicating it", () => {
+    const statuses = new Map([
+      ["openai-fast", "⚡️"],
+      ["rtk", "rtk on"],
+      ["worktrees", "wt always"],
+    ]);
+    const layout = FooterView.layout(state, "master", theme, 160, statuses);
+    expect(layout.primary[0]).toMatch(/rtk on · wt always · ⚡️ · ctx 23\.5%$/);
+    expect(layout.statuses).toEqual([]);
+    expect(layout.primary[0]?.match(/⚡️/g)).toHaveLength(1);
+  });
+
+  it.each([
+    "⚡️",
+    "\x1b[33m⚡️\x1b[0m",
+    " ⚡️\n",
+  ])("preserves the Fast emoji in %j", (status) => {
+    const statuses = new Map([["openai-fast", status]]);
+    const layout = FooterView.layout(state, "master", theme, 120, statuses);
+    expect(layout.primary[0]).toContain("⚡️ · ctx 23.5%");
+    expect(layout.statuses).toEqual([]);
+  });
+
+  it("does not split the Fast emoji on narrow screens", () => {
+    const statuses = new Map([["openai-fast", "⚡️"]]);
+    const minimumWidth = visibleWidth("⚡️ · ctx 23.5%");
+    const minimum = FooterView.layout(
+      state,
+      null,
+      theme,
+      minimumWidth,
+      statuses,
+    );
+    expect(stripTerminalSequences(minimum.primary[0] ?? "")).toBe(
+      "⚡️ · ctx 23.5%",
+    );
+    expect(minimum.statuses).toEqual([]);
+    const tiny = FooterView.layout(
+      state,
+      null,
+      theme,
+      minimumWidth - 1,
+      statuses,
+    );
+    expect(tiny.primary[0]).toMatch(/ctx 23\.5%$/);
+    expect(tiny.primary[0]).not.toContain("⚡️");
+    expect(tiny.statuses).toEqual(["⚡️"]);
+  });
+
+  it.each([
+    [{ ...state, contextPercent: null }, "ctx ?"],
+    [{ ...state, compacting: true }, "compacting"],
+  ] as const)("keeps Fast mode beside context state %j", (snapshot, context) => {
+    const statuses = new Map([["openai-fast", "⚡️"]]);
+    const layout = FooterView.layout(snapshot, "master", theme, 64, statuses);
+    expect(layout.primary[0]).toContain(`⚡️ · ${context}`);
+    expect(layout.statuses).toEqual([]);
+  });
+
+  it("removes the pinned status when Fast mode is disabled", () => {
+    const statuses = new Map([["openai-fast", "⚡️"]]);
+    expect(
+      FooterView.layout(state, "master", theme, 64, statuses).primary[0],
+    ).toContain("⚡️");
+    statuses.delete("openai-fast");
+    expect(FooterView.layout(state, "master", theme, 64, statuses)).toEqual({
+      primary: FooterView.primary(state, "master", theme, 64),
+      statuses: [],
+    });
+  });
+
   it("uses the exact fit boundary and responds to resizing", () => {
     const statuses = new Map([
       ["worktrees", "wt always"],
@@ -226,6 +326,7 @@ describe("FooterView", () => {
       ["blank", " \n "],
       ["ansi", "\x1b[0m"],
       ["zero-width", "\u200b"],
+      ["openai-fast", "\u200b"],
     ]);
     expect(FooterView.layout(state, "master", theme, 120, statuses)).toEqual({
       primary: FooterView.primary(state, "master", theme, 120),
@@ -238,7 +339,10 @@ describe("FooterView", () => {
   });
 
   it("keeps context warnings separate from dim status text", () => {
-    const statuses = new Map([["rtk", "\x1b[31mrtk on\x1b[0m"]]);
+    const statuses = new Map([
+      ["rtk", "\x1b[31mrtk on\x1b[0m"],
+      ["openai-fast", "\x1b[31m⚡️\x1b[0m"],
+    ]);
     theme.fg.mockClear();
     FooterView.layout(
       { ...state, contextPercent: 95 },
@@ -248,11 +352,12 @@ describe("FooterView", () => {
       statuses,
     );
     expect(theme.fg).toHaveBeenCalledWith("dim", "rtk on");
+    expect(theme.fg).toHaveBeenCalledWith("accent", "⚡️");
     expect(theme.fg).toHaveBeenCalledWith("error", "ctx 95.0%");
   });
 
   it.each([
-    1, 2, 10, 24, 64, 100, 200,
+    1, 2, 10, 13, 14, 15, 16, 17, 24, 64, 100, 200,
   ])("fits responsive status lines within %s columns", (width) => {
     const colors = {
       fg: (_color: string, text: string) =>
@@ -264,6 +369,7 @@ describe("FooterView", () => {
     const statuses = new Map([
       ["rtk", "\x1b[32mrtk on\x1b[0m"],
       ["worktrees", "wt 日本語🧪"],
+      ["openai-fast", "\x1b[32m⚡️\x1b[0m"],
     ]);
     const layout = FooterView.layout(
       { ...state, cwd: "/work/日本語🧪" },
@@ -277,6 +383,7 @@ describe("FooterView", () => {
       expect(visibleWidth(line)).toBeLessThanOrEqual(width);
     }
     expect(lines.join("").match(/rtk on/g)?.length ?? 0).toBeLessThanOrEqual(1);
+    expect(lines.join("").match(/⚡️/g)?.length ?? 0).toBeLessThanOrEqual(1);
   });
 
   it("renders no lines at zero width", () => {

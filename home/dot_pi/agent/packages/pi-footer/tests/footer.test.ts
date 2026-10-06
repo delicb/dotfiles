@@ -214,6 +214,18 @@ describe("footer extension", () => {
     expect(fixture.status(40)).toEqual(["rtk on · wt always"]);
   });
 
+  it("updates Fast status beside context while other statuses stay below", async () => {
+    const fixture = createFixture();
+    await fixture.emit("session_start");
+    fixture.statuses.set("notice", "[Processes] ".repeat(30));
+    fixture.statuses.set("openai-fast", "⚡️");
+    expect(fixture.primary(64)?.[0]).toContain("⚡️ · ctx 23.5%");
+    expect(fixture.status(64)?.join("")).not.toContain("⚡️");
+    fixture.statuses.delete("openai-fast");
+    expect(fixture.primary(64)?.[0]).not.toContain("⚡️");
+    expect(fixture.primary(64)?.[0]).toMatch(/ctx 23\.5%$/);
+  });
+
   it("refreshes the prompt, thinking level, and model", async () => {
     const fixture = createFixture();
     await fixture.emit("session_start");
