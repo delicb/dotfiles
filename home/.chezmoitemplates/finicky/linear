@@ -27,6 +27,7 @@ const LINEAR_DOMAINS: string[] = [
     "app.launchdarkly.com",
     "ngrok.io",
     "incident.io",
+    "intercom.com",
     "sanity.io",
     "awsapps.com",
     //"claude.ai",
