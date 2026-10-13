@@ -10,7 +10,7 @@
     ]
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-coding-agent": ">=1.2.0",
     "@earendil-works/pi-tui": "*"
   },
   "peerDependenciesMeta": {
@@ -22,8 +22,8 @@
     }
   },
   "devDependencies": {
-    "@earendil-works/pi-coding-agent": "0.99.2",
-    "@earendil-works/pi-tui": "0.99.2",
+    "@earendil-works/pi-coding-agent": "1.2.0",
+    "@earendil-works/pi-tui": "1.2.0",
     "@biomejs/biome": "2.4.15",
     "@types/node": "24.10.1",
     "typescript": "5.9.3",

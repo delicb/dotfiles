@@ -1,6 +1,6 @@
 # Pi footer
 
-A small local footer for Pi. Tested with Pi 0.99.2.
+A small local footer for Pi. Requires Pi 1.2.0 or later. Tested with Pi 1.2.0.
 
 ## Display
 
@@ -9,7 +9,9 @@ A small local footer for Pi. Tested with Pi 0.99.2.
 - Context percentage, with warnings above 70% and 90%.
 - The `⚡️` Fast mode indicator beside context usage, with the accent color.
 - Dim extension statuses with dot separators.
-- A one-line reminder of the last prompt.
+- A one-line reminder of the last user prompt.
+
+Custom-message runs, such as background-task notifications, preserve the last user prompt.
 
 The display uses your active Pi theme and monochrome Unicode icons. It needs no special font.
 The model uses the accent color. Thinking uses Pi's color for the active level.
@@ -49,4 +51,4 @@ pnpm typecheck
 pnpm lint
 ```
 
-These live files are not yet part of the chezmoi source.
+The chezmoi source is `home/dot_pi/agent/packages/pi-footer/`.

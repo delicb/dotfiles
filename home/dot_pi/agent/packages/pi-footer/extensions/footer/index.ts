@@ -130,7 +130,9 @@ export default function footerExtension(pi: ExtensionAPI): void {
     if (ctx.mode !== "tui") {
       return;
     }
-    state.prompt = event.prompt;
+    if (event.messageType === "user") {
+      state.prompt = event.prompt;
+    }
     refresh(ctx);
   });
 

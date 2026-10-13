@@ -1,4 +1,6 @@
 import type {
+  BeforeAgentStartCustomEvent,
+  BeforeAgentStartUserEvent,
   ExtensionAPI,
   ExtensionContext,
   Theme,
@@ -14,6 +16,20 @@ type FooterFactory = NonNullable<
   Parameters<ExtensionContext["ui"]["setFooter"]>[0]
 >;
 type FooterCommand = Parameters<ExtensionAPI["registerCommand"]>[1];
+type StartMessage =
+  | Pick<BeforeAgentStartUserEvent, "messageType" | "prompt">
+  | Pick<BeforeAgentStartCustomEvent, "messageType" | "message">;
+
+const customStart: StartMessage = {
+  messageType: "custom",
+  message: {
+    role: "custom",
+    customType: "test-notification",
+    content: "Background task completed",
+    display: true,
+    timestamp: 0,
+  },
+};
 
 function createFixture(mode: ExtensionContext["mode"] = "tui") {
   const handlers = new Map<string, Handler>();
@@ -109,6 +125,9 @@ function createFixture(mode: ExtensionContext["mode"] = "tui") {
     emit: async (name: string, event: unknown = {}) => {
       await handlers.get(name)?.(event, ctx);
     },
+    startRun: async (event: StartMessage) => {
+      await handlers.get("before_agent_start")?.(event, ctx);
+    },
     command: async (text: string) => {
       await commands
         .get("footer")
@@ -148,7 +167,8 @@ describe("footer extension", () => {
   ] as const)("does not install terminal UI in %s mode", async (mode) => {
     const fixture = createFixture(mode);
     await fixture.emit("session_start");
-    await fixture.emit("before_agent_start", { prompt: "New prompt" });
+    await fixture.startRun({ messageType: "user", prompt: "New prompt" });
+    await fixture.startRun(customStart);
     await fixture.emit("message_update", { message: { role: "assistant" } });
     await fixture.emit("session_before_compact");
     await fixture.emit("session_compact");
@@ -229,7 +249,7 @@ describe("footer extension", () => {
   it("refreshes the prompt, thinking level, and model", async () => {
     const fixture = createFixture();
     await fixture.emit("session_start");
-    await fixture.emit("before_agent_start", { prompt: "New\nprompt" });
+    await fixture.startRun({ messageType: "user", prompt: "New\nprompt" });
     fixture.setThinking("low");
     await fixture.emit("thinking_level_select");
     expect(fixture.primary()?.[0]).toContain("low");
@@ -239,6 +259,30 @@ describe("footer extension", () => {
     }
     await fixture.emit("model_select");
     expect(fixture.primary()?.[0]).toContain("other-model");
+  });
+
+  it("preserves the last user prompt across custom-message runs", async () => {
+    const fixture = createFixture();
+    await fixture.emit("session_start");
+    await fixture.startRun(customStart);
+    expect(fixture.prompt()).toEqual(["last: Previous prompt"]);
+
+    await fixture.startRun({ messageType: "user", prompt: "New prompt" });
+    expect(fixture.prompt()).toEqual(["last: New prompt"]);
+    fixture.usage.percent = 30;
+    fixture.requestRender.mockClear();
+    await fixture.startRun(customStart);
+    expect(fixture.prompt()).toEqual(["last: New prompt"]);
+    expect(fixture.primary()?.[0]).toContain("ctx 30.0%");
+    expect(fixture.requestRender).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps the prompt empty when a custom message starts a new session", async () => {
+    const fixture = createFixture();
+    fixture.getBranch.mockReturnValue([]);
+    await fixture.emit("session_start");
+    await fixture.startRun(customStart);
+    expect(fixture.prompt()).toEqual([]);
   });
 
   it("coalesces streaming refreshes and returns to native usage at turn end", async () => {
