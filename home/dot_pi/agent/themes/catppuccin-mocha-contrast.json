@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+	"$schema": "https://pi.dev/schemas/theme.schema.json",
 	"name": "catppuccin-mocha-contrast",
 	"vars": {
 		"rosewater": "#f5e0dc",
@@ -41,7 +41,7 @@
 		"thinkingText": "subtext",
 
 		"selectedBg": "surface0",
-		"userMessageBg": "surface0",
+		"userMessageBg": "#3b4d75",
 		"userMessageText": "text",
 		"customMessageBg": "surface",
 		"customMessageText": "text",
@@ -89,8 +89,6 @@
 	"export": {
 		"pageBg": "#11111b",
 		"cardBg": "#181825",
-		"infoBg": "#313244",
-		"text": "#cdd6f4",
-		"muted": "#6c7086"
+		"infoBg": "#313244"
 	}
 }

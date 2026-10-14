@@ -12,7 +12,7 @@
     }
   },
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6.1-sol",
+  "defaultModel": "gpt-6-astra",
   "defaultThinkingLevel": "xhigh",
   "hideThinkingBlock": true,
   "enableSkillCommands": true,
@@ -72,5 +72,11 @@
     "openai-codex/gpt-6-sol",
     "openai-codex/gpt-6.1-sol",
     "anthropic/claude-opus-5-5"
-  ]
+  ],
+  "editorPaddingX": 2,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "enableInstallTelemetry": false,
+  "treeFilterMode": "default"
 }

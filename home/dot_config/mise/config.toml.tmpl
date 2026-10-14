@@ -26,11 +26,12 @@ node = "latest"
 
 [settings]
 {{ if not .ephemeral -}}
+activate_aggressive = true
 legacy_version_file = false
 experimental = false
 raw = true
 python.uv_venv_auto = false
-python.compile = true
+python.compile = false
 {{ end -}}
 hook_env.chpwd_only = true
 hook_env.cache_ttl = "10s"
