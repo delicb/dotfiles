@@ -135,7 +135,7 @@ function uiHarness(manager) {
 
 test("supported Pi loader installs the plugin without changing model context or stored entries", async () => {
   assert.ok(
-    ["1.1.0", "1.2.0"].includes(VERSION),
+    ["1.1.0", "1.2.0", "1.3.0"].includes(VERSION),
     `Revalidate the workaround before adding support for Pi ${VERSION}.`,
   );
   const manager = createManager();
@@ -298,7 +298,7 @@ test("shutdown does not overwrite a later plugin's method override", async () =>
   assert.equal(manager.buildContextEntries, otherOverride);
 });
 
-for (const version of ["1.1.1", "1.2.1", "1.3.0", "2.0.0", "1.2.0-rc.1"]) {
+for (const version of ["1.1.1", "1.2.1", "1.3.1", "1.4.0", "2.0.0", "1.2.0-rc.1", "1.3.0-rc.1"]) {
   test(`unsupported Pi ${version} warns only in TUI mode and leaves the manager unchanged`, async () => {
     const source = stripTypeScriptTypes(readFileSync(extensionPath, "utf8"));
     const dependency = `data:text/javascript,${encodeURIComponent(`export const VERSION = ${JSON.stringify(version)};`)}`;
@@ -328,7 +328,7 @@ for (const version of ["1.1.1", "1.2.1", "1.3.0", "2.0.0", "1.2.0-rc.1"]) {
     await handlers.get("session_start")({}, { ...ctx, mode: "tui" });
     assert.equal(manager.buildContextEntries, original);
     assert.deepEqual(warnings, [[
-      `preserve-scrollback is disabled for Pi ${version}. Tested versions: 1.1.0, 1.2.0.`,
+      `preserve-scrollback is disabled for Pi ${version}. Tested versions: 1.1.0, 1.2.0, 1.3.0.`,
       "warning",
     ]]);
   });

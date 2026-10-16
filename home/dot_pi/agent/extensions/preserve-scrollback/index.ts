@@ -1,6 +1,6 @@
 import { type ExtensionAPI, type SessionEntry, VERSION } from "@earendil-works/pi-coding-agent";
 
-const SUPPORTED_PI_VERSIONS = ["1.1.0", "1.2.0"];
+const SUPPORTED_PI_VERSIONS = ["1.1.0", "1.2.0", "1.3.0"];
 
 export default function preserveScrollback(pi: ExtensionAPI): void {
   let restore: ((reason?: string) => void) | undefined;

@@ -12,7 +12,7 @@ No settings change is required.
 
 ## Compatibility
 
-Pi 1.1.0 and 1.2.0 are supported.
+Pi 1.1.0, 1.2.0, and 1.3.0 are supported.
 The extension runs only in TUI mode, including fullscreen and regular mode.
 It leaves print, JSON, and RPC modes unchanged.
 
@@ -24,7 +24,7 @@ Remove this extension when Pi provides a core fix.
 
 This is a runtime workaround, not a supported transcript customization API.
 It overrides the active session manager's `buildContextEntries()` method.
-Both tested Pi versions use that instance method for rendering, while model context uses a separate implementation.
+All tested Pi versions use that instance method for rendering, while model context uses a separate implementation.
 Other extensions that call this method will also receive the full branch.
 
 Pi requires the latest compaction entry first in its rendering input.
