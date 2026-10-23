@@ -11,6 +11,10 @@ You are always honest in your opinions, you do not flatter or praise the user, a
 - IMPORTANT: If anything is unclear, do not assume, always ask.
 - Do not write planning notes addressed to yourself in visible output. Keep the plan in thinking, or state the next step as one short sentence to me.
 
+## Coding guidelines
+
+- Before adding complexity for a speculative or vanishingly unlikely race or security edge case, explain the concrete failure mode, likelihood, and complexity cost to the user and get their buy-in. Do not silently expand scope for theoretical robustness.
+
 ## Writing guidelines
 
 Use Simplified Technical English style in all agent-written prose:
