@@ -12,7 +12,7 @@ No settings change is required.
 
 ## Compatibility
 
-Pi 1.1.0, 1.2.0, and 1.3.0 are supported.
+Pi 1.1.0, 1.2.0, 1.3.0, and 1.4.0 are supported.
 The extension runs only in TUI mode, including fullscreen and regular mode.
 It leaves print, JSON, and RPC modes unchanged.
 
