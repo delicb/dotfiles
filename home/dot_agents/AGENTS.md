@@ -64,6 +64,13 @@ These rules apply when the current session runs inside T3 Code.
 
 ## Code reviews
 
+- Reviews are read-only unless I explicitly request changes.
+- Use existing checkouts and `git show` or `git diff` for the requested revisions.
+- Do not create or join worktrees, call `worktree_prepare`, switch revisions, or install dependencies for read-only reviews.
+- Apply these limits to review subagents. Use the existing checkout without creating an isolated worktree.
+- For T3 delegated reviews, use `isolation: "shared"`.
+- In harnesses that expose `spawn.worktree`, set it to `false`.
+- If Hunkpad or verification requires repository writes, ask before proceeding.
 - Format every finding as a review comment, followed by the exact `path/to/file:line` reference where the comment belongs. Do not use a clickable Markdown link.
 - Only attach comments to added or modified lines in the reviewed diff. Unchanged context lines are not valid locations.
 - If a finding cannot be referenced to a changed line, do not include it as a review comment.
