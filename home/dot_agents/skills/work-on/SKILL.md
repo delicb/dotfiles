@@ -88,6 +88,16 @@ interpretation before continuing.
 
 ### 3. Branch setup from latest master
 
+In T3 Code, inspect `t3_worktree_status` and the current Git branch first.
+Reuse the workspace and branch already prepared for this issue.
+Do not check out master or recreate the branch merely because this skill was invoked.
+
+If another workspace is needed, use T3's workspace workflow for the current thread.
+Create a separate top-level thread only when the user requests one.
+Let T3 run the configured worktree setup action, then verify its result.
+
+The checkout sequence below applies outside T3 Code.
+
 1. Run `git status --short`.
 2. If there are local changes, stop and ask the user how to proceed.
 3. Get the branch name from the Linear issue details.

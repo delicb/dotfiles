@@ -36,10 +36,23 @@ complex procedures, or when I explicitly request the full skill.
 Do not load it solely for routine replies, comments, PR text,
 or commit messages.
 
+## T3 Code
+
+These rules apply when the current session runs inside T3 Code.
+
+- Check the thread's workspace binding before branch or worktree setup.
+- Use T3's workspace tools when creating or selecting a workspace for a thread.
+- A shell `cd` or `git worktree add` does not update the thread's workspace binding.
+- Prefer T3's shared browser when available. Follow explicit requests for another browser.
+
 ## Hunkpad
 
-- For code reviews, run `hunkpad watch` in the worktree under review. Open its URL with `terminal-browser open <url> --split right`.
-- Use `terminal-browser action` to inspect the diff. Run `terminal-browser action done` when you finish.
+- In T3, use the built-in diff view for routine reviews.
+- Use Hunkpad when requested or when handling existing Hunkpad feedback.
+- Outside T3, continue using Hunkpad for code reviews.
+- Open Hunkpad URLs in T3's shared browser when available.
+- In terminal sessions, use `terminal-browser open <url> --split right`.
+- After using `terminal-browser action`, run `terminal-browser action done`.
 - Use the Hunkpad review flow when the user asks you to read or address Hunkpad feedback.
 
 ## Coding comments
