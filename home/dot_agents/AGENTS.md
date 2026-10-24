@@ -42,19 +42,13 @@ or commit messages.
 
 ## T3 Code
 
-These rules apply when the current session runs inside T3 Code.
-
-- Check the thread's workspace binding before branch or worktree setup.
-- Use T3's workspace tools when creating or selecting a workspace for a thread.
-- A shell `cd` or `git worktree add` does not update the thread's workspace binding.
-- Prefer T3's shared browser when available. Follow explicit requests for another browser.
+When running inside T3 Code, read `~/.agents/T3.md` before taking action.
+Otherwise, do not load that file.
 
 ## Hunkpad
 
-- In T3, use the built-in diff view for routine reviews.
 - Use Hunkpad when requested or when handling existing Hunkpad feedback.
 - Outside T3, continue using Hunkpad for code reviews.
-- Open Hunkpad URLs in T3's shared browser when available.
 - In terminal sessions, use `terminal-browser open <url> --split right`.
 - After using `terminal-browser action`, run `terminal-browser action done`.
 - Use the Hunkpad review flow when the user asks you to read or address Hunkpad feedback.
@@ -72,7 +66,6 @@ These rules apply when the current session runs inside T3 Code.
 - Use existing checkouts and `git show` or `git diff` for the requested revisions.
 - Do not create or join worktrees, call `worktree_prepare`, switch revisions, or install dependencies for read-only reviews.
 - Apply these limits to review subagents. Use the existing checkout without creating an isolated worktree.
-- For T3 delegated reviews, use `isolation: "shared"`.
 - In harnesses that expose `spawn.worktree`, set it to `false`.
 - If Hunkpad or verification requires repository writes, ask before proceeding.
 - Format every finding as a review comment, followed by the exact `path/to/file:line` reference where the comment belongs. Do not use a clickable Markdown link.
