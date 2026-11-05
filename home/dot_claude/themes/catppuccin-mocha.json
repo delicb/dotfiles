@@ -1,0 +1,20 @@
+{
+  "name": "Catppuccin Mocha",
+  "base": "dark",
+  "overrides": {
+    "claude": "#fab387",
+    "text": "#cdd6f4",
+    "inactive": "#7f849c",
+    "subtle": "#585b70",
+    "suggestion": "#89b4fa",
+    "permission": "#b4befe",
+    "success": "#a6e3a1",
+    "error": "#f38ba8",
+    "warning": "#f9e2af",
+    "promptBorder": "#6c7086",
+    "planMode": "#94e2d5",
+    "diffAdded": "#404f4b",
+    "diffRemoved": "#53394c",
+    "userMessageBackground": "#313244"
+  }
+}

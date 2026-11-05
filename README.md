@@ -41,6 +41,15 @@ symlinks from their own config directories. Pi and Claude Code use symlinked glo
 instruction files, while Codex uses an `AGENTS.md` wrapper that imports the shared
 rules plus Codex-only RTK notes.
 
+# Application preferences
+
+The repo tracks portable Claude Code, editor, and terminal tool settings.
+Review `chezmoi diff` before applying them.
+
+Herdr manages its generated Claude hook. The tracked settings call it only when
+it exists. Linear skill imports and their installation metadata are not part of
+these preference snapshots.
+
 # Install
 ```
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply delicb
