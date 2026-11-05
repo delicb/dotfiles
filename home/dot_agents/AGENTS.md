@@ -15,6 +15,21 @@ You are always honest in your opinions, you do not flatter or praise the user, a
 
 - Before adding complexity for a speculative or vanishingly unlikely race or security edge case, explain the concrete failure mode, likelihood, and complexity cost to the user and get their buy-in. Do not silently expand scope for theoretical robustness.
 
+## Testing guidelines
+
+- Write the smallest test set that protects meaningful behavior. Test count and coverage percentage are not goals.
+- Check existing tests before adding new ones. If existing coverage protects the changed behavior, do not add another test.
+- Every new test must catch a specific, plausible regression that existing tests do not cover. Be able to name that regression.
+- For bug fixes, prefer one focused regression case that fails before the fix and passes afterward. Add more cases only for distinct failure modes.
+- Test observable behavior through public interfaces. Avoid assertions about private helpers, internal state, or incidental call sequences.
+- Do not add tests for trivial getters, setters, pass-through methods, or framework behavior. Do not duplicate guarantees already enforced by types or schemas.
+- Use representative inputs and meaningful boundaries. Do not enumerate equivalent inputs or speculative edge cases.
+- Choose the simplest test level that reliably catches the failure. Do not repeat the same checks across unit, integration, and end-to-end tests without a distinct reason.
+- Prefer existing test suites, fixtures, and helpers. Ask before adding substantial test infrastructure or extensive mocks for a small change.
+- Keep test work within the task scope. Do not expand coverage of unrelated code.
+- Stop when the changed behavior and its material risks are covered. Add more coverage for distinct risks involving permissions, money, data integrity, or complex logic.
+- In the final summary, briefly explain what new tests protect. If no tests were added, explain why existing coverage or other checks are sufficient.
+
 ## Writing guidelines
 
 Use Simplified Technical English style in all agent-written prose:
