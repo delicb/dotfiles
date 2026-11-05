@@ -1,5 +1,6 @@
 {{ if ne .chezmoi.os "darwin" }}
 .btt_autoload_preset.json
+.config/cmux
 .config/karabiner
 .hammerspoon
 bin/btt-save
