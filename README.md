@@ -14,14 +14,18 @@ but not used or updated.
 Chezmoi installs `~/.btt_autoload_preset.json`. BetterTouchTool loads this file
 when it next starts.
 
-After you change the master preset in the BetterTouchTool UI:
+After you change the tracked preset in the BetterTouchTool UI:
 
 1. Keep BetterTouchTool running.
 2. Run `btt-save`.
 3. Review the Git diff before you commit it.
 
-The script exports the active master preset without general settings. It keeps
-the tracked preset UUID to prevent false changes between exports.
+The script selects the preset by the UUID in the chezmoi source, not by its
+master status. It exports that preset without general settings and keeps the
+tracked UUID. The preset name must be unique because BTT exports by name.
+If duplicate names exist, rename the other presets in BTT before saving.
+The script stops without changing files if the tracked preset is missing or
+its name is ambiguous.
 
 On another Mac, pull the repository and run `chezmoi apply`. Restart
 BetterTouchTool to load the updated preset immediately.
