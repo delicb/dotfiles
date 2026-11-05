@@ -1,0 +1,84 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+	{ "key": "cmd+shift+]", "command": "workbench.action.nextEditor"},
+	{ "key": "cmd+shift+[", "command": "workbench.action.previousEditor"}
+,{
+	"key": "cmd+[BracketLeft]",
+	"command": "workbench.action.navigateBack",
+	"when": "editorTextFocus"
+},{
+	"key": "cmd+w",
+	"command": "workbench.action.closeActiveEditor",
+	"when": "editorTextFocus"
+},{
+	"key": "cmd+backspace",
+	"command": "editor.action.deleteLines",
+	"when": "editorTextFocus"
+},{
+	"key": "cmd+]",
+	"command": "workbench.action.navigateForward",
+	"when": "editorTextFocus"
+},{
+	"key": "alt+backspace",
+	"command": "deleteWordLeft",
+	"when": "editorTextFocus"
+},
+{
+	"key": "shift+space",
+	"command": "editor.action.previewDeclaration",
+	"when": "editorTextFocus"
+},
+{
+	"key": "cmd+t",
+	"command": "workbench.action.terminal.new",
+	"when": "terminalFocus"
+},
+{
+	"key": "ctrl+shift+`",
+	"command": "-workbench.action.terminal.new"
+},
+{
+	"key": "shift+cmd+]",
+	"command": "workbench.action.terminal.focusNext",
+	"when": "terminalFocus"
+}
+,{
+	"key": "cmd+w",
+	"command": "workbench.action.terminal.kill",
+	"when": "terminalFocus"
+},{
+	"key": "shift+cmd+[",
+	"command": "workbench.action.terminal.focusPrevious",
+	"when": "terminalFocus"
+},
+{
+	"key": "cmd+]",
+	"command": "workbench.action.terminal.focusNextPane",
+	"when": "terminalFocus && terminalProcessSupported"
+},
+{
+	"key": "cmd+[",
+	"command": "workbench.action.terminal.focusPreviousPane",
+	"when": "terminalFocus && terminalProcessSupported"
+},
+{
+	"key": "alt+tab",
+	"command": "workbench.action.terminal.focusNextPane",
+	"when": "terminalFocus && terminalProcessSupported"
+},
+{
+	"key": "pagedown",
+	"command": "-workbench.action.terminal.scrollDownPage",
+	"when": "terminalFocus && terminalProcessSupported && terminalAltBufferActive"
+},
+{
+	"key": "cmd+enter",
+	"command": "rest-client.request",
+	"when": "editorTextFocus && editorLangId == 'http'"
+},
+{
+	"key": "alt+cmd+r",
+	"command": "-rest-client.request",
+	"when": "editorTextFocus && editorLangId == 'http'"
+}
+]

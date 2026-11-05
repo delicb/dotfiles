@@ -1,0 +1,394 @@
+// Place your settings in this file to overwrite the default settings
+{
+	"terminal.integrated.enableImages": true,
+	// global editor settings
+	// "editor.fontFamily": "Input mono",
+	"editor.fontFamily": "JetBrains Mono",
+	// "editor.fontFamily": "Monaspace Argon",
+	// "editor.fontFamily": "Source Code Pro",
+	"editor.fontSize": 13,
+	"editor.fontLigatures": true,
+	"editor.lineHeight": 18,
+	"editor.rulers": [
+		100,
+		120
+	],
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "boundary",
+	"editor.emptySelectionClipboard": false,
+	"editor.cursorBlinking": "phase",
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.statusBar.visible": true,
+
+	"files.autoSave": "onFocusChange",
+	"vsicons.dontShowNewVersionMessage": false,
+
+
+	// terminal rules
+	"terminal.external.osxExec": "iterm.app",
+	// "terminal.integrated.fontFamily": "Input mono",
+	"terminal.integrated.fontFamily": "Hack Nerd Font",
+	"terminal.integrated.scrollback": 10000,
+	"python.testing.pytestEnabled": true,
+	"python.defaultInterpreterPath": "",
+
+	"[python]":{
+		"editor.insertSpaces": true,
+		"editor.rulers": [
+			100
+		],
+		"files.trimTrailingWhitespace": true,
+		"editor.formatOnSave": false,
+		"editor.formatOnSaveMode": "file",
+		"editor.defaultFormatter": "charliermarsh.ruff",
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit"
+		}
+	},
+	"python.languageServer": "Pylance",
+
+	// golang settings
+	"go.useLanguageServer": true,
+	"go.formatFlags": [],
+	"go.editorContextMenuCommands": {
+		"toggleTestFile": false,
+		"addTags": false,
+		"removeTags": false,
+		"testAtCursor": false,
+		"testFile": false,
+		"testPackage": false,
+		"generateTestForFunction": false,
+		"generateTestForFile": false,
+		"generateTestForPackage": false,
+		"addImport": false,
+		"testCoverage": false
+	},
+
+	"go.lintTool": "golangci-lint",
+	"go.testOnSave": true,
+	"go.coverOnSave": true,
+	"go.coverageDecorator": {
+		"type": "gutter"
+	},
+	"go.addTags": {
+		"tags": "json",
+		"options": "json=omitempty",
+		"promptForTags": true,
+		"transform": "snakecase"
+	},
+	"[go]": {
+		"editor.rulers": [
+			120
+		],
+		"editor.formatOnSave": true,
+	},
+	"gopls": {
+		"ui.semanticTokens": true,
+	},
+
+	// spelling
+	"cSpell.userWords": [
+		"andygrunwald",
+		"bojan",
+		"boto",
+		"bridgekeeper",
+		"cliware",
+		"cookiecutter",
+		"cultureamp",
+		"dbname",
+		"delic",
+		"delicb",
+		"devigi",
+		"devpi",
+		"dupaso",
+		"fixso",
+		"gitlens",
+		"golang",
+		"gopkg",
+		"HRIS",
+		"iterm",
+		"jira",
+		"jsonify",
+		"ligno",
+		"materialise",
+		"middlewares",
+		"ondelete",
+		"onupdate",
+		"Orgnostic",
+		"peopleanalytics",
+		"postgres",
+		"pressly",
+		"primaryjoin",
+		"psycopg",
+		"pycodestyle",
+		"pydantic",
+		"pylint",
+		"pytest",
+		"querystring",
+		"rdebug",
+		"repo",
+		"resenje",
+		"responsebody",
+		"sbgenomics",
+		"scrollback",
+		"sevenbridges",
+		"sqlalchemy",
+		"struct",
+		"structs",
+		"TOTP",
+		"twillio",
+		"uselist",
+		"venv",
+		"vsicons"
+	],
+
+	// do not send stuff to anyone (e.g microsoft)
+	"telemetry.telemetryLevel": "off",
+	"rest-client.enableTelemetry": false,
+	"code-runner.enableAppInsights": false,
+	"gitlens.keymap": "chorded",
+	"gitlens.advanced.messages": {
+		"suppressCommitHasNoPreviousCommitWarning": false,
+		"suppressCommitNotFoundWarning": false,
+		"suppressFileNotUnderSourceControlWarning": false,
+		"suppressGitVersionWarning": false,
+		"suppressLineUncommittedWarning": false,
+		"suppressNoRepositoryWarning": false,
+	},
+	"breadcrumbs.enabled": true,
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"workbench.editorAssociations": {
+		"*.ipynb": "jupyter-notebook"
+	},
+	"workbench.colorTheme": "Catppuccin Noir",
+	"workbench.productIconTheme": "material-product-icons",
+	"gitlens.codeLens.enabled": false,
+	"gitlens.statusBar.enabled": false,
+	"go.toolsManagement.autoUpdate": true,
+	"terminal.integrated.tabs.enabled": true,
+	"terminal.integrated.defaultProfile.osx": "fish",
+	"notebook.cellToolbarLocation": {
+		"default": "right",
+		"jupyter-notebook": "left"
+	},
+	"githubIssues.queries": [
+		{
+			"label": "My Issues",
+			"query": "default"
+		},
+		{
+			"label": "Created Issues",
+			"query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+		}
+	],
+	"editor.bracketPairColorization.enabled": true,
+	"redhat.telemetry.enabled": false,
+	"window.newWindowDimensions": "offset",
+	"editor.formatOnSaveMode": "modifications",
+	"svelte.enable-ts-plugin": true,
+	"editor.guides.bracketPairs": true,
+	// "terminal.integrated.profiles.osx": {
+	// 	"zsh (migrated)": {
+	// 		"path": "zsh",
+	// 		"args": [
+	// 			"-l"
+	// 		]
+	// 	}
+	// },
+	// "terminal.integrated.defaultProfile.osx": "fish",
+	"terminal.integrated.commandsToSkipShell": [
+		// "-workbench.action.terminal.scrollDownPage",
+		// "-workbench.action.terminal.scrollUpPage",
+	],
+	"workbench.colorCustomizations": {
+		// Like I have set up in iterm
+		// "terminal.background":"#000000",
+		// "terminal.foreground":"#feffff",
+		// "terminal.ansiBlack":"#000000",
+		// "terminal.ansiBrightBlack":"#676965",
+		// "terminal.ansiBrightBlue":"#83AFD8",
+		// "terminal.ansiBrightCyan":"#37E5E7",
+		// "terminal.ansiBrightGreen":"#98E342",
+		// "terminal.ansiBrightMagenta":"#BC93B6",
+		// "terminal.ansiBrightRed":"#F44135",
+		// "terminal.ansiBrightWhite":"#F1F1EF",
+		// "terminal.ansiBrightYellow":"#FCEA60",
+		// "terminal.ansiBlue":"#417AB3",
+		// "terminal.ansiCyan":"#00A7AA",
+		// "terminal.ansiGreen":"#5DA602",
+		// "terminal.ansiMagenta":"#88658D",
+		// "terminal.ansiRed":"#D71E00",
+		// "terminal.ansiWhite":"#DBDED8",
+		// "terminal.ansiYellow":"#CFAD00",
+		// "terminal.selectionBackground": "#4d4d4d"
+
+		// Ashes
+		"terminal.background":"#151515",
+		"terminal.foreground":"#D0D0D0",
+		"terminalCursor.background":"#D0D0D0",
+		"terminalCursor.foreground":"#D0D0D0",
+		"terminal.ansiBlack":"#151515",
+		"terminal.ansiBlue":"#6A9FB5",
+		"terminal.ansiBrightBlack":"#505050",
+		"terminal.ansiBrightBlue":"#6A9FB5",
+		"terminal.ansiBrightCyan":"#75B5AA",
+		"terminal.ansiBrightGreen":"#90A959",
+		"terminal.ansiBrightMagenta":"#AA759F",
+		"terminal.ansiBrightRed":"#AC4142",
+		"terminal.ansiBrightWhite":"#F5F5F5",
+		"terminal.ansiBrightYellow":"#F4BF75",
+		"terminal.ansiCyan":"#75B5AA",
+		"terminal.ansiGreen":"#90A959",
+		"terminal.ansiMagenta":"#AA759F",
+		"terminal.ansiRed":"#AC4142",
+		"terminal.ansiWhite":"#D0D0D0",
+		"terminal.ansiYellow":"#F4BF75",
+
+		"terminal.selectionBackground": "#6e6d6d"
+	},
+	"githubPullRequests.fileListLayout": "tree",
+	"workbench.layoutControl.enabled": true,
+	"terminal.integrated.env.osx": {
+		"FIG_NEW_SESSION": "1"
+	},
+	"editor.accessibilitySupport": "off",
+	"editor.guides.indentation": true,
+	"git.mergeEditor": true,
+	"window.commandCenter": true,
+	"peacock.favoriteColors": [
+		{
+			"name": "Angular Red",
+			"value": "#dd0531"
+		},
+		{
+			"name": "Azure Blue",
+			"value": "#007fff"
+		},
+		{
+			"name": "JavaScript Yellow",
+			"value": "#f9e64f"
+		},
+		{
+			"name": "Mandalorian Blue",
+			"value": "#1857a4"
+		},
+		{
+			"name": "Node Green",
+			"value": "#215732"
+		},
+		{
+			"name": "React Blue",
+			"value": "#61dafb"
+		},
+		{
+			"name": "Something Different",
+			"value": "#832561"
+		},
+		{
+			"name": "Svelte Orange",
+			"value": "#ff3d00"
+		},
+		{
+			"name": "Vue Green",
+			"value": "#42b883"
+		},
+		{
+			"name": "Blue",
+			"value": "#0c274c"
+		}
+	],
+	"githubPullRequests.pullBranch": "never",
+	"editor.stickyScroll.enabled": true,
+	"terminal.integrated.shellIntegration.enabled": false,
+	"python.analysis.autoImportCompletions": true,
+	"editor.minimap.enabled": false,
+	"files.associations": {
+		"*.toml": "toml"
+	},
+	"yaml.schemas": {
+		"https://api.cerbos.dev/latest/cerbos/policy/v1/Policy.schema.json": "policies/*",
+		"https://api.cerbos.dev/latest/cerbos/policy/v1/TestSuite.schema.json": "tests/*"
+	},
+	"yaml.customTags": [
+		"!And",
+		"!And sequence",
+		"!If",
+		"!If sequence",
+		"!Not",
+		"!Not sequence",
+		"!Equals",
+		"!Equals sequence",
+		"!Or",
+		"!Or sequence",
+		"!FindInMap",
+		"!FindInMap sequence",
+		"!Base64",
+		"!Join",
+		"!Join sequence",
+		"!Cidr",
+		"!Ref",
+		"!Sub",
+		"!Sub sequence",
+		"!GetAtt",
+		"!GetAZs",
+		"!ImportValue",
+		"!ImportValue sequence",
+		"!Select",
+		"!Select sequence",
+		"!Split",
+		"!Split sequence"
+	],
+	"aws.telemetry": false,
+	"files.insertFinalNewline": true,
+	"python.analysis.inlayHints.callArgumentNames": "partial",
+	"python.analysis.inlayHints.functionReturnTypes": true,
+	"python.analysis.inlayHints.pytestParameters": true,
+	"python.analysis.inlayHints.variableTypes": true,
+	"python.analysis.autoFormatStrings": true,
+	"python.analysis.autoSearchPaths": false,
+	"python.analysis.typeCheckingMode": "basic",
+	"workbench.experimental.enableNewProfilesUI": true,
+	"editor.smoothScrolling": true,
+	"terminal.integrated.smoothScrolling": true,
+	"workbench.list.smoothScrolling": true,
+	"chat.agent.enabled": true,
+	"git.blame.editorDecoration.enabled": false,
+	"docker.extension.enableComposeLanguageServer": false,
+	"[dockercompose]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "advanced",
+		"editor.quickSuggestions": {
+			"other": true,
+			"comments": false,
+			"strings": true
+		},
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"claudeCode.environmentVariables": [
+		"CLAUDE_CODE_USE_BEDROCK=1"
+	],
+	"claudeCode.useTerminal": true,
+	"playwright.pickLocatorCopyToClipboard": true,
+	"playwright.reuseBrowser": true,
+	"playwright.showTrace": false,
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"window.autoDetectColorScheme": true,
+	"diffs.ai.provider": "codex-cli",
+	"diffs.ai.model": "",
+	"yaml.disableSchemaDetection": [
+		"**/.github/workflows/*.yml",
+		"**/.github/workflows/*.yaml",
+		"**/.gitea/workflows/*.yml",
+		"**/.gitea/workflows/*.yaml",
+		"**/.forgejo/workflows/*.yml",
+		"**/.forgejo/workflows/*.yaml"
+	]
+}
