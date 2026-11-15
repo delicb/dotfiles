@@ -1,0 +1,7 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- .chezmoi.stdin | default "{}" | fromJson
+    | setValueAtPath "worktreesDirectory" "~/worktrees"
+    | setValueAtPath "branchNamePrefix" "delic"
+    | setValueAtPath "storageCleanup.worktreeOnMerge" true
+    | toPrettyJson
+}}
