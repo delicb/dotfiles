@@ -1,0 +1,17 @@
+{{- if not .ephemeral -}}
+{{- $source := "dot_pi/agent/packages/pi-mcp-config" -}}
+{{- $package := include (printf "%s/package.json" $source) | fromJson -}}
+#!/bin/sh
+set -eu
+
+# package.json hash: {{ include (printf "%s/package.json" $source) | sha256sum }}
+# pnpm-lock.yaml hash: {{ include (printf "%s/private_pnpm-lock.yaml" $source) | sha256sum }}
+# pnpm-workspace.yaml hash: {{ include (printf "%s/private_pnpm-workspace.yaml" $source) | sha256sum }}
+# .npmrc hash: {{ include (printf "%s/dot_npmrc" $source) | sha256sum }}
+{{ if eq .chezmoi.os "darwin" }}
+{{ template "system/activate-brew" }}
+{{ end }}
+cd "$HOME/.pi/agent/packages/pi-mcp-config"
+mise exec node -- npm exec --yes --ignore-scripts --package={{ $package.packageManager | quote }} -- \
+    pnpm install --prod --frozen-lockfile --ignore-scripts
+{{ end -}}

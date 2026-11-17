@@ -22,6 +22,9 @@ terraform = "latest"
 {{ else }}
 node = "latest"
 {{ end }}
+
+[env]
+PI_SELF_UPDATE_COMMAND = "mise upgrade --global --no-prune npm:{packageName}@{version}"
 {{ end -}}
 
 [settings]
