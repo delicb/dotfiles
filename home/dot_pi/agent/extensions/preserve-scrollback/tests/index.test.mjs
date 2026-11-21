@@ -1,13 +1,11 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync, realpathSync } from "node:fs";
-import { stripTypeScriptTypes } from "node:module";
 import { delimiter, dirname, join, resolve } from "node:path";
 import test from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const extensionPath = fileURLToPath(new URL("../index.ts", import.meta.url));
 const piRoot = findPiRoot();
-const { VERSION } = await import(pathToFileURL(join(piRoot, "dist/config.js")));
 const { SessionManager } = await import(
   pathToFileURL(join(piRoot, "dist/core/session-manager.js"))
 );
@@ -133,11 +131,7 @@ function uiHarness(manager) {
   return { mock, rendered };
 }
 
-test("supported Pi loader installs the plugin without changing model context or stored entries", async () => {
-  assert.ok(
-    ["1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0"].includes(VERSION),
-    `Revalidate the workaround before adding support for Pi ${VERSION}.`,
-  );
+test("Pi loader installs the plugin without changing model context or stored entries", async () => {
   const manager = createManager();
   const modelContext = manager.buildSessionContext();
   const projection = manager.buildSessionProjection();
@@ -298,38 +292,46 @@ test("shutdown does not overwrite a later plugin's method override", async () =>
   assert.equal(manager.buildContextEntries, otherOverride);
 });
 
-for (const version of ["1.1.1", "1.2.1", "1.3.1", "1.4.1", "1.6.0", "2.0.0", "1.2.0-rc.1", "1.3.0-rc.1", "1.4.0-rc.1"]) {
-  test(`unsupported Pi ${version} warns only in TUI mode and leaves the manager unchanged`, async () => {
-    const source = stripTypeScriptTypes(readFileSync(extensionPath, "utf8"));
-    const dependency = `data:text/javascript,${encodeURIComponent(`export const VERSION = ${JSON.stringify(version)};`)}`;
-    const mockedSource = source.replace(
-      'from "@earendil-works/pi-coding-agent"',
-      `from "${dependency}"`,
-    );
-    assert.notEqual(mockedSource, source);
-    const { default: factory } = await import(
-      `data:text/javascript,${encodeURIComponent(mockedSource)}`
-    );
-    const handlers = new Map();
-    factory({ on: (name, handler) => handlers.set(name, handler) });
+test("missing session methods warn without installing the override", async () => {
+  for (const method of ["buildContextEntries", "getBranch"]) {
+    const fire = await loadPlugin();
     const manager = createManager();
+    manager[method] = undefined;
     const original = manager.buildContextEntries;
     const warnings = [];
-    const ctx = {
-      sessionManager: manager,
-      ui: { notify: (...args) => warnings.push(args) },
-    };
+    const notify = (...args) => warnings.push(args);
+
     for (const mode of ["print", "json", "rpc"]) {
-      await handlers.get("session_start")({}, { ...ctx, mode });
-      assert.equal(manager.buildContextEntries, original, mode);
+      await fire("session_start", manager, { mode, notify });
     }
     assert.deepEqual(warnings, []);
 
-    await handlers.get("session_start")({}, { ...ctx, mode: "tui" });
+    await fire("session_start", manager, { notify });
     assert.equal(manager.buildContextEntries, original);
     assert.deepEqual(warnings, [[
-      `preserve-scrollback is disabled for Pi ${version}. Tested versions: 1.1.0, 1.2.0, 1.3.0, 1.4.0, 1.5.0.`,
+      `preserve-scrollback is disabled: sessionManager.${method}() is unavailable.`,
       "warning",
     ]]);
-  });
-}
+    await fire("session_shutdown", manager);
+  }
+});
+
+test("rejected or ignored transcript overrides warn and leave the reader unchanged", async () => {
+  for (const ignoresAssignment of [false, true]) {
+    const fire = await loadPlugin();
+    const manager = createManager();
+    const original = manager.buildContextEntries;
+    Object.defineProperty(manager, "buildContextEntries", ignoresAssignment
+      ? { get: () => original, set: () => {} }
+      : { value: original, writable: false });
+    const warnings = [];
+
+    await fire("session_start", manager, { notify: (...args) => warnings.push(args) });
+    assert.equal(manager.buildContextEntries, original);
+    assert.deepEqual(warnings, [[
+      "preserve-scrollback is disabled: cannot replace sessionManager.buildContextEntries().",
+      "warning",
+    ]]);
+    await fire("session_shutdown", manager);
+  }
+});

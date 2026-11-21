@@ -1,6 +1,4 @@
-import { type ExtensionAPI, type SessionEntry, VERSION } from "@earendil-works/pi-coding-agent";
-
-const SUPPORTED_PI_VERSIONS = ["1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0"];
+import type { ExtensionAPI, SessionEntry } from "@earendil-works/pi-coding-agent";
 
 export default function preserveScrollback(pi: ExtensionAPI): void {
   let restore: ((reason?: string) => void) | undefined;
@@ -13,15 +11,17 @@ export default function preserveScrollback(pi: ExtensionAPI): void {
       return;
     }
 
-    if (!SUPPORTED_PI_VERSIONS.includes(VERSION)) {
-      ctx.ui.notify(
-        `preserve-scrollback is disabled for Pi ${VERSION}. Tested versions: ${SUPPORTED_PI_VERSIONS.join(", ")}.`,
-        "warning",
-      );
-      return;
+    const manager = ctx.sessionManager;
+    for (const method of ["buildContextEntries", "getBranch"] as const) {
+      if (typeof manager[method] !== "function") {
+        ctx.ui.notify(
+          `preserve-scrollback is disabled: sessionManager.${method}() is unavailable.`,
+          "warning",
+        );
+        return;
+      }
     }
 
-    const manager = ctx.sessionManager;
     const current: TranscriptReader = manager.buildContextEntries;
     const original = current[ORIGINAL_READER] ?? current;
     let restoreOnRead = false;
@@ -44,7 +44,21 @@ export default function preserveScrollback(pi: ExtensionAPI): void {
     };
 
     fullTranscript[ORIGINAL_READER] = original;
-    manager.buildContextEntries = fullTranscript;
+    let installed: boolean;
+    try {
+      manager.buildContextEntries = fullTranscript;
+      installed = manager.buildContextEntries === fullTranscript;
+    } catch {
+      installed = false;
+    }
+    if (!installed) {
+      ctx.ui.notify(
+        "preserve-scrollback is disabled: cannot replace sessionManager.buildContextEntries().",
+        "warning",
+      );
+      return;
+    }
+
     restore = (reason) => {
       if (manager.buildContextEntries !== fullTranscript) {
         return;

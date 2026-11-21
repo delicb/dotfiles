@@ -12,12 +12,16 @@ No settings change is required.
 
 ## Compatibility
 
-Pi 1.1.0, 1.2.0, 1.3.0, 1.4.0, and 1.5.0 are supported.
+The extension has been tested with Pi 1.1.0, 1.2.0, 1.3.0, 1.4.0, 1.5.0, and 1.6.0.
+It does not restrict activation by version.
 The extension runs only in TUI mode, including fullscreen and regular mode.
 It leaves print, JSON, and RPC modes unchanged.
 
-Other Pi versions show a warning and keep the original behavior.
-Run the tests against a new version before changing the version check.
+At startup, it checks that `buildContextEntries()` and `getBranch()` exist and that the transcript override succeeds.
+If a check fails, it disables itself and shows a warning that identifies the failed check.
+It does not run behavioral tests at startup.
+These checks cannot detect changes to rendering, model context, or reload behavior.
+Run the test suite after Pi upgrades to check those assumptions.
 Remove this extension when Pi provides a core fix.
 
 ## Limitations
@@ -47,7 +51,7 @@ node --test ~/.pi/agent/extensions/preserve-scrollback/tests/index.test.mjs
 
 The test runner finds Pi on `PATH`, including its aube installer shim.
 To test another Pi installation, set `PI_PACKAGE_DIR` to the directory containing its `package.json`.
-Run the suite once per supported version.
+Run the suite against each Pi version you use.
 
 Tests use in-memory sessions and make no model requests.
-They cover all four affected UI paths, branch isolation, repeated compaction, lifecycle cleanup, and version checks.
+They cover all four affected UI paths, branch isolation, repeated compaction, lifecycle cleanup, missing methods, and failed overrides.
